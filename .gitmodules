@@ -1,3 +1,6 @@
 [submodule "phoebus_mrf_interface"]
 	path = phoebus_mrf_interface
 	url = https://baltig.infn.it/lnf-da-control/phoebus_mrf_interface.git
+[submodule "kustomize"]
+	path = kustomize
+	url = https://baltig.infn.it/chaos-lnf-control/kustomize-init-claim-from-repo.git
