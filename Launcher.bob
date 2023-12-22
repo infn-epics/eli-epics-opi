@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2023-12-15 12:53:47 by Alex-->
+<display version="2.0.0">
+  <name>Launcher</name>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Timing</name>
+        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button</name>
+            <actions>
+              <action type="open_display">
+                <file>phoebus_mrf_interface/MRFIOC_EVG.bob</file>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>EVG</text>
+            <x>28</x>
+            <y>22</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_1</name>
+            <actions>
+              <action type="open_display">
+                <file>phoebus_mrf_interface/MRFIOC_EVR0.bob</file>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>EVR0</text>
+            <x>28</x>
+            <y>72</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_2</name>
+            <actions>
+              <action type="open_display">
+                <file>phoebus_mrf_interface/MRFIOC_EVR1.bob</file>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>EVR1</text>
+            <x>28</x>
+            <y>122</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Other</name>
+        <children>
+        </children>
+      </tab>
+    </tabs>
+    <x>10</x>
+    <y>63</y>
+    <width>590</width>
+    <height>270</height>
+    <background_color>
+      <color red="214" green="223" blue="225">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>Label</class>
+    <text>EPICS LAUNCHER</text>
+    <width>590</width>
+    <height>40</height>
+    <font>
+      <font family="Algerian" style="BOLD" size="26.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+</display>
