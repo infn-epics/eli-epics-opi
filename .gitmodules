@@ -1,3 +1,6 @@
 [submodule "phoebus_mrf_interface"]
 	path = phoebus_mrf_interface
 	url = https://baltig.infn.it/lnf-da-control/phoebus_mrf_interface.git
+[submodule "rp-opi"]
+	path = rp-opi
+	url = https://baltig.infn.it/lnf-da-control/redpitaya-ioc.git
