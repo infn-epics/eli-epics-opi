@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-02-15 10:59:05 by andreamichelotti-->
+<!--Saved on 2024-02-23 23:10:30 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <widget type="tabs" version="2.0.0">
@@ -56,20 +56,37 @@
         <name>RF</name>
         <children>
           <widget type="action_button" version="3.0.0">
-            <name>RP</name>
+            <name>RP001</name>
             <actions>
               <action type="open_display">
                 <file>rp-opi/opi/rp.bob</file>
                 <macros>
                   <DEVICE>SR00RPA01</DEVICE>
                 </macros>
-                <target>replace</target>
+                <target>window</target>
                 <description>Open Display</description>
               </action>
             </actions>
-            <text>RP</text>
+            <text>RP001</text>
             <x>128</x>
             <y>92</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>RP002</name>
+            <actions>
+              <action type="open_display">
+                <file>rp-opi/opi/rp.bob</file>
+                <macros>
+                  <DEVICE>SR00RPA02</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>RP002</text>
+            <x>128</x>
+            <y>122</y>
             <tooltip>$(actions)</tooltip>
           </widget>
         </children>
