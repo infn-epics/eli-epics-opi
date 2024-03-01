@@ -44,7 +44,11 @@ if [ ! -f "$OPIHOME/.setting_applied" ]; then
     if [ -n "$CHANNEL_FINDER_URL" ]; then
         echo "org.phoebus.channelfinder/channelfinder.serviceURL=$CHANNEL_FINDER_URL/ChannelFinder" >> $OPIHOME/settings.ini
         touch "$OPIHOME/.setting_applied"
+    fi
 
+    if [ -n "$PHOEBUS_SAVE_AND_RESTORE" ]; then
+        echo "org.phoebus.applications.saveandrestore.client/jmasar.service.url=http://$PHOEBUS_SAVE_AND_RESTORE:8080/save-restore" >> $OPIHOME/settings.ini
+        touch "$OPIHOME/.setting_applied"
     fi
     
 fi
