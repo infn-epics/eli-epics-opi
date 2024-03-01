@@ -50,6 +50,11 @@ if [ ! -f "$OPIHOME/.setting_applied" ]; then
         echo "org.phoebus.applications.saveandrestore.client/jmasar.service.url=http://$PHOEBUS_SAVE_AND_RESTORE:8080/save-restore" >> $OPIHOME/settings.ini
         touch "$OPIHOME/.setting_applied"
     fi
+    if [ -n "$PHOEBUS_SCAN_SERVER" ]; then
+        echo "org.csstudio.scan.client/host=$PHOEBUS_SCAN_SERVER" >> $OPIHOME/settings.ini
+        echo "org.csstudio.scan.client/port=4810" >> $OPIHOME/settings.ini
+
+    fi
     
 fi
 
