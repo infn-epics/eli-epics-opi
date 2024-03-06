@@ -41,10 +41,30 @@ if [ ! -f "$OPIHOME/.setting_applied" ]; then
 
     fi
 
-    if [ -n "$CHANNEL_FINDER_URL" ]; then
-        echo "org.phoebus.channelfinder/channelfinder.serviceURL=$CHANNEL_FINDER_URL/ChannelFinder" >> $OPIHOME/settings.ini
+    if [ -n "$CHANNEL_FINDER" ]; then
+        echo "org.phoebus.channelfinder/channelfinder.serviceURL=http://$CHANNEL_FINDER/ChannelFinder" >> $OPIHOME/settings.ini
         touch "$OPIHOME/.setting_applied"
 
+    fi
+    if [ -n "$PHOEBUS_SAVE_AND_RESTORE" ]; then
+        echo "* PHOEBUS_SAVE_AND_RESTORE= $PHOEBUS_SAVE_AND_RESTORE"
+
+        echo "org.phoebus.applications.saveandrestore.client/jmasar.service.url=http://$PHOEBUS_SAVE_AND_RESTORE/save-restore" >> $OPIHOME/settings.ini
+        touch "$OPIHOME/.setting_applied"
+    fi
+    if [ -n "$PHOEBUS_SCAN_SERVER" ]; then
+        echo "* PHOEBUS_SCAN_SERVER= $PHOEBUS_SCAN_SERVER"
+
+        echo "org.csstudio.scan.client/host=$PHOEBUS_SCAN_SERVER" >> $OPIHOME/settings.ini
+        echo "org.csstudio.scan.client/port=4810" >> $OPIHOME/settings.ini
+        touch "$OPIHOME/.setting_applied"
+
+
+    fi
+    if [ -n "$PHOEBUS_OLOG" ]; then
+        echo "* PHOEBUS_OLOG= $PHOEBUS_OLOG"    
+        echo "org.phoebus.olog.es.api/olog_url=$PHOEBUS_OLOG/Olog" >> $OPIHOME/settings.ini
+        touch "$OPIHOME/.setting_applied"
     fi
     
 fi
