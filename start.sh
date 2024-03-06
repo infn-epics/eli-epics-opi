@@ -68,7 +68,7 @@ if [ ! -f "$OPIHOME/.setting_applied" ]; then
     fi
     if [ -n "$PHOEBUS_OLOG" ]; then
         echo "* PHOEBUS_OLOG= $PHOEBUS_OLOG"    
-        echo "org.phoebus.olog.es.api/olog_url=$PHOEBUS_OLOG/Olog" >> $OPIHOME/settings.ini
+        echo "org.phoebus.olog.es.api/olog_url=http://$PHOEBUS_OLOG/Olog" >> $OPIHOME/settings.ini
         touch "$OPIHOME/.setting_applied"
     fi
     
