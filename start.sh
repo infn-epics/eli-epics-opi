@@ -69,6 +69,10 @@ if [ ! -f "$OPIHOME/.setting_applied" ]; then
     if [ -n "$PHOEBUS_OLOG" ]; then
         echo "* PHOEBUS_OLOG= $PHOEBUS_OLOG"    
         echo "org.phoebus.olog.es.api/olog_url=http://$PHOEBUS_OLOG/Olog" >> $OPIHOME/settings.ini
+        echo "org.phoebus.olog.api/olog_url=http://$PHOEBUS_OLOG/Olog" >> $OPIHOME/settings.ini
+        echo "org.phoebus.logbook/logbook_factory=olog-es" >> $OPIHOME/settings.ini
+        echo "org.phoebus.olog.api/username=epics" >> $OPIHOME/settings.ini
+        echo "org.phoebus.olog.api/password=epics" >> $OPIHOME/settings.ini
         touch "$OPIHOME/.setting_applied"
     fi
     
