@@ -27,7 +27,7 @@ then
 fi
 
 if [ -n "$PHOEBUSINI" ];then
-    echo "* USING $PHOEBUSINI
+    echo "* USING $PHOEBUSINI"
     $PHOEBUS -settings $PHOEBUSINI -resource $OPIHOME/Launcher.bob
 
 else
