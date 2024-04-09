@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-04-09 00:13:07 by andreamichelotti-->
+<!--Saved on 2024-04-09 10:53:12 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <widget type="tabs" version="2.0.0">
@@ -14,7 +14,7 @@
               <action type="open_display">
                 <file>phoebus_mrf_interface/evg/evm-mtca-300.bob</file>
                 <macros>
-                  <P>MRF01:evg:</P>
+                  <P>MRF01:evg</P>
                   <TITLE>MRF01 GENERATOR</TITLE>
                 </macros>
                 <target>window</target>
@@ -32,7 +32,7 @@
               <action type="open_display">
                 <file>phoebus_mrf_interface/evr/evr-mtca-300u.bob</file>
                 <macros>
-                  <P>MRF01:evr:</P>
+                  <P>MRF01:evr</P>
                   <TITLE>RECEIVER MRF01-0</TITLE>
                 </macros>
                 <target>window</target>
@@ -50,7 +50,7 @@
               <action type="open_display">
                 <file>phoebus_mrf_interface/evr/evr-mtca-300u.bob</file>
                 <macros>
-                  <P>MRF01:evr1:</P>
+                  <P>MRF01:evr1</P>
                   <TITLE>RECEIVER MRF01-1</TITLE>
                 </macros>
                 <target>window</target>
