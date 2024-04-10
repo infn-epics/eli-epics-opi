@@ -1,16 +1,17 @@
 from org.csstudio.opibuilder.scriptUtil import FileUtil
 from org.csstudio.opibuilder.scriptUtil import ConsoleUtil
 from org.csstudio.opibuilder.scriptUtil import PVUtil
+from org.csstudio.display.builder.runtime.script import ScriptUtil
 
-from org.eclipse.jface.dialogs import MessageDialog
 
 # Display whether current configuration is saved
 # Need this for first execution and for save actions from main screen
 # Any direct changes to PVs w/o saving are taken care of by other script
 
-ConsoleUtil.writeInfo("Executing script saveStatus.py")
+opi_path = ScriptUtil.workspacePathToSysPath(widget.getDisplayModel().getUserData("_input_file"))
+ConsoleUtil.writeInfo("Executing script saveStatus.py opi:"+opi_path + " pvs[0]:"+PVUtil.getString(pvs[0]))
 
-opi_path = display.getModel().getOpiFilePath()
+## opi_path = display.getModel().getOpiFilePath()
 try:
      abs_path = FileUtil.workspacePathToSysPath(str(opi_path))
 except:
@@ -31,4 +32,4 @@ try:
 		display.getWidget("Star").setValue(' ')
 	
 except:
-	MessageDialog.openWarning(None, "Warning", "There is no information on the loaded configuration.")
+    ScriptUtil.showMessageDialog(widget,"["+PVUtil.getString(pvs[0])+"] There is no information on the loaded configuration. Looking for "+str(file_path))
