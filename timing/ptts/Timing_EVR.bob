@@ -20,7 +20,7 @@
     </actions>
     <scripts>
       <script file="scripts/chooseEVR.py">
-        <pv_name>loc://EVRchoice_$(DID)(0)</pv_name>
+        <pv_name>loc://EVRchoice_$(DID)("")</pv_name>
       </script>
     </scripts>
     <border_color>
@@ -30,7 +30,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Star</name>
-    <pv_name>loc://saveStatus_$(DID)(0)</pv_name>
+    <pv_name>loc://saveStatus_$(DID)("")</pv_name>
     <x>248</x>
     <width>30</width>
     <height>30</height>
