@@ -4,3 +4,9 @@
 [submodule "timing/phoebus_mrf_interface"]
 	path = timing/phoebus_mrf_interface
 	url = https://baltig.infn.it/lnf-da-control/phoebus_mrf_interface.git
+[submodule "diag/libera-bpm-opi"]
+	path = diag/libera-bpm-opi
+	url = https://baltig.infn.it/infn-epics/libera-bpm-opi.git
+[submodule "diag/orbit"]
+	path = diag/orbit
+	url = https://baltig.infn.it/lnf-da-control/epics-orbit-opi.git
