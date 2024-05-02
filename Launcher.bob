@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-04-30 12:34:42 by andreamichelotti-->
+<!--Saved on 2024-05-02 23:54:22 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
@@ -213,8 +213,8 @@
             <symbols>
               <symbol>img/symbols/bpm.png</symbol>
             </symbols>
-            <x>858</x>
-            <y>112</y>
+            <x>288</x>
+            <y>672</y>
             <width>20</width>
             <height>60</height>
             <background_color>
@@ -242,8 +242,8 @@ $(actions)</tooltip>
             <symbols>
               <symbol>img/symbols/bpm.png</symbol>
             </symbols>
-            <x>708</x>
-            <y>172</y>
+            <x>138</x>
+            <y>652</y>
             <width>20</width>
             <height>60</height>
             <background_color>
@@ -271,8 +271,8 @@ $(actions)</tooltip>
             <symbols>
               <symbol>img/symbols/bpm.png</symbol>
             </symbols>
-            <x>658</x>
-            <y>172</y>
+            <x>78</x>
+            <y>652</y>
             <width>20</width>
             <height>60</height>
             <background_color>
@@ -300,8 +300,8 @@ $(actions)</tooltip>
             <symbols>
               <symbol>img/symbols/bpm.png</symbol>
             </symbols>
-            <x>498</x>
-            <y>342</y>
+            <x>188</x>
+            <y>652</y>
             <width>20</width>
             <height>60</height>
             <background_color>
@@ -724,6 +724,24 @@ $(actions)</tooltip>
 $(pv_value)
 $(actions)</tooltip>
           </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Orbit</name>
+            <actions>
+              <action type="open_display">
+                <file>diag/orbit/orbit.bob</file>
+                <macros>
+                  <P>SPARC:ORBIT</P>
+                </macros>
+                <target>window</target>
+                <description>Orbit</description>
+              </action>
+            </actions>
+            <x>8</x>
+            <y>82</y>
+            <width>180</width>
+            <height>90</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -767,5 +785,12 @@ $(actions)</tooltip>
       </font>
     </font>
     <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser</name>
+    <x>710</x>
+    <y>20</y>
+    <width>10</width>
+    <height>0</height>
   </widget>
 </display>
