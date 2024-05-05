@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-02 23:54:22 by andreamichelotti-->
+<!--Saved on 2024-05-05 22:53:48 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
   <height>1024</height>
+  <actions>
+    <action type="open_display">
+      <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+      <macros>
+        <DEVICE>AC1BPM01</DEVICE>
+      </macros>
+      <target>window</target>
+      <description>Open Display</description>
+    </action>
+  </actions>
   <widget type="tabs" version="2.0.0">
     <name>Tabs</name>
     <tabs>
@@ -208,522 +218,6 @@
               </action>
             </actions>
           </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>PLXBPM06</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>288</x>
-            <y>672</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-30.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>PLXBPM06</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>LIBERA_SINGLE_PASS_E</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>138</x>
-            <y>652</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
-                <macros>
-                  <HOSTNAME>liberaSPARC</HOSTNAME>
-                  <RAFNAME>bpm</RAFNAME>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>LIBERA_SINGLE_PASS_E_1</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>78</x>
-            <y>652</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
-                <macros>
-                  <HOSTNAME>L008</HOSTNAME>
-                  <RAFNAME>bpm</RAFNAME>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>LIBERA_SINGLE_PASS_E_2</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>188</x>
-            <y>652</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/libera-eli/Libera_Main.opi</file>
-                <macros>
-                  <DEVICE>liberaSPARC</DEVICE>
-                  <BPM>bpm1</BPM>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>AC1BPM01</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>98</x>
-            <y>492</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>AC1BPM01</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>AC2BPM01</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>258</x>
-            <y>492</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>AC2BPM01</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>AC3BPM01</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>428</x>
-            <y>492</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>AC3BPM01</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>PTLBPM01</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>688</x>
-            <y>492</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>PTLBPM01</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>UTLBPM01</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>868</x>
-            <y>492</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>UTLBPM01</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>DGLBPM01</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>928</x>
-            <y>432</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-15.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>DGLBPM01</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>DGLBPM02</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>1045</x>
-            <y>404</y>
-            <width>50</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-15.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>DGLBPM02</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>DGLBPM03</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>1218</x>
-            <y>379</y>
-            <width>29</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>DGLBPM03</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>PLXBPM01</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>778</x>
-            <y>457</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-25.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>PLXBPM01</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>PLXBPM02</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>821</x>
-            <y>439</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-25.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>PLXBPM02</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>PLXBPM03</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>897</x>
-            <y>379</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-45.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>PLXBPM03</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>PLXBPM04</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>958</x>
-            <y>307</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-45.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>PLXBPM04</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>PLXBPM05</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>1118</x>
-            <y>182</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-30.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>PLXBPM05</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
-          <widget type="symbol" version="2.0.0">
-            <name>PLXBPM06</name>
-            <symbols>
-              <symbol>img/symbols/bpm.png</symbol>
-            </symbols>
-            <x>1197</x>
-            <y>141</y>
-            <width>20</width>
-            <height>60</height>
-            <background_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </background_color>
-            <rotation>-25.0</rotation>
-            <actions>
-              <action type="open_display">
-                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                <macros>
-                  <DEVICE>PLXBPM06</DEVICE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
-            <tooltip>$(pv_name)
-$(pv_value)
-$(actions)</tooltip>
-          </widget>
           <widget type="action_button" version="3.0.0">
             <name>Orbit</name>
             <actions>
@@ -741,6 +235,446 @@ $(actions)</tooltip>
             <width>180</width>
             <height>90</height>
             <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_1</name>
+            <x>118</x>
+            <y>452</y>
+            <rotation_step>1</rotation_step>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display</name>
+            <macros>
+              <DEVICE>AC1BPM01</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>98</x>
+            <y>382</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_1</name>
+            <macros>
+              <DEVICE>AC2BPM01</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>257</x>
+            <y>381</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_2</name>
+            <macros>
+              <DEVICE>AC3BPM01</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>433</x>
+            <y>385</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_3</name>
+            <macros>
+              <DEVICE>PTLBPM01</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>673</x>
+            <y>384</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_4</name>
+            <macros>
+              <DEVICE>PLXBPM01</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>765</x>
+            <y>346</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_5</name>
+            <macros>
+              <DEVICE>PLXBPM02</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>815</x>
+            <y>325</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_6</name>
+            <macros>
+              <DEVICE>PLXBPM03</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>881</x>
+            <y>290</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_7</name>
+            <macros>
+              <DEVICE>PLXBPM04</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>958</x>
+            <y>202</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_8</name>
+            <macros>
+              <DEVICE>PLXBPM05</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>1098</x>
+            <y>73</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_9</name>
+            <macros>
+              <DEVICE>UTLBPM01</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>848</x>
+            <y>392</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_10</name>
+            <macros>
+              <DEVICE>DGLBPM01</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>928</x>
+            <y>332</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_11</name>
+            <macros>
+              <DEVICE>PLXBPM06</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>1188</x>
+            <y>42</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_12</name>
+            <macros>
+              <DEVICE>DGLBPM02</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>1058</x>
+            <y>292</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_13</name>
+            <macros>
+              <DEVICE>DGLBPM03</DEVICE>
+            </macros>
+            <file>diag/comp/bpm.bob</file>
+            <x>1218</x>
+            <y>282</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_14</name>
+            <macros>
+              <HOSTNAME>PLXSPE</HOSTNAME>
+              <BPM>PLXBPM07</BPM>
+              <BPM1>PLXBPM07</BPM1>
+              <BPM2>PLXBPM08</BPM2>
+              <BPM3>PLXBPM09</BPM3>
+              <BPM4>PLXBPM10</BPM4>
+            </macros>
+            <file>diag/comp/bpmspe.bob</file>
+            <x>1248</x>
+            <y>22</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_15</name>
+            <macros>
+              <HOSTNAME>PLXSPE</HOSTNAME>
+              <BPM>PLXBPM08</BPM>
+              <BPM1>PLXBPM07</BPM1>
+              <BPM2>PLXBPM08</BPM2>
+              <BPM3>PLXBPM09</BPM3>
+              <BPM4>PLXBPM10</BPM4>
+            </macros>
+            <file>diag/comp/bpmspe.bob</file>
+            <x>1298</x>
+            <y>12</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_16</name>
+            <macros>
+              <HOSTNAME>PLXSPE</HOSTNAME>
+              <BPM>PLXBPM10</BPM>
+              <BPM1>PLXBPM07</BPM1>
+              <BPM2>PLXBPM08</BPM2>
+              <BPM3>PLXBPM09</BPM3>
+              <BPM4>PLXBPM10</BPM4>
+            </macros>
+            <file>diag/comp/bpmspe.bob</file>
+            <x>1178</x>
+            <y>552</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_17</name>
+            <macros>
+              <HOSTNAME>PLXSPE</HOSTNAME>
+              <BPM>PLXBPM09</BPM>
+              <BPM1>PLXBPM07</BPM1>
+              <BPM2>PLXBPM08</BPM2>
+              <BPM3>PLXBPM09</BPM3>
+              <BPM4>PLXBPM10</BPM4>
+            </macros>
+            <file>diag/comp/bpmspe.bob</file>
+            <x>1138</x>
+            <y>542</y>
+            <width>30</width>
+            <height>180</height>
+            <resize>4</resize>
+            <transparent>true</transparent>
+            <actions>
+              <action type="open_display">
+                <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                <macros>
+                  <DEVICE>AC1BPM01</DEVICE>
+                </macros>
+                <target>replace</target>
+                <description>Open Display libera sppp</description>
+              </action>
+            </actions>
           </widget>
         </children>
       </tab>
@@ -791,6 +725,6 @@ $(actions)</tooltip>
     <x>710</x>
     <y>20</y>
     <width>10</width>
-    <height>0</height>
+    <height>1</height>
   </widget>
 </display>
