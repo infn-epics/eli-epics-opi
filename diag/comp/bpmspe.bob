@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-05 22:56:14 by andreamichelotti-->
+<!--Saved on 2024-05-05 23:25:22 by andreamichelotti-->
 <display version="2.0.0">
   <name>Display</name>
   <width>30</width>
   <height>180</height>
   <actions>
     <action type="open_display">
-      <file>../libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+      <file>../libera-bpm-opi/GUI/LiberaSinglePassE/opi/signal_processing.bob</file>
       <target>replace</target>
-      <description>Open Display</description>
+      <description>Open  SPE</description>
     </action>
   </actions>
   <widget type="ellipse" version="2.0.0">
@@ -44,7 +44,7 @@
       <action type="open_display">
         <file>../libera-bpm-opi/GUI/LiberaSinglePassE/opi/signal_processing.bob</file>
         <target>window</target>
-        <description>Open Display SPE</description>
+        <description>Open Libera SPE</description>
       </action>
     </actions>
     <text>BPM</text>

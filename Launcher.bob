@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-05 22:53:48 by andreamichelotti-->
+<!--Saved on 2024-05-05 23:23:20 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
@@ -188,7 +188,7 @@
                 <file>common/motor/motorx.bob</file>
                 <macros>
                   <P>SPARC:RF:</P>
-                  <M>mo</M>
+                  <M>m0</M>
                 </macros>
                 <target>window</target>
                 <description>Open Display</description>
@@ -706,7 +706,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
+    <active_tab>1</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>

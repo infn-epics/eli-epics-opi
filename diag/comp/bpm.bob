@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-05 01:17:38 by andreamichelotti-->
+<!--Saved on 2024-05-05 23:26:21 by andreamichelotti-->
 <display version="2.0.0">
   <name>Display</name>
   <width>30</width>
@@ -48,7 +48,7 @@
       <action type="open_display">
         <file>../libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
         <target>window</target>
-        <description>Open Display</description>
+        <description>Open Libera Single Pass</description>
       </action>
     </actions>
     <text>BPM</text>
