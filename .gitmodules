@@ -10,3 +10,6 @@
 [submodule "diag/orbit"]
 	path = diag/orbit
 	url = https://baltig.infn.it/lnf-da-control/epics-orbit-opi.git
+[submodule "common/camera"]
+	path = common/camera
+	url = https://baltig.infn.it/infn-epics/camera-opi.git
