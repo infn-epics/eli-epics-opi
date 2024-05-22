@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-22 13:14:33 by andreamichelotti-->
+<!--Saved on 2024-05-22 15:57:37 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
@@ -695,12 +695,12 @@
             <tooltip>$(actions)</tooltip>
           </widget>
           <widget type="action_button" version="3.0.0">
-            <name>AC1FLG01_1</name>
+            <name>MotorController</name>
             <actions>
               <action type="open_display">
                 <file>common/motor-tml/TML.bob</file>
                 <macros>
-                  <PREFIX>SPARC:TML:</PREFIX>
+                  <PREFIX>SPARC:TML:CH1:</PREFIX>
                 </macros>
                 <target>window</target>
                 <description>Motor Controller</description>
