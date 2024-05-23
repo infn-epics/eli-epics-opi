@@ -5,17 +5,18 @@ from java.lang import Exception
 logger = ScriptUtil.getLogger()
 device_prefix = widget.getEffectiveMacros().getValue("PREFIX")
 
-logger.info("LOAD MOTORS "+device_prefix)
 
 
 motorini = PVUtil.getString(pvs[0]) ## Expects FileName as first parameter
+logger.info("LOAD MOTORS "+device_prefix + " Motor file "+motorini + " PV: "+str(pvs[0]))
+
 if not os.path.exists(motorini):
     opihome=os.getenv("OPIHOME",".")
     ini=opihome+"/ini"
     motorini=ini+"/"+motorini
 
 if not os.path.exists(motorini):
-    ScriptUtil.showMessageDialog(widget,"Cannot find \""+motorini+"\"")
+    ScriptUtil.showMessageDialog(widget,"Cannot find Motor file \""+motorini+"\" please set MOTORFILE macro to a correct file")
 
     
 motorf = os.path.abspath(motorini)
