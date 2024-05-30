@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-14 15:55:39 by andreamichelotti-->
+<!--Saved on 2024-05-22 13:08:43 by andreamichelotti-->
 <display version="2.0.0">
   <width>766</width>
   <height>647</height>
@@ -17,7 +17,7 @@
     <width>766</width>
     <height>45</height>
     <font>
-      <font name="STAR-CS" family="sans" style="REGULAR" size="23.762376237623762">
+      <font name="EPIK8S-CS" family="sans" style="REGULAR" size="23.762376237623762">
       </font>
     </font>
     <foreground_color>
@@ -25,7 +25,7 @@
       </color>
     </foreground_color>
     <background_color>
-      <color name="STAR-CS Beam Diagnostics" red="207" green="151" blue="207">
+      <color name="EPIK8S Beam Diagnostics" red="207" green="151" blue="207">
       </color>
     </background_color>
     <transparent>false</transparent>
@@ -60,7 +60,7 @@
     <maximum>65535.0</maximum>
   </widget>
   <widget type="embedded" version="2.0.0">
-    <name>Linking Container Template</name>
+    <name>TMLCTL</name>
     <file>TML_Control.bob</file>
     <x>6</x>
     <y>91</y>
@@ -82,7 +82,7 @@
         <name>Status</name>
         <children>
           <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
+            <name>Status Registers</name>
             <file>TML_StatusRegisters.bob</file>
             <x>5</x>
             <y>5</y>
@@ -102,7 +102,7 @@
         <name>I/O</name>
         <children>
           <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template_1</name>
+            <name>Digital Outputs</name>
             <file>TML_DigitalOutputs.bob</file>
             <x>5</x>
             <y>5</y>
@@ -122,7 +122,7 @@
         <name>Settings</name>
         <children>
           <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
+            <name>TML Settings</name>
             <file>TML_Settings.bob</file>
             <x>5</x>
             <y>5</y>
