@@ -820,20 +820,63 @@
               <tab>
                 <name>Orbit</name>
                 <children>
+                  <widget type="action_button" version="3.0.0">
+                    <name>Action Button_OpenOrbit</name>
+                    <actions>
+                      <action type="open_display">
+                        <file>diag/orbit/orbit.bob</file>
+                        <macros>
+                          <P>$(P=SPARC:ORBIT)</P>
+                        </macros>
+                        <target>window</target>
+                        <description>Open Display</description>
+                      </action>
+                    </actions>
+                    <text>ORBIT</text>
+                    <x>39</x>
+                    <y>28</y>
+                    <tooltip>$(actions)</tooltip>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>Action Button_OpenOrbitSingle</name>
+                    <actions>
+                      <action type="open_display">
+                        <file>diag/orbit/orbitSingle.bob</file>
+                        <macros>
+                          <P>$(P=SPARC:ORBIT)</P>
+                        </macros>
+                        <target>window</target>
+                        <description>Open Display</description>
+                      </action>
+                    </actions>
+                    <text>ORBIT Single</text>
+                    <x>179</x>
+                    <y>28</y>
+                    <tooltip>$(actions)</tooltip>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>OrbitSingle</name>
+                <children>
                   <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_18</name>
-                    <file>diag/orbit/orbit.bob</file>
-                    <x>2</x>
-                    <width>1350</width>
-                    <height>660</height>
+                    <name>Embedded Display_20</name>
+                    <macros>
+                      <P>$(P=SPARC:ORBIT)</P>
+                    </macros>
+                    <file>diag/orbit/orbitSingle.bob</file>
+                    <x>12</x>
+                    <width>1320</width>
+                    <height>698</height>
                   </widget>
                 </children>
               </tab>
             </tabs>
             <x>8</x>
-            <y>2</y>
+            <y>3</y>
             <width>1370</width>
             <height>710</height>
+            <active_tab>3</active_tab>
             <direction>1</direction>
           </widget>
         </children>
