@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-27 23:20:08 by andreamichelotti-->
+<!--Saved on 2024-05-30 13:02:41 by Alex-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
@@ -370,7 +370,6 @@
                   <widget type="picture" version="2.0.0">
                     <name>Synoptic_3</name>
                     <file>img/bpm-map.png</file>
-                    <x>-10</x>
                     <y>18</y>
                     <width>1320</width>
                     <height>640</height>
@@ -821,21 +820,63 @@
               <tab>
                 <name>Orbit</name>
                 <children>
+                  <widget type="action_button" version="3.0.0">
+                    <name>Action Button_OpenOrbit</name>
+                    <actions>
+                      <action type="open_display">
+                        <file>diag/orbit/orbit.bob</file>
+                        <macros>
+                          <P>$(P=SPARC:ORBIT)</P>
+                        </macros>
+                        <target>window</target>
+                        <description>Open Display</description>
+                      </action>
+                    </actions>
+                    <text>ORBIT</text>
+                    <x>39</x>
+                    <y>28</y>
+                    <tooltip>$(actions)</tooltip>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>Action Button_OpenOrbitSingle</name>
+                    <actions>
+                      <action type="open_display">
+                        <file>diag/orbit/orbitSingle.bob</file>
+                        <macros>
+                          <P>$(P=SPARC:ORBIT)</P>
+                        </macros>
+                        <target>window</target>
+                        <description>Open Display</description>
+                      </action>
+                    </actions>
+                    <text>ORBIT Single</text>
+                    <x>179</x>
+                    <y>28</y>
+                    <tooltip>$(actions)</tooltip>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>OrbitSingle</name>
+                <children>
                   <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_18</name>
-                    <file>diag/orbit/orbit.bob</file>
-                    <x>2</x>
-                    <width>1350</width>
-                    <height>660</height>
+                    <name>Embedded Display_20</name>
+                    <macros>
+                      <P>$(P=SPARC:ORBIT)</P>
+                    </macros>
+                    <file>diag/orbit/orbitSingle.bob</file>
+                    <x>12</x>
+                    <width>1320</width>
+                    <height>698</height>
                   </widget>
                 </children>
               </tab>
             </tabs>
             <x>8</x>
-            <y>2</y>
+            <y>3</y>
             <width>1370</width>
             <height>710</height>
-            <active_tab>-1</active_tab>
+            <active_tab>3</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -881,7 +922,7 @@
     <name>Embedded Display_19</name>
     <x>660</x>
     <y>30</y>
-    <width>0</width>
-    <height>0</height>
+    <width>1</width>
+    <height>1</height>
   </widget>
 </display>
