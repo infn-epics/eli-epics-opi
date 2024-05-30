@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-28 15:49:11 by andreamichelotti-->
+<!--Saved on 2024-05-29 16:55:14 by andreamichelotti-->
 <display version="2.0.0">
   <name>Display</name>
-  <width>104</width>
+  <width>150</width>
   <height>143</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>Label</class>
     <text>$(DEVICE)</text>
-    <width>84</width>
+    <width>130</width>
     <height>31</height>
     <font>
-      <font family="Liberation Sans" style="REGULAR" size="8.0">
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
       </font>
     </font>
   </widget>
@@ -20,8 +20,9 @@
     <pv_name>$(DEVICE):POS_RB</pv_name>
     <x>2</x>
     <y>63</y>
+    <width>148</width>
     <font>
-      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
       </font>
     </font>
   </widget>
@@ -30,6 +31,7 @@
     <pv_name>$(DEVICE):IN</pv_name>
     <x>1</x>
     <y>20</y>
+    <width>129</width>
     <font>
       <font family="Liberation Sans" style="REGULAR" size="10.0">
       </font>
@@ -58,15 +60,16 @@
     <pv_name>$(DEVICE):POI_RB</pv_name>
     <x>2</x>
     <y>103</y>
+    <width>138</width>
     <font>
-      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
       </font>
     </font>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
     <pv_name>$(DEVICE):MOVING</pv_name>
-    <x>84</x>
+    <x>130</x>
   </widget>
   <widget type="symbol" version="2.0.0">
     <name>Text Entry</name>
