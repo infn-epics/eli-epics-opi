@@ -13,3 +13,6 @@
 [submodule "common/camera"]
 	path = common/camera
 	url = https://baltig.infn.it/infn-epics/camera-opi.git
+[submodule "RF/klyloopOPI"]
+	path = RF/klyloopOPI
+	url = https://baltig.infn.it/lnf-da-control/klystron-loop-soft-ioc.git
