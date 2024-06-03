@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-30 19:51:36 by andreamichelotti-->
+<!--Saved on 2024-06-03 11:36:48 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
@@ -894,21 +894,26 @@
       <tab>
         <name>MPS</name>
         <children>
+        </children>
+      </tab>
+      <tab>
+        <name>TEST</name>
+        <children>
           <widget type="action_button" version="3.0.0">
-            <name>BILTITEST</name>
+            <name>START2_1</name>
             <actions>
               <action type="open_display">
-                <file>ELI/biltitest.bob</file>
+                <file>ELI/sigmaPhiStart.bob</file>
                 <macros>
-                  <device>ELI:BILT:MEA1</device>
+                  <device>ELI:START11:MEA1</device>
                 </macros>
                 <target>window</target>
-                <description>IBILT</description>
+                <description>START1</description>
               </action>
             </actions>
-            <text>IBILTITEST</text>
-            <x>338</x>
-            <y>72</y>
+            <text>START11</text>
+            <x>378</x>
+            <y>242</y>
             <tooltip>$(actions)</tooltip>
           </widget>
           <widget type="action_button" version="3.0.0">
@@ -924,15 +929,27 @@
               </action>
             </actions>
             <text>START2</text>
-            <x>348</x>
-            <y>152</y>
+            <x>378</x>
+            <y>202</y>
             <tooltip>$(actions)</tooltip>
           </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>TEST</name>
-        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>BILTITEST</name>
+            <actions>
+              <action type="open_display">
+                <file>ELI/biltitest.bob</file>
+                <macros>
+                  <device>ELI:BILT:MEA1</device>
+                </macros>
+                <target>window</target>
+                <description>IBILT</description>
+              </action>
+            </actions>
+            <text>IBILTITEST</text>
+            <x>378</x>
+            <y>162</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
         </children>
       </tab>
     </tabs>
@@ -943,7 +960,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>5</active_tab>
+    <active_tab>6</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
@@ -963,22 +980,5 @@
     <y>30</y>
     <width>1</width>
     <height>1</height>
-  </widget>
-  <widget type="action_button" version="3.0.0">
-    <name>START2_1</name>
-    <actions>
-      <action type="open_display">
-        <file>ELI/sigmaPhiStart.bob</file>
-        <macros>
-          <device>ELI:START11:MEA1</device>
-        </macros>
-        <target>window</target>
-        <description>START1</description>
-      </action>
-    </actions>
-    <text>START11</text>
-    <x>416</x>
-    <y>350</y>
-    <tooltip>$(actions)</tooltip>
   </widget>
 </display>
