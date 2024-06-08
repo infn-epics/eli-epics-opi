@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-06-05 13:15:22 by andreamichelotti-->
+<!--Saved on 2024-06-08 01:57:28 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
@@ -197,6 +197,54 @@
             <text>NewPortMotor</text>
             <x>148</x>
             <y>212</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>menlosynchro</name>
+            <actions>
+              <action type="open_display">
+                <file>RF/menloOpi/synchro/SyncroTheta_Main.bob</file>
+                <macros>
+                  <DEVICE>SPARC:MENLO:SYNCHRO</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Menlo Synchro</description>
+              </action>
+            </actions>
+            <x>168</x>
+            <y>352</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>menlosynchro_1</name>
+            <actions>
+              <action type="open_display">
+                <file>RF/menloOpi/lfc/LFC_Main.bob</file>
+                <macros>
+                  <DEVICE>SPARC:MENLO:LFC</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Menlo LFC</description>
+              </action>
+            </actions>
+            <x>168</x>
+            <y>422</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>menlosynchro_2</name>
+            <actions>
+              <action type="open_display">
+                <file>RF/menloOpi/lac/LAC1550_Main.bob</file>
+                <macros>
+                  <DEVICE>SPARC:MENLO:LAC</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Menlo LAC</description>
+              </action>
+            </actions>
+            <x>167</x>
+            <y>382</y>
             <tooltip>$(actions)</tooltip>
           </widget>
         </children>
@@ -985,7 +1033,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
+    <active_tab>1</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
