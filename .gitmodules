@@ -13,6 +13,6 @@
 [submodule "common/camera"]
 	path = common/camera
 	url = https://baltig.infn.it/infn-epics/camera-opi.git
-[submodule "RF/menlo-syncro"]
-	path = RF/menlo-syncro
-	url = https://baltig.infn.it/infn-epics/menloSyncroOpi.git
+[submodule "RF/menloOpi"]
+	path = RF/menloOpi
+	url = https://baltig.infn.it/infn-epics/menloOpi.git
