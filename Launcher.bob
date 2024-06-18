@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-06-17 18:07:54 by andreamichelotti-->
+<!--Saved on 2024-06-19 00:54:25 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
@@ -455,6 +455,35 @@
                     <y>648</y>
                     <width>150</width>
                     <tooltip>$(actions)</tooltip>
+                  </widget>
+                  <widget type="image" version="2.0.0">
+                    <name>Image_2</name>
+                    <pv_name>SPARC:ACE01:image1:ArrayData</pv_name>
+                    <x>462</x>
+                    <y>328</y>
+                    <rules>
+                      <rule name="sizex" prop_id="data_width" out_exp="true">
+                        <exp bool_exp="pvInt0">
+                          <expression>pvInt0</expression>
+                        </exp>
+                        <pv_name>SPARC:ACE01:SizeX_RBV</pv_name>
+                      </rule>
+                      <rule name="sizey" prop_id="data_height" out_exp="true">
+                        <exp bool_exp="pvInt0">
+                          <expression>pvInt0</expression>
+                        </exp>
+                        <pv_name>SPARC:ACE01:SizeY_RBV</pv_name>
+                      </rule>
+                    </rules>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_18</name>
+                    <macros>
+                      <CAMERA>SPARC:ACE01</CAMERA>
+                    </macros>
+                    <file>common/camera/CACAM.bob</file>
+                    <x>1029</x>
+                    <y>208</y>
                   </widget>
                 </children>
               </tab>
@@ -1078,7 +1107,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>1</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
