@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-06-19 00:54:25 by andreamichelotti-->
+<!--Saved on 2024-06-20 00:18:27 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1400</width>
@@ -395,24 +395,6 @@
                     <tooltip>$(actions)</tooltip>
                   </widget>
                   <widget type="action_button" version="3.0.0">
-                    <name>TESTDAFNE</name>
-                    <actions>
-                      <action type="open_display">
-                        <file>common/motor-tml/TML_Main.bob</file>
-                        <macros>
-                          <DEVICE>DAFNE:TEST:LAB</DEVICE>
-                        </macros>
-                        <target>window</target>
-                        <description>DAFNE:TEST:LAB</description>
-                      </action>
-                    </actions>
-                    <x>639</x>
-                    <y>108</y>
-                    <width>70</width>
-                    <height>60</height>
-                    <tooltip>$(actions)</tooltip>
-                  </widget>
-                  <widget type="action_button" version="3.0.0">
                     <name>cameraInterfaceBase</name>
                     <actions>
                       <action type="open_display">
@@ -456,34 +438,175 @@
                     <width>150</width>
                     <tooltip>$(actions)</tooltip>
                   </widget>
-                  <widget type="image" version="2.0.0">
-                    <name>Image_2</name>
-                    <pv_name>SPARC:ACE01:image1:ArrayData</pv_name>
-                    <x>462</x>
-                    <y>328</y>
-                    <rules>
-                      <rule name="sizex" prop_id="data_width" out_exp="true">
-                        <exp bool_exp="pvInt0">
-                          <expression>pvInt0</expression>
-                        </exp>
-                        <pv_name>SPARC:ACE01:SizeX_RBV</pv_name>
-                      </rule>
-                      <rule name="sizey" prop_id="data_height" out_exp="true">
-                        <exp bool_exp="pvInt0">
-                          <expression>pvInt0</expression>
-                        </exp>
-                        <pv_name>SPARC:ACE01:SizeY_RBV</pv_name>
-                      </rule>
-                    </rules>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_18</name>
-                    <macros>
-                      <CAMERA>SPARC:ACE01</CAMERA>
-                    </macros>
-                    <file>common/camera/CACAM.bob</file>
-                    <x>1029</x>
-                    <y>208</y>
+                  <widget type="tabs" version="2.0.0">
+                    <name>Tabs_1</name>
+                    <tabs>
+                      <tab>
+                        <name>TEStACE1</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_18</name>
+                            <macros>
+                              <CAMERA>SPARC:ACE01</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>28</x>
+                            <y>22</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>AC1CAM01</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_20</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:AC1CAM01</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>18</x>
+                            <y>12</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>AC2CAM01</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_21</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:AC2CAM01</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>38</x>
+                            <y>12</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>AC3CAM01</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_22</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:AC3CAM01</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>38</x>
+                            <y>12</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>GUNCAM01</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_23</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:GUNCAM01</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>28</x>
+                            <y>2</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>PLVCAM01</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_24</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:PLVCAM01</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>28</x>
+                            <y>2</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>OSCAM01</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_25</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:OSCAM01</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>18</x>
+                            <y>2</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>OSCAM02</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_26</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:OSCAM02</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>38</x>
+                            <y>12</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>UTLCAM02</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_27</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:UTLCAM02</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>58</x>
+                            <y>12</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                      <tab>
+                        <name>THVCAM01</name>
+                        <children>
+                          <widget type="embedded" version="2.0.0">
+                            <name>Embedded Display_29</name>
+                            <macros>
+                              <CAMERA>SPARC:CAM:THVCAM01</CAMERA>
+                            </macros>
+                            <file>common/camera/genicam/CACAM.bob</file>
+                            <x>78</x>
+                            <y>2</y>
+                            <width>560</width>
+                            <height>440</height>
+                          </widget>
+                        </children>
+                      </tab>
+                    </tabs>
+                    <x>469</x>
+                    <y>78</y>
+                    <width>860</width>
+                    <height>510</height>
+                    <active_tab>9</active_tab>
                   </widget>
                 </children>
               </tab>
@@ -991,24 +1114,6 @@
             <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>cameraInterfaceBase_1</name>
-            <actions>
-              <action type="open_display">
-                <file>common/camera/Basler_Main.bob</file>
-                <macros>
-                  <DEVICE>SPARC</DEVICE>
-                  <CAM>CAM:TESTSCOUT01</CAM>
-                </macros>
-                <target>window</target>
-                <description>Test SCOUT</description>
-              </action>
-            </actions>
-            <text>Test sparcSCOUT </text>
-            <x>653</x>
-            <y>262</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
         </children>
       </tab>
       <tab>
@@ -1095,6 +1200,24 @@
             <text>ORBIT DUAL</text>
             <x>128</x>
             <y>192</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>TESTDAFNE</name>
+            <actions>
+              <action type="open_display">
+                <file>common/motor-tml/TML_Main.bob</file>
+                <macros>
+                  <DEVICE>DAFNE:TEST:LAB</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>TML DAFNE TEST</description>
+              </action>
+            </actions>
+            <x>198</x>
+            <y>452</y>
+            <width>70</width>
+            <height>60</height>
             <tooltip>$(actions)</tooltip>
           </widget>
         </children>
