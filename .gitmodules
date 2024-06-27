@@ -16,3 +16,6 @@
 [submodule "RF/menloOpi"]
 	path = RF/menloOpi
 	url = https://baltig.infn.it/infn-epics/menloOpi.git
+[submodule "RF/sparc-rf-opi"]
+	path = RF/sparc-rf-opi
+	url = https://baltig.infn.it/lnf-da-control/sparc-rf-opi.git

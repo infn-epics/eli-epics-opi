@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-06-20 00:18:27 by andreamichelotti-->
+<!--Saved on 2024-06-26 23:55:41 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
-  <width>1400</width>
-  <height>830</height>
+  <width>1900</width>
+  <height>1024</height>
   <actions>
     <action type="open_display">
       <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
@@ -20,232 +20,53 @@
       <tab>
         <name>Timing</name>
         <children>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/phoebus_mrf_interface/evg/evm-mtca-300-evr.bob</file>
-                <macros>
-                  <P>MRF01:evg</P>
-                  <TITLE>MRF01 GENERATOR</TITLE>
-                  <T>U</T>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>MRF01-EVG-EVR0</text>
-            <x>248</x>
-            <y>32</y>
-            <width>140</width>
-            <tooltip>$(actions)</tooltip>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_30</name>
+            <macros>
+              <P>MRF01:evr</P>
+              <TITLE>Receiver 0</TITLE>
+              <MASTER>MRF01:evg</MASTER>
+            </macros>
+            <file>timing/phoebus_mrf_interface/evr/delay-app.bob</file>
+            <y>2</y>
+            <width>788</width>
+            <height>400</height>
+            <resize>1</resize>
           </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button_1</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/phoebus_mrf_interface/evr/evr-mtca-300u.bob</file>
-                <macros>
-                  <P>MRF01:evr</P>
-                  <TITLE>RECEIVER MRF01-0</TITLE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>MRF01-EVR0</text>
-            <x>28</x>
-            <y>72</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button_2</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/phoebus_mrf_interface/evr/evr-mtca-300u.bob</file>
-                <macros>
-                  <P>MRF01:evr1</P>
-                  <TITLE>RECEIVER MRF01-1</TITLE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>MRF01-EVR1</text>
-            <x>28</x>
-            <y>122</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>TimingEli</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/ptts/Timing.bob</file>
-                <macros>
-                  <TITLE>TIMING ELI</TITLE>
-                </macros>
-                <target>window</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>Timing Eli</text>
-            <x>28</x>
-            <y>212</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>ELI-EVR50</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/ptts/evr-pmc-230.opi</file>
-                <macros>
-                  <SYS>GEN-TMG-EVR50:</SYS>
-                  <TITLE>RECEIVER  ELI EVR50</TITLE>
-                </macros>
-                <target>window</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>GEN-TMG-EVR50</text>
-            <x>28</x>
-            <y>272</y>
-            <width>130</width>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="polyline" version="2.0.0">
-            <name>Polyline_1</name>
-            <y>182</y>
-            <width>448</width>
-            <height>200</height>
-            <points>
-              <point x="0.0" y="0.0">
-              </point>
-            </points>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button_3</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/phoebus_mrf_interface/evg/evm-mtca-300.bob</file>
-                <macros>
-                  <P>MRF01:evg</P>
-                  <TITLE>MRF01 GENERATOR</TITLE>
-                  <T>U</T>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>MRF01-EVG</text>
-            <x>28</x>
-            <y>22</y>
-            <width>140</width>
-            <tooltip>$(actions)</tooltip>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_31</name>
+            <macros>
+              <P>MRF01:evr1</P>
+              <TITLE>Receiver 1</TITLE>
+              <MASTER>MRF01:evg</MASTER>
+            </macros>
+            <file>timing/phoebus_mrf_interface/evr/delay-app.bob</file>
+            <x>788</x>
+            <y>2</y>
+            <width>788</width>
+            <height>400</height>
+            <resize>1</resize>
           </widget>
         </children>
       </tab>
       <tab>
         <name>RF</name>
         <children>
-          <widget type="action_button" version="3.0.0">
-            <name>RP001</name>
-            <actions>
-              <action type="open_display">
-                <file>rp-opi/opi/rp.bob</file>
+          <widget type="navtabs" version="2.0.0">
+            <name>Navigation Tabs</name>
+            <tabs>
+              <tab>
+                <name>Main</name>
+                <file>RF/sparc-rf-opi/main.bob</file>
                 <macros>
-                  <DEVICE>SR00RPA01</DEVICE>
                 </macros>
-                <target>window</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>RP001</text>
-            <x>128</x>
-            <y>92</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>RP002</name>
-            <actions>
-              <action type="open_display">
-                <file>rp-opi/opi/rp.bob</file>
-                <macros>
-                  <DEVICE>SR00RPA02</DEVICE>
-                </macros>
-                <target>window</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>RP002</text>
-            <x>128</x>
-            <y>122</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>RP002_1</name>
-            <actions>
-              <action type="open_display">
-                <file>common/motor/motorx.bob</file>
-                <macros>
-                  <P>SPARC:MOT:VITARA01:</P>
-                  <M>m0</M>
-                </macros>
-                <target>window</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>Vitara</text>
-            <x>148</x>
-            <y>212</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>menlosynchro</name>
-            <actions>
-              <action type="open_display">
-                <file>RF/menloOpi/synchro/SyncroTheta_Main.bob</file>
-                <macros>
-                  <DEVICE>SPARC:MENLO:SYNCTHETA</DEVICE>
-                </macros>
-                <target>window</target>
-                <description>Menlo Theta</description>
-              </action>
-            </actions>
-            <x>168</x>
-            <y>352</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>menlosynchro_1</name>
-            <actions>
-              <action type="open_display">
-                <file>RF/menloOpi/lfc/LFC_Main.bob</file>
-                <macros>
-                  <DEVICE>SPARC:MENLO:SYNCOMO</DEVICE>
-                </macros>
-                <target>window</target>
-                <description>Menlo OMO</description>
-              </action>
-            </actions>
-            <x>168</x>
-            <y>422</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>menlosynchro_2</name>
-            <actions>
-              <action type="open_display">
-                <file>RF/menloOpi/lac/LAC1550_Main.bob</file>
-                <macros>
-                  <DEVICE>SPARC:MENLO:LAC</DEVICE>
-                </macros>
-                <target>window</target>
-                <description>Menlo LAC</description>
-              </action>
-            </actions>
-            <x>167</x>
-            <y>382</y>
-            <tooltip>$(actions)</tooltip>
+                <group_name></group_name>
+              </tab>
+            </tabs>
+            <y>-8</y>
+            <width>1830</width>
+            <height>934</height>
+            <direction>0</direction>
           </widget>
         </children>
       </tab>
@@ -1111,7 +932,6 @@
             <y>2</y>
             <width>1370</width>
             <height>710</height>
-            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1214,23 +1034,251 @@
                 <description>TML DAFNE TEST</description>
               </action>
             </actions>
-            <x>198</x>
-            <y>452</y>
+            <x>128</x>
+            <y>22</y>
             <width>70</width>
             <height>60</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>ELI-EVR50</name>
+            <actions>
+              <action type="open_display">
+                <file>timing/ptts/evr-pmc-230.opi</file>
+                <macros>
+                  <SYS>GEN-TMG-EVR50:</SYS>
+                  <TITLE>RECEIVER  ELI EVR50</TITLE>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>GEN-TMG-EVR50</text>
+            <x>198</x>
+            <y>442</y>
+            <width>130</width>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button</name>
+            <actions>
+              <action type="open_display">
+                <file>timing/phoebus_mrf_interface/evg/evm-mtca-300-evr.bob</file>
+                <macros>
+                  <P>MRF01:evg</P>
+                  <TITLE>MRF01 GENERATOR</TITLE>
+                  <T>U</T>
+                </macros>
+                <target>tab</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>MRF01-EVG-EVR0</text>
+            <x>278</x>
+            <y>522</y>
+            <width>140</width>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_3</name>
+            <actions>
+              <action type="open_display">
+                <file>timing/phoebus_mrf_interface/evg/evm-mtca-300.bob</file>
+                <macros>
+                  <P>MRF01:evg</P>
+                  <TITLE>MRF01 GENERATOR</TITLE>
+                  <T>U</T>
+                </macros>
+                <target>tab</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>MRF01-EVG</text>
+            <x>58</x>
+            <y>512</y>
+            <width>140</width>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_6</name>
+            <actions>
+              <action type="open_display">
+                <file>timing/phoebus_mrf_interface/evr/evr-mtca-300u.bob</file>
+                <macros>
+                  <P>MRF01:evr</P>
+                  <TITLE>RECEIVER MRF01-0</TITLE>
+                </macros>
+                <target>tab</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>MRF01-EVR0</text>
+            <x>58</x>
+            <y>562</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_7</name>
+            <actions>
+              <action type="open_display">
+                <file>timing/phoebus_mrf_interface/evr/evr-mtca-300u.bob</file>
+                <macros>
+                  <P>MRF01:evr1</P>
+                  <TITLE>RECEIVER MRF01-1</TITLE>
+                </macros>
+                <target>tab</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>MRF01-EVR1</text>
+            <x>58</x>
+            <y>612</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>TimingEli_1</name>
+            <actions>
+              <action type="open_display">
+                <file>timing/ptts/Timing.bob</file>
+                <macros>
+                  <TITLE>TIMING ELI</TITLE>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>Timing Eli</text>
+            <x>268</x>
+            <y>222</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>RP001</name>
+            <actions>
+              <action type="open_display">
+                <file>rp-opi/opi/rp.bob</file>
+                <macros>
+                  <DEVICE>SR00RPA01</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>RP001</text>
+            <x>578</x>
+            <y>182</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>RP002</name>
+            <actions>
+              <action type="open_display">
+                <file>rp-opi/opi/rp.bob</file>
+                <macros>
+                  <DEVICE>SR00RPA02</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>RP002</text>
+            <x>578</x>
+            <y>212</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>RP002_2</name>
+            <actions>
+              <action type="open_display">
+                <file>rp-opi/opi/rp.bob</file>
+                <macros>
+                  <DEVICE>SR00RPA03</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>RP003</text>
+            <x>578</x>
+            <y>242</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>RP002_3</name>
+            <actions>
+              <action type="open_display">
+                <file>common/motor/motorx.bob</file>
+                <macros>
+                  <P>SPARC:MOT:VITARA01:</P>
+                  <M>m0</M>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>Vitara</text>
+            <x>598</x>
+            <y>302</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>menlosynchro</name>
+            <actions>
+              <action type="open_display">
+                <file>RF/menloOpi/synchro/SyncroTheta_Main.bob</file>
+                <macros>
+                  <DEVICE>SPARC:MENLO:SYNCTHETA</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Menlo Theta</description>
+              </action>
+            </actions>
+            <x>618</x>
+            <y>442</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>menlosynchro_2</name>
+            <actions>
+              <action type="open_display">
+                <file>RF/menloOpi/lac/LAC1550_Main.bob</file>
+                <macros>
+                  <DEVICE>SPARC:MENLO:LAC</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Menlo LAC</description>
+              </action>
+            </actions>
+            <x>617</x>
+            <y>472</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>menlosynchro_3</name>
+            <actions>
+              <action type="open_display">
+                <file>RF/menloOpi/lfc/LFC_Main.bob</file>
+                <macros>
+                  <DEVICE>SPARC:MENLO:SYNCOMO</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Menlo OMO</description>
+              </action>
+            </actions>
+            <x>618</x>
+            <y>512</y>
             <tooltip>$(actions)</tooltip>
           </widget>
         </children>
       </tab>
     </tabs>
     <y>50</y>
-    <width>1400</width>
-    <height>780</height>
+    <width>1900</width>
+    <height>974</height>
     <background_color>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>

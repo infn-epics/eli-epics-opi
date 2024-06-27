@@ -5,8 +5,12 @@ ARCH=`uname -s`
 
 PHOEBUS="phoebus"
 
+
 if [ "$ARCH" == "Darwin" ];then
-    if [ -f /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar ]; then 
+    if [ -f /Applications/CSS_Phoebus.app/product-4.7.3/product-4.7.3.jar ]; then 
+    export JAVA_HOME=/Applications/CSS_Phoebus.app/jdk/Contents/Home/
+	PHOEBUS="java -jar /Applications/CSS_Phoebus.app/product-4.7.3/product-4.7.3.jar"
+    elif [ -f /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar ]; then 
 	PHOEBUS="java -jar /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar"
     fi
 fi
@@ -48,7 +52,7 @@ else
         fi
 
         if [ -n "$CHANNEL_FINDER" ]; then
-            echo "org.phoebus.channelfinder/channelfinder.serviceURL=http://$CHANNEL_FINDER/ChannelFinder" >> $OPIHOME/settings.ini
+            echo "org.phoebus.channelfinder/channelfinder.service=http://$CHANNEL_FINDER/ChannelFinder" >> $OPIHOME/settings.ini
             touch "$OPIHOME/.setting_applied"
         fi
 
