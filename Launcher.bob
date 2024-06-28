@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-06-26 23:55:41 by andreamichelotti-->
+<!--Saved on 2024-06-28 13:20:48 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -63,7 +63,6 @@
                 <group_name></group_name>
               </tab>
             </tabs>
-            <y>-8</y>
             <width>1830</width>
             <height>934</height>
             <direction>0</direction>
@@ -189,32 +188,6 @@
               <tab>
                 <name>Camera</name>
                 <children>
-                  <widget type="image" version="2.0.0">
-                    <name>Image</name>
-                    <pv_name>pva://SPARC:ACE01:PVA:OUTPUT</pv_name>
-                    <x>12</x>
-                    <y>18</y>
-                  </widget>
-                  <widget type="action_button" version="3.0.0">
-                    <name>Action Button_4</name>
-                    <actions>
-                      <action type="open_display">
-                        <file>common/camera/genicam/ADAravis.bob</file>
-                        <macros>
-                          <P>SPARC:ACE01:</P>
-                          <R></R>
-                          <C>Basler-a2A2600-20gmBAS</C>
-                        </macros>
-                        <target>window</target>
-                        <description>Open Display</description>
-                      </action>
-                    </actions>
-                    <text>TEST FLAME ACE2</text>
-                    <x>59</x>
-                    <y>328</y>
-                    <width>150</width>
-                    <tooltip>$(actions)</tooltip>
-                  </widget>
                   <widget type="action_button" version="3.0.0">
                     <name>cameraInterfaceBase</name>
                     <actions>
@@ -222,212 +195,269 @@
                         <file>common/camera/Basler_Main.bob</file>
                         <macros>
                           <DEVICE>SPARC</DEVICE>
-                          <CAM>ACE01</CAM>
+                          <CAM></CAM>
                         </macros>
                         <target>window</target>
-                        <description>Open Display</description>
+                        <description>Camera APP</description>
                       </action>
                     </actions>
-                    <text>CameraTestInterface</text>
-                    <x>309</x>
-                    <y>328</y>
+                    <text>CAMERA APP</text>
+                    <x>509</x>
+                    <y>508</y>
                     <tooltip>$(actions)</tooltip>
                   </widget>
-                  <widget type="image" version="2.0.0">
-                    <name>Image_1</name>
-                    <pv_name>pva://SPARC:CAM:TESTSCOUT01:PVA:OUTPUT</pv_name>
-                    <x>9</x>
-                    <y>398</y>
-                  </widget>
-                  <widget type="action_button" version="3.0.0">
-                    <name>Action Button_5</name>
-                    <actions>
-                      <action type="open_display">
-                        <file>common/camera/genicam/ADAravis.bob</file>
-                        <macros>
-                          <P>SPARC:CAM:TESTSCOUT01:</P>
-                          <R></R>
-                          <C>Basler-a2A2600-20gmBAS</C>
-                        </macros>
-                        <target>window</target>
-                        <description>Open Display</description>
-                      </action>
-                    </actions>
-                    <text>TEST SPARC SCOUT</text>
-                    <x>389</x>
-                    <y>648</y>
-                    <width>150</width>
-                    <tooltip>$(actions)</tooltip>
-                  </widget>
-                  <widget type="tabs" version="2.0.0">
-                    <name>Tabs_1</name>
+                  <widget type="navtabs" version="2.0.0">
+                    <name>Navigation Tabs_1</name>
                     <tabs>
                       <tab>
-                        <name>TEStACE1</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_18</name>
-                            <macros>
-                              <CAMERA>SPARC:ACE01</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>28</x>
-                            <y>22</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <name>Test ACE2</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:ACE01</CAMERA>
+                          <R></R>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>AC1CAM01</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_20</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:AC1CAM01</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>18</x>
-                            <y>12</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <name>GUNCAM</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:GUNCAM01</CAMERA>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>AC2CAM01</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_21</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:AC2CAM01</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>38</x>
-                            <y>12</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <name>AC1CAM</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:AC1CAM01</CAMERA>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>AC3CAM01</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_22</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:AC3CAM01</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>38</x>
-                            <y>12</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <name>AC2CAM</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:AC2CAM01</CAMERA>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>GUNCAM01</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_23</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:GUNCAM01</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>28</x>
-                            <y>2</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <name>AC3CAM</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:AC3CAM01</CAMERA>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>PLVCAM01</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_24</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:PLVCAM01</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>28</x>
-                            <y>2</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <name>PLVCAM</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:PLVCAM01</CAMERA>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>OSCAM01</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_25</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:OSCAM01</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>18</x>
-                            <y>2</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <name>EOSCAM01</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:OSCAM01</CAMERA>
+                          <R></R>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>OSCAM02</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_26</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:OSCAM02</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>38</x>
-                            <y>12</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <name>EOSCAM02</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:OSCAM02</CAMERA>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>UTLCAM01</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:UTLCAM01</CAMERA>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
                         <name>UTLCAM02</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_27</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:UTLCAM02</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>58</x>
-                            <y>12</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:UTLCAM02</CAMERA>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                       <tab>
                         <name>THVCAM01</name>
-                        <children>
-                          <widget type="embedded" version="2.0.0">
-                            <name>Embedded Display_29</name>
-                            <macros>
-                              <CAMERA>SPARC:CAM:THVCAM01</CAMERA>
-                            </macros>
-                            <file>common/camera/genicam/CACAM.bob</file>
-                            <x>78</x>
-                            <y>2</y>
-                            <width>560</width>
-                            <height>440</height>
-                          </widget>
-                        </children>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:THVCAM01</CAMERA>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>THVCAM02</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:THVCAM02</CAMERA>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>TestEpics</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:TestEpics</CAMERA>
+                        </macros>
+                        <group_name></group_name>
                       </tab>
                     </tabs>
-                    <x>469</x>
-                    <y>78</y>
-                    <width>860</width>
-                    <height>510</height>
-                    <active_tab>9</active_tab>
+                    <x>2</x>
+                    <y>38</y>
+                    <width>560</width>
+                  </widget>
+                  <widget type="navtabs" version="2.0.0">
+                    <name>Navigation Tabs_2</name>
+                    <tabs>
+                      <tab>
+                        <name>Test ACE2</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:ACE01</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                          <MODEL>a2A2600-20gmBAS</MODEL>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>GUNCAM</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:GUNCAM01</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>AC1CAM</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:AC1CAM01</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>AC2CAM</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:AC2CAM01</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>AC3CAM</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:AC3CAM01</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>PLVCAM</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:PLVCAM01</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>EOSCAM01</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:EOSCAM01</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>EOSCAM02</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:OSCAM02</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>UTLCAM01</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:UTLCAM01</CAMERA>
+                          <PVIMAGE>$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>UTLCAM02</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:UTLCAM02</CAMERA>
+                          <PVIMAGE>$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>THVCAM01</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:THVCAM01</CAMERA>
+                          <PVIMAGE>$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>THVCAM02</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:THVCAM02</CAMERA>
+                          <PVIMAGE>$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>TestEpics</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:TestEpics</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
+                          <MODEL>a2A2600-20gmBAS</MODEL>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                    </tabs>
+                    <x>592</x>
+                    <y>38</y>
+                    <width>560</width>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>Label_2</name>
+                    <text>Use PVA</text>
+                    <x>779</x>
+                    <y>18</y>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>Label_3</name>
+                    <text>Use CA</text>
+                    <x>289</x>
+                    <y>18</y>
                   </widget>
                 </children>
               </tab>
@@ -930,8 +960,9 @@
             </tabs>
             <x>8</x>
             <y>2</y>
-            <width>1370</width>
+            <width>1880</width>
             <height>710</height>
+            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1279,6 +1310,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
