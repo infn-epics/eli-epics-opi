@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-06-28 13:20:48 by andreamichelotti-->
+<!--Saved on 2024-06-28 15:36:09 by Alex-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -194,7 +194,7 @@
                       <action type="open_display">
                         <file>common/camera/Basler_Main.bob</file>
                         <macros>
-                          <DEVICE>SPARC</DEVICE>
+                          <DEVICE>SPARC:CAM</DEVICE>
                           <CAM></CAM>
                         </macros>
                         <target>window</target>
