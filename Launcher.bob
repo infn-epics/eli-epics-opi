@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-01 12:53:55 by andreamichelotti-->
+<!--Saved on 2024-07-01 13:11:00 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -213,7 +213,7 @@
                         <name>Test ACE2</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:ACE01</CAMERA>
+                          <CAMERA>SPARC:CAM:ACE01</CAMERA>
                           <R></R>
                         </macros>
                         <group_name></group_name>
@@ -335,7 +335,7 @@
                         <name>Test ACE2</name>
                         <file>common/camera/genicam/PVACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:ACE01</CAMERA>
+                          <CAMERA>SPARC:CAM:ACE01</CAMERA>
                           <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
                           <MODEL>a2A2600-20gmBAS</MODEL>
                         </macros>
