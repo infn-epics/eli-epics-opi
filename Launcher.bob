@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-06-28 15:36:09 by Alex-->
+<!--Saved on 2024-07-01 09:49:48 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -194,8 +194,8 @@
                       <action type="open_display">
                         <file>common/camera/Basler_Main.bob</file>
                         <macros>
-                          <DEVICE>SPARC:CAM</DEVICE>
-                          <CAM></CAM>
+                          <DEVICE>SPARC:</DEVICE>
+                          <CAM>CAM</CAM>
                         </macros>
                         <target>window</target>
                         <description>Camera APP</description>
@@ -378,7 +378,7 @@
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>PLVCAM</name>
+                        <name>PLVCAM01</name>
                         <file>common/camera/genicam/PVACAM.bob</file>
                         <macros>
                           <CAMERA>SPARC:CAM:PLVCAM01</CAMERA>
@@ -447,6 +447,15 @@
                           <CAMERA>SPARC:CAM:TestEpics</CAMERA>
                           <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
                           <MODEL>a2A2600-20gmBAS</MODEL>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>PLVCAM02</name>
+                        <file></file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:PLVCAM02</CAMERA>
+                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
                         </macros>
                         <group_name></group_name>
                       </tab>
