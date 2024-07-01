@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-06-28 13:20:48 by andreamichelotti-->
+<!--Saved on 2024-07-01 09:22:42 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -251,7 +251,7 @@
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>PLVCAM</name>
+                        <name>PLVCAM01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
                           <CAMERA>SPARC:CAM:PLVCAM01</CAMERA>
@@ -312,6 +312,14 @@
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
                           <CAMERA>SPARC:CAM:TestEpics</CAMERA>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>PLVCAM02</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:PLVCAM02</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
