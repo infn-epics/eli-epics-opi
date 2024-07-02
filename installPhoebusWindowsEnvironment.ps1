@@ -1,7 +1,10 @@
 # Script originario realizzato da IlSoftware.it  https://www.ilsoftware.it modificato da A. D'Uffizi
 #Check di sicurezza permessi
 If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -Verb RunAs
+	$scriptPath = $MyInvocation.MyCommand.Path
+    $scriptArgs = $args[0]
+	$arguments = @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "`"$scriptPath`"") + $scriptArgs
+	Start-Process powershell.exe -ArgumentList $arguments -Verb RunAs
 	Exit
 }
 #check versione operativo
