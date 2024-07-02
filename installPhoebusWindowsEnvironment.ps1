@@ -7,7 +7,7 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 #check versione operativo
 if([System.Environment]::OSVersion.Version.Build -lt 18363) {"ATTENZIONE: Per usare lo script e' necessario aggiornare almeno a Windows 10 versione 1909 ..."; Start-Sleep -s 5; Exit}
 
-Write-Output "Installazione programmi automatizzata"
+
 #!codice per attivare feature OpenSSH-Server. Commentato perché ancora da problemi. 
 #!Probabilmente manca una istruzione: il download della feature.
 #Comunque non necessario
@@ -33,14 +33,29 @@ Write-Output "Installazione programmi automatizzata"
 
 #SWITCH per installazione completa mettere tutto a true, tranne Prereq,  obsoleto 
 $installPrereq=$false
-$installPackages=$true
-$installPhoebus=$true
-$cloneGitProject=$true
-$setDefaultApp=$true
-$copysettings=$true
-$installLink=$true
+if ($args[0] -eq "install") {
+	Write-Output "Installazione programmi automatizzata"
+	$installPackages=$true
+	$installPhoebus=$true 
+	$cloneGitProject=$true
+	$setDefaultApp=$true
+	$copysettings=$true
+	$installLink=$true
+}
+else
+{
+	Write-Output "Esecuzione update"
+	$installPackages=$false
+	$installPhoebus=$false
+	$cloneGitProject=$true
+	$setDefaultApp=$false
+	$copysettings=$true
+	$installLink=$false
+}
 #variabile con path ove verrà installato Phoebus e il progetto git.
 $destinationPath = "C:\Users\sparc"
+Write-Output "Moving to "  $destinationPath
+Set-Location -Path $destinationPath
 # ! Fase download. Il software originario scarica winget e VCLibs. A noi non sembrano servire. Winget c'è di default e funziona.
 #Creazione web client 
 $wc = New-Object System.Net.WebClient
@@ -57,7 +72,7 @@ $version=$psobj.tag_name
 if (!(Test-Path -Path $destinationPath)) {
     New-Item -ItemType Directory -Path $destinationPath
 }
-Set-Location -Path $destinationPath
+
 
 if ($installPrereq) 
 {
@@ -116,8 +131,20 @@ else
 }
 if ($cloneGitProject)
 {
-	Write-Host "Cloning git project.." -ForegroundColor white -BackgroundColor green
-    git clone https://baltig.infn.it/lnf-da-control/epik8-sparc.git --recurse-submodule
+	if ($args[0] -eq "install") 
+	{
+		
+		Write-Host "Cloning git project.." -ForegroundColor white -BackgroundColor green
+		git clone https://baltig.infn.it/lnf-da-control/epik8-sparc.git --recurse-submodule
+	}
+	else
+	{
+		$gitPath=$destinationPath+"/epik8-sparc"
+		Set-Location -Path $gitPath
+		Write-Host "pulling git project.." -ForegroundColor white -BackgroundColor green
+		git pull --recurse-submodule
+		Set-Location -Path $destinationPath
+	}
 }
 else
 {
@@ -125,7 +152,7 @@ else
 }
 if ($setDefaultApp) 
 {
-	Write-Host "Setting phoebus as predefined launcher for .bob"
+	Write-Host "Setting phoebus as predefined launcher for .bob"  -ForegroundColor white -BackgroundColor green
 
 	$extension = ".bob"
 	$applicationProgID = "Phoebus"
@@ -158,10 +185,12 @@ else
 
 if ($copysettings)
 {
-	Write-Host("Copying settings.ini")
-	if  ((Test-Path "./Phoebus") -and (Test-Path "./epik8-sparc/opi/settings_template.ini")) {
+	$phoebusPath=$destinationPath+"\Phoebus"
+	$settingTemplate=$destinationPath+"\epik8-sparc\opi\settings_template.ini"
+	Write-Host "Copying settings.ini"  -ForegroundColor white -BackgroundColor green
+	if  ((Test-Path $phoebusPath) -and (Test-Path $settingTemplate)) {
 
-	Copy-Item -Path  "./epik8-sparc/opi/settings_template.ini" -Destination .\Phoebus\settings.ini
+	Copy-Item -Path  $settingTemplate -Destination $phoebusPath"\settings.ini"
 	$username = $env:USERNAME
 	$pythonPath = "c:/Users/$username/AppData/Local/Programs/Python/Python39/python -i"
 	$configEntry =[Environment]::NewLine+ "org.phoebus.applications.console/shell=$pythonPath"
@@ -170,7 +199,7 @@ if ($copysettings)
 }
 	else
 	{
-		Write-Host "Test path failed"
+		Write-Host "Test path failed:" $settingTemplate   " and " $phoebusPath 
 	}
 }
 else
