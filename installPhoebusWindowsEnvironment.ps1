@@ -1,3 +1,24 @@
+#variabile con path ove verrà installato Phoebus e il progetto git.
+$destinationPath = "C:\Users\sparc"
+# Directory temporanea
+$tempDir = $destinationPath
+
+# Percorso corrente dello script
+$scriptPath = $MyInvocation.MyCommand.Path
+
+# Nome file dello script
+$scriptName = [System.IO.Path]::GetFileName($scriptPath)
+
+# Percorso dello script nella directory temporanea
+$tempScriptPath = Join-Path $tempDir $scriptName
+
+if ($scriptPath -ne $tempScriptPath) {
+    Copy-Item $scriptPath $tempScriptPath -Force
+    # Esegui lo script nella directory temporanea e termina l'esecuzione dell'originale
+    & $tempScriptPath @args
+    Exit
+}
+
 # Script originario realizzato da IlSoftware.it  https://www.ilsoftware.it modificato da A. D'Uffizi
 #Check di sicurezza permessi
 If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
@@ -60,8 +81,7 @@ else
 	$copysettings=$true
 	$installLink=$false
 }
-#variabile con path ove verrà installato Phoebus e il progetto git.
-$destinationPath = "C:\Users\sparc"
+
 Write-Output "Moving to "  $destinationPath
 Set-Location -Path $destinationPath
 # ! Fase download. Il software originario scarica winget e VCLibs. A noi non sembrano servire. Winget c'è di default e funziona.
@@ -148,10 +168,14 @@ if ($cloneGitProject)
 	else
 	{
 		$gitPath=$destinationPath+"/epik8-sparc"
-		Set-Location -Path $gitPath
-		Write-Host "pulling git project.." -ForegroundColor white -BackgroundColor green
-		git pull --recurse-submodule
-		Set-Location -Path $destinationPath
+		if (Test-Path $gitPath) {
+			Write-Host "Removing dir " $gitPath -ForegroundColor white -BackgroundColor green
+		# Cancella la directory
+		Remove-Item -Recurse -Force $gitPath
+		}
+		Write-Host "Cloning git project.." -ForegroundColor white -BackgroundColor green
+		git clone https://baltig.infn.it/lnf-da-control/epik8-sparc.git --recurse-submodule
+		
 	}
 }
 else
@@ -245,6 +269,7 @@ else
 }
 
 Write-Host("Installazione completata")
+Remove-Item $tempScriptPath -Force
 #Impedisci la chiusura powershell in attesa di input utente 
 Read-Host
 
