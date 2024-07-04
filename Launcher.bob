@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-01 13:11:00 by andreamichelotti-->
+<!--Saved on 2024-07-02 15:55:39 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -1317,6 +1317,23 @@
             <y>512</y>
             <tooltip>$(actions)</tooltip>
           </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>RP002_4</name>
+            <actions>
+              <action type="open_display">
+                <file>rp-opi/opi/rp.bob</file>
+                <macros>
+                  <DEVICE>SR00RPA04</DEVICE>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>RP004</text>
+            <x>578</x>
+            <y>272</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
         </children>
       </tab>
     </tabs>
@@ -1327,7 +1344,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
+    <active_tab>6</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
