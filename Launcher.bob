@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-02 15:55:39 by andreamichelotti-->
+<!--Saved on 2024-07-05 22:54:22 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -192,18 +192,21 @@
                     <name>cameraInterfaceBase</name>
                     <actions>
                       <action type="open_display">
-                        <file>common/camera/Basler_Main.bob</file>
+                        <file>common/camera/Camera.bob</file>
                         <macros>
                           <DEVICE>SPARC:CAM</DEVICE>
                           <CAM></CAM>
+                          <CONFFILE>sparc_cam.ini</CONFFILE>
                         </macros>
                         <target>window</target>
                         <description>Camera APP</description>
                       </action>
                     </actions>
                     <text>CAMERA APP</text>
-                    <x>509</x>
-                    <y>508</y>
+                    <x>679</x>
+                    <y>228</y>
+                    <width>230</width>
+                    <height>160</height>
                     <tooltip>$(actions)</tooltip>
                   </widget>
                   <widget type="navtabs" version="2.0.0">
@@ -222,7 +225,7 @@
                         <name>GUNCAM</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:GUNCAM01</CAMERA>
+                          <CAMERA>SPARC:CAM:GUN01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -230,7 +233,7 @@
                         <name>AC1CAM</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:AC1CAM01</CAMERA>
+                          <CAMERA>SPARC:CAM:AC101</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -238,7 +241,7 @@
                         <name>AC2CAM</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:AC2CAM01</CAMERA>
+                          <CAMERA>SPARC:CAM:AC201</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -246,64 +249,64 @@
                         <name>AC3CAM</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:AC3CAM01</CAMERA>
+                          <CAMERA>SPARC:CAM:AC301</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>PLVCAM01</name>
+                        <name>PLV01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:PLVCAM01</CAMERA>
+                          <CAMERA>SPARC:CAM:PLV01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>EOSCAM01</name>
+                        <name>EOS01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:OSCAM01</CAMERA>
+                          <CAMERA>SPARC:CAM:EOS01</CAMERA>
                           <R></R>
                         </macros>
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>EOSCAM02</name>
+                        <name>EOS02</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:OSCAM02</CAMERA>
+                          <CAMERA>SPARC:CAM:EOS02</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>UTLCAM01</name>
+                        <name>UTL01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:UTLCAM01</CAMERA>
+                          <CAMERA>SPARC:CAM:UTL01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>UTLCAM02</name>
+                        <name>UTL02</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:UTLCAM02</CAMERA>
+                          <CAMERA>SPARC:CAM:UTL02</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>THVCAM01</name>
+                        <name>THV01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:THVCAM01</CAMERA>
+                          <CAMERA>SPARC:CAM:THV01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>THVCAM02</name>
+                        <name>THV02</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:THVCAM02</CAMERA>
+                          <CAMERA>SPARC:CAM:THV02</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -316,159 +319,33 @@
                         <group_name></group_name>
                       </tab>
                       <tab>
-                        <name>PLVCAM02</name>
+                        <name>PLV02</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:PLVCAM02</CAMERA>
+                          <CAMERA>SPARC:CAM:PLV02</CAMERA>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>DGL00</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:DGL00</CAMERA>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>DGL01</name>
+                        <file>common/camera/genicam/CACAM.bob</file>
+                        <macros>
+                          <CAMERA>SPARC:CAM:DGL01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
                     </tabs>
-                    <x>2</x>
                     <y>38</y>
                     <width>560</width>
-                  </widget>
-                  <widget type="navtabs" version="2.0.0">
-                    <name>Navigation Tabs_2</name>
-                    <tabs>
-                      <tab>
-                        <name>Test ACE2</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:ACE01</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                          <MODEL>a2A2600-20gmBAS</MODEL>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>GUNCAM</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:GUNCAM01</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>AC1CAM</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:AC1CAM01</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>AC2CAM</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:AC2CAM01</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>AC3CAM</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:AC3CAM01</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>PLVCAM01</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:PLVCAM01</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>EOSCAM01</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:EOSCAM01</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>EOSCAM02</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:OSCAM02</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>UTLCAM01</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:UTLCAM01</CAMERA>
-                          <PVIMAGE>$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>UTLCAM02</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:UTLCAM02</CAMERA>
-                          <PVIMAGE>$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>THVCAM01</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:THVCAM01</CAMERA>
-                          <PVIMAGE>$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>THVCAM02</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:THVCAM02</CAMERA>
-                          <PVIMAGE>$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>TestEpics</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:TestEpics</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                          <MODEL>a2A2600-20gmBAS</MODEL>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>PLVCAM02</name>
-                        <file></file>
-                        <macros>
-                          <CAMERA>SPARC:CAM:PLVCAM02</CAMERA>
-                          <PVIMAGE>pva://$(CAMERA):PVA:OUTPUT</PVIMAGE>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                    </tabs>
-                    <x>592</x>
-                    <y>38</y>
-                    <width>560</width>
-                  </widget>
-                  <widget type="label" version="2.0.0">
-                    <name>Label_2</name>
-                    <text>Use PVA</text>
-                    <x>779</x>
-                    <y>18</y>
+                    <height>340</height>
                   </widget>
                   <widget type="label" version="2.0.0">
                     <name>Label_3</name>
@@ -974,6 +851,59 @@
                   </widget>
                 </children>
               </tab>
+              <tab>
+                <name>Temp</name>
+                <children>
+                  <widget type="picture" version="2.0.0">
+                    <name>Synoptic_4</name>
+                    <file>img/bpm-map.png</file>
+                    <width>1320</width>
+                    <height>640</height>
+                    <actions>
+                      <action type="open_display">
+                        <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
+                        <target>replace</target>
+                        <description>Open Display</description>
+                      </action>
+                    </actions>
+                  </widget>
+                  <widget type="thermometer" version="2.0.0">
+                    <name>Thermometer</name>
+                    <pv_name>SPARC:DIA:TEMP:TEST_RB</pv_name>
+                    <x>82</x>
+                    <y>238</y>
+                    <width>20</width>
+                    <height>80</height>
+                  </widget>
+                  <widget type="textupdate" version="2.0.0">
+                    <name>Text Update_2</name>
+                    <pv_name>SPARC:DIA:TEMP:TEST_RB</pv_name>
+                    <x>72</x>
+                    <y>198</y>
+                  </widget>
+                  <widget type="textupdate" version="2.0.0">
+                    <name>Text Update_4</name>
+                    <pv_name>SPARC:DIA:TEMP:TEST_MAX</pv_name>
+                    <x>139</x>
+                    <y>238</y>
+                    <tooltip>MAX</tooltip>
+                  </widget>
+                  <widget type="textupdate" version="2.0.0">
+                    <name>Text Update_5</name>
+                    <pv_name>SPARC:DIA:TEMP:TEST_AVG</pv_name>
+                    <x>119</x>
+                    <y>218</y>
+                    <tooltip>Average</tooltip>
+                  </widget>
+                  <widget type="textupdate" version="2.0.0">
+                    <name>Text Update_6</name>
+                    <pv_name>SPARC:DIA:TEMP:TEST_MIN</pv_name>
+                    <x>149</x>
+                    <y>258</y>
+                    <tooltip>MIN</tooltip>
+                  </widget>
+                </children>
+              </tab>
             </tabs>
             <x>8</x>
             <y>2</y>
@@ -992,6 +922,22 @@
       <tab>
         <name>Vacuum</name>
         <children>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update</name>
+            <pv_name>SPARC:VAC:UN1SIP01:press_RB</pv_name>
+            <x>128</x>
+            <y>132</y>
+            <width>220</width>
+            <format>5</format>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_1</name>
+            <pv_name>SPARC:VAC:KLY1SIP1:press_RB</pv_name>
+            <x>188</x>
+            <y>252</y>
+            <width>220</width>
+            <format>5</format>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -1344,7 +1290,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>6</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
