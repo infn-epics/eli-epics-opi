@@ -37,27 +37,7 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 if([System.Environment]::OSVersion.Version.Build -lt 18363) {"ATTENZIONE: Per usare lo script e' necessario aggiornare almeno a Windows 10 versione 1909 ..."; Start-Sleep -s 5; Exit}
 
 
-#!codice per attivare feature OpenSSH-Server. Commentato perché ancora da problemi. 
-#!Probabilmente manca una istruzione: il download della feature.
-#Comunque non necessario
 
-
-#$featureName = "OpenSSH-Server"
-# Abilita la feature opzionale OpenSSH Server
-#Write-Output "Abilitazione della feature opzionale $featureName..."
-#Add-WindowsCapability -Online -Name $featureName
-
-# Imposta il servizio OpenSSH Server in avvio automatico
-#Write-Output "Impostazione del servizio OpenSSH Server in avvio automatico..."
-#Set-Service -Name "sshd" -StartupType Automatic
-
-# Avvia il servizio OpenSSH Server
-#Write-Output "Avvio del servizio OpenSSH Server..."
-#Start-Service -Name "sshd"
-
-# Verifica lo stato del servizio
-#$serviceStatus = Get-Service -Name "sshd"
-#Write-Output "Lo stato del servizio OpenSSH Server è: $($serviceStatus.Status)"
 
 
 #SWITCH per installazione completa mettere tutto a true, tranne Prereq,  obsoleto 
@@ -136,11 +116,12 @@ else
 if ($installPhoebus) 
 {
 #Download di Phoebus
-	$ph_version="4.7.3"
+	$ph_version="4.7.4"
 	Write-Host "Downloading phoebus in corso..." -ForegroundColor white -BackgroundColor green
 
 	#WARNING E' meglio parametrizzare la versione anche in considerazione del rename successivo 
-	$wc.DownloadFile("https://controlssoftware.sns.ornl.gov/css_phoebus/nightly/phoebus-win.zip",$output3)
+	$wc.DownloadFile("https://opensource.lnf.infn.it/binary/epics/phoebus/windows/phoebus_last.zip",$output3)
+	@$wc.DownloadFile("https://controlssoftware.sns.ornl.gov/css_phoebus/nightly/phoebus-win.zip",$output3)
 	#$wc.DownloadFile("https://github.com/ControlSystemStudio/phoebus/releases/download/v"+$ph_version+"/phoebus-"+$ph_version+"-win.zip",$output3)
 	#https://github.com/ControlSystemStudio/phoebus/releases/download/v4.7.2/Phoebus-4.7.2-win.zip
 
@@ -149,7 +130,7 @@ if ($installPhoebus)
 	
 	Write-Host "Extracting phoebus..." -ForegroundColor white -BackgroundColor green
 	tar -xf $output3 
-	$oldName="phoebus-"+$ph_version+"-SNAPSHOT" 
+	$oldName="phoebus"+$ph_version+"-SNAPSHOT" 
 	Rename-Item -Path $oldName -NewName "Phoebus"
 	Remove-Item $output3
 }
