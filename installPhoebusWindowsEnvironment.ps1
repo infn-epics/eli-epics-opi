@@ -2,7 +2,7 @@
 $destinationPath = "C:\Users\sparc"
 # Directory temporanea
 $tempDir = $destinationPath
-
+$removedOk=$true
 # Percorso corrente dello script
 $scriptPath = $MyInvocation.MyCommand.Path
 
@@ -152,7 +152,23 @@ if ($cloneGitProject)
 		if (Test-Path $gitPath) {
 			Write-Host "Removing dir " $gitPath -ForegroundColor white -BackgroundColor green
 		# Cancella la directory
-		Remove-Item -Recurse -Force $gitPath
+		try {
+				Remove-Item -Recurse -Force $gitPath
+				if (Test-Path $gitPath) {
+					$removedOk=$false
+					
+					Write-Host "Some software is blocking some file into the git folder to update. Probably some Phoebus GUI" -ForegroundColor black -BackgroundColor red
+					Write-Host "Please stop any Phoebus instance and try to rerun this script that you will find in "$destinationPath -ForegroundColor black -BackgroundColor red
+				}
+				else {
+					Write-Output "Cartella rimossa con successo."
+				}
+				
+			} catch {
+				Write-Error "Errore durante la rimozione della cartella: $_"
+				$removedOk=$false
+			}
+		
 		}
 		Write-Host "Cloning git project.." -ForegroundColor white -BackgroundColor green
 		git clone https://baltig.infn.it/lnf-da-control/epik8-sparc.git --recurse-submodule
@@ -250,7 +266,10 @@ else
 }
 
 Write-Host("Installazione completata")
-Remove-Item $tempScriptPath -Force
+if ($removedOk)
+{
+	Remove-Item $tempScriptPath -Force
+}
 #Impedisci la chiusura powershell in attesa di input utente 
 Read-Host
 
