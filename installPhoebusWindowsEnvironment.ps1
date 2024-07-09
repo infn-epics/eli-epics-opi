@@ -121,7 +121,7 @@ if ($installPhoebus)
 
 	#WARNING E' meglio parametrizzare la versione anche in considerazione del rename successivo 
 	$wc.DownloadFile("https://opensource.lnf.infn.it/binary/epics/phoebus/windows/phoebus_last.zip",$output3)
-	@$wc.DownloadFile("https://controlssoftware.sns.ornl.gov/css_phoebus/nightly/phoebus-win.zip",$output3)
+	#$wc.DownloadFile("https://controlssoftware.sns.ornl.gov/css_phoebus/nightly/phoebus-win.zip",$output3)
 	#$wc.DownloadFile("https://github.com/ControlSystemStudio/phoebus/releases/download/v"+$ph_version+"/phoebus-"+$ph_version+"-win.zip",$output3)
 	#https://github.com/ControlSystemStudio/phoebus/releases/download/v4.7.2/Phoebus-4.7.2-win.zip
 
@@ -130,7 +130,7 @@ if ($installPhoebus)
 	
 	Write-Host "Extracting phoebus..." -ForegroundColor white -BackgroundColor green
 	tar -xf $output3 
-	$oldName="phoebus"+$ph_version+"-SNAPSHOT" 
+	$oldName="product-"+$ph_version+"-SNAPSHOT" 
 	Rename-Item -Path $oldName -NewName "Phoebus"
 	Remove-Item $output3
 }
