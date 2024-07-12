@@ -886,7 +886,7 @@ print 'Done']]></text>
                     <x>39</x>
                     <y>137</y>
                     <width>200</width>
-                    <height>151</height>
+                    <height>120</height>
                     <widget type="combo" version="2.0.0">
                       <name>Combo Box</name>
                       <pv_name>SPARC:ORBIT:CMD</pv_name>
@@ -895,21 +895,9 @@ print 'Done']]></text>
                     </widget>
                     <widget type="label" version="2.0.0">
                       <name>Label_1</name>
-                      <text>Orbit Mode</text>
+                      <text>Obit Mode</text>
                       <x>2</x>
                       <y>13</y>
-                    </widget>
-                    <widget type="textentry" version="3.0.0">
-                      <name>Text Entry</name>
-                      <pv_name>SPARC:ORBIT:HIST</pv_name>
-                      <x>5</x>
-                      <y>90</y>
-                    </widget>
-                    <widget type="label" version="2.0.0">
-                      <name>Label_2</name>
-                      <text>Orbit History</text>
-                      <x>3</x>
-                      <y>73</y>
                     </widget>
                   </widget>
                 </children>
@@ -972,7 +960,7 @@ print 'Done']]></text>
             <y>2</y>
             <width>1880</width>
             <height>710</height>
-            <active_tab>3</active_tab>
+            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
