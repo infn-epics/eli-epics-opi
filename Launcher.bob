@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-12 12:11:21 by Alex-->
+<!--Saved on 2024-07-12 17:57:50 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -886,7 +886,7 @@ print 'Done']]></text>
                     <x>39</x>
                     <y>137</y>
                     <width>200</width>
-                    <height>120</height>
+                    <height>151</height>
                     <widget type="combo" version="2.0.0">
                       <name>Combo Box</name>
                       <pv_name>SPARC:ORBIT:CMD</pv_name>
@@ -895,9 +895,28 @@ print 'Done']]></text>
                     </widget>
                     <widget type="label" version="2.0.0">
                       <name>Label_1</name>
-                      <text>Obit Mode</text>
+                      <text>Orbit Mode</text>
                       <x>2</x>
                       <y>13</y>
+                    </widget>
+                    <widget type="textentry" version="3.0.0">
+                      <name>Text Update_3</name>
+                      <pv_name>SPARC:ORBIT:HIST</pv_name>
+                      <x>5</x>
+                      <y>93</y>
+                      <height>30</height>
+                      <background_color>
+                        <color name="Read_Background" red="240" green="240" blue="240">
+                        </color>
+                      </background_color>
+                      <vertical_alignment>0</vertical_alignment>
+                      <wrap_words>true</wrap_words>
+                    </widget>
+                    <widget type="label" version="2.0.0">
+                      <name>Label_2</name>
+                      <text>Orbit History</text>
+                      <x>5</x>
+                      <y>78</y>
                     </widget>
                   </widget>
                 </children>
@@ -960,7 +979,7 @@ print 'Done']]></text>
             <y>2</y>
             <width>1880</width>
             <height>710</height>
-            <active_tab>1</active_tab>
+            <active_tab>3</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1341,6 +1360,7 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
