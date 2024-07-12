@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-12 17:57:50 by andreamichelotti-->
+<!--Saved on 2024-07-12 18:39:47 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -1352,6 +1352,42 @@ print 'Done']]></text>
           </widget>
         </children>
       </tab>
+      <tab>
+        <name>Applications</name>
+        <children>
+          <widget type="tabs" version="2.0.0">
+            <name>ApplicationsTab</name>
+            <tabs>
+              <tab>
+                <name>Jupyther Notebook</name>
+                <children>
+                  <widget type="webbrowser" version="2.0.0">
+                    <name>Web Browser</name>
+                    <url>http://sparc-notebook.apps.okd-datest.lnf.infn.it/lab</url>
+                    <width>1830</width>
+                    <height>920</height>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>Epics Archiver</name>
+                <children>
+                  <widget type="webbrowser" version="2.0.0">
+                    <name>Archiver</name>
+                    <url>http://sparc-archiver.apps.okd-datest.lnf.infn.it/mgmt/ui/index.html</url>
+                    <width>1830</width>
+                    <height>920</height>
+                  </widget>
+                </children>
+              </tab>
+            </tabs>
+            <width>1888</width>
+            <height>936</height>
+            <active_tab>1</active_tab>
+            <direction>1</direction>
+          </widget>
+        </children>
+      </tab>
     </tabs>
     <y>50</y>
     <width>1900</width>
@@ -1360,7 +1396,7 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
+    <active_tab>7</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
