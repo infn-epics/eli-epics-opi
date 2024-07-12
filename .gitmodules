@@ -19,3 +19,6 @@
 [submodule "RF/sparc-rf-opi"]
 	path = RF/sparc-rf-opi
 	url = https://baltig.infn.it/lnf-da-control/sparc-rf-opi.git
+[submodule "matlab-routines/matlab_sparcroutines"]
+	path = matlab-routines/matlab_sparcroutines
+	url = https://baltig.infn.it/pompilir/matlab_sparcroutines.git
