@@ -1,0 +1,16 @@
+---
+- name: Perform git update on directories
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Disable host key checking
+      set_fact:
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    - name: Update git repositories
+      raw: |
+        cd {{ item }} && git pull --recurse-submodule && git submodule update --init
+      with_items:
+        - epik8-sparc
+        - epik8-sparc/opi
+        - epik8-sparc/RF/sparc-rf-opi
+
