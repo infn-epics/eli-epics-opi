@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-12 18:39:47 by andreamichelotti-->
+<!--Saved on 2024-07-12 23:06:10 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -1380,10 +1380,22 @@ print 'Done']]></text>
                   </widget>
                 </children>
               </tab>
+              <tab>
+                <name>MatLab </name>
+                <children>
+                </children>
+              </tab>
+              <tab>
+                <name>Labview</name>
+                <children>
+                </children>
+              </tab>
             </tabs>
-            <width>1888</width>
-            <height>936</height>
-            <active_tab>1</active_tab>
+            <x>18</x>
+            <y>2</y>
+            <width>1870</width>
+            <height>926</height>
+            <active_tab>-1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
