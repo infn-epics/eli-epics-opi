@@ -8,4 +8,4 @@ deploy_stage:
   image: alpinelinux/ansible
   script:
     - cd ansible
-    - ansible-playbook -i console_list.ini gitupdate.yaml --ask-pass < ${SPARC_UPDATE}
+    - ansible-playbook -i console_list.ini gitupdate.yaml
