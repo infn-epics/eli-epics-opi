@@ -1,0 +1,11 @@
+stages:
+    - deploy
+
+deploy_stage:
+  tags:
+    - lnf
+  stage: deploy
+  image: ansible/ansible
+  script:
+    - cd ansible
+    - ansible-playbook -i console_list.ini gitupdate.yaml --ask-pass < ${SPARC_UPDATE}
