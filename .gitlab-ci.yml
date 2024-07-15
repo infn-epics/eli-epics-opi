@@ -7,5 +7,6 @@ deploy_stage:
   stage: deploy
   image: alpinelinux/ansible
   script:
+    - apk add sshpass
     - cd ansible
     - ansible-playbook -i console_list.ini gitupdate.yaml
