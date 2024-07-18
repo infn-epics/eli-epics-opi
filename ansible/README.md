@@ -9,8 +9,17 @@ ssh-copy-id sparc@<console>
 
 ```
 
-## Execution:
+## Update:
 ```
 ansible-playbook -i console_list.ini gitupdate.yaml --ask-pass
+or 
+ansible-playbook -i console_list.ini --limit pwsparcco004.lnf.infn.it gitupdate.yaml 
+```
 
+## Clone and Restart:
+This ansible make a fresh clone and restart phoebus automatically
+```
+ansible-playbook -i console_list.ini gitupdateWindows.yaml --ask-pass
+or 
+ansible-playbook -i console_list.ini --limit pwsparcco004.lnf.infn.it gitupdateWindows.yaml
 ```
