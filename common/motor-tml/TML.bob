@@ -11,8 +11,8 @@
   <actions>
   </actions>
   <scripts>
-    <script file="Scripts/LoadMotors.py" check_connections="false">
-      <pv_name trigger="false">loc://FileName_$(DID)&lt;VString&gt;($(MOTORFILE=nomotor.list))</pv_name>
+    <script file="Scripts/LoadDevice.py" check_connections="false">
+      <pv_name trigger="false">loc://FileName_$(DID)&lt;VString&gt;($(CONFFILE=nomotor.list))</pv_name>
     </script>
   </scripts>
   <grid_step_x>5</grid_step_x>

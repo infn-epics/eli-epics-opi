@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-12 23:33:41 by andreamichelotti-->
+<!--Saved on 2024-07-18 09:26:17 by andreamichelotti-->
 <display version="2.0.0">
   <width>370</width>
   <height>320</height>
@@ -17,7 +17,7 @@
     <x>8</x>
     <y>50</y>
     <width>63</width>
-    <height>14</height>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -45,7 +45,7 @@
     <x>25</x>
     <y>90</y>
     <width>55</width>
-    <height>14</height>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -146,7 +146,7 @@
     <x>5</x>
     <y>130</y>
     <width>66</width>
-    <height>14</height>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -172,9 +172,9 @@
     <name>Label Template_3</name>
     <text>Jog Speed</text>
     <x>28</x>
-    <y>210</y>
+    <y>166</y>
     <width>54</width>
-    <height>14</height>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -200,9 +200,9 @@
     <name>Label Template_4</name>
     <text>Jog Accl.</text>
     <x>45</x>
-    <y>250</y>
+    <y>206</y>
     <width>46</width>
-    <height>14</height>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -390,7 +390,7 @@
     <name>Text Input Template_3</name>
     <pv_name>$(DEVICE):JVEL_SP</pv_name>
     <x>122</x>
-    <y>207</y>
+    <y>163</y>
     <width>116</width>
     <height>26</height>
     <font>
@@ -414,7 +414,7 @@
     <name>Text Update Template_3</name>
     <pv_name>$(DEVICE):JVEL_RB</pv_name>
     <x>246</x>
-    <y>206</y>
+    <y>162</y>
     <width>118</width>
     <height>28</height>
     <font>
@@ -444,7 +444,7 @@
     <name>Text Input Template_4</name>
     <pv_name>$(DEVICE):JAR_SP</pv_name>
     <x>122</x>
-    <y>247</y>
+    <y>203</y>
     <width>116</width>
     <height>26</height>
     <font>
@@ -468,90 +468,7 @@
     <name>Text Update Template_4</name>
     <pv_name>$(DEVICE):JAR_RB</pv_name>
     <x>246</x>
-    <y>246</y>
-    <width>118</width>
-    <height>28</height>
-    <font>
-      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-      </font>
-    </font>
-    <foreground_color>
-      <color name="IO Foreground" red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color name="IO Grid" red="215" green="215" blue="215">
-      </color>
-    </background_color>
-    <horizontal_alignment>1</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <wrap_words>false</wrap_words>
-    <actions>
-    </actions>
-    <border_width>1</border_width>
-    <border_color>
-      <color name="IO PV OFF" red="77" green="77" blue="77">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label Template_5</name>
-    <text>Home Accl.</text>
-    <x>22</x>
-    <y>170</y>
-    <width>58</width>
-    <height>14</height>
-    <font>
-      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
-      </font>
-    </font>
-    <foreground_color>
-      <color name="IO Foreground" red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color name="IO Background" red="255" green="255" blue="205">
-      </color>
-    </background_color>
-    <vertical_alignment>1</vertical_alignment>
-    <auto_size>true</auto_size>
-    <actions>
-    </actions>
-    <tooltip>Home Acceleration</tooltip>
-    <border_color>
-      <color name="IO Border" red="215" green="215" blue="215">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="textentry" version="3.0.0">
-    <name>Text Input Template_5</name>
-    <pv_name>$(DEVICE):VAL_SP</pv_name>
-    <x>122</x>
-    <y>167</y>
-    <width>116</width>
-    <height>26</height>
-    <font>
-      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
-      </font>
-    </font>
-    <foreground_color>
-      <color name="IO PV OFF" red="77" green="77" blue="77">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color name="IO InputPV Bg" red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <horizontal_alignment>1</horizontal_alignment>
-    <actions>
-    </actions>
-    <border_width>2</border_width>
-  </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>Text Update Template_5</name>
-    <pv_name>$(DEVICE):VAL_RB</pv_name>
-    <x>246</x>
-    <y>166</y>
+    <y>202</y>
     <width>118</width>
     <height>28</height>
     <font>
