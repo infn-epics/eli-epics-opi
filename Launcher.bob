@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-12 23:06:10 by andreamichelotti-->
+<!--Saved on 2024-07-23 11:17:18 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -987,6 +987,14 @@ print 'Done']]></text>
       <tab>
         <name>Magnets</name>
         <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_18</name>
+            <file>MAG/mag-opi/MagnetsTabs.bob</file>
+            <x>8</x>
+            <y>12</y>
+            <width>1270</width>
+            <height>924</height>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -1395,7 +1403,6 @@ print 'Done']]></text>
             <y>2</y>
             <width>1870</width>
             <height>926</height>
-            <active_tab>-1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1408,7 +1415,7 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>7</active_tab>
+    <active_tab>3</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>

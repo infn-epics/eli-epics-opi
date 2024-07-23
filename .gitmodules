@@ -25,3 +25,6 @@
 [submodule "common/motor-tml"]
 	path = common/motor-tml
 	url = https://baltig.infn.it/infn-epics/motor-tml-opi.git
+[submodule "MAG/mag-opi"]
+	path = MAG/mag-opi
+	url = https://baltig.infn.it/infn-epics/mag-opi.git
