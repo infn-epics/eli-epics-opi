@@ -29,3 +29,6 @@
 [submodule "MAG/mag-opi"]
 	path = MAG/mag-opi
 	url = https://baltig.infn.it/infn-epics/mag-opi.git
+[submodule "common/icpdas-opi"]
+	path = common/icpdas-opi
+	url = https://baltig.infn.it/infn-epics/icpdas-opi.git

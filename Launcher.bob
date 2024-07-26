@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-23 11:17:18 by andreamichelotti-->
+<!--Saved on 2024-07-26 18:09:42 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -1358,6 +1358,44 @@ print 'Done']]></text>
             <y>272</y>
             <tooltip>$(actions)</tooltip>
           </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>TESTSHUTTER</name>
+            <actions>
+              <action type="open_display">
+                <file>common/icpdas-opi/icp7026.bob</file>
+                <macros>
+                  <P>SPARC:LASER</P>
+                  <R>SHUTTER</R>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>TEST icp7026</text>
+            <x>558</x>
+            <y>102</y>
+            <width>140</width>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>TESTSHUTTER_1</name>
+            <actions>
+              <action type="open_display">
+                <file>common/icpdas-opi/icp7215.bob</file>
+                <macros>
+                  <P>SPARC</P>
+                  <R>TEMP</R>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>TEST icp7215</text>
+            <x>558</x>
+            <y>52</y>
+            <width>140</width>
+            <tooltip>$(actions)</tooltip>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -1415,7 +1453,7 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>3</active_tab>
+    <active_tab>6</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
