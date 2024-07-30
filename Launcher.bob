@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-26 22:38:15 by andreamichelotti-->
+<!--Saved on 2024-07-30 14:12:59 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -132,6 +132,7 @@ print 'Done']]></text>
                   <widget type="picture" version="2.0.0">
                     <name>Synoptic_2</name>
                     <file>img/bpm-map.png</file>
+                    <x>2</x>
                     <y>18</y>
                     <width>1320</width>
                     <height>640</height>
@@ -222,7 +223,7 @@ print 'Done']]></text>
                         <file>common/motor-tml/TML.bob</file>
                         <macros>
                           <PREFIX>SPARC:TML:CH1:</PREFIX>
-                          <MOTORFILE>sparc_mot_ch1.list</MOTORFILE>
+                          <CONFFILE>sparc_mot_ch1.list</CONFFILE>
                         </macros>
                         <target>window</target>
                         <description>Motor Controller CH1</description>
@@ -233,6 +234,22 @@ print 'Done']]></text>
                     <width>70</width>
                     <height>60</height>
                     <tooltip>$(actions)</tooltip>
+                  </widget>
+                  <widget type="template" version="2.0.0">
+                    <name>Template/Instance</name>
+                    <x>192</x>
+                    <y>138</y>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_20</name>
+                    <macros>
+                      <PREFIX>SPARC:TML:CH1</PREFIX>
+                      <CONFFILE>sparc_mot_ch1.list</CONFFILE>
+                    </macros>
+                    <file>common/motor-tml/motor-array-Main.bob</file>
+                    <x>132</x>
+                    <y>88</y>
+                    <height>360</height>
                   </widget>
                 </children>
               </tab>
@@ -979,7 +996,6 @@ print 'Done']]></text>
             <y>2</y>
             <width>1880</width>
             <height>710</height>
-            <active_tab>3</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1453,7 +1469,7 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>6</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
