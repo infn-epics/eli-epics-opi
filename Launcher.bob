@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-07-30 19:48:06 by andreamichelotti-->
+<!--Saved on 2024-10-06 01:03:56 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -284,9 +284,9 @@ print 'Done']]></text>
                       <action type="open_display">
                         <file>common/camera/Camera.bob</file>
                         <macros>
-                          <DEVICE>LEL:SCN01</DEVICE>
+                          <DEVICE>LEL</DEVICE>
                           <CAM></CAM>
-                          <CONFFILE>cam.ini</CONFFILE>
+                          <CONFFILE>cam_list.ini</CONFFILE>
                         </macros>
                         <target>window</target>
                         <description>Camera APP</description>
@@ -1018,6 +1018,7 @@ print 'Done']]></text>
             <y>2</y>
             <width>1880</width>
             <height>710</height>
+            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1496,7 +1497,7 @@ print 'Done']]></text>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>Label</class>
-    <text>BTF CONTROL SYSTEM</text>
+    <text>ELI CONTROL SYSTEM</text>
     <width>590</width>
     <height>40</height>
     <font>
