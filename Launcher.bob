@@ -147,7 +147,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>FLAG-AC1FLG01IN_3</name>
                     <macros>
-                      <DEVICE>SPARC:CH1:AC1FLG01</DEVICE>
+                      <DEVICE>LEL:CH1:AC1FLG01</DEVICE>
                     </macros>
                     <file>common/pymotflag.bob</file>
                     <x>40</x>
@@ -159,7 +159,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>FLAG-AC1FLG01IN_1</name>
                     <macros>
-                      <DEVICE>SPARC:CH1:AC2FLG01</DEVICE>
+                      <DEVICE>LEL:CH1:AC2FLG01</DEVICE>
                     </macros>
                     <file>common/pymotflag.bob</file>
                     <x>150</x>
@@ -171,7 +171,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>FLAG-AC1FLG01IN_2</name>
                     <macros>
-                      <DEVICE>SPARC:CH1:AC3FLG03</DEVICE>
+                      <DEVICE>LEL:CH1:AC3FLG03</DEVICE>
                     </macros>
                     <file>common/pymotflag.bob</file>
                     <x>260</x>
@@ -183,7 +183,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>FLAG-AC1FLG01IN_4</name>
                     <macros>
-                      <DEVICE>SPARC:CH1:GUNFLG01</DEVICE>
+                      <DEVICE>LEL:CH1:GUNFLG01</DEVICE>
                     </macros>
                     <file>common/pymotflag.bob</file>
                     <x>370</x>
@@ -195,7 +195,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>FLAG-AC1FLG01IN_5</name>
                     <macros>
-                      <DEVICE>SPARC:CH1:UTLFLG01</DEVICE>
+                      <DEVICE>LEL:CH1:UTLFLG01</DEVICE>
                     </macros>
                     <file>common/pymotflag.bob</file>
                     <x>480</x>
@@ -207,7 +207,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>FLAG-AC1FLG01IN_6</name>
                     <macros>
-                      <DEVICE>SPARC:CH1:UTLFLG02</DEVICE>
+                      <DEVICE>LEL:CH1:UTLFLG02</DEVICE>
                     </macros>
                     <file>common/pymotflag.bob</file>
                     <x>590</x>
@@ -222,8 +222,8 @@ print 'Done']]></text>
                       <action type="open_display">
                         <file>common/motor-tml/TML.bob</file>
                         <macros>
-                          <PREFIX>SPARC:TML:CH1:</PREFIX>
-                          <CONFFILE>sparc_mot_ch1.list</CONFFILE>
+                          <PREFIX>LEL:TML:CH1:</PREFIX>
+                          <CONFFILE>mot.list</CONFFILE>
                         </macros>
                         <target>window</target>
                         <description>Motor Controller CH1</description>
@@ -243,7 +243,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_20</name>
                     <macros>
-                      <PREFIX>SPARC:TML:CH1</PREFIX>
+                      <PREFIX>LEL:TML:CH1</PREFIX>
                       <CONFFILE>sparc_mot_ch1.list</CONFFILE>
                     </macros>
                     <file>common/motor-tml/motor-array-Main.bob</file>
@@ -254,7 +254,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_21</name>
                     <macros>
-                      <PREFIX>SPARC:TML:CH2</PREFIX>
+                      <PREFIX>LEL:TML:CH2</PREFIX>
                       <CONFFILE>sparc_mot_ch2.list</CONFFILE>
                     </macros>
                     <file>common/motor-tml/motor-array-Main.bob</file>
@@ -265,7 +265,7 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_22</name>
                     <macros>
-                      <PREFIX>SPARC:TML:CH3</PREFIX>
+                      <PREFIX>LEL:TML:CH3</PREFIX>
                       <CONFFILE>sparc_mot_ch3.list</CONFFILE>
                     </macros>
                     <file>common/motor-tml/motor-array-Main.bob</file>
@@ -284,9 +284,9 @@ print 'Done']]></text>
                       <action type="open_display">
                         <file>common/camera/Camera.bob</file>
                         <macros>
-                          <DEVICE>SPARC:CAM</DEVICE>
+                          <DEVICE>LEL:SCN01</DEVICE>
                           <CAM></CAM>
-                          <CONFFILE>sparc_cam.ini</CONFFILE>
+                          <CONFFILE>cam.ini</CONFFILE>
                         </macros>
                         <target>window</target>
                         <description>Camera APP</description>
@@ -306,7 +306,7 @@ print 'Done']]></text>
                         <name>Test ACE2</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:ACE01</CAMERA>
+                          <CAMERA>LEL:CAM:ACE01</CAMERA>
                           <R></R>
                         </macros>
                         <group_name></group_name>
@@ -315,7 +315,7 @@ print 'Done']]></text>
                         <name>GUNCAM</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:GUN01</CAMERA>
+                          <CAMERA>LEL:CAM:GUN01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -323,7 +323,7 @@ print 'Done']]></text>
                         <name>AC1CAM</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:AC101</CAMERA>
+                          <CAMERA>LEL:CAM:AC101</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -331,7 +331,7 @@ print 'Done']]></text>
                         <name>AC2CAM</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:AC201</CAMERA>
+                          <CAMERA>LEL:CAM:AC201</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -339,7 +339,7 @@ print 'Done']]></text>
                         <name>AC3CAM</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:AC301</CAMERA>
+                          <CAMERA>LEL:CAM:AC301</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -347,7 +347,7 @@ print 'Done']]></text>
                         <name>PLV01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:PLV01</CAMERA>
+                          <CAMERA>LEL:CAM:PLV01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -355,7 +355,7 @@ print 'Done']]></text>
                         <name>EOS01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:EOS01</CAMERA>
+                          <CAMERA>LEL:CAM:EOS01</CAMERA>
                           <R></R>
                         </macros>
                         <group_name></group_name>
@@ -364,7 +364,7 @@ print 'Done']]></text>
                         <name>EOS02</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:EOS02</CAMERA>
+                          <CAMERA>LEL:CAM:EOS02</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -372,7 +372,7 @@ print 'Done']]></text>
                         <name>UTL01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:UTL01</CAMERA>
+                          <CAMERA>LEL:CAM:UTL01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -380,7 +380,7 @@ print 'Done']]></text>
                         <name>UTL02</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:UTL02</CAMERA>
+                          <CAMERA>LEL:CAM:UTL02</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -388,7 +388,7 @@ print 'Done']]></text>
                         <name>THV01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:THV01</CAMERA>
+                          <CAMERA>LEL:CAM:THV01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -396,7 +396,7 @@ print 'Done']]></text>
                         <name>THV02</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:THV02</CAMERA>
+                          <CAMERA>LEL:CAM:THV02</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -404,7 +404,7 @@ print 'Done']]></text>
                         <name>TestEpics</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:TestEpics</CAMERA>
+                          <CAMERA>LEL:CAM:TestEpics</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -412,7 +412,7 @@ print 'Done']]></text>
                         <name>PLV02</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:PLV02</CAMERA>
+                          <CAMERA>LEL:CAM:PLV02</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -420,7 +420,7 @@ print 'Done']]></text>
                         <name>DGL00</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:DGL00</CAMERA>
+                          <CAMERA>LEL:CAM:DGL00</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -428,7 +428,7 @@ print 'Done']]></text>
                         <name>DGL01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>SPARC:CAM:DGL01</CAMERA>
+                          <CAMERA>LEL:CAM:DGL01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
@@ -907,7 +907,7 @@ print 'Done']]></text>
                       <action type="open_display">
                         <file>diag/orbit/orbitSingle.bob</file>
                         <macros>
-                          <P>$(P=SPARC:ORBIT)</P>
+                          <P>$(P=LEL:ORBIT)</P>
                         </macros>
                         <target>window</target>
                         <description>Open Display</description>
@@ -928,7 +928,7 @@ print 'Done']]></text>
                     <height>151</height>
                     <widget type="combo" version="2.0.0">
                       <name>Combo Box</name>
-                      <pv_name>SPARC:ORBIT:CMD</pv_name>
+                      <pv_name>LEL:ORBIT:CMD</pv_name>
                       <x>2</x>
                       <y>33</y>
                     </widget>
@@ -940,7 +940,7 @@ print 'Done']]></text>
                     </widget>
                     <widget type="textentry" version="3.0.0">
                       <name>Text Update_3</name>
-                      <pv_name>SPARC:ORBIT:HIST</pv_name>
+                      <pv_name>LEL:ORBIT:HIST</pv_name>
                       <x>5</x>
                       <y>93</y>
                       <height>30</height>
@@ -978,7 +978,7 @@ print 'Done']]></text>
                   </widget>
                   <widget type="thermometer" version="2.0.0">
                     <name>Thermometer</name>
-                    <pv_name>SPARC:DIA:TEMP:TEST_RB</pv_name>
+                    <pv_name>LEL:DIA:TEMP:TEST_RB</pv_name>
                     <x>82</x>
                     <y>238</y>
                     <width>20</width>
@@ -986,27 +986,27 @@ print 'Done']]></text>
                   </widget>
                   <widget type="textupdate" version="2.0.0">
                     <name>Text Update_2</name>
-                    <pv_name>SPARC:DIA:TEMP:TEST_RB</pv_name>
+                    <pv_name>LEL:DIA:TEMP:TEST_RB</pv_name>
                     <x>72</x>
                     <y>198</y>
                   </widget>
                   <widget type="textupdate" version="2.0.0">
                     <name>Text Update_4</name>
-                    <pv_name>SPARC:DIA:TEMP:TEST_MAX</pv_name>
+                    <pv_name>LEL:DIA:TEMP:TEST_MAX</pv_name>
                     <x>139</x>
                     <y>238</y>
                     <tooltip>MAX</tooltip>
                   </widget>
                   <widget type="textupdate" version="2.0.0">
                     <name>Text Update_5</name>
-                    <pv_name>SPARC:DIA:TEMP:TEST_AVG</pv_name>
+                    <pv_name>LEL:DIA:TEMP:TEST_AVG</pv_name>
                     <x>119</x>
                     <y>218</y>
                     <tooltip>Average</tooltip>
                   </widget>
                   <widget type="textupdate" version="2.0.0">
                     <name>Text Update_6</name>
-                    <pv_name>SPARC:DIA:TEMP:TEST_MIN</pv_name>
+                    <pv_name>LEL:DIA:TEMP:TEST_MIN</pv_name>
                     <x>149</x>
                     <y>258</y>
                     <tooltip>MIN</tooltip>
@@ -1040,7 +1040,7 @@ print 'Done']]></text>
         <children>
           <widget type="textupdate" version="2.0.0">
             <name>Text Update</name>
-            <pv_name>SPARC:VAC:UN1SIP01:press_RB</pv_name>
+            <pv_name>LEL:VAC:UN1SIP01:press_RB</pv_name>
             <x>128</x>
             <y>132</y>
             <width>220</width>
@@ -1048,7 +1048,7 @@ print 'Done']]></text>
           </widget>
           <widget type="textupdate" version="2.0.0">
             <name>Text Update_1</name>
-            <pv_name>SPARC:VAC:KLY1SIP1:press_RB</pv_name>
+            <pv_name>LEL:VAC:KLY1SIP1:press_RB</pv_name>
             <x>188</x>
             <y>252</y>
             <width>220</width>
@@ -1121,7 +1121,7 @@ print 'Done']]></text>
               <action type="open_display">
                 <file>diag/orbit/orbit.bob</file>
                 <macros>
-                  <P>$(P=SPARC:ORBIT)</P>
+                  <P>$(P=LEL:ORBIT)</P>
                 </macros>
                 <target>window</target>
                 <description>Open Display</description>
@@ -1319,7 +1319,7 @@ print 'Done']]></text>
               <action type="open_display">
                 <file>common/motor/motorx.bob</file>
                 <macros>
-                  <P>SPARC:MOT:VITARA01:</P>
+                  <P>LEL:MOT:VITARA01:</P>
                   <M>m0</M>
                 </macros>
                 <target>window</target>
@@ -1337,7 +1337,7 @@ print 'Done']]></text>
               <action type="open_display">
                 <file>RF/menloOpi/synchro/SyncroTheta_Main.bob</file>
                 <macros>
-                  <DEVICE>SPARC:MENLO:SYNCTHETA</DEVICE>
+                  <DEVICE>LEL:MENLO:SYNCTHETA</DEVICE>
                 </macros>
                 <target>window</target>
                 <description>Menlo Theta</description>
@@ -1353,7 +1353,7 @@ print 'Done']]></text>
               <action type="open_display">
                 <file>RF/menloOpi/lac/LAC1550_Main.bob</file>
                 <macros>
-                  <DEVICE>SPARC:MENLO:LAC</DEVICE>
+                  <DEVICE>LEL:MENLO:LAC</DEVICE>
                 </macros>
                 <target>window</target>
                 <description>Menlo LAC</description>
@@ -1369,7 +1369,7 @@ print 'Done']]></text>
               <action type="open_display">
                 <file>RF/menloOpi/lfc/LFC_Main.bob</file>
                 <macros>
-                  <DEVICE>SPARC:MENLO:SYNCOMO</DEVICE>
+                  <DEVICE>LEL:MENLO:SYNCOMO</DEVICE>
                 </macros>
                 <target>window</target>
                 <description>Menlo OMO</description>
@@ -1402,7 +1402,7 @@ print 'Done']]></text>
               <action type="open_display">
                 <file>common/icpdas-opi/icp7026.bob</file>
                 <macros>
-                  <P>SPARC:LASER</P>
+                  <P>LEL:LASER</P>
                   <R>SHUTTER</R>
                 </macros>
                 <target>window</target>
@@ -1421,7 +1421,7 @@ print 'Done']]></text>
               <action type="open_display">
                 <file>common/icpdas-opi/icp7215.bob</file>
                 <macros>
-                  <P>SPARC:DIA</P>
+                  <P>LEL:DIA</P>
                   <R>TEMP</R>
                 </macros>
                 <target>window</target>
@@ -1496,7 +1496,7 @@ print 'Done']]></text>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>Label</class>
-    <text>SPARC CONTROL SYSTEM</text>
+    <text>BTF CONTROL SYSTEM</text>
     <width>590</width>
     <height>40</height>
     <font>
