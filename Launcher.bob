@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-06 01:03:56 by andreamichelotti-->
+<!--Saved on 2024-10-06 18:25:00 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -144,7 +144,6 @@ print 'Done']]></text>
                       </action>
                     </actions>
                   </widget>
-
                   <widget type="action_button" version="3.0.0">
                     <name>MotorController</name>
                     <actions>
@@ -180,7 +179,6 @@ print 'Done']]></text>
                     <y>88</y>
                     <height>360</height>
                   </widget>
-                  
                 </children>
               </tab>
               <tab>
@@ -211,132 +209,11 @@ print 'Done']]></text>
                     <name>Navigation Tabs_1</name>
                     <tabs>
                       <tab>
-                        <name>Test ACE2</name>
+                        <name>SCN01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>LEL:CAM:ACE01</CAMERA>
+                          <CAMERA>LEL:SCN01:CAM01</CAMERA>
                           <R></R>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>GUNCAM</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:GUN01</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>AC1CAM</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:AC101</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>AC2CAM</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:AC201</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>AC3CAM</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:AC301</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>PLV01</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:PLV01</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>EOS01</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:EOS01</CAMERA>
-                          <R></R>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>EOS02</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:EOS02</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>UTL01</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:UTL01</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>UTL02</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:UTL02</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>THV01</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:THV01</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>THV02</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:THV02</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>TestEpics</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:TestEpics</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>PLV02</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:PLV02</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>DGL00</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:DGL00</CAMERA>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>DGL01</name>
-                        <file>common/camera/genicam/CACAM.bob</file>
-                        <macros>
-                          <CAMERA>LEL:CAM:DGL01</CAMERA>
                         </macros>
                         <group_name></group_name>
                       </tab>
