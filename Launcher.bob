@@ -144,86 +144,15 @@ print 'Done']]></text>
                       </action>
                     </actions>
                   </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>FLAG-AC1FLG01IN_3</name>
-                    <macros>
-                      <DEVICE>LEL:CH1:AC1FLG01</DEVICE>
-                    </macros>
-                    <file>common/pymotflag.bob</file>
-                    <x>40</x>
-                    <y>460</y>
-                    <width>100</width>
-                    <height>110</height>
-                    <resize>1</resize>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>FLAG-AC1FLG01IN_1</name>
-                    <macros>
-                      <DEVICE>LEL:CH1:AC2FLG01</DEVICE>
-                    </macros>
-                    <file>common/pymotflag.bob</file>
-                    <x>150</x>
-                    <y>458</y>
-                    <width>100</width>
-                    <height>110</height>
-                    <resize>1</resize>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>FLAG-AC1FLG01IN_2</name>
-                    <macros>
-                      <DEVICE>LEL:CH1:AC3FLG03</DEVICE>
-                    </macros>
-                    <file>common/pymotflag.bob</file>
-                    <x>260</x>
-                    <y>458</y>
-                    <width>100</width>
-                    <height>110</height>
-                    <resize>1</resize>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>FLAG-AC1FLG01IN_4</name>
-                    <macros>
-                      <DEVICE>LEL:CH1:GUNFLG01</DEVICE>
-                    </macros>
-                    <file>common/pymotflag.bob</file>
-                    <x>370</x>
-                    <y>458</y>
-                    <width>100</width>
-                    <height>110</height>
-                    <resize>1</resize>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>FLAG-AC1FLG01IN_5</name>
-                    <macros>
-                      <DEVICE>LEL:CH1:UTLFLG01</DEVICE>
-                    </macros>
-                    <file>common/pymotflag.bob</file>
-                    <x>480</x>
-                    <y>458</y>
-                    <width>100</width>
-                    <height>110</height>
-                    <resize>1</resize>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>FLAG-AC1FLG01IN_6</name>
-                    <macros>
-                      <DEVICE>LEL:CH1:UTLFLG02</DEVICE>
-                    </macros>
-                    <file>common/pymotflag.bob</file>
-                    <x>590</x>
-                    <y>458</y>
-                    <width>100</width>
-                    <height>110</height>
-                    <resize>1</resize>
-                  </widget>
+
                   <widget type="action_button" version="3.0.0">
                     <name>MotorController</name>
                     <actions>
                       <action type="open_display">
                         <file>common/motor-tml/TML.bob</file>
                         <macros>
-                          <PREFIX>LEL:TML:CH1:</PREFIX>
-                          <CONFFILE>mot.list</CONFFILE>
+                          <PREFIX>LEL</PREFIX>
+                          <CONFFILE>mot_list.ini</CONFFILE>
                         </macros>
                         <target>window</target>
                         <description>Motor Controller CH1</description>
@@ -243,36 +172,15 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_20</name>
                     <macros>
-                      <PREFIX>LEL:TML:CH1</PREFIX>
-                      <CONFFILE>sparc_mot_ch1.list</CONFFILE>
+                      <PREFIX>LEL</PREFIX>
+                      <CONFFILE>mot_list.ini</CONFFILE>
                     </macros>
                     <file>common/motor-tml/motor-array-Main.bob</file>
                     <x>132</x>
                     <y>88</y>
                     <height>360</height>
                   </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_21</name>
-                    <macros>
-                      <PREFIX>LEL:TML:CH2</PREFIX>
-                      <CONFFILE>sparc_mot_ch2.list</CONFFILE>
-                    </macros>
-                    <file>common/motor-tml/motor-array-Main.bob</file>
-                    <x>542</x>
-                    <y>98</y>
-                    <height>360</height>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_22</name>
-                    <macros>
-                      <PREFIX>LEL:TML:CH3</PREFIX>
-                      <CONFFILE>sparc_mot_ch3.list</CONFFILE>
-                    </macros>
-                    <file>common/motor-tml/motor-array-Main.bob</file>
-                    <x>952</x>
-                    <y>98</y>
-                    <height>360</height>
-                  </widget>
+                  
                 </children>
               </tab>
               <tab>
