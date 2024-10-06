@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-06 18:25:00 by andreamichelotti-->
+<!--Saved on 2024-10-06 22:11:12 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -212,8 +212,8 @@ print 'Done']]></text>
                         <name>SCN01</name>
                         <file>common/camera/genicam/CACAM.bob</file>
                         <macros>
-                          <CAMERA>LEL:SCN01:CAM01</CAMERA>
-                          <R></R>
+                          <P>LEL:SCN01</P>
+                          <R>CAM01</R>
                         </macros>
                         <group_name></group_name>
                       </tab>
