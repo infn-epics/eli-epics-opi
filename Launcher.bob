@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-10 09:28:26 by andreamichelotti-->
+<!--Saved on 2024-10-10 16:21:29 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -956,7 +956,7 @@ print 'Done']]></text>
               <action type="open_display">
                 <file>timing/ptts/evg-230.bob</file>
                 <macros>
-                  <SYS>GEN-TMG-EVG01</SYS>
+                  <SYS>TMG-EVG01</SYS>
                   <D>MRF GENERATOR</D>
                 </macros>
                 <target>tab</target>
@@ -983,24 +983,24 @@ print 'Done']]></text>
               </action>
             </actions>
             <text>EVR50-ELI</text>
-            <x>58</x>
-            <y>562</y>
+            <x>478</x>
+            <y>592</y>
             <tooltip>$(actions)</tooltip>
           </widget>
           <widget type="action_button" version="3.0.0">
             <name>Action Button_7</name>
             <actions>
               <action type="open_display">
-                <file>timing/ptts/evr-230.opi</file>
+                <file>timing/ptts/evr-230.bob</file>
                 <macros>
-                  <SYS>GEN-TMG-EVR50</SYS>
-                  <D>RECEIVER EVR50</D>
+                  <SYS>TMG-EVR01</SYS>
+                  <D>RECEIVER EVR01</D>
                 </macros>
                 <target>tab</target>
                 <description>Open Display</description>
               </action>
             </actions>
-            <text>EVR50</text>
+            <text>EVR01</text>
             <x>58</x>
             <y>612</y>
             <tooltip>$(actions)</tooltip>
