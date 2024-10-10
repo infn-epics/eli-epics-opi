@@ -9,4 +9,5 @@ deploy_stage:
   script:
     - apk add sshpass
     - cd ansible
-    - ansible-playbook -i console_list.ini gitupdate.yaml
+    - ansible-playbook -i hosts.yml configure-consoles.yml
+

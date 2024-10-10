@@ -1,0 +1,18 @@
+- name: Perform git update on directories
+  hosts: all
+  gather_facts: no
+  vars:
+    ansible_ssh_pass: "{{ lookup('env', 'ELI_UPDATE') }}"
+  tasks:
+    - name: Disable host key checking
+      set_fact:
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+    - name: Configure ELI consoles
+      hosts: eli_consoles
+
+      remote_user: root
+      roles:
+      - { role: ansible-epics-console-role, control_user: "eliuser", opi_main: "eli/Launcher.bob",phoebus_opis_repos: [{url: "https://oauth2:{{git_repo_token}}@baltig.infn.it/lnf-da-control/eli-epics-opi.git",dest: "eli"}]}
+
+
