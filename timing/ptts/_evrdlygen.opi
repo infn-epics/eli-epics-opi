@@ -69,7 +69,7 @@
     </scale_options>
     <selector_type>0</selector_type>
     <transparent>false</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Prescaler-SP</pv_name>
+    <pv_name>$(SYS):$(P)Prescaler-SP</pv_name>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -125,7 +125,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <selector_type>0</selector_type>
     <transparent>false</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Delay-SP</pv_name>
+    <pv_name>$(SYS):$(P)Delay-SP</pv_name>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -181,7 +181,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <selector_type>0</selector_type>
     <transparent>false</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Width-SP</pv_name>
+    <pv_name>$(SYS):$(P)Width-SP</pv_name>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -220,7 +220,7 @@ $(pv_value)</tooltip>
     <format_type>0</format_type>
     <precision_from_pv>true</precision_from_pv>
     <transparent>true</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Delay-SP.EGU</pv_name>
+    <pv_name>$(SYS):$(P)Delay-SP.EGU</pv_name>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -271,7 +271,7 @@ $(pv_value)</tooltip>
     <format_type>0</format_type>
     <precision_from_pv>true</precision_from_pv>
     <transparent>true</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Width-SP.EGU</pv_name>
+    <pv_name>$(SYS):$(P)Width-SP.EGU</pv_name>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -380,7 +380,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <selector_type>0</selector_type>
     <transparent>false</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Evt:Trig0-SP</pv_name>
+    <pv_name>$(SYS):$(P)Evt-Trig0-SP</pv_name>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -436,7 +436,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <selector_type>0</selector_type>
     <transparent>false</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Evt:Trig1-SP</pv_name>
+    <pv_name>$(SYS):$(P)Evt-Trig1-SP</pv_name>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -492,7 +492,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <selector_type>0</selector_type>
     <transparent>false</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Evt:Trig2-SP</pv_name>
+    <pv_name>$(SYS):$(P)Evt-Trig2-SP</pv_name>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -534,7 +534,7 @@ $(pv_value)</tooltip>
     <off_color>
       <color red="0" green="255" blue="0" />
     </off_color>
-    <pv_name>$(SYS){$(D)-$(P)}Polarity-Sel</pv_name>
+    <pv_name>$(SYS):$(P)Polarity-Sel</pv_name>
     <background_color>
       <color name="ButtonFG" red="180" green="180" blue="180" />
     </background_color>
@@ -594,7 +594,7 @@ $(pv_value)</tooltip>
     <off_color>
       <color red="255" green="0" blue="0" />
     </off_color>
-    <pv_name>$(SYS){$(D)-$(P)}Ena-Sel</pv_name>
+    <pv_name>$(SYS):$(P)Ena-Sel</pv_name>
     <background_color>
       <color name="ButtonFG" red="180" green="180" blue="180" />
     </background_color>
@@ -668,7 +668,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <selector_type>0</selector_type>
     <transparent>false</transparent>
-    <pv_name>$(SYS){$(D)-$(P)}Label-I</pv_name>
+    <pv_name>$(SYS):$(P)Label-I</pv_name>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
