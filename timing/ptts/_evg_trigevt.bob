@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-10 09:50:15 by andreamichelotti-->
+<!--Saved on 2024-10-10 16:19:34 by andreamichelotti-->
 <display version="2.0.0">
+  <width>456</width>
+  <height>25</height>
   <background_color>
     <color name="Screen Background" red="240" green="240" blue="240">
     </color>
@@ -41,22 +43,10 @@
       </color>
     </border_color>
   </widget>
-  <widget type="combo" version="2.0.0">
-    <name>Menu Button</name>
-    <pv_name>$(SYS):TrigEvt$(N)-TrigSrc-Sel</pv_name>
-    <x>126</x>
-    <width>85</width>
-    <height>20</height>
-    <background_color>
-      <color red="240" green="240" blue="240">
-      </color>
-    </background_color>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-  </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
     <pv_name>$(SYS):TrigEvt$(N)-Enable-RB</pv_name>
-    <x>218</x>
+    <x>138</x>
     <y>4</y>
     <width>15</width>
     <height>15</height>
@@ -64,8 +54,90 @@
   <widget type="bool_button" version="2.0.0">
     <name>Boolean Button</name>
     <pv_name>$(SYS):TrigEvt$(N)-Enable-Sel</pv_name>
-    <x>241</x>
+    <x>161</x>
     <width>53</width>
     <height>24</height>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_2</name>
+    <pv_name>$(SYS):Mxc0-TrigSrc$(N)-SP</pv_name>
+    <x>240</x>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_3</name>
+    <pv_name>$(SYS):Mxc1-TrigSrc$(N)-SP</pv_name>
+    <x>264</x>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_4</name>
+    <pv_name>$(SYS):Mxc2-TrigSrc$(N)-SP</pv_name>
+    <x>289</x>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_5</name>
+    <pv_name>$(SYS):Mxc3-TrigSrc$(N)-SP</pv_name>
+    <x>313</x>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_6</name>
+    <pv_name>$(SYS):Mxc4-TrigSrc$(N)-SP</pv_name>
+    <x>337</x>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_7</name>
+    <pv_name>$(SYS):Mxc5-TrigSrc$(N)-SP</pv_name>
+    <x>361</x>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_8</name>
+    <pv_name>$(SYS):Mxc6-TrigSrc$(N)-SP</pv_name>
+    <x>385</x>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_9</name>
+    <pv_name>$(SYS):Mxc7-TrigSrc$(N)-SP</pv_name>
+    <x>409</x>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_10</name>
+    <pv_name>$(SYS):AcTrig-TrigSrc$(N)-SP</pv_name>
+    <x>432</x>
+    <y>1</y>
+    <width>24</width>
+    <height>24</height>
+    <off_label></off_label>
+    <on_label></on_label>
   </widget>
 </display>
