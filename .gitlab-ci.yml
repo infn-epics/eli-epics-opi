@@ -5,7 +5,7 @@ deploy_stage:
   tags:
     - lnf
   stage: deploy
-  image: alpinelinux/ansible
+  image: alpine/ansible:2.16.1
   script:
     - apk add sshpass
     - cd ansible

@@ -1,17 +1,17 @@
 - name: Perform git update on directories
   hosts: eli_consoles
-  gather_facts: no
+  # gather_facts: no
   remote_user: root
   vars:
     ansible_ssh_pass: "{{ lookup('env', 'ELI_UPDATE') }}"
-    git_repo_token: "{{ lookup('env', 'GIT_REPO_TOKEN') }}"  # Ensure this token is defined
+  #  git_repo_token: "{{ lookup('env', 'GIT_REPO_TOKEN') }}"  # Ensure this token is defined
     ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ControlMaster=no'
 
   tasks:
     - name: Disable host key checking
       set_fact:
-        ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
-
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ControlMaster=no'
     - name: Apply ansible-epics-console-role
       ansible.builtin.include_role:
         name: ansible-epics-console-role
