@@ -10,4 +10,5 @@ deploy_stage:
     - apk add sshpass
     - cd ansible
     - ansible-playbook -i hosts.yml configure-consoles.yml
-
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
