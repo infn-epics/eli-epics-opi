@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-11 16:02:40 by andreamichelotti-->
+<!--Saved on 2024-10-11 18:07:36 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -951,64 +951,6 @@ print 'Done']]></text>
             <tooltip>$(actions)</tooltip>
           </widget>
           <widget type="action_button" version="3.0.0">
-            <name>ELI-EVR50</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/ptts/evr-pmc-230.opi</file>
-                <macros>
-                  <SYS>GEN-TMG:</SYS>
-                  <TITLE>RECEIVER  ELI EVR50</TITLE>
-                  <D>EVR50</D>
-                </macros>
-                <target>window</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>GEN-TMG-EVR50</text>
-            <x>198</x>
-            <y>442</y>
-            <width>130</width>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/phoebus_mrf_interface/evg/evm-mtca-300.bob</file>
-                <macros>
-                  <P>MRF01:evg</P>
-                  <TITLE>MRF01 GENERATOR</TITLE>
-                  <T>U</T>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>MRF01-EVG</text>
-            <x>278</x>
-            <y>522</y>
-            <width>140</width>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button_6</name>
-            <actions>
-              <action type="open_display">
-                <file>timing/ptts/Timing_EVR_Main.bob</file>
-                <macros>
-                  <EVR>EVR50</EVR>
-                  <TITLE>EVR50</TITLE>
-                </macros>
-                <target>tab</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>EVR50-ELI</text>
-            <x>478</x>
-            <y>592</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
             <name>TimingEli_1</name>
             <actions>
               <action type="open_display">
@@ -1071,44 +1013,6 @@ print 'Done']]></text>
             </actions>
             <x>618</x>
             <y>512</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>TESTSHUTTER</name>
-            <actions>
-              <action type="open_display">
-                <file>common/icpdas-opi/icp7026.bob</file>
-                <macros>
-                  <P>LEL:LASER</P>
-                  <R>SHUTTER</R>
-                </macros>
-                <target>window</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>TEST icp7026</text>
-            <x>558</x>
-            <y>102</y>
-            <width>140</width>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>TESTSTEMP</name>
-            <actions>
-              <action type="open_display">
-                <file>common/icpdas-opi/icp7215.bob</file>
-                <macros>
-                  <P>LEL:DIA</P>
-                  <R>TEMP</R>
-                </macros>
-                <target>window</target>
-                <description>Open Display</description>
-              </action>
-            </actions>
-            <text>TEST icp7215</text>
-            <x>558</x>
-            <y>52</y>
-            <width>140</width>
             <tooltip>$(actions)</tooltip>
           </widget>
           <widget type="action_button" version="3.0.0">
