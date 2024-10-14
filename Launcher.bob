@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-11 18:07:36 by andreamichelotti-->
+<!--Saved on 2024-10-14 14:31:49 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -239,10 +239,10 @@ print 'Done']]></text>
                       </action>
                     </actions>
                     <text>CAMERA APP</text>
-                    <x>679</x>
-                    <y>228</y>
-                    <width>230</width>
-                    <height>160</height>
+                    <x>1042</x>
+                    <y>398</y>
+                    <width>160</width>
+                    <height>110</height>
                     <tooltip>$(actions)</tooltip>
                   </widget>
                   <widget type="navtabs" version="2.0.0">
@@ -267,15 +267,10 @@ print 'Done']]></text>
                         <group_name></group_name>
                       </tab>
                     </tabs>
+                    <x>2</x>
                     <y>38</y>
-                    <width>560</width>
-                    <height>340</height>
-                  </widget>
-                  <widget type="label" version="2.0.0">
-                    <name>Label_3</name>
-                    <text>Use CA</text>
-                    <x>289</x>
-                    <y>18</y>
+                    <width>1010</width>
+                    <height>800</height>
                   </widget>
                 </children>
               </tab>
@@ -851,7 +846,7 @@ print 'Done']]></text>
             <x>8</x>
             <y>2</y>
             <width>1880</width>
-            <height>710</height>
+            <height>910</height>
             <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
@@ -1089,7 +1084,7 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>6</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
