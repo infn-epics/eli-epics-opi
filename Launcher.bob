@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-14 14:31:49 by andreamichelotti-->
+<!--Saved on 2024-10-28 16:04:31 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -263,6 +263,24 @@ print 'Done']]></text>
                         <macros>
                           <P>LEL:SCN02</P>
                           <R>CAM01</R>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>SCN03</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <P>LEL:SCN02</P>
+                          <R>CAM01</R>
+                        </macros>
+                        <group_name></group_name>
+                      </tab>
+                      <tab>
+                        <name>SCNTEST</name>
+                        <file>common/camera/genicam/PVACAM.bob</file>
+                        <macros>
+                          <P>LEL</P>
+                          <R>TST01</R>
                         </macros>
                         <group_name></group_name>
                       </tab>
