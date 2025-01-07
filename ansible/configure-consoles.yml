@@ -21,3 +21,17 @@
         phoebus_opis_repos:
           - url: "https://oauth2:{{git_repo_token}}@baltig.infn.it/lnf-da-control/eli-epics-opi.git"
             dest: "eli"
+        
+        nfsMounts:
+          - name: data
+            server: 192.168.197.157
+            path: /data_epik8s/eli/data
+            mountPath: /nfs/epik8s/eli/data
+          - name: autosave
+            server: 192.168.197.157
+            path: /data_epik8s/eli/autosave
+            mountPath: /nfs/epik8s/eli/autosave
+          - name: config
+            server: 192.168.197.157
+            path: /data_epik8s/eli/config
+            mountPath: /nfs/epik8s/eli/config
