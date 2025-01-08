@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-28 16:04:31 by andreamichelotti-->
+<!--Saved on 2025-01-08 12:12:25 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -136,6 +136,25 @@ print 'Done']]></text>
             <text>EVR01</text>
             <x>198</x>
             <y>502</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_4</name>
+            <actions>
+              <action type="open_display">
+                <file>timing/ptts/evg-230.bob</file>
+                <macros>
+                  <SYS>TMG-EVG01-1</SYS>
+                  <D>MRF GENERATOR SPARE</D>
+                </macros>
+                <target>window</target>
+                <description>Open Display</description>
+              </action>
+            </actions>
+            <text>EVG-1</text>
+            <x>408</x>
+            <y>402</y>
+            <width>140</width>
             <tooltip>$(actions)</tooltip>
           </widget>
         </children>
@@ -916,7 +935,7 @@ print 'Done']]></text>
             <name>START2_1</name>
             <actions>
               <action type="open_display">
-                <file>ELI/sigmaPhiStart.bob</file>
+                <file>MAG/sigmaPhiStart.bob</file>
                 <macros>
                   <device>ELI:START11:MEA1</device>
                 </macros>
@@ -933,7 +952,7 @@ print 'Done']]></text>
             <name>START2</name>
             <actions>
               <action type="open_display">
-                <file>ELI/sigmaPhiStart.bob</file>
+                <file>MAG/sigmaPhiStart.bob</file>
                 <macros>
                   <device>ELI:START2:MEA1</device>
                 </macros>
@@ -950,7 +969,7 @@ print 'Done']]></text>
             <name>BILTITEST</name>
             <actions>
               <action type="open_display">
-                <file>ELI/biltitest.bob</file>
+                <file>MAG/biltitest.bob</file>
                 <macros>
                   <device>ELI:BILT:MEA1</device>
                 </macros>
@@ -1102,7 +1121,6 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
