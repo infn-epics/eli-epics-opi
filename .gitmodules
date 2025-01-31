@@ -38,3 +38,6 @@
 [submodule "MAG/unimag"]
 	path = MAG/unimag
 	url = https://baltig.infn.it/infn-epics/unimag.git
+[submodule "VAC/vac-opi"]
+	path = VAC/vac-opi
+	url = https://baltig.infn.it/infn-epics/vac-opi.git
