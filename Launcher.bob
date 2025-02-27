@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-02-27 11:56:36 by andreamichelotti-->
+<!--Saved on 2025-02-27 22:04:24 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -108,15 +108,15 @@ print 'Done']]></text>
                 <description>Open Display</description>
                 <file>timing/ptts/evg-230.bob</file>
                 <macros>
-                  <SYS>TMG-EVG01</SYS>
+                  <SYS>LEL:TIM:TMG</SYS>
                   <D>MRF GENERATOR</D>
                 </macros>
                 <target>window</target>
               </action>
             </actions>
             <text>EVG</text>
-            <x>198</x>
-            <y>402</y>
+            <x>18</x>
+            <y>512</y>
             <width>140</width>
             <tooltip>$(actions)</tooltip>
           </widget>
@@ -124,37 +124,73 @@ print 'Done']]></text>
             <name>Action Button_7</name>
             <actions>
               <action type="open_display">
-                <description>Open Display</description>
+                <description>Delay Laser</description>
                 <file>timing/ptts/evr-230.bob</file>
                 <macros>
-                  <SYS>TMG-EVR01</SYS>
-                  <D>RECEIVER EVR01</D>
+                  <SYS>LEL:TIM:EVR-LAS</SYS>
+                  <D>LASER Timing</D>
                 </macros>
                 <target>window</target>
               </action>
-            </actions>
-            <text>EVR01</text>
-            <x>198</x>
-            <y>502</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button_4</name>
-            <actions>
               <action type="open_display">
-                <description>Open Display</description>
-                <file>timing/ptts/evg-230.bob</file>
+                <description>Delay LLRF</description>
+                <file>timing/ptts/evr-230.bob</file>
                 <macros>
-                  <SYS>TMG-EVG01-1</SYS>
-                  <D>MRF GENERATOR SPARE</D>
+                  <SYS>LEL:TIM:EVR-LLRF</SYS>
+                  <D>LLRF Timing</D>
+                </macros>
+                <target>window</target>
+              </action>
+              <action type="open_display">
+                <description>Delay RF Driver</description>
+                <file>timing/ptts/evr-230.bob</file>
+                <macros>
+                  <SYS>LEL:TIM:EVR-RFD</SYS>
+                  <D>RF Driver Timing</D>
+                </macros>
+                <target>window</target>
+              </action>
+              <action type="open_display">
+                <description>Delay RF Modulator</description>
+                <file>timing/ptts/evr-230.bob</file>
+                <macros>
+                  <SYS>LEL:TIM:EVR-RFM</SYS>
+                  <D>RF Modulator Timing</D>
+                </macros>
+                <target>window</target>
+              </action>
+              <action type="open_display">
+                <description>Delay BPM CAM0-1 </description>
+                <file>timing/ptts/evr-230.bob</file>
+                <macros>
+                  <SYS>LEL:TIM:EVR-BPMCAM</SYS>
+                  <D>BPM and CAM0-1 Timing</D>
+                </macros>
+                <target>window</target>
+              </action>
+              <action type="open_display">
+                <description>Delay CAM2-6 </description>
+                <file>timing/ptts/evr-230.bob</file>
+                <macros>
+                  <SYS>LEL:TIM:EVR-CAM</SYS>
+                  <D>Camera 2-6 Timing</D>
+                </macros>
+                <target>window</target>
+              </action>
+              <action type="open_display">
+                <description>Delay ADC0-1 </description>
+                <file>timing/ptts/evr-230.bob</file>
+                <macros>
+                  <SYS>LEL:TIM:EVR-ADC</SYS>
+                  <D>ADC Timing</D>
                 </macros>
                 <target>window</target>
               </action>
             </actions>
-            <text>EVG-1</text>
-            <x>408</x>
-            <y>402</y>
-            <width>140</width>
+            <text>Receiver</text>
+            <x>28</x>
+            <y>562</y>
+            <width>130</width>
             <tooltip>$(actions)</tooltip>
           </widget>
         </children>
@@ -952,13 +988,65 @@ print 'Done']]></text>
       <tab>
         <name>Magnets</name>
         <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Embedded Display_18</name>
-            <file>MAG/mag-opi/MagnetsTabs.bob</file>
-            <x>8</x>
-            <y>12</y>
-            <width>1270</width>
-            <height>924</height>
+          <widget type="group" version="3.0.0">
+            <name>UNIMAG Group</name>
+            <macros>
+              <P>LEL:MAG</P>
+              <CONFFILE>../../../ini/eliunimag.csv</CONFFILE>
+            </macros>
+            <x>2</x>
+            <y>2</y>
+            <width>1170</width>
+            <height>850</height>
+            <widget type="navtabs" version="2.0.0">
+              <name>DanteMagnets_1</name>
+              <tabs>
+                <tab>
+                  <name>ALL</name>
+                  <file>MAG/unimag/opi/unimag.bob</file>
+                  <macros>
+                    <ZONE>ALL</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>M1</name>
+                  <file>MAG/unimag/opi/unimag.bob</file>
+                  <macros>
+                    <ZONE>M1</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>M2</name>
+                  <file>MAG/unimag/opi/unimag.bob</file>
+                  <macros>
+                    <ZONE>M2</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>M3</name>
+                  <file>MAG/unimag/opi/unimag.bob</file>
+                  <macros>
+                    <ZONE>M3</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>M4</name>
+                  <file></file>
+                  <macros>
+                    <ZONE>M4</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+              </tabs>
+              <x>2</x>
+              <y>2</y>
+              <width>1110</width>
+              <height>750</height>
+            </widget>
           </widget>
         </children>
       </tab>
@@ -1299,7 +1387,6 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
