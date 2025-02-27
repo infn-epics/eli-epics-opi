@@ -2,16 +2,29 @@
 ## current directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ARCH=`uname -s`
+VERSION=4.7.4
 
-PHOEBUS="phoebus"
-
+if [ -z "$PHOEBUS" ]; then
+    PHOEBUS="phoebus"
+fi
 
 if [ "$ARCH" == "Darwin" ];then
-    if [ -f /Applications/CSS_Phoebus.app/product-4.7.3/product-4.7.3.jar ]; then 
-    export JAVA_HOME=/Applications/CSS_Phoebus.app/jdk/Contents/Home/
-	PHOEBUS="java -jar /Applications/CSS_Phoebus.app/product-4.7.3/product-4.7.3.jar"
-    elif [ -f /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar ]; then 
-	PHOEBUS="java -jar /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar"
+    if [ -z "$JAVA_HOME" ]; then
+        export JAVA_HOME=/Applications/CSS_Phoebus.app/jdk/Contents/Home/
+    fi
+    ## if a stable version of phoebus is found
+    if [ -f /Applications/CSS_Phoebus.app/product-$VERSION/product-$VERSION.jar ]; then
+	    PHOEBUS="java -jar /Applications/CSS_Phoebus.app/product-$VERSION/product-$VERSION.jar"
+    ## otherwise if a snapshot version of phoebus is found
+    elif [ -f /Applications/CSS_Phoebus.app/product-$VERSION-SNAPSHOT/product-$VERSION-SNAPSHOT.jar ]; then 
+	    PHOEBUS="java -jar /Applications/CSS_Phoebus.app/product-$VERSION-SNAPSHOT/product-$VERSION-SNAPSHOT.jar"
+    else
+        echo "# No Phoebus $VERSION installation found in /Applications/CSS_Phoebus.app/"
+        exit
+    fi
+else 
+    if [ -f /phoebus/product/product.jar ];then
+        PHOEBUS="java -jar /phoebus/product/product.jar"
     fi
 fi
 

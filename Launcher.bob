@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-01-31 17:22:59 by andreamichelotti-->
+<!--Saved on 2025-02-27 11:19:40 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
   <height>1024</height>
   <actions>
     <action type="open_display">
+      <description>Open Display</description>
       <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
       <macros>
         <DEVICE>AC1BPM01</DEVICE>
       </macros>
       <target>window</target>
-      <description>Open Display</description>
     </action>
   </actions>
   <widget type="tabs" version="2.0.0">
@@ -61,6 +61,7 @@
             </selected_color>
             <actions>
               <action type="execute">
+                <description>Execute Script</description>
                 <script file="EmbeddedPy">
                   <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
 print ("YEOOO")
@@ -73,7 +74,6 @@ print ("YEOOO")
 #       PVUtil.writePV("MRF01:evr:OutFPUV1SrcPulse-SP", "Pulser 0")
 ]]></text>
                 </script>
-                <description>Execute Script</description>
               </action>
             </actions>
             <scripts>
@@ -105,13 +105,13 @@ print 'Done']]></text>
             <name>Action Button_3</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>timing/ptts/evg-230.bob</file>
                 <macros>
                   <SYS>TMG-EVG01</SYS>
                   <D>MRF GENERATOR</D>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>EVG</text>
@@ -124,13 +124,13 @@ print 'Done']]></text>
             <name>Action Button_7</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>timing/ptts/evr-230.bob</file>
                 <macros>
                   <SYS>TMG-EVR01</SYS>
                   <D>RECEIVER EVR01</D>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>EVR01</text>
@@ -142,13 +142,13 @@ print 'Done']]></text>
             <name>Action Button_4</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>timing/ptts/evg-230.bob</file>
                 <macros>
                   <SYS>TMG-EVG01-1</SYS>
                   <D>MRF GENERATOR SPARE</D>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>EVG-1</text>
@@ -190,16 +190,16 @@ print 'Done']]></text>
                 <children>
                   <widget type="picture" version="2.0.0">
                     <name>Synoptic_2</name>
-                    <file>img/bpm-map.png</file>
+                    <file>img/eli-layout.png</file>
                     <x>2</x>
                     <y>18</y>
                     <width>1320</width>
                     <height>640</height>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                         <target>replace</target>
-                        <description>Open Display</description>
                       </action>
                     </actions>
                   </widget>
@@ -207,17 +207,17 @@ print 'Done']]></text>
                     <name>MotorController</name>
                     <actions>
                       <action type="open_display">
+                        <description>Motor Controller</description>
                         <file>common/motor-tml/TML.bob</file>
                         <macros>
-                          <PREFIX>LEL</PREFIX>
+                          <PREFIX>LEL:</PREFIX>
                           <CONFFILE>mot_list.ini</CONFFILE>
                         </macros>
                         <target>window</target>
-                        <description>Motor Controller CH1</description>
                       </action>
                     </actions>
-                    <x>50</x>
-                    <y>318</y>
+                    <x>32</x>
+                    <y>68</y>
                     <width>70</width>
                     <height>60</height>
                     <tooltip>$(actions)</tooltip>
@@ -230,13 +230,74 @@ print 'Done']]></text>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_20</name>
                     <macros>
-                      <PREFIX>LEL</PREFIX>
-                      <CONFFILE>mot_list.ini</CONFFILE>
+                      <P>LEL</P>
+                      <R>SCN01:MOT01</R>
                     </macros>
-                    <file>common/motor-tml/motor-array-Main.bob</file>
-                    <x>132</x>
-                    <y>88</y>
-                    <height>360</height>
+                    <file>common/motor-tml/flag-simple.bob</file>
+                    <x>32</x>
+                    <y>488</y>
+                    <width>190</width>
+                    <height>160</height>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_21</name>
+                    <macros>
+                      <P>LEL</P>
+                      <R>SCN02:MOT01</R>
+                    </macros>
+                    <file>common/motor-tml/flag-simple.bob</file>
+                    <x>302</x>
+                    <y>478</y>
+                    <width>190</width>
+                    <height>160</height>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_22</name>
+                    <macros>
+                      <P>LEL</P>
+                      <R>SCN03:MOT01</R>
+                    </macros>
+                    <file>common/motor-tml/flag-simple.bob</file>
+                    <x>562</x>
+                    <y>468</y>
+                    <width>190</width>
+                    <height>160</height>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_23</name>
+                    <macros>
+                      <P>LEL</P>
+                      <R>SCN04:MOT01</R>
+                    </macros>
+                    <file>common/motor-tml/flag-simple.bob</file>
+                    <x>762</x>
+                    <y>468</y>
+                    <width>190</width>
+                    <height>160</height>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_26</name>
+                    <macros>
+                      <P>LEL</P>
+                      <R>SCN05:MOT01</R>
+                    </macros>
+                    <file>common/motor-tml/flag-simple.bob</file>
+                    <x>812</x>
+                    <y>618</y>
+                    <width>190</width>
+                    <height>160</height>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_27</name>
+                    <macros>
+                      <P>LEL</P>
+                      <R>SCN06:MOT01</R>
+                    </macros>
+                    <file>common/motor-tml/flag-simple.bob</file>
+                    <x>1032</x>
+                    <y>588</y>
+                    <width>190</width>
+                    <height>160</height>
                   </widget>
                 </children>
               </tab>
@@ -247,6 +308,7 @@ print 'Done']]></text>
                     <name>cameraInterfaceBase</name>
                     <actions>
                       <action type="open_display">
+                        <description>Camera APP</description>
                         <file>common/camera/Camera.bob</file>
                         <macros>
                           <DEVICE>LEL</DEVICE>
@@ -254,7 +316,6 @@ print 'Done']]></text>
                           <CONFFILE>cam_list.ini</CONFFILE>
                         </macros>
                         <target>window</target>
-                        <description>Camera APP</description>
                       </action>
                     </actions>
                     <text>CAMERA APP</text>
@@ -322,9 +383,9 @@ print 'Done']]></text>
                     <height>640</height>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                         <target>replace</target>
-                        <description>Open Display</description>
                       </action>
                     </actions>
                   </widget>
@@ -342,12 +403,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -365,12 +426,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -388,12 +449,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -411,12 +472,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -434,12 +495,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -457,12 +518,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -480,12 +541,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -503,12 +564,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -526,12 +587,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -549,12 +610,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -572,12 +633,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -595,12 +656,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -618,12 +679,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -641,12 +702,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -669,12 +730,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -697,12 +758,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -725,12 +786,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -753,12 +814,12 @@ print 'Done']]></text>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -771,12 +832,12 @@ print 'Done']]></text>
                     <name>Action Button_OpenOrbitSingle</name>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display</description>
                         <file>diag/orbit/orbitSingle.bob</file>
                         <macros>
                           <P>$(P=LEL:ORBIT)</P>
                         </macros>
                         <target>window</target>
-                        <description>Open Display</description>
                       </action>
                     </actions>
                     <text>ORBIT Single</text>
@@ -836,9 +897,9 @@ print 'Done']]></text>
                     <height>640</height>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                         <target>replace</target>
-                        <description>Open Display</description>
                       </action>
                     </actions>
                   </widget>
@@ -884,7 +945,6 @@ print 'Done']]></text>
             <y>2</y>
             <width>1880</width>
             <height>910</height>
-            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1053,12 +1113,12 @@ print 'Done']]></text>
             <name>START2_1</name>
             <actions>
               <action type="open_display">
+                <description>START1</description>
                 <file>MAG/sigmaPhiStart.bob</file>
                 <macros>
                   <device>ELI:START11:MEA1</device>
                 </macros>
                 <target>window</target>
-                <description>START1</description>
               </action>
             </actions>
             <text>START11</text>
@@ -1070,12 +1130,12 @@ print 'Done']]></text>
             <name>START2</name>
             <actions>
               <action type="open_display">
+                <description>START2</description>
                 <file>MAG/sigmaPhiStart.bob</file>
                 <macros>
                   <device>ELI:START2:MEA1</device>
                 </macros>
                 <target>window</target>
-                <description>START2</description>
               </action>
             </actions>
             <text>START2</text>
@@ -1087,12 +1147,12 @@ print 'Done']]></text>
             <name>BILTITEST</name>
             <actions>
               <action type="open_display">
+                <description>IBILT</description>
                 <file>MAG/biltitest.bob</file>
                 <macros>
                   <device>ELI:BILT:MEA1</device>
                 </macros>
                 <target>window</target>
-                <description>IBILT</description>
               </action>
             </actions>
             <text>IBILTITEST</text>
@@ -1104,12 +1164,12 @@ print 'Done']]></text>
             <name>TimingEli_1</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>timing/ptts/Timing.bob</file>
                 <macros>
                   <TITLE>TIMING ELI</TITLE>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>Timing Eli</text>
@@ -1121,12 +1181,12 @@ print 'Done']]></text>
             <name>menlosynchro</name>
             <actions>
               <action type="open_display">
+                <description>Menlo Theta</description>
                 <file>RF/menloOpi/synchro/SyncroTheta_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:MENLO:SYNCTHETA</DEVICE>
                 </macros>
                 <target>window</target>
-                <description>Menlo Theta</description>
               </action>
             </actions>
             <x>618</x>
@@ -1137,12 +1197,12 @@ print 'Done']]></text>
             <name>menlosynchro_2</name>
             <actions>
               <action type="open_display">
+                <description>Menlo LAC</description>
                 <file>RF/menloOpi/lac/LAC1550_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:MENLO:LAC</DEVICE>
                 </macros>
                 <target>window</target>
-                <description>Menlo LAC</description>
               </action>
             </actions>
             <x>617</x>
@@ -1153,12 +1213,12 @@ print 'Done']]></text>
             <name>menlosynchro_3</name>
             <actions>
               <action type="open_display">
+                <description>Menlo OMO</description>
                 <file>RF/menloOpi/lfc/LFC_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:MENLO:SYNCOMO</DEVICE>
                 </macros>
                 <target>window</target>
-                <description>Menlo OMO</description>
               </action>
             </actions>
             <x>618</x>
@@ -1169,12 +1229,12 @@ print 'Done']]></text>
             <name>Action Button_1</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>MAG/polarityreversal.bob</file>
                 <macros>
                   <P>LEL:POLREV</P>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>POLARITY REVERSAL</text>
@@ -1239,7 +1299,7 @@ print 'Done']]></text>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>4</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
@@ -1259,5 +1319,16 @@ print 'Done']]></text>
     <y>30</y>
     <width>1</width>
     <height>1</height>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>Polyline</name>
+    <x>170</x>
+    <y>710</y>
+    <width>1</width>
+    <height>1</height>
+    <points>
+      <point x="0.0" y="0.0">
+      </point>
+    </points>
   </widget>
 </display>
