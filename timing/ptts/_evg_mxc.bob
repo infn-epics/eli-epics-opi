@@ -26,7 +26,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input</name>
-    <pv_name>$(SYS):Mxc$(N)-Prescaler-SP</pv_name>
+    <pv_name>$(P):$(R):Mxc$(N)-Prescaler-SP</pv_name>
     <x>90</x>
     <height>19</height>
     <background_color>
@@ -44,7 +44,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update</name>
-    <pv_name>$(SYS):Mxc$(N)-Frequency-RB</pv_name>
+    <pv_name>$(P):$(R):Mxc$(N)-Frequency-RB</pv_name>
     <x>189</x>
     <width>112</width>
     <height>19</height>
@@ -63,7 +63,7 @@
   </widget>
   <widget type="combo" version="2.0.0">
     <name>Menu Button</name>
-    <pv_name>$(SYS):Mxc$(N)-Polarity-Sel</pv_name>
+    <pv_name>$(P):$(R):Mxc$(N)-Polarity-Sel</pv_name>
     <x>300</x>
     <width>79</width>
     <height>19</height>

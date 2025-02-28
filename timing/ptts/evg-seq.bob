@@ -82,7 +82,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update</name>
-      <pv_name>$(SYS):$(SS)RunMode-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)RunMode-RB</pv_name>
       <x>8</x>
       <y>27</y>
       <width>80</width>
@@ -101,7 +101,7 @@
     </widget>
     <widget type="combo" version="2.0.0">
       <name>Menu Button</name>
-      <pv_name>$(SYS):$(SS)RunMode-Sel</pv_name>
+      <pv_name>$(P):$(R):$(SS)RunMode-Sel</pv_name>
       <x>8</x>
       <y>46</y>
       <width>80</width>
@@ -110,7 +110,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update</name>
-      <pv_name>$(SYS):$(SS)TrigSrc-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)TrigSrc-RB</pv_name>
       <x>8</x>
       <y>95</y>
       <width>80</width>
@@ -129,7 +129,7 @@
     </widget>
     <widget type="combo" version="2.0.0">
       <name>Menu Button</name>
-      <pv_name>$(SYS):$(SS)TrigSrc0-Sel</pv_name>
+      <pv_name>$(P):$(R):$(SS)TrigSrc0-Sel</pv_name>
       <x>8</x>
       <y>114</y>
       <width>80</width>
@@ -138,7 +138,7 @@
     </widget>
     <widget type="combo" version="2.0.0">
       <name>Menu Button</name>
-      <pv_name>$(SYS):$(SS)TsResolution-Sel</pv_name>
+      <pv_name>$(P):$(R):$(SS)TsResolution-Sel</pv_name>
       <x>133</x>
       <y>44</y>
       <width>80</width>
@@ -147,7 +147,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update</name>
-      <pv_name>$(SYS):$(SS)Commit-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)Commit-RB</pv_name>
       <x>240</x>
       <y>136</y>
       <width>80</width>
@@ -173,7 +173,7 @@
           <description>WritePV</description>
         </action>
       </actions>
-      <pv_name>$(SYS):$(SS)Commit-Cmd</pv_name>
+      <pv_name>$(P):$(R):$(SS)Commit-Cmd</pv_name>
       <text>Commit</text>
       <x>240</x>
       <y>155</y>
@@ -183,7 +183,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update</name>
-      <pv_name>$(SYS):$(SS)TsResolution-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)TsResolution-RB</pv_name>
       <x>212</x>
       <y>44</y>
       <width>80</width>
@@ -202,7 +202,7 @@
     </widget>
     <widget type="combo" version="2.0.0">
       <name>Menu Button</name>
-      <pv_name>$(SYS):$(SS)TrigSrc1-Sel</pv_name>
+      <pv_name>$(P):$(R):$(SS)TrigSrc1-Sel</pv_name>
       <x>8</x>
       <y>132</y>
       <width>80</width>
@@ -211,7 +211,7 @@
     </widget>
     <widget type="combo" version="2.0.0">
       <name>Menu Button_1</name>
-      <pv_name>$(SYS):$(SS)TrigSrc2-Sel</pv_name>
+      <pv_name>$(P):$(R):$(SS)TrigSrc2-Sel</pv_name>
       <x>8</x>
       <y>150</y>
       <width>80</width>
@@ -278,7 +278,7 @@
     </actions>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_2</name>
-      <pv_name>$(SYS):$(SS)EvtCode-SP</pv_name>
+      <pv_name>$(P):$(R):$(SS)EvtCode-SP</pv_name>
       <x>101</x>
       <y>45</y>
       <width>338</width>
@@ -312,7 +312,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_3</name>
-      <pv_name>$(SYS):$(SS)Timestamp-SP</pv_name>
+      <pv_name>$(P):$(R):$(SS)Timestamp-SP</pv_name>
       <x>101</x>
       <y>17</y>
       <width>338</width>
@@ -346,7 +346,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_4</name>
-      <pv_name>$(SYS):$(SS)EvtMask-SP</pv_name>
+      <pv_name>$(P):$(R):$(SS)EvtMask-SP</pv_name>
       <x>101</x>
       <y>73</y>
       <width>338</width>
@@ -380,7 +380,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_5</name>
-      <pv_name>$(SYS):$(SS)EvtEna-SP</pv_name>
+      <pv_name>$(P):$(R):$(SS)EvtEna-SP</pv_name>
       <x>101</x>
       <y>103</y>
       <width>338</width>
@@ -414,7 +414,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_6</name>
-      <pv_name>$(SYS):$(SS)EvtCode-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)EvtCode-RB</pv_name>
       <x>101</x>
       <y>175</y>
       <width>338</width>
@@ -437,7 +437,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_7</name>
-      <pv_name>$(SYS):$(SS)Timestamp-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)Timestamp-RB</pv_name>
       <x>101</x>
       <y>147</y>
       <width>338</width>
@@ -460,7 +460,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_8</name>
-      <pv_name>$(SYS):$(SS)EvtMask-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)EvtMask-RB</pv_name>
       <x>101</x>
       <y>203</y>
       <width>338</width>
@@ -483,7 +483,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_9</name>
-      <pv_name>$(SYS):$(SS)EvtEna-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)EvtEna-RB</pv_name>
       <x>101</x>
       <y>233</y>
       <width>338</width>
@@ -592,7 +592,7 @@
     </actions>
     <widget type="textentry" version="3.0.0">
       <name>Text Input</name>
-      <pv_name>$(SYS):$(SS)SwMask-Sel</pv_name>
+      <pv_name>$(P):$(R):$(SS)SwMask-Sel</pv_name>
       <x>129</x>
       <y>5</y>
       <height>25</height>
@@ -609,7 +609,7 @@
     </widget>
     <widget type="byte_monitor" version="2.0.0">
       <name>Byte Monitor</name>
-      <pv_name>$(SYS):$(SS)SwMask-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)SwMask-RB</pv_name>
       <x>129</x>
       <y>35</y>
       <width>125</width>
@@ -631,7 +631,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input_1</name>
-      <pv_name>$(SYS):$(SS)SwEna-Sel</pv_name>
+      <pv_name>$(P):$(R):$(SS)SwEna-Sel</pv_name>
       <x>125</x>
       <y>72</y>
       <height>25</height>
@@ -648,7 +648,7 @@
     </widget>
     <widget type="byte_monitor" version="2.0.0">
       <name>Byte Monitor_1</name>
-      <pv_name>$(SYS):$(SS)SwEna-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)SwEna-RB</pv_name>
       <x>125</x>
       <y>102</y>
       <width>125</width>
@@ -731,7 +731,7 @@
           <description>WritePV</description>
         </action>
       </actions>
-      <pv_name>$(SYS):$(SS)Load-Cmd</pv_name>
+      <pv_name>$(P):$(R):$(SS)Load-Cmd</pv_name>
       <text>Load</text>
       <x>17</x>
       <y>25</y>
@@ -748,7 +748,7 @@
           <description>WritePV</description>
         </action>
       </actions>
-      <pv_name>$(SYS):$(SS)Unload-Cmd</pv_name>
+      <pv_name>$(P):$(R):$(SS)Unload-Cmd</pv_name>
       <text>Unload</text>
       <x>83</x>
       <y>25</y>
@@ -765,7 +765,7 @@
           <description>WritePV</description>
         </action>
       </actions>
-      <pv_name>$(SYS):$(SS)Enable-Cmd</pv_name>
+      <pv_name>$(P):$(R):$(SS)Enable-Cmd</pv_name>
       <text>Enable</text>
       <x>17</x>
       <y>73</y>
@@ -782,7 +782,7 @@
           <description>WritePV</description>
         </action>
       </actions>
-      <pv_name>$(SYS):$(SS)Disable-Cmd</pv_name>
+      <pv_name>$(P):$(R):$(SS)Disable-Cmd</pv_name>
       <text>Disable</text>
       <x>83</x>
       <y>73</y>
@@ -792,7 +792,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update</name>
-      <pv_name>$(SYS):$(SS)Load-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)Load-RB</pv_name>
       <x>17</x>
       <y>6</y>
       <width>133</width>
@@ -811,7 +811,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):$(SS)Enable-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)Enable-RB</pv_name>
       <x>17</x>
       <y>55</y>
       <width>133</width>
@@ -837,7 +837,7 @@
           <description>WritePV</description>
         </action>
       </actions>
-      <pv_name>$(SYS):$(SS)SoftTrig-Cmd</pv_name>
+      <pv_name>$(P):$(R):$(SS)SoftTrig-Cmd</pv_name>
       <text>SW Trigger</text>
       <x>185</x>
       <y>6</y>
@@ -847,7 +847,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_2</name>
-      <pv_name>$(SYS):$(SS)NumOfRuns-I</pv_name>
+      <pv_name>$(P):$(R):$(SS)NumOfRuns-I</pv_name>
       <x>209</x>
       <y>72</y>
       <width>103</width>
@@ -882,7 +882,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_3</name>
-      <pv_name>$(SYS):$(SS)Error-RB</pv_name>
+      <pv_name>$(P):$(R):$(SS)Error-RB</pv_name>
       <x>11</x>
       <y>108</y>
       <width>307</width>
@@ -901,7 +901,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_4</name>
-      <pv_name>$(SYS):$(SS)NumOfStarts-I</pv_name>
+      <pv_name>$(P):$(R):$(SS)NumOfStarts-I</pv_name>
       <x>209</x>
       <y>48</y>
       <width>103</width>

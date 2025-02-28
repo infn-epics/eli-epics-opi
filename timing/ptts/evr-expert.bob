@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Saved on 2024-10-10 15:59:04 by andreamichelotti-->
 <display version="2.0.0">
-  <name>Expert EVR $(SYS):</name>
+  <name>Expert EVR $(P):$(R):</name>
   <macros>
-    <TITLE>EVR Expert: $(SYS):</TITLE>
+    <TITLE>EVR Expert: $(P):$(R):</TITLE>
   </macros>
   <height>2000</height>
   <background_color>
@@ -37,7 +37,7 @@
     </actions>
     <widget type="combo" version="2.0.0">
       <name>Menu Button</name>
-      <pv_name>$(SYS):Ena-Sel</pv_name>
+      <pv_name>$(P):$(R):Ena-Sel</pv_name>
       <x>90</x>
       <y>5</y>
       <height>19</height>
@@ -65,7 +65,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update</name>
-      <pv_name>$(SYS):Link-Clk-I</pv_name>
+      <pv_name>$(P):$(R):Link-Clk-I</pv_name>
       <x>91</x>
       <y>68</y>
       <width>98</width>
@@ -83,7 +83,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input</name>
-      <pv_name>$(SYS):Link-Clk-SP</pv_name>
+      <pv_name>$(P):$(R):Link-Clk-SP</pv_name>
       <x>90</x>
       <y>36</y>
       <height>19</height>
@@ -132,7 +132,7 @@
     </widget>
     <widget type="combo" version="2.0.0">
       <name>Menu Button</name>
-      <pv_name>$(SYS):ExtInhib-Sel</pv_name>
+      <pv_name>$(P):$(R):ExtInhib-Sel</pv_name>
       <x>90</x>
       <y>96</y>
       <height>19</height>
@@ -161,7 +161,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Time-Clock-I</pv_name>
+      <pv_name>$(P):$(R):Time-Clock-I</pv_name>
       <x>7</x>
       <y>139</y>
       <width>209</width>
@@ -218,7 +218,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Ena-Sel</pv_name>
+      <pv_name>$(P):$(R):Ena-Sel</pv_name>
       <x>91</x>
       <y>7</y>
       <width>65</width>
@@ -253,7 +253,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Link-Sts</pv_name>
+      <pv_name>$(P):$(R):Link-Sts</pv_name>
       <x>91</x>
       <y>31</y>
       <width>65</width>
@@ -288,7 +288,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Pll-Sts</pv_name>
+      <pv_name>$(P):$(R):Pll-Sts</pv_name>
       <x>91</x>
       <y>55</y>
       <width>65</width>
@@ -323,7 +323,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Cnt-RxErr-I</pv_name>
+      <pv_name>$(P):$(R):Cnt-RxErr-I</pv_name>
       <x>91</x>
       <y>103</y>
       <width>65</width>
@@ -358,7 +358,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Cnt-LinkTimo-I</pv_name>
+      <pv_name>$(P):$(R):Cnt-LinkTimo-I</pv_name>
       <x>91</x>
       <y>127</y>
       <width>65</width>
@@ -393,7 +393,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Time-Valid-Sts</pv_name>
+      <pv_name>$(P):$(R):Time-Valid-Sts</pv_name>
       <x>91</x>
       <y>79</y>
       <width>65</width>
@@ -428,7 +428,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):FwVer-I</pv_name>
+      <pv_name>$(P):$(R):FwVer-I</pv_name>
       <x>91</x>
       <y>151</y>
       <width>65</width>
@@ -463,7 +463,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):SwVer-I</pv_name>
+      <pv_name>$(P):$(R):SwVer-I</pv_name>
       <x>7</x>
       <y>185</y>
       <width>161</width>
@@ -498,7 +498,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):HwType-I</pv_name>
+      <pv_name>$(P):$(R):HwType-I</pv_name>
       <x>7</x>
       <y>228</y>
       <width>161</width>
@@ -533,7 +533,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Pos-I</pv_name>
+      <pv_name>$(P):$(R):Pos-I</pv_name>
       <x>79</x>
       <y>253</y>
       <width>89</width>
@@ -554,7 +554,7 @@
   <widget type="group" version="3.0.0">
     <name>SFP</name>
     <macros>
-      <SFP>$(SYS):SFP-</SFP>
+      <SFP>$(P):$(R):SFP-</SFP>
     </macros>
     <x>284</x>
     <y>36</y>

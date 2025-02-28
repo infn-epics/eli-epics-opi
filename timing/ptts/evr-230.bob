@@ -3,7 +3,7 @@
 <display version="2.0.0">
   <name>$(TITLE)</name>
   <macros>
-    <TITLE>EVR $(SYS) $(D)</TITLE>
+    <TITLE>EVR $(P):$(R): $(TITLE)</TITLE>
   </macros>
   <height>861</height>
   <background_color>
@@ -391,7 +391,7 @@
     </actions>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):PS2-Rate-I</pv_name>
+      <pv_name>$(P):$(R):PS2-Rate-I</pv_name>
       <x>85</x>
       <y>67</y>
       <width>65</width>
@@ -410,7 +410,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):PS1-Rate-I</pv_name>
+      <pv_name>$(P):$(R):PS1-Rate-I</pv_name>
       <x>85</x>
       <y>37</y>
       <width>65</width>
@@ -429,7 +429,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):PS0-Rate-I</pv_name>
+      <pv_name>$(P):$(R):PS0-Rate-I</pv_name>
       <x>85</x>
       <y>7</y>
       <width>65</width>
@@ -448,7 +448,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input</name>
-      <pv_name>$(SYS):PS0-Div-SP</pv_name>
+      <pv_name>$(P):$(R):PS0-Div-SP</pv_name>
       <x>18</x>
       <y>6</y>
       <width>61</width>
@@ -468,7 +468,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input</name>
-      <pv_name>$(SYS):PS1-Div-SP</pv_name>
+      <pv_name>$(P):$(R):PS1-Div-SP</pv_name>
       <x>18</x>
       <y>36</y>
       <width>61</width>
@@ -488,7 +488,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input</name>
-      <pv_name>$(SYS):PS2-Div-SP</pv_name>
+      <pv_name>$(P):$(R):PS2-Div-SP</pv_name>
       <x>18</x>
       <y>66</y>
       <width>61</width>
@@ -591,7 +591,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Ena-Sel</pv_name>
+      <pv_name>$(P):$(R):Ena-Sel</pv_name>
       <x>91</x>
       <y>7</y>
       <width>65</width>
@@ -626,7 +626,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Link-Sts</pv_name>
+      <pv_name>$(P):$(R):Link-Sts</pv_name>
       <x>91</x>
       <y>25</y>
       <width>65</width>
@@ -661,7 +661,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Pll-Sts</pv_name>
+      <pv_name>$(P):$(R):Pll-Sts</pv_name>
       <x>91</x>
       <y>43</y>
       <width>65</width>
@@ -696,7 +696,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Cnt-RxErr-I</pv_name>
+      <pv_name>$(P):$(R):Cnt-RxErr-I</pv_name>
       <x>91</x>
       <y>97</y>
       <width>65</width>
@@ -731,7 +731,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Cnt-LinkTimo-I</pv_name>
+      <pv_name>$(P):$(R):Cnt-LinkTimo-I</pv_name>
       <x>91</x>
       <y>115</y>
       <width>65</width>
@@ -766,7 +766,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Time-Valid-Sts</pv_name>
+      <pv_name>$(P):$(R):Time-Valid-Sts</pv_name>
       <x>91</x>
       <y>61</y>
       <width>65</width>
@@ -785,7 +785,7 @@
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>Text Input</name>
-      <pv_name>$(SYS):Evt-Blink0-SP</pv_name>
+      <pv_name>$(P):$(R):Evt-Blink0-SP</pv_name>
       <x>90</x>
       <y>180</y>
       <width>67</width>
@@ -839,7 +839,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Cnt-HwOflw-I</pv_name>
+      <pv_name>$(P):$(R):Cnt-HwOflw-I</pv_name>
       <x>91</x>
       <y>132</y>
       <width>65</width>
@@ -874,7 +874,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):Cnt-SwOflw-I</pv_name>
+      <pv_name>$(P):$(R):Cnt-SwOflw-I</pv_name>
       <x>91</x>
       <y>149</y>
       <width>65</width>
@@ -925,7 +925,7 @@
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
-      <pv_name>$(SYS):SFP-Pwr-RX-I</pv_name>
+      <pv_name>$(P):$(R):SFP-Pwr-RX-I</pv_name>
       <x>91</x>
       <y>79</y>
       <width>65</width>
@@ -1622,7 +1622,7 @@ $(pv_value)</tooltip>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_3</name>
-    <pv_name>$(SYS):Time-Clock-I</pv_name>
+    <pv_name>$(P):$(R):Time-Clock-I</pv_name>
     <x>18</x>
     <y>32</y>
     <width>209</width>

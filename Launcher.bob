@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-02-27 22:04:24 by andreamichelotti-->
+<!--Saved on 2025-02-28 09:44:06 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -23,84 +23,6 @@
       <tab>
         <name>Timing</name>
         <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Embedded Display_30</name>
-            <macros>
-              <P>MRF01:evr</P>
-              <TITLE>Receiver 0</TITLE>
-              <MASTER>MRF01:evg</MASTER>
-            </macros>
-            <file>timing/phoebus_mrf_interface/evr/delay-app.bob</file>
-            <y>2</y>
-            <width>788</width>
-            <height>400</height>
-            <resize>1</resize>
-          </widget>
-          <widget type="embedded" version="2.0.0">
-            <name>Embedded Display_31</name>
-            <macros>
-              <P>MRF01:evr1</P>
-              <TITLE>Receiver 1</TITLE>
-              <MASTER>MRF01:evg</MASTER>
-            </macros>
-            <file>timing/phoebus_mrf_interface/evr/delay-app.bob</file>
-            <x>788</x>
-            <y>2</y>
-            <width>788</width>
-            <height>400</height>
-            <resize>1</resize>
-          </widget>
-          <widget type="choice" version="2.0.0">
-            <name>HZButton</name>
-            <pv_name>loc://HZ("string")</pv_name>
-            <x>1388</x>
-            <y>405</y>
-            <selected_color>
-              <color red="0" green="255" blue="0">
-              </color>
-            </selected_color>
-            <actions>
-              <action type="execute">
-                <description>Execute Script</description>
-                <script file="EmbeddedPy">
-                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
-print ("YEOOO")
-
-
-#val=PVUtil.getPV(pvs[0])
-#if val="1 Hertz":
-#	PVUtil.writePV("MRF01:evr:OutFPUV1SrcGate-SP", "Flip-flop 0")
-#else :
-#       PVUtil.writePV("MRF01:evr:OutFPUV1SrcPulse-SP", "Pulser 0")
-]]></text>
-                </script>
-              </action>
-            </actions>
-            <scripts>
-              <script file="EmbeddedPy" check_connections="false">
-                <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-val=PVUtil.getString(ScriptUtil.getPrimaryPV(ScriptUtil.findWidgetByName(widget, "HZButton")))
-print val
-if (val=="1 Hz"):
-	print 'Set FlipFlop'
-	PVUtil.writePV("MRF01:evr:OutFPUV1SrcGate-SP", 'Flip-flop 0',1)
-	
-else :
-        PVUtil.writePV("MRF01:evr:OutFPUV1SrcPulse-SP", "Pulser 0",1)
-	print 'Set Pulser'
-
-print 'Done']]></text>
-                <pv_name>loc://HZ("string")</pv_name>
-              </script>
-            </scripts>
-            <border_alarm_sensitive>false</border_alarm_sensitive>
-            <items>
-              <item>1 Hz</item>
-              <item>10 Hz</item>
-            </items>
-            <items_from_pv>false</items_from_pv>
-          </widget>
           <widget type="action_button" version="3.0.0">
             <name>Action Button_3</name>
             <actions>
@@ -192,6 +114,88 @@ print 'Done']]></text>
             <y>562</y>
             <width>130</width>
             <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Timing Delay</name>
+            <macros>
+              <P>LEL:TIM</P>
+            </macros>
+            <x>18</x>
+            <y>12</y>
+            <width>1240</width>
+            <height>300</height>
+            <widget type="navtabs" version="2.0.0">
+              <name>Timing Delay Nav</name>
+              <tabs>
+                <tab>
+                  <name>BPM &amp; CAMs</name>
+                  <file>timing/ptts/delay-app.bob</file>
+                  <macros>
+                    <R>EVR-BPMCAM</R>
+                    <TITLE>BPM &amp; CAM 0-1 Delays</TITLE>
+                  </macros>
+                  <group_name>Diag 1</group_name>
+                </tab>
+                <tab>
+                  <name>CAM</name>
+                  <file>timing/ptts/delay-app.bob</file>
+                  <macros>
+                    <R>EVR-CAM</R>
+                    <TITLE>Cam 2-6 Timing Delay</TITLE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>ADC</name>
+                  <file>timing/ptts/delay-app.bob</file>
+                  <macros>
+                    <R>EVR-ADC</R>
+                    <TITLE>ADC Timing Delay</TITLE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>Laser</name>
+                  <file>timing/ptts/delay-app.bob</file>
+                  <macros>
+                    <R>EVR-LAS</R>
+                    <TITLE>Laser Delays</TITLE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>LLRF</name>
+                  <file>timing/ptts/delay-app.bob</file>
+                  <macros>
+                    <R>EVR-LLRF</R>
+                    <TITLE>LLRF Timing Delays</TITLE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>RF Driver</name>
+                  <file>timing/ptts/delay-app.bob</file>
+                  <macros>
+                    <R>EVR-RFD</R>
+                    <TITLE>RF Driver Delays</TITLE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>RF Modulator</name>
+                  <file>timing/ptts/delay-app.bob</file>
+                  <macros>
+                    <R>EVR-RFM</R>
+                    <TITLE>Modulator Delays</TITLE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+              </tabs>
+              <x>-8</x>
+              <y>2</y>
+              <width>1198</width>
+              <height>270</height>
+            </widget>
           </widget>
         </children>
       </tab>
@@ -1380,7 +1384,7 @@ print 'Done']]></text>
         </children>
       </tab>
     </tabs>
-    <y>50</y>
+    <y>30</y>
     <width>1900</width>
     <height>974</height>
     <background_color>

@@ -14,7 +14,7 @@
   <grid_step_y>6</grid_step_y>
   <widget type="textentry" version="3.0.0">
     <name>Text Input</name>
-    <pv_name>$(SYS):$(P)Prescaler-SP</pv_name>
+    <pv_name>$(P):$(R):$(P)Prescaler-SP</pv_name>
     <x>84</x>
     <width>37</width>
     <height>19</height>
@@ -33,7 +33,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input_1</name>
-    <pv_name>$(SYS):$(P)Delay-SP</pv_name>
+    <pv_name>$(P):$(R):$(P)Delay-SP</pv_name>
     <x>126</x>
     <width>109</width>
     <height>19</height>
@@ -52,7 +52,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input_2</name>
-    <pv_name>$(SYS):$(P)Width-SP</pv_name>
+    <pv_name>$(P):$(R):$(P)Width-SP</pv_name>
     <x>264</x>
     <width>85</width>
     <height>19</height>
@@ -71,7 +71,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update</name>
-    <pv_name>$(SYS):$(P)Delay-SP.EGU</pv_name>
+    <pv_name>$(P):$(R):$(P)Delay-SP.EGU</pv_name>
     <x>234</x>
     <width>25</width>
     <height>19</height>
@@ -93,7 +93,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_1</name>
-    <pv_name>$(SYS):$(P)Width-SP.EGU</pv_name>
+    <pv_name>$(P):$(R):$(P)Width-SP.EGU</pv_name>
     <x>348</x>
     <width>25</width>
     <height>19</height>
@@ -129,7 +129,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input_3</name>
-    <pv_name>$(SYS):$(P)Evt-Trig0-SP</pv_name>
+    <pv_name>$(P):$(R):$(P)Evt-Trig0-SP</pv_name>
     <x>384</x>
     <width>37</width>
     <height>19</height>
@@ -148,7 +148,7 @@
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Boolean Button</name>
-    <pv_name>$(SYS):$(P)Polarity-Sel</pv_name>
+    <pv_name>$(P):$(R):$(P)Polarity-Sel</pv_name>
     <bit>-1</bit>
     <x>24</x>
     <y>20</y>
@@ -173,7 +173,7 @@
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Boolean Button_1</name>
-    <pv_name>$(SYS):$(P)Ena-Sel</pv_name>
+    <pv_name>$(P):$(R):$(P)Ena-Sel</pv_name>
     <bit>-1</bit>
     <x>24</x>
     <width>61</width>
@@ -195,7 +195,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input_6</name>
-    <pv_name>$(SYS):$(P)Label-I</pv_name>
+    <pv_name>$(P):$(R):$(P)Label-I</pv_name>
     <x>90</x>
     <y>20</y>
     <width>415</width>
