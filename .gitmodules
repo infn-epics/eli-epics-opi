@@ -41,3 +41,6 @@
 [submodule "VAC/vac-opi"]
 	path = VAC/vac-opi
 	url = https://baltig.infn.it/infn-epics/vac-opi.git
+[submodule "timing/mrf230-opi"]
+	path = timing/mrf230-opi
+	url = https://baltig.infn.it/infn-epics/mrf230-opi.git
