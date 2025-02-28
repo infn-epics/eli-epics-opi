@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-10 16:30:21 by andreamichelotti-->
+<!--Saved on 2025-02-28 11:11:41 by andreamichelotti-->
 <display version="2.0.0">
   <name>$(TITLE)</name>
-  <macros>
-    <TITLE>EVR $(P):$(R): $(TITLE)</TITLE>
-  </macros>
+  
   <height>861</height>
   <background_color>
     <color red="240" green="240" blue="240">
@@ -35,196 +33,6 @@
     </background_color>
     <actions>
     </actions>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_6</name>
-      <macros>
-        <P>Pul6-</P>
-        <N>6</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>288</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_8</name>
-      <macros>
-        <P>Pul8-</P>
-        <N>8</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>368</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_3</name>
-      <macros>
-        <P>Pul3-</P>
-        <N>3</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>167</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_7</name>
-      <macros>
-        <P>Pul7-</P>
-        <N>7</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>327</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_9</name>
-      <macros>
-        <P>Pul9-</P>
-        <N>9</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>407</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_5</name>
-      <macros>
-        <P>Pul5-</P>
-        <N>5</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>247</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_4</name>
-      <macros>
-        <P>Pul4-</P>
-        <N>4</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>208</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_2</name>
-      <macros>
-        <P>Pul2-</P>
-        <N>2</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>128</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container_1</name>
-      <macros>
-        <P>Pul1-</P>
-        <N>1</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>87</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="embedded" version="2.0.0">
-      <name>Linking Container</name>
-      <macros>
-        <P>Pul0-</P>
-        <N>0</N>
-      </macros>
-      <file>_evrdlygen.bob</file>
-      <x>12</x>
-      <y>48</y>
-      <width>516</width>
-      <height>42</height>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <border_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </border_color>
-    </widget>
     <widget type="label" version="2.0.0">
       <name>Label_4</name>
       <text>Polarity</text>
@@ -315,6 +123,40 @@
         <color red="0" green="128" blue="255">
         </color>
       </border_color>
+    </widget>
+    <widget type="template" version="2.0.0">
+      <name>Template/Instance</name>
+      <file>_evrdlygen.bob</file>
+      <instances>
+        <instance>
+          <macros>
+            <N>1</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>2</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>3</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>4</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+      </instances>
+      <x>12</x>
+      <y>45</y>
+      <width>520</width>
+      <height>190</height>
     </widget>
   </widget>
   <widget type="group" version="3.0.0">
@@ -805,9 +647,9 @@
       <name>Action Button</name>
       <actions>
         <action type="open_display">
+          <description>Open Display</description>
           <file>evr-expert.bob</file>
           <target>replace</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>Expert</text>
@@ -1082,12 +924,12 @@
               <name>Action Button</name>
               <actions>
                 <action type="open_display">
+                  <description>Open Display</description>
                   <file>evr-cml-output.opi</file>
                   <macros>
                     <O>FrontUnivOut5</O>
                   </macros>
                   <target>tab</target>
-                  <description>Open Display</description>
                 </action>
               </actions>
               <text>CML/GTX</text>
@@ -1110,12 +952,12 @@
               <name>Action Button</name>
               <actions>
                 <action type="open_display">
+                  <description>Open Display</description>
                   <file>evr-cml-output.opi</file>
                   <macros>
                     <O>FrontUnivOut5</O>
                   </macros>
                   <target>tab</target>
-                  <description>Open Display</description>
                 </action>
               </actions>
               <text>CML/GTX</text>
@@ -1138,12 +980,12 @@
               <name>Action Button_1</name>
               <actions>
                 <action type="open_display">
+                  <description>Open Display</description>
                   <file>evr-cml-output.opi</file>
                   <macros>
                     <O>FrontUnivOut4</O>
                   </macros>
                   <target>tab</target>
-                  <description>Open Display</description>
                 </action>
               </actions>
               <text>CML/GTX</text>
