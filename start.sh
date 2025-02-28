@@ -18,9 +18,9 @@ if [ "$ARCH" == "Darwin" ];then
     ## otherwise if a snapshot version of phoebus is found
     elif [ -f /Applications/CSS_Phoebus.app/product-$VERSION-SNAPSHOT/product-$VERSION-SNAPSHOT.jar ]; then 
 	    PHOEBUS="java -jar /Applications/CSS_Phoebus.app/product-$VERSION-SNAPSHOT/product-$VERSION-SNAPSHOT.jar"
-    elif [ -f /Applications/CSS_Phoebus.app/product-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar ]; then
+    elif [ -f /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar ]; then
         echo "% No Phoebus $VERSION found using 4.7.3"
-	    PHOEBUS="java -jar /Applications/CSS_Phoebus.app/product-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar"
+	    PHOEBUS="java -jar /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar"
     else
         echo "# No Phoebus $VERSION installation found in /Applications/CSS_Phoebus.app/"
         exit
