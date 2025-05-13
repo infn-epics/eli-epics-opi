@@ -2,33 +2,23 @@
 ## current directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ARCH=`uname -s`
-VERSION=4.7.4
 
-if [ -z "$PHOEBUS" ]; then
-    PHOEBUS="phoebus"
-fi
+PHOEBUS="phoebus"
+
 
 if [ "$ARCH" == "Darwin" ];then
-    if [ -z "$JAVA_HOME" ]; then
-        export JAVA_HOME=/Applications/CSS_Phoebus.app/jdk/Contents/Home/
-    fi
-    ## if a stable version of phoebus is found
-    if [ -f /Applications/CSS_Phoebus.app/product-$VERSION/product-$VERSION.jar ]; then
-	    PHOEBUS="java -jar /Applications/CSS_Phoebus.app/product-$VERSION/product-$VERSION.jar"
-    ## otherwise if a snapshot version of phoebus is found
-    elif [ -f /Applications/CSS_Phoebus.app/product-$VERSION-SNAPSHOT/product-$VERSION-SNAPSHOT.jar ]; then 
-	    PHOEBUS="java -jar /Applications/CSS_Phoebus.app/product-$VERSION-SNAPSHOT/product-$VERSION-SNAPSHOT.jar"
-    elif [ -f /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar ]; then
-        echo "% No Phoebus $VERSION found using 4.7.3"
-	    PHOEBUS="java -jar /Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar"
-    else
-        echo "# No Phoebus $VERSION installation found in /Applications/CSS_Phoebus.app/"
-        exit
-    fi
-else 
-    if [ -f /phoebus/product/product.jar ];then
-        PHOEBUS="java -jar /phoebus/product/product.jar"
-    fi
+    export JAVA_HOME=/Applications/CSS_Phoebus.app/jdk/Contents/Home/
+    for jar_path in \
+        "/Applications/CSS_Phoebus.app/product-4.7.4-INFN/product-4.7.4-INFN.jar" \
+        "/Applications/CSS_Phoebus.app/product-4.7.3/product-4.7.3.jar" \
+        "/Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar" \
+        "/Applications/CSS_Phoebus.app/product-4.7.4-SNAPSHOT/product-4.7.4-SNAPSHOT.jar"
+    do
+        if [ -f "$jar_path" ]; then
+            PHOEBUS="java -jar $jar_path"
+            break
+        fi
+    done
 fi
 
 if [ -z "$OPIHOME" ]; then
@@ -38,7 +28,7 @@ if [ -z "$OPIDATA" ]; then
     export OPIDATA=$DIR
 fi
 ## test if phoebus executable is found in path
-if ! command -v $PHOEBUS &> /dev/null
+if ! $PHOEBUS -h > /dev/null
 then
      echo "# phoebus executable not found in PATH nor alias"
      exit
@@ -104,5 +94,5 @@ else
     
     fi
 
-    $PHOEBUS -settings $OPIHOME/settings.ini -resource $OPIHOME/Launcher.bob
+    $PHOEBUS -settings $OPIHOME/settings.ini -resource $OPIHOME/Launcher.bob 
 fi
