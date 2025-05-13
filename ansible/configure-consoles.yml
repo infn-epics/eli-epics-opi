@@ -18,8 +18,9 @@
       vars:
         control_user: "eliuser"
         opi_main: "eli/Launcher.bob"
+        install_phoebus: false
         phoebus_opis_repos:
-          - url: "https://oauth2:{{git_repo_token}}@baltig.infn.it/lnf-da-control/eli-epics-opi.git"
+          - url: "https://github.com/infn-epics/eli-epics-opi.git"
             dest: "eli"
         
         nfsMounts:

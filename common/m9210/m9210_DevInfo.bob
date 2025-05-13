@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-13 18:14:23 by andreamichelotti-->
+<!--Saved on 2025-05-13 23:34:47 by andreamichelotti-->
 <display version="2.0.0">
   <width>300</width>
   <height>495</height>
@@ -88,8 +88,8 @@
     <text>Device status</text>
     <x>12</x>
     <y>338</y>
-    <width>108</width>
-    <height>19</height>
+    <width>68</width>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -116,8 +116,8 @@
     <text>Driver</text>
     <x>12</x>
     <y>182</y>
-    <width>50</width>
-    <height>19</height>
+    <width>30</width>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -144,8 +144,8 @@
     <text>Prefix</text>
     <x>96</x>
     <y>265</y>
-    <width>47</width>
-    <height>19</height>
+    <width>29</width>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -172,8 +172,8 @@
     <text>Revision</text>
     <x>77</x>
     <y>305</y>
-    <width>66</width>
-    <height>19</height>
+    <width>42</width>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -200,8 +200,8 @@
     <text>Vendor</text>
     <x>12</x>
     <y>46</y>
-    <width>57</width>
-    <height>19</height>
+    <width>37</width>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -228,8 +228,8 @@
     <text>Model</text>
     <x>95</x>
     <y>110</y>
-    <width>48</width>
-    <height>19</height>
+    <width>32</width>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -256,8 +256,8 @@
     <text>Firmware</text>
     <x>69</x>
     <y>150</y>
-    <width>75</width>
-    <height>19</height>
+    <width>47</width>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -284,8 +284,8 @@
     <text>IOC name</text>
     <x>12</x>
     <y>393</y>
-    <width>80</width>
-    <height>19</height>
+    <width>50</width>
+    <height>15</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -551,7 +551,7 @@
     <actions>
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>$(DEVICE):MSGS {"longString":true}</pv_name>
+        <pv_name>$(DEVICE):MSGS</pv_name>
         <value>RESET</value>
       </action>
     </actions>
