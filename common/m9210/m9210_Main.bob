@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-13 18:14:23 by andreamichelotti-->
+<!--Saved on 2025-06-06 13:04:45 by andreamichelotti-->
 <display version="2.0.0">
-  <width>1023</width>
-  <height>700</height>
+  <width>1125</width>
+  <height>980</height>
   <background_color>
     <color red="237" green="236" blue="235">
     </color>
@@ -60,13 +60,33 @@
         </children>
       </tab>
       <tab>
-        <name>Channel</name>
+        <name>Channels</name>
         <children>
           <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
+            <name>channel1</name>
+            <macros>
+              <CHAN>0</CHAN>
+            </macros>
             <file>m9210_Channel.opi</file>
             <width>300</width>
-            <height>400</height>
+            <height>395</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Channel2</name>
+            <macros>
+              <CHAN>1</CHAN>
+            </macros>
+            <file>m9210_Channel.opi</file>
+            <y>405</y>
+            <width>300</width>
+            <height>395</height>
             <transparent>true</transparent>
             <actions>
             </actions>
@@ -114,102 +134,14 @@
         </children>
       </tab>
     </tabs>
-    <x>5</x>
     <y>90</y>
     <width>306</width>
-    <height>606</height>
+    <height>890</height>
     <background_color>
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
-    <tab_height>10</tab_height>
-    <actions>
-    </actions>
-  </widget>
-  <widget type="tabs" version="2.0.0">
-    <name>Tabbed ContainerTemplate_1</name>
-    <tabs>
-      <tab>
-        <name>Raw data</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_RawData.opi</file>
-            <width>701</width>
-            <height>566</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Microbunch statistics</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_MicroBunchStats.opi</file>
-            <width>700</width>
-            <height>530</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Macrobunch</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_MacroBunch.opi</file>
-            <width>700</width>
-            <height>480</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Microbunch</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_MicroBunch.opi</file>
-            <width>701</width>
-            <height>566</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-    </tabs>
-    <x>315</x>
-    <y>90</y>
-    <width>704</width>
-    <height>606</height>
-    <background_color>
-      <color name="IO Grid" red="215" green="215" blue="215">
-      </color>
-    </background_color>
+    <active_tab>1</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>
@@ -223,5 +155,13 @@
     <height>41</height>
     <actions>
     </actions>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_1</name>
+    <file>m9210_ChannelView.bob</file>
+    <x>306</x>
+    <y>90</y>
+    <width>819</width>
+    <height>870</height>
   </widget>
 </display>
