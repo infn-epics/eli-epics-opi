@@ -3,7 +3,7 @@ stages:
 
 deploy_stage:
   tags:
-    - lnf
+    - eli
   stage: deploy
   image: alpine/ansible:2.16.1
   script:
