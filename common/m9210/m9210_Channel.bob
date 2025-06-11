@@ -60,7 +60,7 @@
     </widget>
     <widget type="label" version="2.0.0">
       <name>Label_124</name>
-      <text>Channel 1</text>
+      <text>Channel $(CHAN)</text>
       <x>85</x>
       <width>116</width>
       <height>25</height>
@@ -141,7 +141,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input Template</name>
-    <pv_name>$(DEVICE):AI0:OFS_SP</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):OFS_SP</pv_name>
     <x>102</x>
     <y>202</y>
     <width>88</width>
@@ -194,7 +194,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input Template_1</name>
-    <pv_name>$(DEVICE):AI0:RNG_SP</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):RNG_SP</pv_name>
     <x>102</x>
     <y>242</y>
     <width>88</width>
@@ -219,7 +219,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_5</name>
-    <pv_name>$(DEVICE):AI0:STAT</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):STAT</pv_name>
     <x>101</x>
     <y>45</y>
     <width>190</width>
@@ -276,7 +276,7 @@
   </widget>
   <widget type="combo" version="2.0.0">
     <name>Combo</name>
-    <pv_name>$(DEVICE):AI0:IMPD_SP</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):IMPD_SP</pv_name>
     <x>97</x>
     <y>159</y>
     <width>99</width>
@@ -306,7 +306,7 @@
   </widget>
   <widget type="combo" version="2.0.0">
     <name>Combo_1</name>
-    <pv_name>$(DEVICE):AI0:ACDC_SP</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):ACDC_SP</pv_name>
     <x>97</x>
     <y>119</y>
     <width>99</width>
@@ -392,7 +392,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_13</name>
-    <pv_name>$(DEVICE):AI0:CTR</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):CTR</pv_name>
     <x>161</x>
     <y>326</y>
     <width>130</width>
@@ -422,7 +422,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_14</name>
-    <pv_name>$(DEVICE):AI0:CTRA</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):CTRA</pv_name>
     <x>161</x>
     <y>366</y>
     <width>130</width>
@@ -452,7 +452,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_8</name>
-    <pv_name>$(DEVICE):AI0:ACDC_RB</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):ACDC_RB</pv_name>
     <x>201</x>
     <y>121</y>
     <width>90</width>
@@ -482,7 +482,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_7</name>
-    <pv_name>$(DEVICE):AI0:IMPD_SP</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):IMPD_SP</pv_name>
     <x>201</x>
     <y>161</y>
     <width>90</width>
@@ -512,7 +512,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_4</name>
-    <pv_name>$(DEVICE):AI0:OFS_RB</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):OFS_RB</pv_name>
     <x>201</x>
     <y>201</y>
     <width>90</width>
@@ -543,7 +543,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_5</name>
-    <pv_name>$(DEVICE):AI0:RNG_RB</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):RNG_RB</pv_name>
     <x>201</x>
     <y>241</y>
     <width>90</width>

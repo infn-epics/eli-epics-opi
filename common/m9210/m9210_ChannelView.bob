@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-06-06 13:06:37 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>795</width>
+  <height>870</height>
+  <background_color>
+    <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+    </color>
+  </background_color>
+  <widget type="tabs" version="2.0.0">
+    <name>ChannelView</name>
+    <tabs>
+      <tab>
+        <name>Raw data</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_RawData.bob</file>
+            <width>788</width>
+            <height>850</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Microbunch statistics</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_MicroBunchStats.opi</file>
+            <width>700</width>
+            <height>530</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Macrobunch</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_MacroBunch.opi</file>
+            <width>700</width>
+            <height>480</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Microbunch</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_MicroBunch.opi</file>
+            <width>701</width>
+            <height>566</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <width>795</width>
+    <height>870</height>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <tab_height>10</tab_height>
+    <actions>
+    </actions>
+  </widget>
+</display>
