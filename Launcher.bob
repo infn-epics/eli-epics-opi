@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-13 18:36:43 by andreamichelotti-->
+<!--Saved on 2025-06-11 15:26:13 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -1366,6 +1366,23 @@
             </actions>
             <text>ADC2</text>
             <x>148</x>
+            <y>392</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>POLAROTY</name>
+            <actions>
+              <action type="open_display">
+                <description>Polarity</description>
+                <file>MAG/polarityreversal.bob</file>
+                <macros>
+                  <P>LEL:POLREV</P>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>PolarityReversal</text>
+            <x>378</x>
             <y>392</y>
             <tooltip>$(actions)</tooltip>
           </widget>
