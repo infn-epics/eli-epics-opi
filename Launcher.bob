@@ -1395,7 +1395,7 @@
                 <children>
                   <widget type="webbrowser" version="2.0.0">
                     <name>Web Browser</name>
-                    <url>http://notebook.int.eli-np.ro/lab</url>
+                    <url>http://eli-notebook.int.eli-np.ro/lab</url>
                     <width>1830</width>
                     <height>920</height>
                   </widget>
@@ -1406,7 +1406,7 @@
                 <children>
                   <widget type="webbrowser" version="2.0.0">
                     <name>Archiver</name>
-                    <url>http://archiver.int.eli-np.ro/mgmt/ui/index.html</url>
+                    <url>http://eli-archiver.int.eli-np.ro/mgmt/ui/index.html</url>
                     <width>1830</width>
                     <height>920</height>
                   </widget>
