@@ -19,4 +19,4 @@ QUAD01,M2,QUA,sigmaphi,LEL:MAG:QPSU01,LEL:MAG:QPSU01:QUAD01,100,-100,Quadrupole 
 QUAD02,M2,QUA,sigmaphi,LEL:MAG:QPSU02,LEL:MAG:QPSU02:QUAD02,100,-100,Quadrupole after ACC3,sigmaphi/sigmaPhiStart.bob
 QUAD03,M2,QUA,sigmaphi,LEL:MAG:QPSU03,LEL:MAG:QPSU03:QUAD03,100,-100,Quadrupole after ACC3,sigmaphi/sigmaPhiStart.bob
 SOL02:COIL1012,M2,SOL,sigmaphi,LEL:MAG:SPSU06,LEL:MAG:SPSU06:SOL02:COIL1012,100,-100,Solenoid Magnet SOL02:COIL1012,sigmaphi/sigmaPhiStart.bob
-DIP01,M4,DIP,sigmaphi,LEL:MAG:DIP01,LEL:MAG:DIP01,200,-200,Dipole Magnet DHRTB101,sigmaphi/sigmaPhiStart.bob
+DIP01,M4,DIP,sigmaphi,LEL:MAG:DPSU01,LEL:MAG:DPSU01:DIP01,200,-200,Dipole Magnet DHRTB101,sigmaphi/sigmaPhiStart.bob
