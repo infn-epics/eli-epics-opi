@@ -19,20 +19,22 @@
         control_user: "eliuser"
         opi_main: "eli/Launcher.bob"
         install_phoebus: false
+        phoebus_version: 4.7.3
+
         phoebus_opis_repos:
           - url: "https://github.com/infn-epics/eli-epics-opi.git"
             dest: "eli"
         
         nfsMounts:
           - name: data
-            server: 192.168.197.157
-            path: /data_epik8s/eli/data
-            mountPath: /nfs/epik8s/eli/data
+            server: 10.16.4.100
+            path: /epik8s_data/data
+            mountPath: /nfs/data
           - name: autosave
-            server: 192.168.197.157
-            path: /data_epik8s/eli/autosave
-            mountPath: /nfs/epik8s/eli/autosave
+            server: 10.16.4.100
+            path: /epik8s_data/autosave
+            mountPath: /nfs/autosave
           - name: config
-            server: 192.168.197.157
-            path: /data_epik8s/eli/config
-            mountPath: /nfs/epik8s/eli/config
+            server: 10.16.4.100
+            path: /epik8s_data/config
+            mountPath: /nfs/config
