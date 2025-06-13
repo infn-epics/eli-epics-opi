@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-12 10:02:18 by eliuser-->
+<!--Saved on 2025-06-13 13:24:57 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
   <height>1024</height>
   <actions>
     <action type="open_display">
+      <description>Open Display</description>
       <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
       <macros>
         <DEVICE>AC1BPM01</DEVICE>
       </macros>
       <target>window</target>
-      <description>Open Display</description>
     </action>
   </actions>
   <widget type="tabs" version="2.0.0">
@@ -27,13 +27,13 @@
             <name>TimingGenerator</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>timing/mrf230-opi/evg-230.bob</file>
                 <macros>
                   <SYS>LEL:TIM:TMG</SYS>
                   <D>MRF GENERATOR</D>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>EVG</text>
@@ -47,67 +47,67 @@
             <name>ReceiversControls</name>
             <actions>
               <action type="open_display">
+                <description>Delay Laser</description>
                 <file>timing/mrf230-opi/evr-230.bob</file>
                 <macros>
                   <SYS>LEL:TIM:EVR-LAS</SYS>
                   <D>LASER Timing</D>
                 </macros>
                 <target>window</target>
-                <description>Delay Laser</description>
               </action>
               <action type="open_display">
+                <description>Delay LLRF</description>
                 <file>timing/mrf230-opi/evr-230.bob</file>
                 <macros>
                   <SYS>LEL:TIM:EVR-LLRF</SYS>
                   <D>LLRF Timing</D>
                 </macros>
                 <target>window</target>
-                <description>Delay LLRF</description>
               </action>
               <action type="open_display">
+                <description>Delay RF Driver</description>
                 <file>timing/mrf230-opi/evr-230.bob</file>
                 <macros>
                   <SYS>LEL:TIM:EVR-RFD</SYS>
                   <D>RF Driver Timing</D>
                 </macros>
                 <target>window</target>
-                <description>Delay RF Driver</description>
               </action>
               <action type="open_display">
+                <description>Delay RF Modulator</description>
                 <file>timing/mrf230-opi/evr-230.bob</file>
                 <macros>
                   <SYS>LEL:TIM:EVR-RFM</SYS>
                   <D>RF Modulator Timing</D>
                 </macros>
                 <target>window</target>
-                <description>Delay RF Modulator</description>
               </action>
               <action type="open_display">
+                <description>Delay BPM CAM0-1 </description>
                 <file>timing/mrf230-opi/evr-230.bob</file>
                 <macros>
                   <SYS>LEL:TIM:EVR-BPMCAM</SYS>
                   <D>BPM and CAM0-1 Timing</D>
                 </macros>
                 <target>window</target>
-                <description>Delay BPM CAM0-1 </description>
               </action>
               <action type="open_display">
+                <description>Delay CAM2-6 </description>
                 <file>timing/mrf230-opi/evr-230.bob</file>
                 <macros>
                   <SYS>LEL:TIM:EVR-CAM</SYS>
                   <D>Camera 2-6 Timing</D>
                 </macros>
                 <target>window</target>
-                <description>Delay CAM2-6 </description>
               </action>
               <action type="open_display">
+                <description>Delay ADC0-1 </description>
                 <file>timing/mrf230-opi/evr-230.bob</file>
                 <macros>
                   <SYS>LEL:TIM:EVR-ADC</SYS>
                   <D>ADC Timing</D>
                 </macros>
                 <target>window</target>
-                <description>Delay ADC0-1 </description>
               </action>
             </actions>
             <text>Receiver</text>
@@ -205,11 +205,6 @@
         <children>
           <widget type="navtabs" version="2.0.0">
             <name>Navigation Tabs</name>
-            <tabs>
-              <tab>
-               
-              </tab>
-            </tabs>
             <width>1830</width>
             <height>934</height>
             <direction>0</direction>
@@ -234,9 +229,9 @@
                     <height>640</height>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                         <target>replace</target>
-                        <description>Open Display</description>
                       </action>
                     </actions>
                   </widget>
@@ -244,13 +239,13 @@
                     <name>MotorController</name>
                     <actions>
                       <action type="open_display">
+                        <description>Motor Controller</description>
                         <file>common/motor-tml/TML.bob</file>
                         <macros>
                           <PREFIX>LEL:</PREFIX>
                           <CONFFILE>mot_list.ini</CONFFILE>
                         </macros>
                         <target>window</target>
-                        <description>Motor Controller</description>
                       </action>
                     </actions>
                     <x>42</x>
@@ -345,6 +340,7 @@
                     <name>cameraInterfaceBase</name>
                     <actions>
                       <action type="open_display">
+                        <description>Camera APP</description>
                         <file>common/camera/Camera.bob</file>
                         <macros>
                           <DEVICE>LEL</DEVICE>
@@ -352,7 +348,6 @@
                           <CONFFILE>cam_list.ini</CONFFILE>
                         </macros>
                         <target>window</target>
-                        <description>Camera APP</description>
                       </action>
                     </actions>
                     <text>CAMERA APP</text>
@@ -414,449 +409,43 @@
                 <children>
                   <widget type="picture" version="2.0.0">
                     <name>Synoptic_3</name>
-                    <file>img/bpm-map.png</file>
+                    <file>img/eli-layout.png</file>
                     <y>18</y>
                     <width>1320</width>
                     <height>640</height>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                         <target>replace</target>
-                        <description>Open Display</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_3</name>
-                    <macros>
-                      <DEVICE>PTLBPM01</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>645</x>
-                    <y>343</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_2</name>
-                    <macros>
-                      <DEVICE>AC3BPM01</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>405</x>
-                    <y>344</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_1</name>
-                    <macros>
-                      <DEVICE>AC2BPM01</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>229</x>
-                    <y>340</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display</name>
-                    <macros>
-                      <DEVICE>AC1BPM01</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>70</x>
-                    <y>341</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_4</name>
-                    <macros>
-                      <DEVICE>PLXBPM01</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>712</x>
-                    <y>278</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_5</name>
-                    <macros>
-                      <DEVICE>PLXBPM02</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>752</x>
-                    <y>258</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_6</name>
-                    <macros>
-                      <DEVICE>PLXBPM03</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>812</x>
-                    <y>238</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_7</name>
-                    <macros>
-                      <DEVICE>PLXBPM04</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>882</x>
-                    <y>168</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_8</name>
-                    <macros>
-                      <DEVICE>PLXBPM05</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>1022</x>
-                    <y>78</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_9</name>
-                    <macros>
-                      <DEVICE>UTLBPM01</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>792</x>
-                    <y>338</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_10</name>
-                    <macros>
-                      <DEVICE>DGLBPM01</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>872</x>
-                    <y>298</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_11</name>
-                    <macros>
-                      <DEVICE>PLXBPM06</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>1112</x>
-                    <y>28</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_12</name>
-                    <macros>
-                      <DEVICE>DGLBPM02</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>992</x>
-                    <y>248</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_13</name>
-                    <macros>
-                      <DEVICE>DGLBPM03</DEVICE>
-                    </macros>
-                    <file>diag/comp/bpm.bob</file>
-                    <x>1142</x>
-                    <y>218</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_14</name>
                     <macros>
-                      <HOSTNAME>PLXSPE</HOSTNAME>
-                      <BPM>PLXBPM07</BPM>
-                      <BPM1>PLXBPM07</BPM1>
-                      <BPM2>PLXBPM08</BPM2>
-                      <BPM3>PLXBPM09</BPM3>
-                      <BPM4>PLXBPM10</BPM4>
+                      <HOSTNAME>BPM01</HOSTNAME>
+                      <BPM>LEL:DIA:BPM01</BPM>
+                      <BPM1>BPM01</BPM1>
+                      <BPM2>BPM02</BPM2>
+                      <BPM3>BPM03</BPM3>
+                      <BPM4>BPM04</BPM4>
                     </macros>
                     <file>diag/comp/bpmspe.bob</file>
-                    <x>1172</x>
-                    <y>8</y>
+                    <x>192</x>
+                    <y>438</y>
                     <width>30</width>
                     <height>180</height>
                     <resize>4</resize>
                     <transparent>true</transparent>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display libera sppp</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                         <macros>
                           <DEVICE>AC1BPM01</DEVICE>
                         </macros>
                         <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_15</name>
-                    <macros>
-                      <HOSTNAME>PLXSPE</HOSTNAME>
-                      <BPM>PLXBPM08</BPM>
-                      <BPM1>PLXBPM07</BPM1>
-                      <BPM2>PLXBPM08</BPM2>
-                      <BPM3>PLXBPM09</BPM3>
-                      <BPM4>PLXBPM10</BPM4>
-                    </macros>
-                    <file>diag/comp/bpmspe.bob</file>
-                    <x>1232</x>
-                    <y>28</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_16</name>
-                    <macros>
-                      <HOSTNAME>PLXSPE</HOSTNAME>
-                      <BPM>PLXBPM10</BPM>
-                      <BPM1>PLXBPM07</BPM1>
-                      <BPM2>PLXBPM08</BPM2>
-                      <BPM3>PLXBPM09</BPM3>
-                      <BPM4>PLXBPM10</BPM4>
-                    </macros>
-                    <file>diag/comp/bpmspe.bob</file>
-                    <x>1102</x>
-                    <y>418</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_17</name>
-                    <macros>
-                      <HOSTNAME>PLXSPE</HOSTNAME>
-                      <BPM>PLXBPM09</BPM>
-                      <BPM1>PLXBPM07</BPM1>
-                      <BPM2>PLXBPM08</BPM2>
-                      <BPM3>PLXBPM09</BPM3>
-                      <BPM4>PLXBPM10</BPM4>
-                    </macros>
-                    <file>diag/comp/bpmspe.bob</file>
-                    <x>1182</x>
-                    <y>418</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                        <description>Open Display libera sppp</description>
                       </action>
                     </actions>
                   </widget>
@@ -869,12 +458,12 @@
                     <name>Action Button_OpenOrbitSingle</name>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display</description>
                         <file>diag/orbit/orbitSingle.bob</file>
                         <macros>
                           <P>$(P=LEL:ORBIT)</P>
                         </macros>
                         <target>window</target>
-                        <description>Open Display</description>
                       </action>
                     </actions>
                     <text>ORBIT Single</text>
@@ -934,9 +523,9 @@
                     <height>640</height>
                     <actions>
                       <action type="open_display">
+                        <description>Open Display</description>
                         <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                         <target>replace</target>
-                        <description>Open Display</description>
                       </action>
                     </actions>
                   </widget>
@@ -982,6 +571,7 @@
             <y>2</y>
             <width>1880</width>
             <height>910</height>
+            <active_tab>2</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1202,12 +792,12 @@
             <name>START2_1</name>
             <actions>
               <action type="open_display">
+                <description>START1</description>
                 <file>MAG/sigmaPhiStart.bob</file>
                 <macros>
                   <device>ELI:START11:MEA1</device>
                 </macros>
                 <target>window</target>
-                <description>START1</description>
               </action>
             </actions>
             <text>START11</text>
@@ -1219,12 +809,12 @@
             <name>START2</name>
             <actions>
               <action type="open_display">
+                <description>START2</description>
                 <file>MAG/sigmaPhiStart.bob</file>
                 <macros>
                   <device>ELI:START2:MEA1</device>
                 </macros>
                 <target>window</target>
-                <description>START2</description>
               </action>
             </actions>
             <text>START2</text>
@@ -1236,12 +826,12 @@
             <name>BILTITEST</name>
             <actions>
               <action type="open_display">
+                <description>IBILT</description>
                 <file>MAG/biltitest.bob</file>
                 <macros>
                   <device>ELI:BILT:MEA1</device>
                 </macros>
                 <target>window</target>
-                <description>IBILT</description>
               </action>
             </actions>
             <text>IBILTITEST</text>
@@ -1253,12 +843,12 @@
             <name>TimingEli_1</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>timing/mrf230-opi/Timing.bob</file>
                 <macros>
                   <TITLE>TIMING ELI</TITLE>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>Timing Eli</text>
@@ -1270,12 +860,12 @@
             <name>menlosynchro</name>
             <actions>
               <action type="open_display">
+                <description>Menlo Theta</description>
                 <file>RF/menloOpi/synchro/SyncroTheta_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:MENLO:SYNCTHETA</DEVICE>
                 </macros>
                 <target>window</target>
-                <description>Menlo Theta</description>
               </action>
             </actions>
             <x>618</x>
@@ -1286,12 +876,12 @@
             <name>menlosynchro_2</name>
             <actions>
               <action type="open_display">
+                <description>Menlo LAC</description>
                 <file>RF/menloOpi/lac/LAC1550_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:MENLO:LAC</DEVICE>
                 </macros>
                 <target>window</target>
-                <description>Menlo LAC</description>
               </action>
             </actions>
             <x>617</x>
@@ -1302,12 +892,12 @@
             <name>menlosynchro_3</name>
             <actions>
               <action type="open_display">
+                <description>Menlo OMO</description>
                 <file>RF/menloOpi/lfc/LFC_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:MENLO:SYNCOMO</DEVICE>
                 </macros>
                 <target>window</target>
-                <description>Menlo OMO</description>
               </action>
             </actions>
             <x>618</x>
@@ -1318,12 +908,12 @@
             <name>Action Button_1</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>MAG/polarityreversal.bob</file>
                 <macros>
                   <P>LEL:POLREV</P>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>POLARITY REVERSAL</text>
@@ -1335,12 +925,12 @@
             <name>Action Button</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>common/m9210/m9210_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:DIA:FCT01</DEVICE>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>ADC1</text>
@@ -1352,12 +942,12 @@
             <name>Action Button_2</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>common/m9210/m9210_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:DIA:FCT02</DEVICE>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>ADC2</text>
@@ -1369,12 +959,12 @@
             <name>POLAROTY</name>
             <actions>
               <action type="open_display">
+                <description>Polarity</description>
                 <file>MAG/polarityreversal.bob</file>
                 <macros>
                   <P>LEL:POLREV</P>
                 </macros>
                 <target>window</target>
-                <description>Polarity</description>
               </action>
             </actions>
             <text>PolarityReversal</text>
@@ -1439,7 +1029,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>3</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
