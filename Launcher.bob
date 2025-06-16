@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-13 13:24:57 by andreamichelotti-->
+<!--Saved on 2025-06-13 14:19:14 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -424,12 +424,12 @@
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_14</name>
                     <macros>
-                      <HOSTNAME>BPM01</HOSTNAME>
-                      <BPM>LEL:DIA:BPM01</BPM>
+                      <HOSTNAME>bdelilibera01</HOSTNAME>
                       <BPM1>BPM01</BPM1>
                       <BPM2>BPM02</BPM2>
                       <BPM3>BPM03</BPM3>
                       <BPM4>BPM04</BPM4>
+                      <BPM>LEL:DIA:BPM01</BPM>
                     </macros>
                     <file>diag/comp/bpmspe.bob</file>
                     <x>192</x>
