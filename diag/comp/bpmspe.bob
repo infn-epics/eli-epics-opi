@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-05-08 00:10:50 by andreamichelotti-->
+<!--Saved on 2025-06-16 19:58:28 by andreamichelotti-->
 <display version="2.0.0">
   <name>Display</name>
   <width>30</width>
   <height>180</height>
   <actions>
     <action type="open_display">
+      <description>Open  SPE</description>
       <file>../libera-bpm-opi/GUI/LiberaSinglePassE/opi/signal_processing.bob</file>
       <target>replace</target>
-      <description>Open  SPE</description>
     </action>
   </actions>
   <widget type="ellipse" version="2.0.0">
@@ -19,9 +19,9 @@
     <line_width>2</line_width>
     <actions>
       <action type="open_display">
+        <description>Open Display Libera sppp</description>
         <file>../libera-bpm-opi/GUI/LiberaSinglePassE/opi/signal_processing.bob</file>
         <target>replace</target>
-        <description>Open Display Libera sppp</description>
       </action>
     </actions>
     <tooltip>Libera Single Pass E(4x)</tooltip>
@@ -42,12 +42,12 @@
     <name>Action Button_1</name>
     <actions>
       <action type="open_display">
-        <file>../libera-bpm-opi/GUI/LiberaSinglePassE/opi/signal_processing.bob</file>
-        <target>window</target>
         <description>Open Libera SPE</description>
+        <file>../libera-bpm-opi/libera-spe/signal_processing.bob</file>
+        <target>window</target>
       </action>
     </actions>
-    <pv_name>$(HOSTNAME):$(BPM):dsp_control:enable</pv_name>
+    <pv_name>$(P):$(BPM):dsp_control:enable</pv_name>
     <text>$(BPM)</text>
     <y>110</y>
     <width>30</width>
