@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-13 14:19:14 by andreamichelotti-->
+<!--Saved on 2025-06-16 21:49:28 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -410,6 +410,7 @@
                   <widget type="picture" version="2.0.0">
                     <name>Synoptic_3</name>
                     <file>img/eli-layout.png</file>
+                    <x>2</x>
                     <y>18</y>
                     <width>1320</width>
                     <height>640</height>
@@ -424,16 +425,162 @@
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_14</name>
                     <macros>
-                      <HOSTNAME>bdelilibera01</HOSTNAME>
+                      <P>LEL:DIA:BPM01</P>
                       <BPM1>BPM01</BPM1>
                       <BPM2>BPM02</BPM2>
                       <BPM3>BPM03</BPM3>
                       <BPM4>BPM04</BPM4>
-                      <BPM>LEL:DIA:BPM01</BPM>
+                      <BPM>BPM01</BPM>
+                      <BOARD>$(BPM)</BOARD>
                     </macros>
                     <file>diag/comp/bpmspe.bob</file>
-                    <x>192</x>
-                    <y>438</y>
+                    <x>142</x>
+                    <y>68</y>
+                    <width>30</width>
+                    <height>180</height>
+                    <resize>4</resize>
+                    <transparent>true</transparent>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open Display libera sppp</description>
+                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                        <macros>
+                          <DEVICE>AC1BPM01</DEVICE>
+                        </macros>
+                        <target>replace</target>
+                      </action>
+                    </actions>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_15</name>
+                    <macros>
+                      <P>LEL:DIA:BPM01</P>
+                      <BPM1>BPM01</BPM1>
+                      <BPM2>BPM02</BPM2>
+                      <BPM3>BPM03</BPM3>
+                      <BPM4>BPM04</BPM4>
+                      <BPM>BPM02</BPM>
+                      <BOARD>$(BPM)</BOARD>
+                    </macros>
+                    <file>diag/comp/bpmspe.bob</file>
+                    <x>392</x>
+                    <y>68</y>
+                    <width>30</width>
+                    <height>180</height>
+                    <resize>4</resize>
+                    <transparent>true</transparent>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open Display libera sppp</description>
+                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                        <macros>
+                          <DEVICE>AC1BPM01</DEVICE>
+                        </macros>
+                        <target>replace</target>
+                      </action>
+                    </actions>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_16</name>
+                    <macros>
+                      <P>LEL:DIA:BPM01</P>
+                      <BPM1>BPM01</BPM1>
+                      <BPM2>BPM02</BPM2>
+                      <BPM3>BPM03</BPM3>
+                      <BPM4>BPM04</BPM4>
+                      <BPM>BPM03</BPM>
+                      <BOARD>$(BPM)</BOARD>
+                    </macros>
+                    <file>diag/comp/bpmspe.bob</file>
+                    <x>682</x>
+                    <y>78</y>
+                    <width>30</width>
+                    <height>180</height>
+                    <resize>4</resize>
+                    <transparent>true</transparent>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open Display libera sppp</description>
+                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                        <macros>
+                          <DEVICE>AC1BPM01</DEVICE>
+                        </macros>
+                        <target>replace</target>
+                      </action>
+                    </actions>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_17</name>
+                    <macros>
+                      <P>LEL:DIA:BPM01</P>
+                      <BPM1>BPM01</BPM1>
+                      <BPM2>BPM02</BPM2>
+                      <BPM3>BPM03</BPM3>
+                      <BPM4>BPM04</BPM4>
+                      <BPM>BPM04</BPM>
+                      <BOARD>$(BPM)</BOARD>
+                    </macros>
+                    <file>diag/comp/bpmspe.bob</file>
+                    <x>813</x>
+                    <y>78</y>
+                    <width>30</width>
+                    <height>180</height>
+                    <resize>4</resize>
+                    <transparent>true</transparent>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open Display libera sppp</description>
+                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                        <macros>
+                          <DEVICE>AC1BPM01</DEVICE>
+                        </macros>
+                        <target>replace</target>
+                      </action>
+                    </actions>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_18</name>
+                    <macros>
+                      <P>LEL:DIA:BPM02</P>
+                      <BPM1>BPM05</BPM1>
+                      <BPM2>BPM06</BPM2>
+                      <BPM3>BPM07</BPM3>
+                      <BPM4>BPM08</BPM4>
+                      <BPM>BPM05</BPM>
+                      <BOARD>$(BPM)</BOARD>
+                    </macros>
+                    <file>diag/comp/bpmspe.bob</file>
+                    <x>962</x>
+                    <y>78</y>
+                    <width>30</width>
+                    <height>180</height>
+                    <resize>4</resize>
+                    <transparent>true</transparent>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open Display libera sppp</description>
+                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
+                        <macros>
+                          <DEVICE>AC1BPM01</DEVICE>
+                        </macros>
+                        <target>replace</target>
+                      </action>
+                    </actions>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_28</name>
+                    <macros>
+                      <P>LEL:DIA:BPM02</P>
+                      <BPM1>BPM05</BPM1>
+                      <BPM2>BPM06</BPM2>
+                      <BPM3>BPM07</BPM3>
+                      <BPM4>BPM08</BPM4>
+                      <BPM>BPM06</BPM>
+                      <BOARD>$(BPM)</BOARD>
+                    </macros>
+                    <file>diag/comp/bpmspe.bob</file>
+                    <x>1122</x>
+                    <y>238</y>
                     <width>30</width>
                     <height>180</height>
                     <resize>4</resize>
