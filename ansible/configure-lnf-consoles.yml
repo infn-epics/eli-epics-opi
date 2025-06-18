@@ -16,15 +16,16 @@
       ansible.builtin.include_role:
         name: ansible-epics-console-role
       vars:
-        control_user: "eliuser"
-        opi_main: "Launcher.bob"
-        opi_setting: "settings_eli_lnf.ini"
         install_phoebus: false
         phoebus_version: 4.7.3
 
-        phoebus_opis_repos:
+        opi_repos:
           - url: "https://github.com/infn-epics/eli-epics-opi.git"
             dest: "eli"
+            opi_main: Launcher.bob
+            opi_settings: settings_eli_lnf.ini
+            default: true
+            opi_user: eliuser 
         
         nfsMounts:
           - name: data
