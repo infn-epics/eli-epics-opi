@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-09-09 16:03:24 by andreamichelotti-->
+<!--Saved on 2025-09-09 23:26:29 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -351,56 +351,32 @@
                       </action>
                     </actions>
                     <text>CAMERA APP</text>
-                    <x>1042</x>
-                    <y>398</y>
+                    <x>52</x>
+                    <y>368</y>
                     <width>160</width>
                     <height>110</height>
+                    <visible>false</visible>
                     <tooltip>$(actions)</tooltip>
                   </widget>
-                  <widget type="navtabs" version="2.0.0">
-                    <name>Navigation Tabs_1</name>
-                    <tabs>
-                      <tab>
-                        <name>SCN01</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
+                  <widget type="action_button" version="3.0.0">
+                    <name>cameraInterfaceBase_1</name>
+                    <actions>
+                      <action type="open_display">
+                        <description>Camera Scren APP</description>
+                        <file>epik8s-opi/screen-camera-opi/CameraFull.bob</file>
                         <macros>
-                          <P>LEL:SCN01</P>
-                          <R>CAM01</R>
+                          <DEVICE>LEL</DEVICE>
+                          <CONFFILE>../../../deploy/values.yaml</CONFFILE>
                         </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>SCN02</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <P>LEL:SCN02</P>
-                          <R>CAM01</R>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>SCN03</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <P>LEL:SCN02</P>
-                          <R>CAM01</R>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>SCNTEST</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <P>LEL</P>
-                          <R>TST01</R>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                    </tabs>
-                    <x>2</x>
-                    <y>38</y>
-                    <width>1010</width>
-                    <height>800</height>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <text>CAMERA Screen</text>
+                    <x>52</x>
+                    <y>58</y>
+                    <width>190</width>
+                    <height>130</height>
+                    <tooltip>$(actions)</tooltip>
                   </widget>
                 </children>
               </tab>
@@ -689,7 +665,7 @@
             <y>2</y>
             <width>1880</width>
             <height>910</height>
-            <active_tab>2</active_tab>
+            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
