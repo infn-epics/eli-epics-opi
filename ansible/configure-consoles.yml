@@ -20,10 +20,10 @@
         phoebus_version: 4.7.3
 
         opi_repos:
-          - url: "https://github.com/infn-epics/eli-epics-opi.git"
-            dest: "eli"
-            opi_main: Launcher.bob
-            opi_settings: settings_template.ini
+          - url: "https://github.com/infn-epics/epik8s-eli.git"
+            dest: "epik8s-eli"
+            opi_main: opi/Launcher.bob
+            opi_settings: opi/settings_template.ini
             default: true
             opi_user: eliuser 
         

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-09-08 22:23:18 by andreamichelotti-->
+<!--Saved on 2025-09-09 16:03:24 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -567,35 +567,6 @@
                       </action>
                     </actions>
                   </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_28</name>
-                    <macros>
-                      <P>LEL:DIA:BPM02</P>
-                      <BPM1>BPM05</BPM1>
-                      <BPM2>BPM06</BPM2>
-                      <BPM3>BPM07</BPM3>
-                      <BPM4>BPM08</BPM4>
-                      <BPM>BPM06</BPM>
-                      <BOARD>$(BPM)</BOARD>
-                    </macros>
-                    <file>diag/comp/bpmspe.bob</file>
-                    <x>1122</x>
-                    <y>238</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <description>Open Display libera sppp</description>
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                      </action>
-                    </actions>
-                  </widget>
                 </children>
               </tab>
               <tab>
@@ -842,7 +813,6 @@
                   </widget>
                 </children>
               </tab>
-            
             </tabs>
             <x>18</x>
             <y>12</y>
@@ -1513,7 +1483,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>6</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
