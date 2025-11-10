@@ -44,3 +44,6 @@
 [submodule "timing/mrf230-opi"]
 	path = timing/mrf230-opi
 	url = https://baltig.infn.it/infn-epics/mrf230-opi.git
+[submodule "epik8s-opi"]
+	path = epik8s-opi
+	url = https://github.com/infn-epics/epik8s-opi.git

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-16 21:49:28 by andreamichelotti-->
+<!--Saved on 2025-09-09 23:26:29 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -351,56 +351,32 @@
                       </action>
                     </actions>
                     <text>CAMERA APP</text>
-                    <x>1042</x>
-                    <y>398</y>
+                    <x>52</x>
+                    <y>368</y>
                     <width>160</width>
                     <height>110</height>
+                    <visible>false</visible>
                     <tooltip>$(actions)</tooltip>
                   </widget>
-                  <widget type="navtabs" version="2.0.0">
-                    <name>Navigation Tabs_1</name>
-                    <tabs>
-                      <tab>
-                        <name>SCN01</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
+                  <widget type="action_button" version="3.0.0">
+                    <name>cameraInterfaceBase_1</name>
+                    <actions>
+                      <action type="open_display">
+                        <description>Camera Scren APP</description>
+                        <file>epik8s-opi/screen-camera-opi/CameraFull.bob</file>
                         <macros>
-                          <P>LEL:SCN01</P>
-                          <R>CAM01</R>
+                          <DEVICE>LEL</DEVICE>
+                          <CONFFILE>../../../deploy/values.yaml</CONFFILE>
                         </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>SCN02</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <P>LEL:SCN02</P>
-                          <R>CAM01</R>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>SCN03</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <P>LEL:SCN02</P>
-                          <R>CAM01</R>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                      <tab>
-                        <name>SCNTEST</name>
-                        <file>common/camera/genicam/PVACAM.bob</file>
-                        <macros>
-                          <P>LEL</P>
-                          <R>TST01</R>
-                        </macros>
-                        <group_name></group_name>
-                      </tab>
-                    </tabs>
-                    <x>2</x>
-                    <y>38</y>
-                    <width>1010</width>
-                    <height>800</height>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <text>CAMERA Screen</text>
+                    <x>52</x>
+                    <y>58</y>
+                    <width>190</width>
+                    <height>130</height>
+                    <tooltip>$(actions)</tooltip>
                   </widget>
                 </children>
               </tab>
@@ -567,35 +543,6 @@
                       </action>
                     </actions>
                   </widget>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_28</name>
-                    <macros>
-                      <P>LEL:DIA:BPM02</P>
-                      <BPM1>BPM05</BPM1>
-                      <BPM2>BPM06</BPM2>
-                      <BPM3>BPM07</BPM3>
-                      <BPM4>BPM08</BPM4>
-                      <BPM>BPM06</BPM>
-                      <BOARD>$(BPM)</BOARD>
-                    </macros>
-                    <file>diag/comp/bpmspe.bob</file>
-                    <x>1122</x>
-                    <y>238</y>
-                    <width>30</width>
-                    <height>180</height>
-                    <resize>4</resize>
-                    <transparent>true</transparent>
-                    <actions>
-                      <action type="open_display">
-                        <description>Open Display libera sppp</description>
-                        <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
-                        <macros>
-                          <DEVICE>AC1BPM01</DEVICE>
-                        </macros>
-                        <target>replace</target>
-                      </action>
-                    </actions>
-                  </widget>
                 </children>
               </tab>
               <tab>
@@ -718,7 +665,7 @@
             <y>2</y>
             <width>1880</width>
             <height>910</height>
-            <active_tab>2</active_tab>
+            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -730,7 +677,8 @@
             <name>UNIMAG Group</name>
             <macros>
               <P>LEL:MAG</P>
-              <CONFFILE>../../../ini/eliunimag.csv</CONFFILE>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <GROUP>mag</GROUP>
             </macros>
             <x>2</x>
             <y>2</y>
@@ -741,7 +689,7 @@
               <tabs>
                 <tab>
                   <name>ALL</name>
-                  <file>MAG/unimag/opi/unimag.bob</file>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
                   <macros>
                     <ZONE>ALL</ZONE>
                   </macros>
@@ -749,7 +697,7 @@
                 </tab>
                 <tab>
                   <name>M1</name>
-                  <file>MAG/unimag/opi/unimag.bob</file>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
                   <macros>
                     <ZONE>M1</ZONE>
                   </macros>
@@ -757,7 +705,7 @@
                 </tab>
                 <tab>
                   <name>M2</name>
-                  <file>MAG/unimag/opi/unimag.bob</file>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
                   <macros>
                     <ZONE>M2</ZONE>
                   </macros>
@@ -765,7 +713,7 @@
                 </tab>
                 <tab>
                   <name>M3</name>
-                  <file>MAG/unimag/opi/unimag.bob</file>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
                   <macros>
                     <ZONE>M3</ZONE>
                   </macros>
@@ -785,11 +733,74 @@
               <width>1110</width>
               <height>750</height>
             </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>POLAROTY_1</name>
+              <actions>
+                <action type="open_display">
+                  <description>Polarity</description>
+                  <file>MAG/polarityreversal.bob</file>
+                  <macros>
+                    <P>LEL:POLREV</P>
+                  </macros>
+                  <target>window</target>
+                </action>
+              </actions>
+              <text>PolarityReversal</text>
+              <x>908</x>
+              <y>122</y>
+              <width>150</width>
+              <height>90</height>
+              <tooltip>$(actions)</tooltip>
+            </widget>
           </widget>
         </children>
       </tab>
       <tab>
         <name>Vacuum</name>
+        <children>
+          <widget type="picture" version="2.0.0">
+            <name>Picture_2</name>
+            <x>138</x>
+            <y>282</y>
+          </widget>
+          <widget type="tabs" version="2.0.0">
+            <name>VacZone</name>
+            <macros>
+              <P>SPARC:</P>
+              <ZONE>LINAC</ZONE>
+            </macros>
+            <tabs>
+              <tab>
+                <name>ALL</name>
+                <children>
+                  <widget type="embedded" version="2.0.0">
+                    <name>Embedded Display_44</name>
+                    <macros>
+                      <GROUP>vac</GROUP>
+                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                      <ZONE>ALL</ZONE>
+                      <TYPE>ALL</TYPE>
+                    </macros>
+                    <file>epik8s-opi/univac-opi/vac_array.bob</file>
+                    <x>12</x>
+                    <y>8</y>
+                    <width>670</width>
+                    <height>900</height>
+                  </widget>
+                </children>
+              </tab>
+            </tabs>
+            <x>18</x>
+            <y>12</y>
+            <width>1880</width>
+            <height>920</height>
+            <active_tab>1</active_tab>
+            <direction>1</direction>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Vacuum Orig</name>
         <children>
           <widget type="tabs" version="2.0.0">
             <name>VacZone</name>
@@ -924,6 +935,278 @@
             <width>1880</width>
             <height>920</height>
             <direction>1</direction>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Cooling</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>chiller</name>
+            <macros>
+              <GROUP>cool</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <ZONE>ALL</ZONE>
+              <TYPE>ALL</TYPE>
+              <READOUTPV>INT_TEMP_RB</READOUTPV>
+            </macros>
+            <x>8</x>
+            <y>22</y>
+            <width>970</width>
+            <height>720</height>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display_20</name>
+              <macros>
+                <READOUTPV>INT_TEMP_RB</READOUTPV>
+                <SETPOINTPV>TEMP_SETPT_SP</SETPOINTPV>
+                <STATUSPV>STATUS:RUN</STATUSPV>
+                <SETSTATUS>STATUS</SETSTATUS>
+              </macros>
+              <file>epik8s-opi/unicool-opi/cool_array.bob</file>
+              <x>2</x>
+              <y>2</y>
+              <width>790</width>
+              <height>650</height>
+            </widget>
+          </widget>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser_1</name>
+            <file>ini/plt/chiller.plt</file>
+            <x>918</x>
+            <y>22</y>
+            <width>800</width>
+            <height>720</height>
+            <show_toolbar>true</show_toolbar>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>IO</name>
+        <children>
+          <widget type="tabs" version="2.0.0">
+            <name>Tabs_1</name>
+            <tabs>
+              <tab>
+                <name>ALL</name>
+                <children>
+                  <widget type="group" version="3.0.0">
+                    <name>IO</name>
+                    <macros>
+                      <GROUP>io</GROUP>
+                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                      <ZONE>ALL</ZONE>
+                      <TYPE>ALL</TYPE>
+                    </macros>
+                    <x>8</x>
+                    <y>2</y>
+                    <width>970</width>
+                    <height>896</height>
+                    <widget type="embedded" version="2.0.0">
+                      <name>Embedded Display_20</name>
+                      <file>epik8s-opi/uniio-opi/io_array.bob</file>
+                      <x>2</x>
+                      <y>2</y>
+                      <width>790</width>
+                      <height>650</height>
+                    </widget>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>RTD</name>
+                <children>
+                  <widget type="group" version="3.0.0">
+                    <name>RTD</name>
+                    <macros>
+                      <GROUP>io</GROUP>
+                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                      <ZONE>ALL</ZONE>
+                      <TYPE>rtd</TYPE>
+                    </macros>
+                    <x>2</x>
+                    <width>970</width>
+                    <height>896</height>
+                    <widget type="embedded" version="2.0.0">
+                      <name>Embedded Display_24</name>
+                      <file>epik8s-opi/uniio-opi/io_array.bob</file>
+                      <x>2</x>
+                      <y>2</y>
+                      <width>790</width>
+                      <height>650</height>
+                    </widget>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>RLY</name>
+                <children>
+                  <widget type="group" version="3.0.0">
+                    <name>RLY</name>
+                    <macros>
+                      <GROUP>io</GROUP>
+                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                      <ZONE>ALL</ZONE>
+                      <TYPE>rly</TYPE>
+                    </macros>
+                    <x>2</x>
+                    <width>970</width>
+                    <height>896</height>
+                    <widget type="embedded" version="2.0.0">
+                      <name>Embedded Display_25</name>
+                      <file>epik8s-opi/uniio-opi/io_array.bob</file>
+                      <x>2</x>
+                      <y>2</y>
+                      <width>790</width>
+                      <height>650</height>
+                    </widget>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>AI</name>
+                <children>
+                  <widget type="group" version="3.0.0">
+                    <name>AI</name>
+                    <macros>
+                      <GROUP>io</GROUP>
+                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                      <ZONE>ALL</ZONE>
+                      <TYPE>in</TYPE>
+                    </macros>
+                    <x>2</x>
+                    <width>970</width>
+                    <height>896</height>
+                    <widget type="embedded" version="2.0.0">
+                      <name>Embedded Display_26</name>
+                      <file>epik8s-opi/uniio-opi/io_array.bob</file>
+                      <x>2</x>
+                      <y>2</y>
+                      <width>790</width>
+                      <height>650</height>
+                    </widget>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>AO</name>
+                <children>
+                  <widget type="group" version="3.0.0">
+                    <name>AO</name>
+                    <macros>
+                      <GROUP>io</GROUP>
+                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                      <ZONE>ALL</ZONE>
+                      <TYPE>ao</TYPE>
+                    </macros>
+                    <x>2</x>
+                    <width>970</width>
+                    <height>896</height>
+                    <widget type="embedded" version="2.0.0">
+                      <name>Embedded Display_27</name>
+                      <file>epik8s-opi/uniio-opi/io_array.bob</file>
+                      <x>2</x>
+                      <y>2</y>
+                      <width>790</width>
+                      <height>650</height>
+                    </widget>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>DI</name>
+                <children>
+                  <widget type="group" version="3.0.0">
+                    <name>DI</name>
+                    <macros>
+                      <GROUP>io</GROUP>
+                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                      <ZONE>ALL</ZONE>
+                      <TYPE>di</TYPE>
+                    </macros>
+                    <x>2</x>
+                    <width>970</width>
+                    <height>896</height>
+                    <widget type="embedded" version="2.0.0">
+                      <name>Embedded Display_28</name>
+                      <file>epik8s-opi/uniio-opi/io_array.bob</file>
+                      <x>2</x>
+                      <y>2</y>
+                      <width>790</width>
+                      <height>650</height>
+                    </widget>
+                  </widget>
+                </children>
+              </tab>
+              <tab>
+                <name>DO</name>
+                <children>
+                  <widget type="group" version="3.0.0">
+                    <name>DO</name>
+                    <macros>
+                      <GROUP>io</GROUP>
+                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                      <ZONE>ALL</ZONE>
+                      <TYPE>do</TYPE>
+                    </macros>
+                    <x>2</x>
+                    <width>970</width>
+                    <height>896</height>
+                    <widget type="embedded" version="2.0.0">
+                      <name>Embedded Display_29</name>
+                      <file>epik8s-opi/uniio-opi/io_array.bob</file>
+                      <x>2</x>
+                      <y>2</y>
+                      <width>790</width>
+                      <height>650</height>
+                    </widget>
+                  </widget>
+                </children>
+              </tab>
+            </tabs>
+            <x>8</x>
+            <y>2</y>
+            <width>1050</width>
+            <height>1020</height>
+            <active_tab>6</active_tab>
+            <direction>1</direction>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_3</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>common/m9210/m9210_Main.bob</file>
+                <macros>
+                  <DEVICE>LEL:DIA:FCT01</DEVICE>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>ADC1</text>
+            <x>1078</x>
+            <y>52</y>
+            <width>150</width>
+            <height>99</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_4</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>common/m9210/m9210_Main.bob</file>
+                <macros>
+                  <DEVICE>LEL:DIA:FCT02</DEVICE>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>ADC2</text>
+            <x>1088</x>
+            <y>212</y>
+            <width>140</width>
+            <height>100</height>
+            <tooltip>$(actions)</tooltip>
           </widget>
         </children>
       </tab>
