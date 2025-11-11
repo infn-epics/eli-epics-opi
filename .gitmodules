@@ -32,9 +32,6 @@
 [submodule "common/icpdas-opi"]
 	path = common/icpdas-opi
 	url = https://baltig.infn.it/infn-epics/icpdas-opi.git
-[submodule "ansible/roles/ansible-epics-console-role"]
-	path = ansible/roles/ansible-epics-console-role
-	url = https://baltig.infn.it/lnf-da-control/ansible-epics-console-role.git
 [submodule "MAG/unimag"]
 	path = MAG/unimag
 	url = https://baltig.infn.it/infn-epics/unimag.git
