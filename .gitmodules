@@ -44,3 +44,6 @@
 [submodule "epik8s-opi"]
 	path = epik8s-opi
 	url = https://github.com/infn-epics/epik8s-opi.git
+[submodule "ansible/ansible-epics-console-role"]
+	path = ansible/ansible-epics-console-role
+	url = https://baltig.infn.it/lnf-da-control/ansible-epics-console-role.git
