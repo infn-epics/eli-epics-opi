@@ -17,7 +17,8 @@
         name: ansible-epics-console-role
       vars:
         install_phoebus: false
-        phoebus_version: v5.0.3-INFN
+        # phoebus_version: v5.0.3-INFN
+        phoebus_url: "https://github.com/ControlSystemStudio/phoebus/releases/download/v5.0.2/phoebus-5.0.2-linux.tar.gz"
 
         opi_repos:
           - url: "https://github.com/infn-epics/epik8s-eli.git"
