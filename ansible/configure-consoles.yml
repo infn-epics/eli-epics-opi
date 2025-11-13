@@ -16,6 +16,7 @@
         name: ansible-epics-console-role
       vars:
         python_version: "" ## use default if any
+        phoebus_version: "5.0.2"
         phoebus_url: "https://github.com/ControlSystemStudio/phoebus/releases/download/v5.0.2/phoebus-5.0.2-linux.tar.gz"
         opi_repos:
           - url: "https://github.com/infn-epics/epik8s-eli.git"
