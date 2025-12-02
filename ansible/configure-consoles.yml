@@ -28,14 +28,14 @@
         
         nfsMounts:
           - name: data
-            server: 10.16.4.100
+            server: plelinpsto001.int.eli-np.ro
             path: /epik8s_data/data
             mountPath: /nfs/data
           - name: autosave
-            server: 10.16.4.100
+            server: plelinpsto001.int.eli-np.ro
             path: /epik8s_data/autosave
             mountPath: /nfs/autosave
           - name: config
-            server: 10.16.4.100
+            server: plelinpsto001.int.eli-np.ro
             path: /epik8s_data/config
             mountPath: /nfs/config
