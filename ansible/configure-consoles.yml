@@ -39,3 +39,7 @@
             server: plelinpsto001.int.eli-np.ro
             path: /epik8s_data/config
             mountPath: /nfs/config
+
+        dnsnames:
+          - name: "eli-docs.int.eli-np.ro"
+            ip: 10.16.4.200
