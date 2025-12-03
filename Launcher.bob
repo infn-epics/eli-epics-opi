@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-12-02 10:07:20 by andreamichelotti-->
+<!--Saved on 2025-12-03 15:58:41 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -21,7 +21,7 @@
     </macros>
     <tabs>
       <tab>
-        <name>Timing</name>
+        <name>Timing &amp; Status</name>
         <children>
           <widget type="action_button" version="3.0.0">
             <name>TimingGenerator</name>
@@ -196,6 +196,50 @@
               <y>2</y>
               <width>1198</width>
               <height>270</height>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Modulators</name>
+            <macros>
+              <P>LEL:MOD:SCAT</P>
+            </macros>
+            <x>18</x>
+            <y>322</y>
+            <width>470</width>
+            <height>250</height>
+            <widget type="template" version="2.0.0">
+              <name>Template/Instance_1</name>
+              <file>epik8s-opi/unimod-opi/unimod_channel.bob</file>
+              <instances>
+                <instance>
+                  <macros>
+                    <R>MOD01</R>
+                    <NAME>MODS1</NAME>
+                  </macros>
+                </instance>
+                <instance>
+                  <macros>
+                    <R>MOD02</R>
+                    <NAME>MODS2</NAME>
+                  </macros>
+                </instance>
+                <instance>
+                  <macros>
+                    <R>MOD03</R>
+                    <NAME>MODS3</NAME>
+                  </macros>
+                </instance>
+                <instance>
+                  <macros>
+                    <R>MOD04</R>
+                    <NAME>MODC</NAME>
+                  </macros>
+                </instance>
+              </instances>
+              <x>2</x>
+              <y>12</y>
+              <width>430</width>
+              <height>154</height>
             </widget>
           </widget>
         </children>
@@ -1527,7 +1571,6 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>9</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
