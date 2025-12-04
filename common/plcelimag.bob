@@ -1031,4 +1031,744 @@
     </line_color>
   </widget>
 
+  <!-- Power Supply Consensus Section -->
+  <widget type="rectangle" version="2.0.0">
+    <name>PS_Consensus_Group</name>
+    <x>10</x>
+    <y>550</y>
+    <width>1380</width>
+    <height>400</height>
+    <line_color>
+      <color red="100" green="100" blue="100"/>
+    </line_color>
+    <background_color>
+      <color red="250" green="250" blue="250"/>
+    </background_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>PS_Consensus_Title</name>
+    <text>POWER SUPPLY CONSENSUS STATUS</text>
+    <x>20</x>
+    <y>555</y>
+    <width>400</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0"/>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="150"/>
+    </foreground_color>
+  </widget>
+
+  <!-- Solenoid PS Consensus -->
+  <widget type="label" version="2.0.0">
+    <name>SPSU_Section_Label</name>
+    <text>Solenoid Power Supplies</text>
+    <x>30</x>
+    <y>595</y>
+    <width>200</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="13.0"/>
+    </font>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU01_Label</name>
+    <text>SPSU01</text>
+    <x>40</x>
+    <y>625</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU01_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU01:EXT1</pv_name>
+    <x>150</x>
+    <y>620</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU01_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>180</x>
+    <y>625</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU01_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU01:EXT2</pv_name>
+    <x>230</x>
+    <y>620</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU01_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>260</x>
+    <y>625</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU02_Label</name>
+    <text>SPSU02</text>
+    <x>40</x>
+    <y>660</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU02_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU02:EXT1</pv_name>
+    <x>150</x>
+    <y>655</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU02_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>180</x>
+    <y>660</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU02_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU02:EXT2</pv_name>
+    <x>230</x>
+    <y>655</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU02_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>260</x>
+    <y>660</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU03_Label</name>
+    <text>SPSU03</text>
+    <x>40</x>
+    <y>695</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU03_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU03:EXT1</pv_name>
+    <x>150</x>
+    <y>690</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU03_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>180</x>
+    <y>695</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU03_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU03:EXT2</pv_name>
+    <x>230</x>
+    <y>690</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU03_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>260</x>
+    <y>695</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU04_Label</name>
+    <text>SPSU04</text>
+    <x>40</x>
+    <y>730</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU04_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU04:EXT1</pv_name>
+    <x>150</x>
+    <y>725</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU04_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>180</x>
+    <y>730</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU04_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU04:EXT2</pv_name>
+    <x>230</x>
+    <y>725</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU04_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>260</x>
+    <y>730</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU05_Label</name>
+    <text>SPSU05</text>
+    <x>40</x>
+    <y>765</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU05_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU05:EXT1</pv_name>
+    <x>150</x>
+    <y>760</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU05_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>180</x>
+    <y>765</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>SPSU05_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-SPSU05:EXT2</pv_name>
+    <x>230</x>
+    <y>760</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>SPSU05_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>260</x>
+    <y>765</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <!-- Corrector PS Consensus -->
+  <widget type="label" version="2.0.0">
+    <name>CPSU_Section_Label</name>
+    <text>Corrector Power Supplies</text>
+    <x>350</x>
+    <y>595</y>
+    <width>220</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="13.0"/>
+    </font>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>CPSU01_Label</name>
+    <text>CPSU01</text>
+    <x>360</x>
+    <y>625</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>CPSU01_LED</name>
+    <pv_name>$(P):LEL-MAG-CPSU01</pv_name>
+    <x>470</x>
+    <y>620</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>CPSU02_Label</name>
+    <text>CPSU02</text>
+    <x>360</x>
+    <y>660</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>CPSU02_LED</name>
+    <pv_name>$(P):LEL-MAG-CPSU02</pv_name>
+    <x>470</x>
+    <y>655</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>CPSU03_Label</name>
+    <text>CPSU03</text>
+    <x>360</x>
+    <y>695</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>CPSU03_LED</name>
+    <pv_name>$(P):LEL-MAG-CPSU03</pv_name>
+    <x>470</x>
+    <y>690</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <!-- Quadrupole PS Consensus -->
+  <widget type="label" version="2.0.0">
+    <name>QPSU_Section_Label</name>
+    <text>Quadrupole Power Supplies</text>
+    <x>600</x>
+    <y>595</y>
+    <width>250</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="13.0"/>
+    </font>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU01_Label</name>
+    <text>QPSU01</text>
+    <x>610</x>
+    <y>625</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>QPSU01_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-QPSU01:EXT1</pv_name>
+    <x>720</x>
+    <y>620</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU01_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>750</x>
+    <y>625</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>QPSU01_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-QPSU01:EXT2</pv_name>
+    <x>800</x>
+    <y>620</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU01_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>830</x>
+    <y>625</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU02_Label</name>
+    <text>QPSU02</text>
+    <x>610</x>
+    <y>660</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>QPSU02_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-QPSU02:EXT1</pv_name>
+    <x>720</x>
+    <y>655</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU02_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>750</x>
+    <y>660</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>QPSU02_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-QPSU02:EXT2</pv_name>
+    <x>800</x>
+    <y>655</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU02_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>830</x>
+    <y>660</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU03_Label</name>
+    <text>QPSU03</text>
+    <x>610</x>
+    <y>695</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>QPSU03_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-QPSU03:EXT1</pv_name>
+    <x>720</x>
+    <y>690</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU03_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>750</x>
+    <y>695</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>QPSU03_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-QPSU03:EXT2</pv_name>
+    <x>800</x>
+    <y>690</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>QPSU03_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>830</x>
+    <y>695</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <!-- Dipole PS Consensus -->
+  <widget type="label" version="2.0.0">
+    <name>DPSU_Section_Label</name>
+    <text>Dipole Power Supply</text>
+    <x>920</x>
+    <y>595</y>
+    <width>200</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="13.0"/>
+    </font>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>DPSU01_Label</name>
+    <text>DPSU01</text>
+    <x>930</x>
+    <y>625</y>
+    <width>100</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>DPSU01_EXT1_LED</name>
+    <pv_name>$(P):LEL-MAG-DPSU01:EXT1</pv_name>
+    <x>1040</x>
+    <y>620</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>DPSU01_EXT1_Text</name>
+    <text>EXT1</text>
+    <x>1070</x>
+    <y>625</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>DPSU01_EXT2_LED</name>
+    <pv_name>$(P):LEL-MAG-DPSU01:EXT2</pv_name>
+    <x>1120</x>
+    <y>620</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>DPSU01_EXT2_Text</name>
+    <text>EXT2</text>
+    <x>1150</x>
+    <y>625</y>
+    <width>40</width>
+    <height>20</height>
+  </widget>
+
+  <!-- Legend -->
+  <widget type="rectangle" version="2.0.0">
+    <name>Legend_Box</name>
+    <x>30</x>
+    <y>810</y>
+    <width>250</width>
+    <height>70</height>
+    <line_color>
+      <color red="100" green="100" blue="100"/>
+    </line_color>
+    <background_color>
+      <color red="245" green="245" blue="245"/>
+    </background_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>Legend_Title</name>
+    <text>Consensus Legend:</text>
+    <x>40</x>
+    <y>815</y>
+    <width>150</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0"/>
+    </font>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>Legend_OK</name>
+    <x>50</x>
+    <y>840</y>
+    <width>20</width>
+    <height>20</height>
+    <off_color>
+      <color red="60" green="255" blue="60"/>
+    </off_color>
+    <on_color>
+      <color red="60" green="255" blue="60"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>Legend_OK_Text</name>
+    <text>= OK (Consensus Active)</text>
+    <x>75</x>
+    <y>842</y>
+    <width>180</width>
+    <height>18</height>
+  </widget>
+
+  <widget type="led" version="2.0.0">
+    <name>Legend_Alarm</name>
+    <x>50</x>
+    <y>860</y>
+    <width>20</width>
+    <height>20</height>
+    <off_color>
+      <color red="255" green="0" blue="0"/>
+    </off_color>
+    <on_color>
+      <color red="255" green="0" blue="0"/>
+    </on_color>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>Legend_Alarm_Text</name>
+    <text>= ALARM (No Consensus)</text>
+    <x>75</x>
+    <y>862</y>
+    <width>180</width>
+    <height>18</height>
+  </widget>
+
 </display>
