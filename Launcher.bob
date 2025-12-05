@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-12-04 17:53:02 by andreamichelotti-->
+<!--Saved on 2025-12-04 18:42:08 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -726,7 +726,7 @@
             </macros>
             <x>2</x>
             <y>2</y>
-            <width>1170</width>
+            <width>1276</width>
             <height>850</height>
             <widget type="navtabs" version="2.0.0">
               <name>DanteMagnets_1</name>
@@ -790,10 +790,25 @@
                 </action>
               </actions>
               <text>PolarityReversal</text>
-              <x>908</x>
-              <y>122</y>
-              <width>150</width>
-              <height>90</height>
+              <x>948</x>
+              <y>2</y>
+              <width>140</width>
+              <height>70</height>
+              <tooltip>$(actions)</tooltip>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Action Button_19</name>
+              <actions>
+                <action type="open_display">
+                  <description>Magnets Window</description>
+                  <file>epik8s-opi/unimag-opi/mag_dynamic.bob</file>
+                  <target>window</target>
+                </action>
+              </actions>
+              <x>778</x>
+              <y>2</y>
+              <width>130</width>
+              <height>70</height>
               <tooltip>$(actions)</tooltip>
             </widget>
           </widget>
