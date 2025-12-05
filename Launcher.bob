@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-12-04 18:42:08 by andreamichelotti-->
+<!--Saved on 2025-12-05 13:27:39 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -597,7 +597,7 @@
                     <actions>
                       <action type="open_display">
                         <description>Open Display</description>
-                        <file>diag/orbit/orbitSingle.bob</file>
+                        <file>epik8s-opi/unibpm-opi/orbitSingle.bob</file>
                         <macros>
                           <P>$(P=LEL:ORBIT)</P>
                         </macros>
@@ -651,65 +651,12 @@
                   </widget>
                 </children>
               </tab>
-              <tab>
-                <name>Temp</name>
-                <children>
-                  <widget type="picture" version="2.0.0">
-                    <name>Synoptic_4</name>
-                    <file>img/bpm-map.png</file>
-                    <width>1320</width>
-                    <height>640</height>
-                    <actions>
-                      <action type="open_display">
-                        <description>Open Display</description>
-                        <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
-                        <target>replace</target>
-                      </action>
-                    </actions>
-                  </widget>
-                  <widget type="thermometer" version="2.0.0">
-                    <name>Thermometer</name>
-                    <pv_name>LEL:DIA:TEMP:TEST_RB</pv_name>
-                    <x>82</x>
-                    <y>238</y>
-                    <width>20</width>
-                    <height>80</height>
-                  </widget>
-                  <widget type="textupdate" version="2.0.0">
-                    <name>Text Update_2</name>
-                    <pv_name>LEL:DIA:TEMP:TEST_RB</pv_name>
-                    <x>72</x>
-                    <y>198</y>
-                  </widget>
-                  <widget type="textupdate" version="2.0.0">
-                    <name>Text Update_4</name>
-                    <pv_name>LEL:DIA:TEMP:TEST_MAX</pv_name>
-                    <x>139</x>
-                    <y>238</y>
-                    <tooltip>MAX</tooltip>
-                  </widget>
-                  <widget type="textupdate" version="2.0.0">
-                    <name>Text Update_5</name>
-                    <pv_name>LEL:DIA:TEMP:TEST_AVG</pv_name>
-                    <x>119</x>
-                    <y>218</y>
-                    <tooltip>Average</tooltip>
-                  </widget>
-                  <widget type="textupdate" version="2.0.0">
-                    <name>Text Update_6</name>
-                    <pv_name>LEL:DIA:TEMP:TEST_MIN</pv_name>
-                    <x>149</x>
-                    <y>258</y>
-                    <tooltip>MIN</tooltip>
-                  </widget>
-                </children>
-              </tab>
             </tabs>
             <x>8</x>
             <y>2</y>
             <width>1880</width>
             <height>910</height>
-            <active_tab>1</active_tab>
+            <active_tab>3</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1620,7 +1567,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>3</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
