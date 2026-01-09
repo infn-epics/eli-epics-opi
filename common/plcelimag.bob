@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-12-12 11:22:42 by riccardoesposito-->
+<!--Saved on 2026-01-09 13:48:01 by riccardoesposito-->
 <display version="2.0.0">
   <name>PLC ELI-NP Magnets</name>
-  <width>2161</width>
-  <height>995</height>
+  <width>2055</width>
+  <height>1031</height>
   <background_color>
     <color red="240" green="240" blue="240">
     </color>
@@ -28,296 +28,15 @@
     <x>440</x>
     <y>40</y>
     <width>444</width>
-    <height>350</height>
+    <height>450</height>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
       </font>
     </font>
     <widget type="group" version="3.0.0">
-      <name>LEL MAG SOL02 TS</name>
-      <y>7</y>
-      <width>205</width>
-      <height>220</height>
-      <font>
-        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-        </font>
-      </font>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL01_Label_2</name>
-        <text>Coil 1</text>
-        <y>9</y>
-        <width>50</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_2</name>
-        <text>Coil 2</text>
-        <y>39</y>
-        <width>46</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL01_Label_4</name>
-        <text>Coil 4</text>
-        <x>88</x>
-        <y>39</y>
-        <width>50</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL01_LED_1</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL01-TS</pv_name>
-        <x>48</x>
-        <y>9</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_1</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL02-TS</pv_name>
-        <x>48</x>
-        <y>39</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL01_Label_3</name>
-        <text>Coil 3</text>
-        <x>88</x>
-        <y>9</y>
-        <width>50</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL03_LED_2</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL03-TS</pv_name>
-        <x>138</x>
-        <y>9</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL03_LED_3</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL04-TS</pv_name>
-        <x>138</x>
-        <y>39</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_2</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL05-TS</pv_name>
-        <x>48</x>
-        <y>69</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_3</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL06-TS</pv_name>
-        <x>138</x>
-        <y>69</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_4</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL07-TS</pv_name>
-        <x>48</x>
-        <y>99</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_5</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL08-TS</pv_name>
-        <x>138</x>
-        <y>99</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_6</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL09-TS</pv_name>
-        <x>48</x>
-        <y>129</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_7</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL10-TS</pv_name>
-        <x>138</x>
-        <y>129</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_8</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL11-TS</pv_name>
-        <x>48</x>
-        <y>159</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>SOL02_COIL02_LED_9</name>
-        <pv_name>$(P):LEL-MAG-SOL02:COIL12-TS</pv_name>
-        <x>138</x>
-        <y>159</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_3</name>
-        <text>Coil 5</text>
-        <y>69</y>
-        <width>46</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_8</name>
-        <text>Coil 6</text>
-        <x>88</x>
-        <y>69</y>
-        <width>46</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_11</name>
-        <text>Coil 7</text>
-        <y>99</y>
-        <width>46</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_9</name>
-        <text>Coil 8</text>
-        <x>88</x>
-        <y>99</y>
-        <width>46</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_12</name>
-        <text>Coil 10</text>
-        <x>78</x>
-        <y>129</y>
-        <width>60</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_7</name>
-        <text>Coil 12</text>
-        <x>78</x>
-        <y>159</y>
-        <width>60</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_10</name>
-        <text>Coil 9</text>
-        <y>129</y>
-        <width>46</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>SOL01_COIL02_Label_13</name>
-        <text>Coil11</text>
-        <y>159</y>
-        <width>60</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-    </widget>
-    <widget type="group" version="3.0.0">
       <name>HCOR02 AND VCOR02</name>
-      <x>199</x>
-      <y>207</y>
-      <width>204</width>
+      <y>308</y>
+      <width>220</width>
       <height>100</height>
       <font>
         <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
@@ -326,6 +45,7 @@
       <widget type="label" version="2.0.0">
         <name>HCOR01_2</name>
         <text>HCOR02</text>
+        <x>36</x>
         <y>9</y>
         <font>
           <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
@@ -335,10 +55,8 @@
       <widget type="led" version="2.0.0">
         <name>HCOR02_LED</name>
         <pv_name>$(P):LEL-MAG-HCOR02-TS</pv_name>
-        <x>108</x>
+        <x>164</x>
         <y>9</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -351,6 +69,7 @@
       <widget type="label" version="2.0.0">
         <name>HCOR01</name>
         <text>VCOR02</text>
+        <x>36</x>
         <y>39</y>
         <font>
           <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
@@ -360,10 +79,8 @@
       <widget type="led" version="2.0.0">
         <name>VCOR02_LED</name>
         <pv_name>$(P):LEL-MAG-VCOR02-TS</pv_name>
-        <x>108</x>
+        <x>164</x>
         <y>39</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -372,9 +89,8 @@
     </widget>
     <widget type="group" version="3.0.0">
       <name>HCOR03 AND VCOR03</name>
-      <x>199</x>
-      <y>107</y>
-      <width>204</width>
+      <y>208</y>
+      <width>220</width>
       <height>100</height>
       <font>
         <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
@@ -383,6 +99,7 @@
       <widget type="label" version="2.0.0">
         <name>VCOR03</name>
         <text>VCOR03</text>
+        <x>36</x>
         <y>39</y>
         <font>
           <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
@@ -392,10 +109,8 @@
       <widget type="led" version="2.0.0">
         <name>VCOR03_LED</name>
         <pv_name>$(P):LEL-MAG-VCOR03-TS</pv_name>
-        <x>109</x>
+        <x>164</x>
         <y>39</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -404,9 +119,8 @@
       <widget type="led" version="2.0.0">
         <name>HCOR03_LED</name>
         <pv_name>$(P):LEL-MAG-HCOR03-TS</pv_name>
-        <x>109</x>
-        <width>25</width>
-        <height>25</height>
+        <x>164</x>
+        <y>11</y>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -419,8 +133,8 @@
       <widget type="label" version="2.0.0">
         <name>HCOR01_3</name>
         <text>HCOR03</text>
-        <x>4</x>
-        <y>1</y>
+        <x>36</x>
+        <y>11</y>
         <width>81</width>
         <font>
           <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
@@ -430,9 +144,9 @@
     </widget>
     <widget type="group" version="3.0.0">
       <name>WF SENSOR</name>
-      <x>199</x>
+      <x>220</x>
       <y>9</y>
-      <width>209</width>
+      <width>188</width>
       <height>98</height>
       <font>
         <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
@@ -442,7 +156,7 @@
         <name>SOL01_COIL01_Label_11</name>
         <text>M2-2</text>
         <y>7</y>
-        <width>50</width>
+        <width>40</width>
         <font>
           <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
           </font>
@@ -474,7 +188,7 @@
         <text>M2-4</text>
         <x>84</x>
         <y>7</y>
-        <width>50</width>
+        <width>40</width>
         <font>
           <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
           </font>
@@ -483,10 +197,8 @@
       <widget type="led" version="2.0.0">
         <name>M2_SCU_2_LED</name>
         <pv_name>$(P):M2-SCU-2</pv_name>
-        <x>44</x>
+        <x>48</x>
         <y>7</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -499,10 +211,8 @@
       <widget type="led" version="2.0.0">
         <name>M2_SCU_3_LED</name>
         <pv_name>$(P):M2-SCU-3</pv_name>
-        <x>44</x>
-        <y>37</y>
-        <width>25</width>
-        <height>25</height>
+        <x>48</x>
+        <y>35</y>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -515,10 +225,8 @@
       <widget type="led" version="2.0.0">
         <name>M2_SCU_4_LED</name>
         <pv_name>$(P):M2-SCU-4</pv_name>
-        <x>134</x>
+        <x>130</x>
         <y>7</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -531,10 +239,8 @@
       <widget type="led" version="2.0.0">
         <name>M2_SCU_5_LED</name>
         <pv_name>$(P):M2-SCU-5</pv_name>
-        <x>134</x>
+        <x>130</x>
         <y>37</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -545,13 +251,267 @@
         </on_color>
       </widget>
     </widget>
+    <widget type="group" version="3.0.0">
+      <name>TS SENSOR</name>
+      <y>9</y>
+      <width>220</width>
+      <height>199</height>
+      <font>
+        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL01_Label_2</name>
+        <text>sol02 1</text>
+        <width>55</width>
+        <height>18</height>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_2</name>
+        <text>sol02 3</text>
+        <y>29</y>
+        <width>68</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL01_Label_4</name>
+        <text>sol02 4</text>
+        <x>99</x>
+        <y>29</y>
+        <width>75</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL01_LED_1</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL01-TS</pv_name>
+        <x>68</x>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_1</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL02-TS</pv_name>
+        <x>163</x>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL01_Label_3</name>
+        <text>sol02 2</text>
+        <x>99</x>
+        <width>75</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL03_LED_3</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL04-TS</pv_name>
+        <x>163</x>
+        <y>29</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_2</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL05-TS</pv_name>
+        <x>68</x>
+        <y>59</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_3</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL06-TS</pv_name>
+        <x>163</x>
+        <y>59</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_4</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL07-TS</pv_name>
+        <x>68</x>
+        <y>89</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_5</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL08-TS</pv_name>
+        <x>163</x>
+        <y>89</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_6</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL09-TS</pv_name>
+        <x>68</x>
+        <y>119</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_7</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL10-TS</pv_name>
+        <x>164</x>
+        <y>119</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_9</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL12-TS</pv_name>
+        <x>164</x>
+        <y>146</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_3</name>
+        <text>sol02 5</text>
+        <y>59</y>
+        <width>68</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_8</name>
+        <text>sol02 6</text>
+        <x>99</x>
+        <y>59</y>
+        <width>56</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_11</name>
+        <text>sol02 7</text>
+        <y>89</y>
+        <width>68</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_9</name>
+        <text>sol02 8</text>
+        <x>99</x>
+        <y>89</y>
+        <width>56</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_12</name>
+        <text>sol02 10</text>
+        <x>99</x>
+        <y>119</y>
+        <width>65</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_7</name>
+        <text>sol02 12</text>
+        <x>99</x>
+        <y>149</y>
+        <width>65</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_10</name>
+        <text>sol02 9</text>
+        <y>119</y>
+        <width>68</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>SOL01_COIL02_Label_13</name>
+        <text>sol02 11</text>
+        <y>149</y>
+        <width>68</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL02_LED_8</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL11-TS</pv_name>
+        <x>68</x>
+        <y>146</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>SOL02_COIL03_LED_2</name>
+        <pv_name>$(P):LEL-MAG-SOL02:COIL03-TS</pv_name>
+        <x>68</x>
+        <y>29</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+    </widget>
   </widget>
   <widget type="group" version="3.0.0">
     <name>M3</name>
     <x>884</x>
     <y>40</y>
     <width>386</width>
-    <height>350</height>
+    <height>450</height>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
       </font>
@@ -580,8 +540,6 @@
         <pv_name>$(P):LEL-MAG-HCOR04-TS</pv_name>
         <x>112</x>
         <y>16</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -605,8 +563,6 @@
         <pv_name>$(P):LEL-MAG-VCOR04-TS</pv_name>
         <x>112</x>
         <y>63</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -638,8 +594,6 @@
         <pv_name>$(P):LEL-MAG-VCOR05-TS</pv_name>
         <x>107</x>
         <y>63</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -660,8 +614,6 @@
         <pv_name>$(P):LEL-MAG-HCOR05-TS</pv_name>
         <x>107</x>
         <y>16</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -678,7 +630,7 @@
     <x>1270</x>
     <y>40</y>
     <width>625</width>
-    <height>350</height>
+    <height>450</height>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
       </font>
@@ -705,7 +657,7 @@
       <widget type="label" version="2.0.0">
         <name>SOL01_COIL02_Label_4</name>
         <text>QUAD02</text>
-        <x>137</x>
+        <x>208</x>
         <y>22</y>
         <width>72</width>
         <font>
@@ -728,8 +680,6 @@
         <pv_name>$(P):LEL-MAG-QUAD01-TS</pv_name>
         <x>81</x>
         <y>22</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -738,10 +688,8 @@
       <widget type="led" version="2.0.0">
         <name>QUAD02_LED</name>
         <pv_name>$(P):LEL-MAG-QUAD02-TS</pv_name>
-        <x>222</x>
-        <y>19</y>
-        <width>25</width>
-        <height>25</height>
+        <x>281</x>
+        <y>22</y>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -752,8 +700,6 @@
         <pv_name>$(P):LEL-MAG-QUAD03-TS</pv_name>
         <x>81</x>
         <y>66</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -784,8 +730,6 @@
         <pv_name>$(P):LEL-MAG-HCOR06-TS</pv_name>
         <x>81</x>
         <y>16</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -810,8 +754,6 @@
         <pv_name>$(P):LEL-MAG-VCOR06-TS</pv_name>
         <x>81</x>
         <y>63</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -844,8 +786,6 @@
         <pv_name>$(P):LEL-MAG-VCOR07-TS</pv_name>
         <x>80</x>
         <y>63</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -856,8 +796,6 @@
         <pv_name>$(P):LEL-MAG-HCOR07-TS</pv_name>
         <x>80</x>
         <y>16</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -881,10 +819,9 @@
     </widget>
     <widget type="group" version="3.0.0">
       <name>DIPOLE</name>
-      <x>412</x>
-      <y>155</y>
-      <width>161</width>
-      <height>146</height>
+      <y>301</y>
+      <width>201</width>
+      <height>109</height>
       <font>
         <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
         </font>
@@ -892,10 +829,8 @@
       <widget type="led" version="2.0.0">
         <name>DIP01_LED</name>
         <pv_name>$(P):LEL-MAG-DIP01-TS</pv_name>
-        <x>59</x>
+        <x>81</x>
         <y>16</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color name="MAJOR" red="255" green="0" blue="0">
           </color>
@@ -939,8 +874,6 @@
         <pv_name>$(P):M4-SCU-1</pv_name>
         <x>59</x>
         <y>19</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -955,7 +888,7 @@
   <widget type="group" version="3.0.0">
     <name>POWER SUPPLY CONTROL</name>
     <x>20</x>
-    <y>390</y>
+    <y>490</y>
     <width>2035</width>
     <height>541</height>
     <font>
@@ -1070,7 +1003,7 @@
       </font>
     </widget>
     <widget type="group" version="3.0.0">
-      <name>M1-TEST</name>
+      <name>M1</name>
       <y>55</y>
       <width>399</width>
       <height>197</height>
@@ -1094,8 +1027,6 @@
         <pv_name>$(P):LEL-MAG-SPSU01:EXT1</pv_name>
         <x>98</x>
         <y>45</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1110,8 +1041,6 @@
         <pv_name>$(P):LEL-MAG-SPSU01:EXT2</pv_name>
         <x>148</x>
         <y>45</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1158,8 +1087,6 @@
         <pv_name>$(P):LEL-MAG-SPSU02:EXT1</pv_name>
         <x>98</x>
         <y>88</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1174,8 +1101,6 @@
         <pv_name>$(P):LEL-MAG-SPSU02:EXT2</pv_name>
         <x>148</x>
         <y>88</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1212,7 +1137,6 @@
         <x>194</x>
         <y>45</y>
         <width>112</width>
-        <height>42</height>
         <visible>false</visible>
         <font>
           <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
@@ -1297,8 +1221,6 @@
         <pv_name>$(P):LEL-MAG-CPSU01:EXT</pv_name>
         <x>98</x>
         <y>129</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1352,7 +1274,7 @@
       </widget>
     </widget>
     <widget type="group" version="3.0.0">
-      <name>M2-TEST</name>
+      <name>M2</name>
       <x>422</x>
       <y>57</y>
       <width>444</width>
@@ -1431,8 +1353,6 @@
         <pv_name>$(P):LEL-MAG-SPSU03:EXT1</pv_name>
         <x>89</x>
         <y>44</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1447,8 +1367,6 @@
         <pv_name>$(P):LEL-MAG-SPSU03:EXT2</pv_name>
         <x>139</x>
         <y>44</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1534,8 +1452,6 @@
         <pv_name>$(P):LEL-MAG-SPSU04:EXT1</pv_name>
         <x>89</x>
         <y>124</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1550,8 +1466,6 @@
         <pv_name>$(P):LEL-MAG-SPSU04:EXT2</pv_name>
         <x>139</x>
         <y>124</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1654,8 +1568,6 @@
         <pv_name>$(P):LEL-MAG-SPSU05:EXT1</pv_name>
         <x>89</x>
         <y>214</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1670,8 +1582,6 @@
         <pv_name>$(P):LEL-MAG-SPSU05:EXT2</pv_name>
         <x>139</x>
         <y>214</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1774,8 +1684,6 @@
         <pv_name>$(P):LEL-MAG-SPSU06:EXT1</pv_name>
         <x>86</x>
         <y>291</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1790,8 +1698,6 @@
         <pv_name>$(P):LEL-MAG-SPSU06:EXT2</pv_name>
         <x>136</x>
         <y>291</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -1897,8 +1803,6 @@
         <pv_name>$(P):LEL-MAG-CPSU01:EXT</pv_name>
         <x>86</x>
         <y>391</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2028,7 +1932,7 @@
       </widget>
     </widget>
     <widget type="group" version="3.0.0">
-      <name>M4-TEST</name>
+      <name>M4</name>
       <x>1329</x>
       <y>55</y>
       <width>432</width>
@@ -2076,8 +1980,6 @@
         <pv_name>$(P):LEL-MAG-CPSU03:EXT</pv_name>
         <x>89</x>
         <y>59</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2103,8 +2005,6 @@
         <pv_name>$(P):LEL-MAG-QPSU01:EXT1</pv_name>
         <x>89</x>
         <y>109</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2119,8 +2019,6 @@
         <pv_name>$(P):LEL-MAG-QPSU02:EXT1</pv_name>
         <x>89</x>
         <y>149</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2135,8 +2033,6 @@
         <pv_name>$(P):LEL-MAG-QPSU03:EXT1</pv_name>
         <x>89</x>
         <y>189</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2151,8 +2047,6 @@
         <pv_name>$(P):LEL-MAG-QPSU03:EXT2</pv_name>
         <x>149</x>
         <y>189</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2167,8 +2061,6 @@
         <pv_name>$(P):LEL-MAG-QPSU02:EXT2</pv_name>
         <x>149</x>
         <y>149</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2183,8 +2075,6 @@
         <pv_name>$(P):LEL-MAG-QPSU01:EXT2</pv_name>
         <x>149</x>
         <y>109</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2263,8 +2153,6 @@
         <pv_name>$(P):LEL-MAG-DPSU01:EXT1</pv_name>
         <x>89</x>
         <y>233</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2279,8 +2167,6 @@
         <pv_name>$(P):LEL-MAG-DPSU01:EXT2</pv_name>
         <x>149</x>
         <y>233</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2513,7 +2399,7 @@
       </widget>
     </widget>
     <widget type="group" version="3.0.0">
-      <name>M3-TEST</name>
+      <name>M3</name>
       <x>903</x>
       <y>55</y>
       <width>386</width>
@@ -2560,8 +2446,6 @@
         <pv_name>$(P):LEL-MAG-CPSU02:EXT</pv_name>
         <x>89</x>
         <y>51</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2659,7 +2543,7 @@
     <x>1895</x>
     <y>40</y>
     <width>160</width>
-    <height>350</height>
+    <height>450</height>
     <font>
       <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
       </font>
@@ -2678,8 +2562,6 @@
       <pv_name>$(P):LEL-MAG-HCOR04A-TS</pv_name>
       <x>89</x>
       <y>14</y>
-      <width>25</width>
-      <height>25</height>
       <off_color>
         <color red="255" green="0" blue="0">
         </color>
@@ -2703,8 +2585,6 @@
       <pv_name>$(P):LEL-MAG-VCOR04A-TS</pv_name>
       <x>89</x>
       <y>54</y>
-      <width>25</width>
-      <height>25</height>
       <off_color>
         <color name="MAJOR" red="255" green="0" blue="0">
         </color>
@@ -2716,17 +2596,16 @@
     <x>20</x>
     <y>40</y>
     <width>420</width>
-    <height>350</height>
+    <height>450</height>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
       </font>
     </font>
     <widget type="group" version="3.0.0">
       <name>TS SENSOR</name>
-      <x>9</x>
       <y>9</y>
-      <width>187</width>
-      <height>178</height>
+      <width>204</width>
+      <height>120</height>
       <font>
         <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
         </font>
@@ -2736,8 +2615,6 @@
         <pv_name>$(P):LEL-MAG-SOL01:COIL01-TS</pv_name>
         <x>117</x>
         <y>17</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2752,8 +2629,6 @@
         <pv_name>$(P):LEL-MAG-SOL01:COIL02-TS</pv_name>
         <x>117</x>
         <y>47</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2765,7 +2640,7 @@
       </widget>
       <widget type="label" version="2.0.0">
         <name>SOL01_COIL01_Label_14</name>
-        <text>SOL01 Coil 1</text>
+        <text>SOL01 1</text>
         <y>16</y>
         <width>107</width>
         <font>
@@ -2775,59 +2650,9 @@
       </widget>
       <widget type="label" version="2.0.0">
         <name>SOL01_COIL02_Label_6</name>
-        <text>SOL01 Coil 2</text>
+        <text>SOL01 2</text>
         <y>47</y>
         <width>99</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>HCOR01_14</name>
-        <text>HCOR01</text>
-        <x>27</x>
-        <y>87</y>
-        <width>67</width>
-        <font>
-          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
-          </font>
-        </font>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>HCOR01_LED_2</name>
-        <pv_name>$(P):LEL-MAG-HCOR01-TS</pv_name>
-        <x>117</x>
-        <y>87</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color red="255" green="0" blue="0">
-          </color>
-        </off_color>
-        <on_color>
-          <color red="60" green="255" blue="60">
-          </color>
-        </on_color>
-      </widget>
-      <widget type="led" version="2.0.0">
-        <name>VCOR01_LED_2</name>
-        <pv_name>$(P):LEL-MAG-VCOR01-TS</pv_name>
-        <x>117</x>
-        <y>117</y>
-        <width>25</width>
-        <height>25</height>
-        <off_color>
-          <color name="MAJOR" red="255" green="0" blue="0">
-          </color>
-        </off_color>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>VCOR01_Label_3</name>
-        <text>VCOR01</text>
-        <x>27</x>
-        <y>117</y>
-        <width>72</width>
         <font>
           <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
           </font>
@@ -2849,8 +2674,6 @@
         <pv_name>$(P):M1-SCU-6</pv_name>
         <x>108</x>
         <y>49</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2876,8 +2699,6 @@
         <pv_name>$(P):M1-SCU-7</pv_name>
         <x>108</x>
         <y>19</y>
-        <width>25</width>
-        <height>25</height>
         <off_color>
           <color red="255" green="0" blue="0">
           </color>
@@ -2899,36 +2720,61 @@
         </font>
       </widget>
     </widget>
-  </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>BOOLEANO PER TEST</name>
-    <x>1826</x>
-    <y>240</y>
-    <width>179</width>
-    <height>36</height>
-    <visible>false</visible>
-    <rules>
-      <rule name="both" prop_id="name" out_exp="false">
-        <exp bool_exp="pv0!=0 &amp;&amp; pv1!=0">
-          <value>Ext1 - Ext2</value>
-        </exp>
-        <pv_name>$(P):LEL-MAG-SPSU01:EXT1</pv_name>
-        <pv_name>$(P):LEL-MAG-SPSU01:EXT2</pv_name>
-      </rule>
-      <rule name="ext1 " prop_id="name" out_exp="false">
-        <exp bool_exp="pv0!=0 &amp;&amp; pv1==0">
-          <value>Ext1</value>
-        </exp>
-        <pv_name>$(P):LEL-MAG-SPSU01:EXT1</pv_name>
-        <pv_name>$(P):LEL-MAG-SPSU01:EXT2</pv_name>
-      </rule>
-      <rule name="ext2" prop_id="name" out_exp="false">
-        <exp bool_exp="pv0==0 &amp;&amp; pv1!=0">
-          <value>Ext2</value>
-        </exp>
-        <pv_name>$(P):LEL-MAG-SPSU01:EXT1</pv_name>
-        <pv_name>$(P):LEL-MAG-SPSU01:EXT2</pv_name>
-      </rule>
-    </rules>
+    <widget type="group" version="3.0.0">
+      <name> HCOR01 AND VCOR01 </name>
+      <y>129</y>
+      <width>204</width>
+      <height>120</height>
+      <font>
+        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <widget type="label" version="2.0.0">
+        <name>HCOR01_15</name>
+        <text>HCOR01</text>
+        <x>9</x>
+        <y>16</y>
+        <width>67</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>HCOR01_LED_3</name>
+        <pv_name>$(P):LEL-MAG-HCOR01-TS</pv_name>
+        <x>99</x>
+        <y>16</y>
+        <off_color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </off_color>
+        <on_color>
+          <color red="60" green="255" blue="60">
+          </color>
+        </on_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>VCOR01_LED_3</name>
+        <pv_name>$(P):LEL-MAG-VCOR01-TS</pv_name>
+        <x>99</x>
+        <y>46</y>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>VCOR01_Label_4</name>
+        <text>VCOR01</text>
+        <x>9</x>
+        <y>46</y>
+        <width>72</width>
+        <font>
+          <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+      </widget>
+    </widget>
   </widget>
 </display>
