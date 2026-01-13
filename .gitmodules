@@ -16,9 +16,6 @@
 [submodule "RF/menloOpi"]
 	path = RF/menloOpi
 	url = https://baltig.infn.it/infn-epics/menloOpi.git
-[submodule "RF/sparc-rf-opi"]
-	path = RF/sparc-rf-opi
-	url = https://baltig.infn.it/lnf-da-control/sparc-rf-opi.git
 [submodule "matlab-routines/matlab_sparcroutines"]
 	path = matlab-routines/matlab_sparcroutines
 	url = https://baltig.infn.it/pompilir/matlab_sparcroutines.git
@@ -47,3 +44,6 @@
 [submodule "ansible/ansible-epics-console-role"]
 	path = ansible/ansible-epics-console-role
 	url = https://baltig.infn.it/lnf-da-control/ansible-epics-console-role.git
+[submodule "RF/eli-rf-opi"]
+	path = RF/eli-rf-opi
+	url = https://github.com/infn-epics/eli-rf-opi.git
