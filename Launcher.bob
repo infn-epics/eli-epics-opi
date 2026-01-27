@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-01-27 10:33:18 by michelottilabs-->
+<!--Saved on 2026-01-27 16:37:17 by michelottilabs-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -797,6 +797,7 @@
                   <macros>
                     <ZONE>WGS01</ZONE>
                     <PLTFILE>../../ini/plt/WGS01vac.plt</PLTFILE>
+                    <IMGFILE>../../img/WGS01-Layout.png</IMGFILE>
                   </macros>
                   <group_name></group_name>
                 </tab>
