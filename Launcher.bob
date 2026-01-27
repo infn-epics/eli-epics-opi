@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-01-13 23:15:47 by andreamichelotti-->
+<!--Saved on 2026-01-27 09:17:25 by michelottilabs-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1900</width>
@@ -17,7 +17,7 @@
   <widget type="tabs" version="2.0.0">
     <name>Tabs</name>
     <macros>
-      <TITLE>ELI MAGNETS</TITLE>
+      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
     </macros>
     <tabs>
       <tab>
@@ -769,39 +769,70 @@
             <x>138</x>
             <y>282</y>
           </widget>
-          <widget type="tabs" version="2.0.0">
-            <name>VacZone</name>
+          <widget type="group" version="3.0.0">
+            <name>Univac</name>
             <macros>
-              <P>SPARC:</P>
-              <ZONE>LINAC</ZONE>
+              <GROUP>vac</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
             </macros>
-            <tabs>
-              <tab>
-                <name>ALL</name>
-                <children>
-                  <widget type="embedded" version="2.0.0">
-                    <name>Embedded Display_44</name>
-                    <macros>
-                      <GROUP>vac</GROUP>
-                      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
-                      <ZONE>ALL</ZONE>
-                      <TYPE>ALL</TYPE>
-                    </macros>
-                    <file>epik8s-opi/univac-opi/vac_array.bob</file>
-                    <x>12</x>
-                    <y>8</y>
-                    <width>670</width>
-                    <height>900</height>
-                  </widget>
-                </children>
-              </tab>
-            </tabs>
-            <x>18</x>
-            <y>12</y>
-            <width>1880</width>
-            <height>920</height>
-            <active_tab>1</active_tab>
-            <direction>1</direction>
+            <x>8</x>
+            <y>2</y>
+            <width>1620</width>
+            <height>900</height>
+            <widget type="navtabs" version="2.0.0">
+              <name>VacZone</name>
+              <tabs>
+                <tab>
+                  <name>ALL</name>
+                  <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+                  <macros>
+                    <ZONE>ALL</ZONE>
+                    <PLTFILE>../../ini/plt/LELvac-all.plt</PLTFILE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>WGS01</name>
+                  <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+                  <macros>
+                    <ZONE>WGS01</ZONE>
+                    <PLTFILE>../../ini/plt/WGS01vac.plt</PLTFILE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>WGS02</name>
+                  <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+                  <macros>
+                    <ZONE>WGS02</ZONE>
+                    <PLTFILE>../../ini/plt/WGS02vac.plt</PLTFILE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>WGS03</name>
+                  <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+                  <macros>
+                    <ZONE>WGS03</ZONE>
+                    <PLTFILE>../../ini/plt/WGS03vac.plt</PLTFILE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>WGC01</name>
+                  <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+                  <macros>
+                    <ZONE>WGC01</ZONE>
+                    <PLTFILE>../../ini/plt/WGC01vac.plt</PLTFILE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+              </tabs>
+              <x>2</x>
+              <y>2</y>
+              <width>1580</width>
+              <height>860</height>
+            </widget>
           </widget>
         </children>
       </tab>
@@ -1428,13 +1459,13 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>1</active_tab>
+    <active_tab>4</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>Label</class>
     <text>ELI CONTROL SYSTEM</text>
-    <width>590</width>
+    <width>540</width>
     <height>40</height>
     <font>
       <font family="Algerian" style="BOLD" size="26.0">
