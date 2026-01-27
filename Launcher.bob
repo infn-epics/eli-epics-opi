@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-01-27 17:44:02 by michelottilabs-->
+<!--Saved on 2026-01-27 18:26:07 by michelottilabs-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1950</width>
@@ -202,10 +202,11 @@
             <name>Modulators</name>
             <macros>
               <P>LEL:MOD:SCAT</P>
+              <OPI>epik8s-opi/unimod-opi/scandicat-opi/ScandinovaRFMod_Main.bob</OPI>
             </macros>
             <x>18</x>
             <y>322</y>
-            <width>470</width>
+            <width>560</width>
             <height>250</height>
             <widget type="template" version="2.0.0">
               <name>Template/Instance_1</name>
@@ -215,31 +216,35 @@
                   <macros>
                     <R>MOD01</R>
                     <NAME>MODS1</NAME>
+                    <DEVICE>$(P):$(R)</DEVICE>
                   </macros>
                 </instance>
                 <instance>
                   <macros>
                     <R>MOD02</R>
                     <NAME>MODS2</NAME>
+                    <DEVICE>$(P):$(R)</DEVICE>
                   </macros>
                 </instance>
                 <instance>
                   <macros>
                     <R>MOD03</R>
                     <NAME>MODS3</NAME>
+                    <DEVICE>$(P):$(R)</DEVICE>
                   </macros>
                 </instance>
                 <instance>
                   <macros>
                     <R>MOD04</R>
                     <NAME>MODC</NAME>
+                    <DEVICE>$(P):$(R)</DEVICE>
                   </macros>
                 </instance>
               </instances>
               <x>2</x>
               <y>12</y>
-              <width>430</width>
-              <height>154</height>
+              <width>510</width>
+              <height>162</height>
             </widget>
           </widget>
         </children>
@@ -1499,7 +1504,6 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>4</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
