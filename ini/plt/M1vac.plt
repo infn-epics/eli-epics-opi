@@ -95,9 +95,9 @@
       </archive>
     </pv>
     <pv>
-      <display_name>IONP01</display_name>
+      <display_name>CC04</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS1:VPCON01:IONP01:PRES_RB</name>
+      <name>LEL:VAC:VGCON01:CC04:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>0</red>
@@ -120,9 +120,9 @@
       </archive>
     </pv>
     <pv>
-      <display_name>IONP02</display_name>
+      <display_name>IONP01</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS1:VPCON01:IONP02:PRES_RB</name>
+      <name>LEL:VAC:VPCON01:IONP01:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>255</red>
@@ -145,9 +145,9 @@
       </archive>
     </pv>
     <pv>
-      <display_name>IONP03</display_name>
+      <display_name>IONP02</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS1:VPCON01:IONP03:PRES_RB</name>
+      <name>LEL:VAC:VPCON01:IONP02:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>127</red>
@@ -170,13 +170,38 @@
       </archive>
     </pv>
     <pv>
-      <display_name>IONP04</display_name>
+      <display_name>IONP03</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS1:VPCON01:IONP04:PRES_RB</name>
+      <name>LEL:VAC:VPCON01:IONP03:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>0</red>
         <green>255</green>
+        <blue>255</blue>
+      </color>
+      <trace_type>AREA</trace_type>
+      <linewidth>2</linewidth>
+      <line_style>SOLID</line_style>
+      <point_type>NONE</point_type>
+      <point_size>2</point_size>
+      <waveform_index>0</waveform_index>
+      <period>0.0</period>
+      <ring_size>5000</ring_size>
+      <request>OPTIMIZED</request>
+      <archive>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
+        <key>1</key>
+      </archive>
+    </pv>
+    <pv>
+      <display_name>IONP04</display_name>
+      <visible>true</visible>
+      <name>LEL:VAC:VPCON01:IONP04:PRES_RB</name>
+      <axis>0</axis>
+      <color>
+        <red>255</red>
+        <green>0</green>
         <blue>255</blue>
       </color>
       <trace_type>AREA</trace_type>

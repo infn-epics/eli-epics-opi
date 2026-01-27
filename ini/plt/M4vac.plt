@@ -97,7 +97,7 @@
     <pv>
       <display_name>IONP10</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS2:VPCON03:IONP10:PRES_RB</name>
+      <name>LEL:VAC:VPCON03:IONP10:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>0</red>
@@ -122,7 +122,7 @@
     <pv>
       <display_name>IONP11</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS2:VPCON03:IONP11:PRES_RB</name>
+      <name>LEL:VAC:VPCON03:IONP11:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>255</red>
@@ -147,12 +147,87 @@
     <pv>
       <display_name>IONP12</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS2:VPCON03:IONP12:PRES_RB</name>
+      <name>LEL:VAC:VPCON03:IONP12:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>127</red>
         <green>0</green>
         <blue>255</blue>
+      </color>
+      <trace_type>AREA</trace_type>
+      <linewidth>2</linewidth>
+      <line_style>SOLID</line_style>
+      <point_type>NONE</point_type>
+      <point_size>2</point_size>
+      <waveform_index>0</waveform_index>
+      <period>0.0</period>
+      <ring_size>5000</ring_size>
+      <request>OPTIMIZED</request>
+      <archive>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
+        <key>1</key>
+      </archive>
+    </pv>
+    <pv>
+      <display_name>IONP13</display_name>
+      <visible>true</visible>
+      <name>LEL:VAC:VPCON04:IONP13:PRES_RB</name>
+      <axis>0</axis>
+      <color>
+        <red>0</red>
+        <green>255</green>
+        <blue>255</blue>
+      </color>
+      <trace_type>AREA</trace_type>
+      <linewidth>2</linewidth>
+      <line_style>SOLID</line_style>
+      <point_type>NONE</point_type>
+      <point_size>2</point_size>
+      <waveform_index>0</waveform_index>
+      <period>0.0</period>
+      <ring_size>5000</ring_size>
+      <request>OPTIMIZED</request>
+      <archive>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
+        <key>1</key>
+      </archive>
+    </pv>
+    <pv>
+      <display_name>IONP14</display_name>
+      <visible>true</visible>
+      <name>LEL:VAC:VPCON04:IONP14:PRES_RB</name>
+      <axis>0</axis>
+      <color>
+        <red>255</red>
+        <green>0</green>
+        <blue>255</blue>
+      </color>
+      <trace_type>AREA</trace_type>
+      <linewidth>2</linewidth>
+      <line_style>SOLID</line_style>
+      <point_type>NONE</point_type>
+      <point_size>2</point_size>
+      <waveform_index>0</waveform_index>
+      <period>0.0</period>
+      <ring_size>5000</ring_size>
+      <request>OPTIMIZED</request>
+      <archive>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
+        <key>1</key>
+      </archive>
+    </pv>
+    <pv>
+      <display_name>IONP15</display_name>
+      <visible>true</visible>
+      <name>LEL:VAC:VPCON04:IONP15:PRES_RB</name>
+      <axis>0</axis>
+      <color>
+        <red>128</red>
+        <green>128</green>
+        <blue>0</blue>
       </color>
       <trace_type>AREA</trace_type>
       <linewidth>2</linewidth>

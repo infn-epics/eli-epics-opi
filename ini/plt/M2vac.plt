@@ -47,7 +47,7 @@
     <pv>
       <display_name>IONP05</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS1:VPCON02:IONP05:PRES_RB</name>
+      <name>LEL:VAC:VPCON02:IONP05:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>255</red>
@@ -72,7 +72,7 @@
     <pv>
       <display_name>IONP06</display_name>
       <visible>true</visible>
-      <name>LEL:VAC:WGS1:VPCON02:IONP06:PRES_RB</name>
+      <name>LEL:VAC:VPCON02:IONP06:PRES_RB</name>
       <axis>0</axis>
       <color>
         <red>0</red>
