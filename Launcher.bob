@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-01-27 16:37:17 by michelottilabs-->
+<!--Saved on 2026-01-27 16:46:20 by michelottilabs-->
 <display version="2.0.0">
   <name>Launcher</name>
-  <width>1900</width>
-  <height>1024</height>
+  <width>1950</width>
+  <height>1004</height>
   <actions>
     <action type="open_display">
       <description>Open Display</description>
@@ -777,7 +777,7 @@
             </macros>
             <x>8</x>
             <y>2</y>
-            <width>1620</width>
+            <width>1950</width>
             <height>900</height>
             <widget type="navtabs" version="2.0.0">
               <name>VacZone</name>
@@ -867,7 +867,7 @@
               </tabs>
               <x>2</x>
               <y>2</y>
-              <width>1580</width>
+              <width>1880</width>
               <height>860</height>
             </widget>
           </widget>
@@ -1490,7 +1490,7 @@
       </tab>
     </tabs>
     <y>30</y>
-    <width>1900</width>
+    <width>1990</width>
     <height>974</height>
     <background_color>
       <color red="214" green="223" blue="225">

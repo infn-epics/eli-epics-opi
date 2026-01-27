@@ -65,8 +65,8 @@
       <ring_size>5000</ring_size>
       <request>OPTIMIZED</request>
       <archive>
-        <name>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</name>
-        <url>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
         <key>1</key>
       </archive>
     </pv>
@@ -90,8 +90,8 @@
       <ring_size>5000</ring_size>
       <request>OPTIMIZED</request>
       <archive>
-        <name>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</name>
-        <url>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
         <key>1</key>
       </archive>
     </pv>
@@ -115,8 +115,8 @@
       <ring_size>5000</ring_size>
       <request>OPTIMIZED</request>
       <archive>
-        <name>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</name>
-        <url>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
         <key>1</key>
       </archive>
     </pv>
@@ -140,8 +140,8 @@
       <ring_size>5000</ring_size>
       <request>OPTIMIZED</request>
       <archive>
-        <name>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</name>
-        <url>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
         <key>1</key>
       </archive>
     </pv>
@@ -165,8 +165,8 @@
       <ring_size>5000</ring_size>
       <request>OPTIMIZED</request>
       <archive>
-        <name>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</name>
-        <url>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
         <key>1</key>
       </archive>
     </pv>
@@ -190,8 +190,8 @@
       <ring_size>5000</ring_size>
       <request>OPTIMIZED</request>
       <archive>
-        <name>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</name>
-        <url>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
         <key>1</key>
       </archive>
     </pv>
@@ -215,8 +215,8 @@
       <ring_size>5000</ring_size>
       <request>OPTIMIZED</request>
       <archive>
-        <name>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</name>
-        <url>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
         <key>1</key>
       </archive>
     </pv>
@@ -240,8 +240,8 @@
       <ring_size>5000</ring_size>
       <request>OPTIMIZED</request>
       <archive>
-        <name>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</name>
-        <url>pbraw://sparc-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
+        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
         <key>1</key>
       </archive>
     </pv>
