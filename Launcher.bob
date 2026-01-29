@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-01-27 18:26:07 by michelottilabs-->
+<!--Saved on 2026-01-28 16:57:00 by michelottilabs-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1950</width>
@@ -427,6 +427,48 @@
                     <height>130</height>
                     <tooltip>$(actions)</tooltip>
                   </widget>
+                  <widget type="group" version="3.0.0">
+                    <name>Light</name>
+                    <x>122</x>
+                    <y>298</y>
+                    <width>220</width>
+                    <height>120</height>
+                    <widget type="bool_button" version="2.0.0">
+                      <name>Boolean Button</name>
+                      <pv_name>LEL:ILLUM:ICPDAS:CAMILLUM:RLY_SP</pv_name>
+                      <x>72</x>
+                      <y>12</y>
+                      <height>50</height>
+                    </widget>
+                    <widget type="led" version="2.0.0">
+                      <name>LED</name>
+                      <pv_name>LEL:ILLUM:ICPDAS:CAMILLUM:RLY_RB</pv_name>
+                      <x>12</x>
+                      <y>12</y>
+                      <width>50</width>
+                      <height>50</height>
+                    </widget>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>cameraInterfaceBase_2</name>
+                    <actions>
+                      <action type="open_display">
+                        <description>Camera2 Screen APP</description>
+                        <file>epik8s-opi/unicam-opi-v2/CameraV2.bob</file>
+                        <macros>
+                          <DEVICE>LEL</DEVICE>
+                          <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                        </macros>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <text>CAMERA2 Screen</text>
+                    <x>342</x>
+                    <y>58</y>
+                    <width>190</width>
+                    <height>130</height>
+                    <tooltip>$(actions)</tooltip>
+                  </widget>
                 </children>
               </tab>
               <tab>
@@ -661,7 +703,7 @@
             <y>2</y>
             <width>1880</width>
             <height>910</height>
-            <active_tab>3</active_tab>
+            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1110,7 +1152,7 @@
             <y>2</y>
             <width>1050</width>
             <height>1020</height>
-            <active_tab>6</active_tab>
+            <active_tab>2</active_tab>
             <direction>1</direction>
           </widget>
           <widget type="action_button" version="3.0.0">
@@ -1504,6 +1546,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
