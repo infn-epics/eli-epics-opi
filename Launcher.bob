@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-01-28 16:57:00 by michelottilabs-->
+<!--Saved on 2026-01-30 12:35:41 by michelottilabs-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1950</width>
@@ -1525,8 +1525,36 @@
                 </children>
               </tab>
               <tab>
-                <name>Labview</name>
+                <name>CCTV</name>
                 <children>
+                  <widget type="action_button" version="3.0.0">
+                    <name>Action Button_5</name>
+                    <actions>
+                      <action type="open_webpage">
+                        <description>ROOF Modulator  CCTV 3 - 4</description>
+                        <url>http://onvif:1234@10.16.0.20/axis-cgi/mjpg/video.cgi</url>
+                      </action>
+                    </actions>
+                    <x>252</x>
+                    <y>38</y>
+                    <width>160</width>
+                    <height>130</height>
+                    <tooltip>$(actions)</tooltip>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>Action Button_6</name>
+                    <actions>
+                      <action type="open_webpage">
+                        <description>ROOF Modulator  CCTV  1 - 2</description>
+                        <url>http://onvif:1234@10.16.0.21/axis-cgi/mjpg/video.cgi</url>
+                      </action>
+                    </actions>
+                    <x>52</x>
+                    <y>38</y>
+                    <width>160</width>
+                    <height>130</height>
+                    <tooltip>$(actions)</tooltip>
+                  </widget>
                 </children>
               </tab>
             </tabs>
@@ -1534,6 +1562,7 @@
             <y>2</y>
             <width>1870</width>
             <height>926</height>
+            <active_tab>3</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -1546,7 +1575,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
+    <active_tab>9</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
