@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-01-30 12:35:41 by michelottilabs-->
+<!--Saved on 2026-02-17 17:03:45 by andreamichelotti-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>1950</width>
@@ -1198,6 +1198,39 @@
       <tab>
         <name>MPS</name>
         <children>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <macros>
+              <P>RUF-MPS-A-001</P>
+            </macros>
+            <x>25</x>
+            <y>11</y>
+            <width>846</width>
+            <height>724</height>
+            <style>1</style>
+            <widget type="action_button" version="3.0.0">
+              <name>Action Button_7</name>
+              <actions>
+                <action type="open_display">
+                  <description>Open Display</description>
+                  <file>common/mps-ssrip/ssrip_mps.bob</file>
+                  <target>window</target>
+                </action>
+              </actions>
+              <x>732</x>
+              <y>22</y>
+              <height>100</height>
+              <tooltip>$(actions)</tooltip>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display</name>
+              <file>common/mps-ssrip/ssrip_mps.bob</file>
+              <x>-18</x>
+              <y>22</y>
+              <width>740</width>
+              <height>670</height>
+            </widget>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -1575,7 +1608,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>9</active_tab>
+    <active_tab>7</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
