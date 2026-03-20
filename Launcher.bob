@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-02-18 13:19:28 by andreamichelotti-->
+<!--Saved on 2026-03-20 11:36:59 by riccardoesposito-->
 <display version="2.0.0">
   <name>Launcher</name>
-  <width>1950</width>
-  <height>1004</height>
+  <width>2410</width>
+  <height>1210</height>
   <actions>
     <action type="open_display">
       <description>Open Display</description>
@@ -255,8 +255,9 @@
           <widget type="embedded" version="2.0.0">
             <name>Navigation Tabs</name>
             <file>RF/eli-rf-opi/main.bob</file>
-            <width>1830</width>
-            <height>934</height>
+            <y>1</y>
+            <width>2401</width>
+            <height>1130</height>
           </widget>
         </children>
       </tab>
@@ -720,8 +721,8 @@
             </macros>
             <x>2</x>
             <y>2</y>
-            <width>1276</width>
-            <height>850</height>
+            <width>2407</width>
+            <height>1159</height>
             <widget type="navtabs" version="2.0.0">
               <name>DanteMagnets_1</name>
               <tabs>
@@ -824,8 +825,8 @@
             </macros>
             <x>8</x>
             <y>2</y>
-            <width>1950</width>
-            <height>900</height>
+            <width>2391</width>
+            <height>1149</height>
             <widget type="navtabs" version="2.0.0">
               <name>VacZone</name>
               <tabs>
@@ -1592,8 +1593,8 @@
             </tabs>
             <x>18</x>
             <y>2</y>
-            <width>1870</width>
-            <height>926</height>
+            <width>2391</width>
+            <height>1159</height>
             <active_tab>3</active_tab>
             <direction>1</direction>
           </widget>
@@ -1601,13 +1602,13 @@
       </tab>
     </tabs>
     <y>30</y>
-    <width>1990</width>
-    <height>974</height>
+    <width>2410</width>
+    <height>1180</height>
     <background_color>
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>7</active_tab>
+    <active_tab>9</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
