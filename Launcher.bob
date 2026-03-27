@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-03-20 11:36:59 by riccardoesposito-->
+<!--Saved on 2026-03-27 10:39:05 by riccardoesposito-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>2410</width>
@@ -885,6 +885,7 @@
                   <macros>
                     <ZONE>M1</ZONE>
                     <PLTFILE>../../ini/plt/M1vac.plt</PLTFILE>
+                    <IMGFILE>../../img/M1.png</IMGFILE>
                   </macros>
                   <group_name></group_name>
                 </tab>
@@ -894,6 +895,7 @@
                   <macros>
                     <ZONE>M2</ZONE>
                     <PLTFILE>../../ini/plt/M2vac.plt</PLTFILE>
+                    <IMGFILE>../../img/M2.png</IMGFILE>
                   </macros>
                   <group_name></group_name>
                 </tab>
@@ -903,6 +905,7 @@
                   <macros>
                     <ZONE>M3</ZONE>
                     <PLTFILE>../../ini/plt/M3vac.plt</PLTFILE>
+                    <IMGFILE>../../img/M1.png</IMGFILE>
                   </macros>
                   <group_name></group_name>
                 </tab>
@@ -912,12 +915,65 @@
                   <macros>
                     <ZONE>M4</ZONE>
                     <PLTFILE>../../ini/plt/M4vac.plt</PLTFILE>
+                    <IMGFILE>../../img/M4.png</IMGFILE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>WGS01+M1</name>
+                  <file>VAC/vac-opi/Vac_double.bob</file>
+                  <macros>
+                    <PLTFILE1>../../ini/plt/WGS01vac.plt</PLTFILE1>
+                    <PLTFILE2>../../ini/plt/M1vac.plt</PLTFILE2>
+                    <IMGFILE1>../../img/WGS01-664x340-Layout.png</IMGFILE1>
+                    <IMGFILE2>../../img/M1.png</IMGFILE2>
+                    <ZONE1>WGS01</ZONE1>
+                    <ZONE2>M1</ZONE2>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>WGS02+M2</name>
+                  <file>VAC/vac-opi/Vac_double.bob</file>
+                  <macros>
+                    <PLTFILE1>../../ini/plt/WGS02vac.plt</PLTFILE1>
+                    <PLTFILE2>../../ini/plt/M2vac.plt</PLTFILE2>
+                    <IMGFILE1>../../img/WGS02-664x340-Layout.png</IMGFILE1>
+                    <IMGFILE2>../../img/M2.png</IMGFILE2>
+                    <ZONE1>WGS02</ZONE1>
+                    <ZONE2>M2</ZONE2>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>WGS03+M3</name>
+                  <file>VAC/vac-opi/Vac_double.bob</file>
+                  <macros>
+                    <PLTFILE1>../../ini/plt/WGS03vac.plt</PLTFILE1>
+                    <PLTFILE2>../../ini/plt/M3vac.plt</PLTFILE2>
+                    <IMGFILE1>../../img/WGS03-664x340-Layout.png</IMGFILE1>
+                    <IMGFILE2>../../img/M3.png</IMGFILE2>
+                    <ZONE1>WGS03</ZONE1>
+                    <ZONE2>M3</ZONE2>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>WGC01+M4</name>
+                  <file>VAC/vac-opi/Vac_double.bob</file>
+                  <macros>
+                    <PLTFILE1>../../ini/plt/WGS02vac.plt</PLTFILE1>
+                    <PLTFILE2>../../ini/plt/M3vac.plt</PLTFILE2>
+                    <IMGFILE1>../../img/WGC01-664x340-Layout.png</IMGFILE1>
+                    <IMGFILE2>../../img/M4.png</IMGFILE2>
+                    <ZONE1>WGC01</ZONE1>
+                    <ZONE2>M4</ZONE2>
                   </macros>
                   <group_name></group_name>
                 </tab>
               </tabs>
               <x>2</x>
-              <y>2</y>
+              <y>3</y>
               <width>1880</width>
               <height>860</height>
             </widget>
@@ -1608,7 +1664,7 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>9</active_tab>
+    <active_tab>4</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
