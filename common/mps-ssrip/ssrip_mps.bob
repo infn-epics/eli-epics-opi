@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-03-25 12:18:57 by giuli-->
+<!--Saved on 2026-04-08 16:47:25 by giuli-->
 <display version="2.0.0">
   <name>Display</name>
   <width>910</width>
@@ -167,7 +167,7 @@
             <name>modulator</name>
             <text>Modulator</text>
             <x>298</x>
-            <y>332</y>
+            <y>334</y>
             <font>
               <font family="Liberation Sans" style="BOLD" size="18.0">
               </font>
@@ -177,7 +177,8 @@
             <name>LLRF</name>
             <text>LLRF</text>
             <x>298</x>
-            <y>379</y>
+            <y>388</y>
+            <height>30</height>
             <font>
               <font family="Liberation Sans" style="BOLD" size="18.0">
               </font>
@@ -248,12 +249,12 @@
             <name>Polyline_12</name>
             <x>8</x>
             <y>299</y>
-            <width>615</width>
-            <height>1</height>
+            <width>660</width>
+            <height>3</height>
             <points>
               <point x="0.0" y="0.0">
               </point>
-              <point x="614.9999999999999" y="0.0">
+              <point x="660.0" y="3.0">
               </point>
             </points>
             <line_width>2</line_width>
@@ -316,6 +317,7 @@
             <width>130</width>
             <height>32</height>
             <numBits>4</numBits>
+            <bitReverse>true</bitReverse>
             <off_color>
               <color name="OK" red="0" green="255" blue="0">
               </color>
@@ -330,9 +332,10 @@
             <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
             <x>128</x>
             <y>382</y>
-            <width>130</width>
-            <height>32</height>
-            <numBits>4</numBits>
+            <width>65</width>
+            <height>33</height>
+            <numBits>2</numBits>
+            <bitReverse>true</bitReverse>
             <off_color>
               <color name="OK" red="0" green="255" blue="0">
               </color>
@@ -365,14 +368,29 @@
               <script file="EmbeddedPy">
                 <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
 
-bit_ilk_number = PVUtil.getInt(pvs[0])
-if bit_ilk_number != 0:
-	widget.setPropertyValue('visible', True)
-else:
+value = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[2])
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+		pvs[1].write(value)
+		widget.setPropertyValue('visible', True)
+if enable == 1:
 	widget.setPropertyValue('visible', False)
+	
+
+#if bit_ilk_number != 0:
+#	widget.setPropertyValue('visible', True)
+#else:
+#	widget.setPropertyValue('visible', False)
 	
 ]]></text>
                 <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name trigger="false">loc://provare(0)</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
           </widget>
@@ -399,14 +417,30 @@ else:
               <script file="EmbeddedPy">
                 <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
 
-bit_ilk_number = PVUtil.getInt(pvs[0])
-if bit_ilk_number != 0:
-	widget.setPropertyValue('visible', True)
-else:
+
+value = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[2])
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+		pvs[1].write(value)
+		widget.setPropertyValue('visible', True)
+if enable == 1:
 	widget.setPropertyValue('visible', False)
+	
+#bit_ilk_number = PVUtil.getInt(pvs[0])
+#if bit_ilk_number != 0:
+#	widget.setPropertyValue('visible', True)
+#else:
+#	widget.setPropertyValue('visible', False)
 	
 ]]></text>
                 <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>loc://provare_cor(0)</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
           </widget>
@@ -415,77 +449,77 @@ else:
             <pv_name>loc://ilk_ruf("")</pv_name>
             <x>458</x>
             <y>435</y>
-            <width>150</width>
+            <width>200</width>
             <scripts>
               <script file="EmbeddedPy">
                 <text><![CDATA[# Embedded python script
 from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-int_ilk = PVUtil.getInt(pvs[0]) # pv ilk
-#if int_ilk ==240:
-#    pvs[1].setValue("NO ILK")
-#if int_ilk ==0:
-#    pvs[1].setValue("NO ILK")
-enable = PVUtil.getInt(pvs[2]) #pv enable
+value = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[2])
 
-if enable == 1: 
-	pvs[1].setValue("NO ILK")
-#if enable == 0:
-	#if int_ilk ==240:
-	#	pvs[1].setValue("NO ILK")
-if int_ilk ==240:
-	pvs[1].setValue("ILK spare")
-if int_ilk ==0:
-	pvs[1].setValue("NO ILK")
-	
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
 
-if int_ilk == 1:
-    pvs[1].setValue('LEL-VAC-WGC01:IONP02')
-if int_ilk == 2:
-    pvs[1].setValue('LEL-VAC-WGC01:IONP03')
-if int_ilk == 4:
-    pvs[1].setValue('LEL-VAC-WGC01:IONP04')
-if int_ilk == 8:
-    pvs[1].setValue('LEL-VAC-WCS01:IONP05')
-#if int_ilk == 16:
-#    pvs[1].setValue('spare')
-#if int_ilk == 32:
-#    pvs[1].setValue('spare')
-#if int_ilk == 64:
-#    pvs[1].setValue('spare')
-#if int_ilk == 128:
-#    pvs[1].setValue(spare')
-if int_ilk == 256:
-    pvs[1].setValue('LEL-VAC-WGS02:IONP03')
-if int_ilk == 512:
-    pvs[1].setValue('LEL-VAC-WGS02:IONP04')
-if int_ilk == 1024:
-    pvs[1].setValue('LEL-VAC-WGS02:IONP05')
-if int_ilk == 2048:
-    pvs[1].setValue('LEL-VAC-WGS03:IONP01')
-if int_ilk == 4096:
-    pvs[1].setValue('LEL-VAC-WGS03:IONP02')
-if int_ilk == 8192:
-    pvs[1].setValue('LEL-VAC-WGS03:IONP03')
-if int_ilk == 16384:
-    pvs[1].setValue('LEL-VAC-WGS03:IONP04')
-if int_ilk == 32768:
-    pvs[1].setValue('LEL-VAC-WGC01:IONP01')
-if int_ilk == 65536:
-    pvs[1].setValue('LEL-VAC-WGS01:IONP01')
-if int_ilk == 131072:
-    pvs[1].setValue('LEL-VAC-WGS01:IONP02')
-if int_ilk == 262144:
-    pvs[1].setValue('LEL-VAC-WGS01:IONP03')
-if int_ilk == 524288:
-    pvs[1].setValue('LEL-VAC-WGS01:IONP04')
-if int_ilk == 1048576:
-    pvs[1].setValue('LEL-VAC-WGS01:IONP05')
-if int_ilk == 2097152:
-    pvs[1].setValue('LEL-VAC-WGS01:IONP06')
-if int_ilk == 4194304:
-    pvs[1].setValue('LEL-VAC-WGS02:IONP01')
-if int_ilk == 8388608:
-    pvs[1].setValue('LEL-VAC-WGS02:IONP02')
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+			#pvs[1].write(value)
+		if value == 240:
+			pvs[1].write('ruf spare ch ilk')
+
+		if value == 1:
+			pvs[1].write('LEL-VAC-WGC01:IONP02')
+		if value == 2:
+			pvs[1].write('LEL-VAC-WGC01:IONP03')
+		if value == 4:
+			pvs[1].write('LEL-VAC-WCS01:IONP04')
+		if value == 8:
+			pvs[1].write('LEL-VAC-WCS01:IONP05')
+		if value == 16:
+			pvs[1].write('ruf spare ch ilk')
+		if value == 32:
+			pvs[1].write('ruf spare ch ilk')
+		if value == 64:
+			pvs[1].write('ruf spare ch ilk')
+		if value == 128:
+			pvs[1].write('ruf spare ch ilk')
+		if value == 256:
+			pvs[1].write('LEL-VAC-WGS02:IONP03')
+		if value == 512:
+			pvs[1].write('LEL-VAC-WGS02:IONP04')
+		if value == 1024:
+			pvs[1].write('LEL-VAC-WGS02:IONP05')
+		if value == 2048:
+			pvs[1].write('LEL-VAC-WGS03:IONP01')
+		if value == 4096:
+			pvs[1].write('LEL-VAC-WGS03:IONP02')
+		if value == 8192:
+			pvs[1].write('LEL-VAC-WGS03:IONP03')
+		if value == 16384:
+			pvs[1].write('LEL-VAC-WGS03:IONP04')
+		if value == 32768:
+			pvs[1].write('LEL-VAC-WGC01:IONP01')
+		if value == 65536:
+			pvs[1].write('LEL-VAC-WGS01:IONP01')
+		if value == 131072:
+			pvs[1].write('LEL-VAC-WGS01:IONP02')
+		if value == 262144:
+			pvs[1].write('LEL-VAC-WGS01:IONP03')
+		if value == 524288:
+			pvs[1].write('LEL-VAC-WGS01:IONP04')
+		if value == 1048576:
+			pvs[1].write('LEL-VAC-WGS01:IONP05')
+		if value == 2097152:
+			pvs[1].write('LEL-VAC-WGS01:IONP06')
+		if value == 4194304:
+			pvs[1].write('LEL-VAC-WGS02:IONP01')
+		if value == 8388608:
+			pvs[1].write('LEL-VAC-WGS02:IONP02')
+if enable == 1:
+	pvs[1].write(' ')
+#--------------------------------------------
+
+
 ]]></text>
                 <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
                 <pv_name trigger="false">loc://ilk_ruf</pv_name>
@@ -498,76 +532,246 @@ if int_ilk == 8388608:
             <pv_name>loc://ilk_cor("")</pv_name>
             <x>458</x>
             <y>475</y>
-            <width>150</width>
+            <width>200</width>
             <scripts>
               <script file="EmbeddedPy">
                 <text><![CDATA[# Embedded python script
 from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-int_ilk = PVUtil.getInt(pvs[0]) # pv ilk
+#-------------------------------------------
+value = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[2])
 
-#if int_ilk == 8388608:
-#    pvs[1].setValue('NO ILK')
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
 
-enable = PVUtil.getInt(pvs[2]) 
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+			#pvs[1].write(value)
+		if value == 8388608:
+			pvs[1].write('cor spare ch ilk')
+
+		if value == 1: #16777216:
+			pvs[1].write('LEL-VAC-IONP01')
+		if value == 2: #33554432:
+			pvs[1].write('LEL-VAC-IONP02')
+		if value == 4: #67108864:
+			pvs[1].write('LEL-VAC-IONP03')
+		if value == 8: #134217728:
+			pvs[1].write('LEL-VAC-IONP04')
+		if value == 16: #268435456:
+			pvs[1].write('LEL-VAC-IONP05')
+		if value == 32: #536870912:
+			pvs[1].write('LEL-VAC-IONP06')
+		if value == 64: #1073741824:
+			pvs[1].write('LEL-VAC-IONP07')
+		if value == 128: #2147483648:
+			pvs[1].write('LEL-VAC-IONP08')
+		if value == 65536:
+			pvs[1].write('LEL-VAC-IONP09')
+		if value == 131072:
+			pvs[1].write('LEL-VAC-IONP10')
+		if value == 262144:
+			pvs[1].write('LEL-VAC-IONP11')
+		if value == 524288:
+			pvs[1].write('LEL-VAC-IONP12')
+		if value == 1048576:
+			pvs[1].write('LEL-VAC-IONP13')
+		if value == 2097152:
+			pvs[1].write('LEL-VAC-IONP14')
+		if value == 4194304:
+			pvs[1].write('LEL-VAC-IONP15')
 if enable == 1:
-    pvs[1].setValue('NO ILK')
-#if enable ==0:
-if int_ilk == 0:
-	pvs[1].setValue('NO ILK')
-if int_ilk == 8388608:
-	pvs[1].setValue('ILK spare')
+	pvs[1].write(' ')
+#--------------------------------------------
 
-if int_ilk ==16777216:
-	pvs[1].setValue('LEL-VAC-IONP01')
-
-
-elif int_ilk == 33554432:
-	pvs[1].setValue('LEL-VAC-IONP02')
-
-elif int_ilk == 67108864:
-	pvs[1].setValue('LEL-VAC-IONP03')
-
-elif int_ilk == 134217728:
-	pvs[1].setValue('LEL-VAC-IONP04')
-
-elif int_ilk == 268435456:
-	pvs[1].setValue('LEL-VAC-IONP05')
-
-elif int_ilk == 536870912:
-	pvs[1].setValue('LEL-VAC-IONP06')
-
-elif int_ilk == 1073741824:
-	pvs[1].setValue('LEL-VAC-IONP07')
-
-elif int_ilk == 2147483648:
-	pvs[1].setValue('LEL-VAC-IONP08')
-
-elif int_ilk == 65536:
-	pvs[1].setValue('LEL-VAC-IONP09')
-
-elif int_ilk == 131072:
-	pvs[1].setValue('LEL-VAC-IONP10')
-
-elif int_ilk == 262144:
-	pvs[1].setValue('LEL-VAC-IONP11')
-
-elif int_ilk == 524288:
-	pvs[1].setValue('LEL-VAC-IONP12')
-
-elif int_ilk == 1048576:
-	pvs[1].setValue('LEL-VAC-IONP13')
-
-elif int_ilk == 2097152:
-	pvs[1].setValue('LEL-VAC-IONP14')
-
-elif int_ilk == 4194304:
-	pvs[1].setValue('LEL-VAC-IONP15')
-
-#elif int_ilk == 8388608:
-#    pvs[1].setValue('spare')]]></text>
+]]></text>
                 <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name trigger="false">loc://ilk_cor</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_3</name>
+            <pv_name>loc://last(0)</pv_name>
+            <x>58</x>
+            <y>432</y>
+            <width>150</width>
+            <visible>false</visible>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value = PVUtil.getInt(pvs[0])
+
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+		pvs[1].write(value)
+		print("ruf:", pvs[0].getValue())
+		print("ruf:", pvs[1].getValue())
+
+
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name trigger="false">loc://last(0)</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_4</name>
+            <pv_name>loc://la_cor(0)</pv_name>
+            <x>58</x>
+            <y>462</y>
+            <width>150</width>
+            <visible>false</visible>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+value = PVUtil.getInt(pvs[0])
+
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+		pvs[1].write(value)
+		print("cor:", pvs[0].getValue())
+		print("cor:", pvs[1].getValue())
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name trigger="false">loc://la_cor(0)</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label</name>
+            <text>1</text>
+            <x>128</x>
+            <y>312</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_1</name>
+            <text>4</text>
+            <x>228</x>
+            <y>312</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_2</name>
+            <text>2</text>
+            <x>158</x>
+            <y>312</y>
+            <width>40</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_4</name>
+            <text>3</text>
+            <x>188</x>
+            <y>312</y>
+            <width>40</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor_2</name>
+            <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
+            <x>193</x>
+            <y>382</y>
+            <width>65</width>
+            <height>32</height>
+            <startBit>2</startBit>
+            <numBits>2</numBits>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_2</name>
+            <pv_name>loc://last_ruf</pv_name>
+            <x>48</x>
+            <y>502</y>
+            <width>170</width>
+            <visible>false</visible>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+# binario 32 bit con zeri iniziali
+bin_word = format(PVUtil.getInt(pvs[0]), '032b')
+print("Word in binario 32 bit: RUF", bin_word)
+bin_word_2 = format(PVUtil.getInt(pvs[1]), '032b')
+print("Word in binario 32 bit: COR", bin_word_2)
+bin_word_3 = format(PVUtil.getInt(pvs[2]), '032b')
+print("Word in binario 32 bit: BYPASS RUF", bin_word_3)
+bin_word_4 = format(PVUtil.getInt(pvs[3]), '032b')
+print("Word in binario 32 bit: BYPASS COR", bin_word_4)]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_SP</pv_name>
+                <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_SP</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_5</name>
+            <pv_name>loc://last_cor</pv_name>
+            <x>48</x>
+            <y>532</y>
+            <width>170</width>
+            <visible>false</visible>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+# binario 32 bit con zeri iniziali
+bin_word = format(PVUtil.getInt(pvs[0]), '032b')
+print("Word in binario 32 bit: RUF", bin_word)
+bin_word_2 = format(PVUtil.getInt(pvs[1]), '032b')
+print("Word in binario 32 bit: COR", bin_word_2)
+bin_word_3 = format(PVUtil.getInt(pvs[2]), '032b')
+print("Word in binario 32 bit: BYPASS RUF", bin_word_3)
+bin_word_4 = format(PVUtil.getInt(pvs[3]), '032b')
+print("Word in binario 32 bit: BYPASS COR", bin_word_4)]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_SP</pv_name>
+                <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_SP</pv_name>
               </script>
             </scripts>
           </widget>
@@ -632,6 +836,7 @@ elif int_ilk == 4194304:
             <width>32</width>
             <height>130</height>
             <numBits>4</numBits>
+            <bitReverse>true</bitReverse>
             <horizontal>false</horizontal>
             <off_color>
               <color name="OK" red="0" green="255" blue="0">
@@ -762,44 +967,7 @@ elif int_ilk == 4194304:
             <width>32</width>
             <height>64</height>
             <numBits>2</numBits>
-            <horizontal>false</horizontal>
-            <off_color>
-              <color name="OK" red="0" green="255" blue="0">
-              </color>
-            </off_color>
-            <on_color>
-              <color name="MAJOR" red="255" green="0" blue="0">
-              </color>
-            </on_color>
-          </widget>
-          <widget type="byte_monitor" version="2.0.0">
-            <name>Byte Monitor llrf_2</name>
-            <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
-            <x>38</x>
-            <y>130</y>
-            <width>32</width>
-            <height>32</height>
-            <startBit>3</startBit>
-            <numBits>1</numBits>
-            <horizontal>false</horizontal>
-            <off_color>
-              <color name="OK" red="0" green="255" blue="0">
-              </color>
-            </off_color>
-            <on_color>
-              <color name="MAJOR" red="255" green="0" blue="0">
-              </color>
-            </on_color>
-          </widget>
-          <widget type="byte_monitor" version="2.0.0">
-            <name>Byte Monitor llrf_5</name>
-            <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
-            <x>38</x>
-            <y>162</y>
-            <width>32</width>
-            <height>32</height>
-            <startBit>2</startBit>
-            <numBits>1</numBits>
+            <bitReverse>true</bitReverse>
             <horizontal>false</horizontal>
             <off_color>
               <color name="OK" red="0" green="255" blue="0">
@@ -833,6 +1001,25 @@ elif int_ilk == 4194304:
               </font>
             </font>
           </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor_3</name>
+            <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
+            <x>38</x>
+            <y>129</y>
+            <width>32</width>
+            <height>65</height>
+            <startBit>2</startBit>
+            <numBits>2</numBits>
+            <horizontal>false</horizontal>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -844,7 +1031,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS03:IONP04</label>
             <x>388</x>
             <y>56</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -861,7 +1048,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGC01:IONP01</label>
             <x>388</x>
             <y>88</y>
-            <width>258</width>
+            <width>257</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -878,7 +1065,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS01:IONP01</label>
             <x>388</x>
             <y>122</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -895,7 +1082,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS01:IONP02</label>
             <x>388</x>
             <y>156</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -912,7 +1099,7 @@ elif int_ilk == 4194304:
             <label>spare</label>
             <x>56</x>
             <y>186</y>
-            <width>89</width>
+            <width>88</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -928,7 +1115,7 @@ elif int_ilk == 4194304:
             <label>spare</label>
             <x>56</x>
             <y>218</y>
-            <width>89</width>
+            <width>88</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -944,7 +1131,7 @@ elif int_ilk == 4194304:
             <label>spare</label>
             <x>56</x>
             <y>252</y>
-            <width>89</width>
+            <width>88</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -960,7 +1147,7 @@ elif int_ilk == 4194304:
             <label>spare</label>
             <x>56</x>
             <y>286</y>
-            <width>89</width>
+            <width>88</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -976,7 +1163,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGC01:IONP05</label>
             <x>56</x>
             <y>156</y>
-            <width>258</width>
+            <width>257</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -993,7 +1180,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGC01:IONP02</label>
             <x>56</x>
             <y>56</y>
-            <width>258</width>
+            <width>257</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1010,7 +1197,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGC01:IONP04</label>
             <x>56</x>
             <y>122</y>
-            <width>258</width>
+            <width>257</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1027,7 +1214,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGC01:IONP03</label>
             <x>56</x>
             <y>88</y>
-            <width>258</width>
+            <width>257</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1064,7 +1251,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS02:IONP03</label>
             <x>56</x>
             <y>324</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1081,7 +1268,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS02:IONP04</label>
             <x>56</x>
             <y>358</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1098,7 +1285,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS02:IONP05</label>
             <x>56</x>
             <y>392</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1115,7 +1302,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS01:IONP03</label>
             <x>388</x>
             <y>186</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1132,7 +1319,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS01:IONP04</label>
             <x>388</x>
             <y>218</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1149,7 +1336,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS01:IONP05</label>
             <x>388</x>
             <y>252</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1166,7 +1353,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS01:IONP06</label>
             <x>388</x>
             <y>286</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1183,7 +1370,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS02:IONP01</label>
             <x>390</x>
             <y>324</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1200,7 +1387,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS02:IONP02</label>
             <x>390</x>
             <y>356</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1217,7 +1404,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS03:IONP01</label>
             <x>56</x>
             <y>424</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1234,7 +1421,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS03:IONP02</label>
             <x>55</x>
             <y>454</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -1251,7 +1438,7 @@ elif int_ilk == 4194304:
             <label>LEL-VAC-WGS03:IONP03</label>
             <x>55</x>
             <y>484</y>
-            <width>257</width>
+            <width>256</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2076,7 +2263,7 @@ if enable == 1:
             <label>LEL-VAC-IONP05</label>
             <x>68</x>
             <y>175</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2093,7 +2280,7 @@ if enable == 1:
             <label>LEL-VAC-IONP06</label>
             <x>68</x>
             <y>204</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2110,7 +2297,7 @@ if enable == 1:
             <label>LEL-VAC-IONP07</label>
             <x>68</x>
             <y>234</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2127,7 +2314,7 @@ if enable == 1:
             <label>LEL-VAC-IONP08</label>
             <x>68</x>
             <y>264</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2144,7 +2331,7 @@ if enable == 1:
             <label>LEL-VAC-IONP04</label>
             <x>68</x>
             <y>144</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2161,7 +2348,7 @@ if enable == 1:
             <label>LEL-VAC-IONP01</label>
             <x>68</x>
             <y>56</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2178,7 +2365,7 @@ if enable == 1:
             <label>LEL-VAC-IONP03</label>
             <x>68</x>
             <y>114</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2195,7 +2382,7 @@ if enable == 1:
             <label>LEL-VAC-IONP02</label>
             <x>68</x>
             <y>86</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2241,7 +2428,7 @@ if enable == 1:
             <label>LEL-VAC-IONP09</label>
             <x>68</x>
             <y>294</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2258,7 +2445,7 @@ if enable == 1:
             <label>LEL-VAC-IONP10</label>
             <x>68</x>
             <y>324</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2275,7 +2462,7 @@ if enable == 1:
             <label>LEL-VAC-IONP11</label>
             <x>68</x>
             <y>354</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2292,7 +2479,7 @@ if enable == 1:
             <label>LEL-VAC-IONP12</label>
             <x>68</x>
             <y>384</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2309,7 +2496,7 @@ if enable == 1:
             <label>LEL-VAC-IONP13</label>
             <x>68</x>
             <y>414</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2326,7 +2513,7 @@ if enable == 1:
             <label>LEL-VAC-IONP14</label>
             <x>68</x>
             <y>444</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2343,7 +2530,7 @@ if enable == 1:
             <label>LEL-VAC-IONP15</label>
             <x>68</x>
             <y>474</y>
-            <width>189</width>
+            <width>188</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2360,7 +2547,7 @@ if enable == 1:
             <label>spare</label>
             <x>68</x>
             <y>504</y>
-            <width>89</width>
+            <width>88</width>
             <height>21</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="18.0">
@@ -2444,13 +2631,13 @@ if enable == 1:
 
 bit_ilk_number = PVUtil.getInt(pvs[0])
 enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 16777216:
+if bit_ilk_number == 1: #16777216:
 	widget.setPropertyValue('visible', True)
 if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2480,13 +2667,13 @@ if enable == 1:
 
 bit_ilk_number = PVUtil.getInt(pvs[0])
 enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 67108864:
+if bit_ilk_number == 2: #67108864:
 	widget.setPropertyValue('visible', True)
 if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2516,13 +2703,13 @@ if enable == 1:
 
 bit_ilk_number = PVUtil.getInt(pvs[0])
 enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 33554432:
+if bit_ilk_number == 4: #33554432:
 	widget.setPropertyValue('visible', True)
 if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2552,13 +2739,13 @@ if enable == 1:
 
 bit_ilk_number = PVUtil.getInt(pvs[0])
 enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 134217728:
+if bit_ilk_number == 8: #134217728:
 	widget.setPropertyValue('visible', True)
 if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2588,13 +2775,13 @@ if enable == 1:
 
 bit_ilk_number = PVUtil.getInt(pvs[0])
 enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 268435456:
+if bit_ilk_number == 16: #268435456:
 	widget.setPropertyValue('visible', True)
 if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2624,13 +2811,13 @@ if enable == 1:
 
 bit_ilk_number = PVUtil.getInt(pvs[0])
 enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 536870912:
+if bit_ilk_number == 36: #536870912:
 	widget.setPropertyValue('visible', True)
 if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2660,13 +2847,13 @@ if enable == 1:
 
 bit_ilk_number = PVUtil.getInt(pvs[0])
 enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 1073741824:
+if bit_ilk_number == 64: #1073741824:
 	widget.setPropertyValue('visible', True)
 if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2696,13 +2883,13 @@ if enable == 1:
 
 bit_ilk_number = PVUtil.getInt(pvs[0])
 enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 2147483648:
+if bit_ilk_number == 128: #2147483648:
 	widget.setPropertyValue('visible', True)
 if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2738,7 +2925,7 @@ if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2774,7 +2961,7 @@ if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2810,7 +2997,7 @@ if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2846,7 +3033,7 @@ if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2882,7 +3069,7 @@ if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2918,7 +3105,7 @@ if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -2954,43 +3141,7 @@ if enable == 1:
 	widget.setPropertyValue('visible', False)
 	
 ]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
-                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
-              </script>
-            </scripts>
-          </widget>
-          <widget type="led" version="2.0.0">
-            <name>ch1_ruf_16</name>
-            <x>28</x>
-            <y>502</y>
-            <width>30</width>
-            <height>30</height>
-            <visible>false</visible>
-            <off_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </off_color>
-            <on_color>
-              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
-              </color>
-            </on_color>
-            <line_color>
-              <color name="MAJOR" red="255" green="0" blue="0">
-              </color>
-            </line_color>
-            <scripts>
-              <script file="EmbeddedPy">
-                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-bit_ilk_number = PVUtil.getInt(pvs[0])
-enable = PVUtil.getInt(pvs[1])
-if bit_ilk_number == 8388608:
-	widget.setPropertyValue('visible', True)
-if enable == 1:
-	widget.setPropertyValue('visible', False)
-	
-]]></text>
-                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
                 <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
               </script>
             </scripts>
@@ -3002,8 +3153,10 @@ if enable == 1:
         <children>
           <widget type="table" version="2.0.0">
             <name>Table</name>
-            <x>78</x>
+            <x>38</x>
             <y>62</y>
+            <width>600</width>
+            <height>430</height>
             <columns>
               <column>
                 <name>Time</name>
@@ -3040,7 +3193,7 @@ except:
 # --- Leggi valori attuali ---
 value_ruf = PVUtil.getInt(pvs[0])
 value_cor = PVUtil.getInt(pvs[2])
-value=value_cor
+#value=value_cor
 
 # --- Leggi ultimi valori salvati ---
 last_ruf = PVUtil.getInt(last_ruf_pv)
@@ -3053,12 +3206,12 @@ changed = False
 # 🔵 RUF
 # =======================
 value=value_ruf
-if value_ruf != last_ruf:
+if value_ruf !=0:
 
-    if value == 0:
-	label = "NO RUF ILK"
+    #if value == 0:
+	#label = "NO RUF ILK"
     if value == 240:
-	label = "ILK RUF spare"
+	label = "ruf spare ch ilk"
     if value == 1:
     	label = 'LEL-VAC-WGC01:IONP02'
     if value == 2:
@@ -3066,15 +3219,15 @@ if value_ruf != last_ruf:
     if value == 4:
     	label = 'LEL-VAC-WGC01:IONP04'
     if value == 8:
-    	label = 'LEL-VAC-WCS01:IONP05'
+    	label = 'LEL-VAC-WGC01:IONP05'
     if value == 16:
-	label = 'ILK RUF spare ch1'
+	label = 'ruf spare ch ilk'
     if value == 32:
-	 label = 'ILK RUF spare ch2'
+	 label = 'ruf spare ch ilk'
     if value == 64:
-	label = 'ILK RUF spare ch3'
+	label = 'ruf spare ch ilk'
     if value == 128:
-	 label = 'ILK RUF spare ch4'
+	 label = 'ruf spare ch ilk'
     if value == 256:
     	label = 'LEL-VAC-WGS02:IONP03'
     if value == 512:
@@ -3118,28 +3271,29 @@ if value_ruf != last_ruf:
 # =======================
 # 🔵 COR
 # =======================
-if value_cor != last_cor:
+#if value_cor != last_cor:
+if value_cor != 0:
 
-    label_2 = "UNKNOWN"
-    if value_cor == 0:
-   	 label_2 = 'NO COR ILK '
+    #label_2 = "UNKNOWN"
+    #if value_cor == 0:
+   	 #label_2 = 'NO COR ILK '
     if value_cor == 8388608:
-    	label_2 = 'ILK COR spare'
-    if value_cor == 16777216:
+    	label_2 = 'cor spare ch ilk'
+    if value_cor == 1: #16777216:
     	label_2 = 'LEL-VAC-IONP01'
-    if value_cor == 33554432:
+    if value_cor ==2: #33554432:
     	label_2 = 'LEL-VAC-IONP02'
-    if value_cor == 67108864:
+    if value_cor == 4: #67108864:
    	 label_2 = 'LEL-VAC-IONP03'
-    if value_cor == 134217728:
+    if value_cor == 8: #134217728:
    	 label_2 = 'LEL-VAC-IONP04'
-    if value_cor == 268435456:
+    if value_cor == 16: #268435456:
    	 label_2 = 'LEL-VAC-IONP05'
-    if value_cor == 536870912:
+    if value_cor == 32: #536870912:
     	label_2 = 'LEL-VAC-IONP06'
-    if value_cor == 1073741824:
+    if value_cor == 64: #1073741824:
    	 label_2 = 'LEL-VAC-IONP07'
-    if value_cor == 2147483648:
+    if value_cor == 128: #2147483648:
     	label_2 = 'LEL-VAC-IONP08'
     if value_cor == 65536:
     	label_2 = 'LEL-VAC-IONP09'
@@ -3155,6 +3309,8 @@ if value_cor != last_cor:
 	label_2 = 'LEL-VAC-IONP14'
     if value_cor == 4194304:
 	label_2 = 'LEL-VAC-IONP15'
+    
+
 
 
     time_2 = str(LocalDateTime.now())
@@ -3163,17 +3319,24 @@ if value_cor != last_cor:
     last_cor_pv.write(value_cor)
     changed = True
 
+
+
 # =======================
 # aggiorna SOLO se cambia
 # =======================
 if changed:
 
-    # tieni solo ultime 10
-    if len(merge) > 10:
-        merge = merge[-10:]
+    # tieni solo ultime 30
+    if len(merge) > 30:
+        merge = merge[-30:]
 
     history_pv.write(json.dumps(merge))
-    widget.setValue(merge)]]></text>
+    widget.setValue(merge)
+
+
+
+
+]]></text>
                 <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
                 <pv_name trigger="false">loc://merge(0)</pv_name>
                 <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
@@ -3194,13 +3357,12 @@ if changed:
       <font family="Liberation Sans" style="REGULAR" size="15.0">
       </font>
     </font>
-    <active_tab>4</active_tab>
   </widget>
   <widget type="rectangle" version="2.0.0">
     <name>Rectangle</name>
     <x>40</x>
     <y>270</y>
-    <width>0</width>
-    <height>0</height>
+    <width>1</width>
+    <height>1</height>
   </widget>
 </display>
