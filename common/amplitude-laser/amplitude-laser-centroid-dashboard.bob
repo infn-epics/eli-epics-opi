@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Amplitude Laser Centroid Dashboard</name>
+  <macros>
+    <PREFIX>$(PREFIX=LEL-LASER)</PREFIX>
+  </macros>
+  <width>1750</width>
+  <height>980</height>
+  <background_color>
+    <color red="232" green="238" blue="245">
+    </color>
+  </background_color>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+
+  <widget type="rectangle" version="2.0.0">
+    <name>HeaderBackground</name>
+    <width>1750</width>
+    <height>58</height>
+    <line_width>0</line_width>
+    <background_color>
+      <color red="22" green="52" blue="94">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>HeaderTitle</name>
+    <text>Amplitude Laser Diagnostics</text>
+    <x>18</x>
+    <y>10</y>
+    <width>620</width>
+    <height>38</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="24.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>HeaderPrefix</name>
+    <text>PV Prefix: $(PREFIX)</text>
+    <x>1410</x>
+    <y>18</y>
+    <width>320</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="13.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="196" green="226" blue="255">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+
+  <widget type="label" version="2.0.0">
+    <name>LegendActual</name>
+    <text>Centroid Actual</text>
+    <x>18</x>
+    <y>66</y>
+    <width>130</width>
+    <height>22</height>
+    <foreground_color>
+      <color red="0" green="86" blue="179">
+      </color>
+    </foreground_color>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>LegendRef</name>
+    <text>User Reference</text>
+    <x>155</x>
+    <y>66</y>
+    <width>130</width>
+    <height>22</height>
+    <foreground_color>
+      <color red="196" green="48" blue="43">
+      </color>
+    </foreground_color>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+  </widget>
+
+  <!-- NF REGEN -->
+  <widget type="rectangle" version="2.0.0">
+    <name>NF_REGEN_Card</name>
+    <x>18</x>
+    <y>95</y>
+    <width>560</width>
+    <height>425</height>
+    <line_width>2</line_width>
+    <line_color><color red="77" green="122" blue="168"></color></line_color>
+    <background_color><color red="247" green="251" blue="255"></color></background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>NF_REGEN_Title</name>
+    <text>NF REGEN</text>
+    <x>34</x><y>110</y><width>180</width><height>30</height>
+    <font><font family="Liberation Sans" style="BOLD" size="20.0"></font></font>
+    <foreground_color><color red="25" green="73" blue="122"></color></foreground_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>NF_REGEN_State_LED</name>
+    <pv_name>$(PREFIX):NF_REGEN_STATE</pv_name>
+    <x>35</x><y>152</y><width>20</width><height>20</height>
+    <off_color><color red="178" green="178" blue="178"></color></off_color>
+    <on_color><color red="56" green="178" blue="74"></color></on_color>
+  </widget>
+  <widget type="label" version="2.0.0"><name>NF_REGEN_State_Label</name><text>State</text><x>62</x><y>149</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_REGEN_State_Text</name><pv_name>$(PREFIX):NF_REGEN_STATE</pv_name><x>125</x><y>147</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_REGEN_Beam_Label</name><text>Beam</text><x>35</x><y>179</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_REGEN_Beam_Text</name><pv_name>$(PREFIX):NF_REGEN_BEAM</pv_name><x>125</x><y>177</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_REGEN_Energy_Label</name><text>Energy</text><x>35</x><y>209</y><width>70</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_REGEN_Energy_Text</name><pv_name>$(PREFIX):NF_REGEN_ENERGY</pv_name><x>125</x><y>207</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+
+  <widget type="label" version="2.0.0"><name>NF_REGEN_CX_Label</name><text>Centroid X</text><x>35</x><y>253</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_REGEN_CX_Text</name><pv_name>$(PREFIX):NF_REGEN_CENTROID_X</pv_name><x>125</x><y>251</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_REGEN_CY_Label</name><text>Centroid Y</text><x>35</x><y>283</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_REGEN_CY_Text</name><pv_name>$(PREFIX):NF_REGEN_CENTROID_Y</pv_name><x>125</x><y>281</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_REGEN_RX_Label</name><text>Ref X</text><x>35</x><y>313</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_REGEN_RX_Text</name><pv_name>$(PREFIX):NF_REGEN_USER_REF_X</pv_name><x>125</x><y>311</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_REGEN_RY_Label</name><text>Ref Y</text><x>35</x><y>343</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_REGEN_RY_Text</name><pv_name>$(PREFIX):NF_REGEN_USER_REF_Y</pv_name><x>125</x><y>341</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+
+  <widget type="xyplot" version="3.0.0">
+    <name>NF_REGEN_Centroid_Plot</name>
+    <x>232</x><y>144</y><width>332</width><height>260</height>
+    <show_toolbar>true</show_toolbar>
+    <x_axis><title>X</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible></x_axis>
+    <y_axes><y_axis><title>Y</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible><color><color red="0" green="0" blue="0"></color></color></y_axis></y_axes>
+    <traces>
+      <trace><name>Actual</name><x_pv>$(PREFIX):NF_REGEN_CENTROID_X</x_pv><y_pv>$(PREFIX):NF_REGEN_CENTROID_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="0" green="86" blue="179"></color></color><line_width>2</line_width><point_type>3</point_type><point_size>8</point_size><visible>true</visible></trace>
+      <trace><name>UserRef</name><x_pv>$(PREFIX):NF_REGEN_USER_REF_X</x_pv><y_pv>$(PREFIX):NF_REGEN_USER_REF_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="196" green="48" blue="43"></color></color><line_width>2</line_width><point_type>2</point_type><point_size>7</point_size><visible>true</visible></trace>
+    </traces>
+  </widget>
+
+  <!-- NF TERRA -->
+  <widget type="rectangle" version="2.0.0"><name>NF_TERRA_Card</name><x>595</x><y>95</y><width>560</width><height>425</height><line_width>2</line_width><line_color><color red="69" green="134" blue="130"></color></line_color><background_color><color red="246" green="254" blue="252"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>NF_TERRA_Title</name><text>NF TERRA</text><x>610</x><y>110</y><width>190</width><height>30</height><font><font family="Liberation Sans" style="BOLD" size="20.0"></font></font><foreground_color><color red="36" green="94" blue="89"></color></foreground_color><transparent>true</transparent></widget>
+  <widget type="led" version="2.0.0"><name>NF_TERRA_State_LED</name><pv_name>$(PREFIX):NF_TERRA_STATE</pv_name><x>610</x><y>152</y><width>20</width><height>20</height><off_color><color red="178" green="178" blue="178"></color></off_color><on_color><color red="56" green="178" blue="74"></color></on_color></widget>
+  <widget type="label" version="2.0.0"><name>NF_TERRA_State_Label</name><text>State</text><x>637</x><y>149</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_TERRA_State_Text</name><pv_name>$(PREFIX):NF_TERRA_STATE</pv_name><x>700</x><y>147</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_TERRA_Beam_Label</name><text>Beam</text><x>610</x><y>179</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_TERRA_Beam_Text</name><pv_name>$(PREFIX):NF_TERRA_BEAM</pv_name><x>700</x><y>177</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_TERRA_Energy_Label</name><text>Energy</text><x>610</x><y>209</y><width>70</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_TERRA_Energy_Text</name><pv_name>$(PREFIX):NF_TERRA_ENERGY</pv_name><x>700</x><y>207</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_TERRA_CX_Label</name><text>Centroid X</text><x>610</x><y>253</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_TERRA_CX_Text</name><pv_name>$(PREFIX):NF_TERRA_CENTROID_X</pv_name><x>700</x><y>251</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_TERRA_CY_Label</name><text>Centroid Y</text><x>610</x><y>283</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_TERRA_CY_Text</name><pv_name>$(PREFIX):NF_TERRA_CENTROID_Y</pv_name><x>700</x><y>281</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_TERRA_RX_Label</name><text>Ref X</text><x>610</x><y>313</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_TERRA_RX_Text</name><pv_name>$(PREFIX):NF_TERRA_USER_REF_X</pv_name><x>700</x><y>311</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_TERRA_RY_Label</name><text>Ref Y</text><x>610</x><y>343</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_TERRA_RY_Text</name><pv_name>$(PREFIX):NF_TERRA_USER_REF_Y</pv_name><x>700</x><y>341</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="xyplot" version="3.0.0"><name>NF_TERRA_Centroid_Plot</name><x>807</x><y>144</y><width>332</width><height>260</height><show_toolbar>true</show_toolbar><x_axis><title>X</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible></x_axis><y_axes><y_axis><title>Y</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible><color><color red="0" green="0" blue="0"></color></color></y_axis></y_axes><traces><trace><name>Actual</name><x_pv>$(PREFIX):NF_TERRA_CENTROID_X</x_pv><y_pv>$(PREFIX):NF_TERRA_CENTROID_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="0" green="86" blue="179"></color></color><line_width>2</line_width><point_type>3</point_type><point_size>8</point_size><visible>true</visible></trace><trace><name>UserRef</name><x_pv>$(PREFIX):NF_TERRA_USER_REF_X</x_pv><y_pv>$(PREFIX):NF_TERRA_USER_REF_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="196" green="48" blue="43"></color></color><line_width>2</line_width><point_type>2</point_type><point_size>7</point_size><visible>true</visible></trace></traces></widget>
+
+  <!-- NF MP1 -->
+  <widget type="rectangle" version="2.0.0"><name>NF_MP1_Card</name><x>1172</x><y>95</y><width>560</width><height>425</height><line_width>2</line_width><line_color><color red="173" green="122" blue="57"></color></line_color><background_color><color red="255" green="249" blue="241"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>NF_MP1_Title</name><text>NF MP1</text><x>1187</x><y>110</y><width>190</width><height>30</height><font><font family="Liberation Sans" style="BOLD" size="20.0"></font></font><foreground_color><color red="117" green="82" blue="33"></color></foreground_color><transparent>true</transparent></widget>
+  <widget type="led" version="2.0.0"><name>NF_MP1_State_LED</name><pv_name>$(PREFIX):NF_MP1_STATE</pv_name><x>1187</x><y>152</y><width>20</width><height>20</height><off_color><color red="178" green="178" blue="178"></color></off_color><on_color><color red="56" green="178" blue="74"></color></on_color></widget>
+  <widget type="label" version="2.0.0"><name>NF_MP1_State_Label</name><text>State</text><x>1214</x><y>149</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_MP1_State_Text</name><pv_name>$(PREFIX):NF_MP1_STATE</pv_name><x>1277</x><y>147</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_MP1_Beam_Label</name><text>Beam</text><x>1187</x><y>179</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_MP1_Beam_Text</name><pv_name>$(PREFIX):NF_MP1_BEAM</pv_name><x>1277</x><y>177</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_MP1_Energy_Label</name><text>Energy</text><x>1187</x><y>209</y><width>70</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_MP1_Energy_Text</name><pv_name>$(PREFIX):NF_MP1_ENERGY</pv_name><x>1277</x><y>207</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_MP1_CX_Label</name><text>Centroid X</text><x>1187</x><y>253</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_MP1_CX_Text</name><pv_name>$(PREFIX):NF_MP1_CENTROID_X</pv_name><x>1277</x><y>251</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_MP1_CY_Label</name><text>Centroid Y</text><x>1187</x><y>283</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_MP1_CY_Text</name><pv_name>$(PREFIX):NF_MP1_CENTROID_Y</pv_name><x>1277</x><y>281</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_MP1_RX_Label</name><text>Ref X</text><x>1187</x><y>313</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_MP1_RX_Text</name><pv_name>$(PREFIX):NF_MP1_USER_REF_X</pv_name><x>1277</x><y>311</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>NF_MP1_RY_Label</name><text>Ref Y</text><x>1187</x><y>343</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>NF_MP1_RY_Text</name><pv_name>$(PREFIX):NF_MP1_USER_REF_Y</pv_name><x>1277</x><y>341</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="xyplot" version="3.0.0"><name>NF_MP1_Centroid_Plot</name><x>1384</x><y>144</y><width>332</width><height>260</height><show_toolbar>true</show_toolbar><x_axis><title>X</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible></x_axis><y_axes><y_axis><title>Y</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible><color><color red="0" green="0" blue="0"></color></color></y_axis></y_axes><traces><trace><name>Actual</name><x_pv>$(PREFIX):NF_MP1_CENTROID_X</x_pv><y_pv>$(PREFIX):NF_MP1_CENTROID_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="0" green="86" blue="179"></color></color><line_width>2</line_width><point_type>3</point_type><point_size>8</point_size><visible>true</visible></trace><trace><name>UserRef</name><x_pv>$(PREFIX):NF_MP1_USER_REF_X</x_pv><y_pv>$(PREFIX):NF_MP1_USER_REF_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="196" green="48" blue="43"></color></color><line_width>2</line_width><point_type>2</point_type><point_size>7</point_size><visible>true</visible></trace></traces></widget>
+
+  <!-- FF MP1 -->
+  <widget type="rectangle" version="2.0.0"><name>FF_MP1_Card</name><x>18</x><y>538</y><width>560</width><height>425</height><line_width>2</line_width><line_color><color red="91" green="90" blue="154"></color></line_color><background_color><color red="248" green="247" blue="255"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>FF_MP1_Title</name><text>FF MP1</text><x>34</x><y>553</y><width>190</width><height>30</height><font><font family="Liberation Sans" style="BOLD" size="20.0"></font></font><foreground_color><color red="64" green="63" blue="120"></color></foreground_color><transparent>true</transparent></widget>
+  <widget type="led" version="2.0.0"><name>FF_MP1_State_LED</name><pv_name>$(PREFIX):FF_MP1_STATE</pv_name><x>35</x><y>595</y><width>20</width><height>20</height><off_color><color red="178" green="178" blue="178"></color></off_color><on_color><color red="56" green="178" blue="74"></color></on_color></widget>
+  <widget type="label" version="2.0.0"><name>FF_MP1_State_Label</name><text>State</text><x>62</x><y>592</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_MP1_State_Text</name><pv_name>$(PREFIX):FF_MP1_STATE</pv_name><x>125</x><y>590</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_MP1_Beam_Label</name><text>Beam</text><x>35</x><y>622</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_MP1_Beam_Text</name><pv_name>$(PREFIX):FF_MP1_BEAM</pv_name><x>125</x><y>620</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_MP1_Angle_Label</name><text>Pointing</text><x>35</x><y>652</y><width>70</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_MP1_Angle_Text</name><pv_name>$(PREFIX):FF_MP1_POINTING_ANGLE</pv_name><x>125</x><y>650</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_MP1_CX_Label</name><text>Centroid X</text><x>35</x><y>696</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_MP1_CX_Text</name><pv_name>$(PREFIX):FF_MP1_CENTROID_X</pv_name><x>125</x><y>694</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_MP1_CY_Label</name><text>Centroid Y</text><x>35</x><y>726</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_MP1_CY_Text</name><pv_name>$(PREFIX):FF_MP1_CENTROID_Y</pv_name><x>125</x><y>724</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_MP1_RX_Label</name><text>Ref X</text><x>35</x><y>756</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_MP1_RX_Text</name><pv_name>$(PREFIX):FF_MP1_USER_REF_X</pv_name><x>125</x><y>754</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_MP1_RY_Label</name><text>Ref Y</text><x>35</x><y>786</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_MP1_RY_Text</name><pv_name>$(PREFIX):FF_MP1_USER_REF_Y</pv_name><x>125</x><y>784</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="xyplot" version="3.0.0"><name>FF_MP1_Centroid_Plot</name><x>232</x><y>587</y><width>332</width><height>260</height><show_toolbar>true</show_toolbar><x_axis><title>X</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible></x_axis><y_axes><y_axis><title>Y</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible><color><color red="0" green="0" blue="0"></color></color></y_axis></y_axes><traces><trace><name>Actual</name><x_pv>$(PREFIX):FF_MP1_CENTROID_X</x_pv><y_pv>$(PREFIX):FF_MP1_CENTROID_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="0" green="86" blue="179"></color></color><line_width>2</line_width><point_type>3</point_type><point_size>8</point_size><visible>true</visible></trace><trace><name>UserRef</name><x_pv>$(PREFIX):FF_MP1_USER_REF_X</x_pv><y_pv>$(PREFIX):FF_MP1_USER_REF_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="196" green="48" blue="43"></color></color><line_width>2</line_width><point_type>2</point_type><point_size>7</point_size><visible>true</visible></trace></traces></widget>
+
+  <!-- FF COMPRESSOR -->
+  <widget type="rectangle" version="2.0.0"><name>FF_COMP_Card</name><x>595</x><y>538</y><width>560</width><height>425</height><line_width>2</line_width><line_color><color red="156" green="76" blue="91"></color></line_color><background_color><color red="255" green="246" blue="248"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>FF_COMP_Title</name><text>FF COMPRESSOR</text><x>610</x><y>553</y><width>220</width><height>30</height><font><font family="Liberation Sans" style="BOLD" size="20.0"></font></font><foreground_color><color red="117" green="52" blue="64"></color></foreground_color><transparent>true</transparent></widget>
+  <widget type="led" version="2.0.0"><name>FF_COMP_State_LED</name><pv_name>$(PREFIX):FF_COMPRESSOR_STATE</pv_name><x>610</x><y>595</y><width>20</width><height>20</height><off_color><color red="178" green="178" blue="178"></color></off_color><on_color><color red="56" green="178" blue="74"></color></on_color></widget>
+  <widget type="label" version="2.0.0"><name>FF_COMP_State_Label</name><text>State</text><x>637</x><y>592</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_COMP_State_Text</name><pv_name>$(PREFIX):FF_COMPRESSOR_STATE</pv_name><x>700</x><y>590</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_COMP_Beam_Label</name><text>Beam</text><x>610</x><y>622</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_COMP_Beam_Text</name><pv_name>$(PREFIX):FF_COMPRESSOR_BEAM</pv_name><x>700</x><y>620</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_COMP_Angle_Label</name><text>Pointing</text><x>610</x><y>652</y><width>70</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_COMP_Angle_Text</name><pv_name>$(PREFIX):FF_COMPRESSOR_POINTING_ANGLE</pv_name><x>700</x><y>650</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_COMP_CX_Label</name><text>Centroid X</text><x>610</x><y>696</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_COMP_CX_Text</name><pv_name>$(PREFIX):FF_COMPRESSOR_CENTROID_X</pv_name><x>700</x><y>694</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_COMP_CY_Label</name><text>Centroid Y</text><x>610</x><y>726</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_COMP_CY_Text</name><pv_name>$(PREFIX):FF_COMPRESSOR_CENTROID_Y</pv_name><x>700</x><y>724</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_COMP_RX_Label</name><text>Ref X</text><x>610</x><y>756</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_COMP_RX_Text</name><pv_name>$(PREFIX):FF_COMPRESSOR_USER_REF_X</pv_name><x>700</x><y>754</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_COMP_RY_Label</name><text>Ref Y</text><x>610</x><y>786</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_COMP_RY_Text</name><pv_name>$(PREFIX):FF_COMPRESSOR_USER_REF_Y</pv_name><x>700</x><y>784</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="xyplot" version="3.0.0"><name>FF_COMP_Centroid_Plot</name><x>807</x><y>587</y><width>332</width><height>260</height><show_toolbar>true</show_toolbar><x_axis><title>X</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible></x_axis><y_axes><y_axis><title>Y</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible><color><color red="0" green="0" blue="0"></color></color></y_axis></y_axes><traces><trace><name>Actual</name><x_pv>$(PREFIX):FF_COMPRESSOR_CENTROID_X</x_pv><y_pv>$(PREFIX):FF_COMPRESSOR_CENTROID_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="0" green="86" blue="179"></color></color><line_width>2</line_width><point_type>3</point_type><point_size>8</point_size><visible>true</visible></trace><trace><name>UserRef</name><x_pv>$(PREFIX):FF_COMPRESSOR_USER_REF_X</x_pv><y_pv>$(PREFIX):FF_COMPRESSOR_USER_REF_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="196" green="48" blue="43"></color></color><line_width>2</line_width><point_type>2</point_type><point_size>7</point_size><visible>true</visible></trace></traces></widget>
+
+  <!-- FF OSC -->
+  <widget type="rectangle" version="2.0.0"><name>FF_OSC_Card</name><x>1172</x><y>538</y><width>560</width><height>425</height><line_width>2</line_width><line_color><color red="86" green="124" blue="65"></color></line_color><background_color><color red="248" green="254" blue="245"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_Title</name><text>FF OSC</text><x>1187</x><y>553</y><width>200</width><height>30</height><font><font family="Liberation Sans" style="BOLD" size="20.0"></font></font><foreground_color><color red="56" green="91" blue="40"></color></foreground_color><transparent>true</transparent></widget>
+  <widget type="led" version="2.0.0"><name>FF_OSC_State_LED</name><pv_name>$(PREFIX):FF_OSC_STATE</pv_name><x>1187</x><y>595</y><width>20</width><height>20</height><off_color><color red="178" green="178" blue="178"></color></off_color><on_color><color red="56" green="178" blue="74"></color></on_color></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_State_Label</name><text>State</text><x>1214</x><y>592</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_OSC_State_Text</name><pv_name>$(PREFIX):FF_OSC_STATE</pv_name><x>1277</x><y>590</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_Beam_Label</name><text>Beam</text><x>1187</x><y>622</y><width>65</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_OSC_Beam_Text</name><pv_name>$(PREFIX):FF_OSC_BEAM</pv_name><x>1277</x><y>620</y><width>92</width><height>24</height><horizontal_alignment>1</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_Energy_Label</name><text>Energy</text><x>1187</x><y>652</y><width>70</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_OSC_Energy_Text</name><pv_name>$(PREFIX):FF_OSC_ENERGY</pv_name><x>1277</x><y>650</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_Angle_Label</name><text>Pointing</text><x>1187</x><y>682</y><width>70</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_OSC_Angle_Text</name><pv_name>$(PREFIX):FF_OSC_POINTING_ANGLE</pv_name><x>1277</x><y>680</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_CX_Label</name><text>Centroid X</text><x>1187</x><y>712</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_OSC_CX_Text</name><pv_name>$(PREFIX):FF_OSC_CENTROID_X</pv_name><x>1277</x><y>710</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_CY_Label</name><text>Centroid Y</text><x>1187</x><y>742</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_OSC_CY_Text</name><pv_name>$(PREFIX):FF_OSC_CENTROID_Y</pv_name><x>1277</x><y>740</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_RX_Label</name><text>Ref X</text><x>1187</x><y>772</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_OSC_RX_Text</name><pv_name>$(PREFIX):FF_OSC_USER_REF_X</pv_name><x>1277</x><y>770</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="label" version="2.0.0"><name>FF_OSC_RY_Label</name><text>Ref Y</text><x>1187</x><y>802</y><width>90</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="12.0"></font></font><transparent>true</transparent></widget>
+  <widget type="textupdate" version="2.0.0"><name>FF_OSC_RY_Text</name><pv_name>$(PREFIX):FF_OSC_USER_REF_Y</pv_name><x>1277</x><y>800</y><width>92</width><height>24</height><precision>4</precision><horizontal_alignment>2</horizontal_alignment></widget>
+  <widget type="xyplot" version="3.0.0"><name>FF_OSC_Centroid_Plot</name><x>1384</x><y>587</y><width>332</width><height>260</height><show_toolbar>true</show_toolbar><x_axis><title>X</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible></x_axis><y_axes><y_axis><title>Y</title><autoscale>true</autoscale><minimum>-1.0</minimum><maximum>1.0</maximum><show_grid>true</show_grid><visible>true</visible><color><color red="0" green="0" blue="0"></color></color></y_axis></y_axes><traces><trace><name>Actual</name><x_pv>$(PREFIX):FF_OSC_CENTROID_X</x_pv><y_pv>$(PREFIX):FF_OSC_CENTROID_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="0" green="86" blue="179"></color></color><line_width>2</line_width><point_type>3</point_type><point_size>8</point_size><visible>true</visible></trace><trace><name>UserRef</name><x_pv>$(PREFIX):FF_OSC_USER_REF_X</x_pv><y_pv>$(PREFIX):FF_OSC_USER_REF_Y</y_pv><axis>0</axis><trace_type>1</trace_type><color><color red="196" green="48" blue="43"></color></color><line_width>2</line_width><point_type>2</point_type><point_size>7</point_size><visible>true</visible></trace></traces></widget>
+</display>
