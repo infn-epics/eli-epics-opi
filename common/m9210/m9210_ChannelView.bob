@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-06 13:06:37 by andreamichelotti-->
+<!--Saved on 2026-06-05 16:10:11 by georg-->
 <display version="2.0.0">
   <name>Display</name>
   <width>795</width>
@@ -30,29 +30,13 @@
         </children>
       </tab>
       <tab>
-        <name>Microbunch statistics</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_MicroBunchStats.opi</file>
-            <width>700</width>
-            <height>530</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
         <name>Macrobunch</name>
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template</name>
             <file>m9210_MacroBunch.opi</file>
+            <x>15</x>
+            <y>7</y>
             <width>700</width>
             <height>480</height>
             <transparent>true</transparent>
@@ -83,6 +67,134 @@
           </widget>
         </children>
       </tab>
+      <tab>
+        <name>RawData Channel0</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_RawData_Ch0.bob</file>
+            <y>4</y>
+            <width>788</width>
+            <height>836</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>RawData Channel1</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_RawData_Ch1.bob</file>
+            <y>5</y>
+            <width>788</width>
+            <height>836</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>History</name>
+        <children>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser</name>
+            <file>charge_trend.plt</file>
+            <x>16</x>
+            <y>26</y>
+            <width>731</width>
+            <actions>
+            </actions>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+import math
+
+# --- HARDWARE & SIGNAL PARAMETERS ---
+ICT_SENSITIVITY = 5.0      # V*s/C (Bergoz ICT Standard Transfer Function)
+ATTENUATION_FACTOR = 1.0   # Scale factor matching upstream hardware attenuation pads
+
+try:
+    # 1. Thread-safe execution check on incoming data array
+    pv_reading = pvs[0].read()
+    
+    if pv_reading is not None:
+        raw_data = pv_reading.getData()
+        total_samples = raw_data.size()
+        
+        if total_samples > 40:
+            # --- SAMPLING RATE MATRIX SELECTION ---
+            # Dynamically adjusts temporal resolution based on buffer length
+            if total_samples > 1500:
+                dt = 2.5e-10          # 4 GigaSamples/second time step
+                baseline_window = 30   # Noise monitoring bounds
+            else:
+                dt = 5.0e-10          # 2 GigaSamples/second time step
+                baseline_window = 15   # Noise monitoring bounds
+            
+            # 2. Dynamic Baseline Profiling
+            # Evaluates background offset voltage using pre-pulse samples
+            baseline_sum = 0.0
+            for i in range(baseline_window):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(baseline_window)
+            
+            # 3. Thread-Safe Marker Value Resolution
+            marker1_raw = PVUtil.getDouble(pvs[1])
+            marker2_raw = PVUtil.getDouble(pvs[2])
+
+            # Force index constraints safely inside the current hardware bounds
+            start_index = max(0, min(int(round(marker1_raw)), total_samples - 2))
+            stop_index = max(0, min(int(round(marker2_raw)), total_samples - 1))
+            
+            # Coordinate normalization for reverse-dragged bounds
+            if start_index > stop_index:
+                start_index, stop_index = stop_index, start_index
+            
+            # 4. High-Throughput Trapezoidal Integration Engine
+            if stop_index > start_index:
+                integral_area = 0.0
+                for j in range(start_index, stop_index - 1):
+                    y1 = baseline_avg - raw_data.getDouble(j)
+                    y2 = baseline_avg - raw_data.getDouble(j + 1)
+                    integral_area += (y1 + y2) / 2.0
+                
+                # Conversion Formula: Q = \int(V dt) / R_s
+                volt_seconds = integral_area * dt
+                corrected_volt_seconds = volt_seconds * ATTENUATION_FACTOR
+                bunch_charge_coulombs = corrected_volt_seconds / ICT_SENSITIVITY
+                picocoulombs = bunch_charge_coulombs * 1e12
+                
+                # 5. Direct Stream to Data Browser Pipeline
+                pvs[3].write(float(picocoulombs))
+            else:
+                pvs[3].write(0.0)
+                
+except Exception as e:
+    # Diverts execution warnings strictly to background console stdout 
+    # to maintain thread safety inside the UI core.
+    print("Continuous Engine Execution Warning: " + str(e))]]></text>
+                <pv_name>$(DEVICE):AI1:AVG</pv_name>
+                <pv_name trigger="false">loc://m1(600)</pv_name>
+                <pv_name trigger="false">loc://m2(1200)</pv_name>
+                <pv_name trigger="false">loc://continuous_charge(0.0)</pv_name>
+              </script>
+            </scripts>
+            <selection_value_pv>loc://calculated_charge(0.0)</selection_value_pv>
+          </widget>
+        </children>
+      </tab>
     </tabs>
     <width>795</width>
     <height>870</height>
@@ -90,6 +202,7 @@
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
+    <active_tab>4</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>

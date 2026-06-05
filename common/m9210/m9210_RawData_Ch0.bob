@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-06-05 17:12:38 by georg-->
+<display version="2.0.0">
+  <macros>
+    <LOCAL_CH>0</LOCAL_CH>
+    <CH>0</CH>
+  </macros>
+  <width>780</width>
+  <height>900</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="xyplot" version="3.0.0">
+    <name>XY Graph Template</name>
+    <x>23</x>
+    <y>40</y>
+    <width>728</width>
+    <height>439</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title>Raw Data - Channel 0</title>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </title_font>
+    <show_toolbar>true</show_toolbar>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="enablech0" prop_id="traces[0].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://enable_ch0_$(DID)</pv_name>
+      </rule>
+    </rules>
+    <x_axis>
+      <title>Samples [n]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>2000.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Voltage [V]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-5.0E-12</minimum>
+        <maximum>5.0E-12</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>LEL:DIA:FCT01:AI0:AVG</name>
+        <x_pv></x_pv>
+        <y_pv>LEL:DIA:FCT01:AI0:AVG</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="IO Trace 1" red="79" green="129" blue="189">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color name="Off" red="60" green="100" blue="60">
+          </color>
+        </color>
+        <pv_name>loc://m1_0(600)</pv_name>
+        <interactive>true</interactive>
+      </marker>
+      <marker>
+        <color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </color>
+        <pv_name>loc://m2_0(1200)</pv_name>
+        <interactive>true</interactive>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Integral_Display_Target</name>
+    <text>Channel 0 Integral Result:</text>
+    <x>325</x>
+    <y>10</y>
+    <width>114</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <scripts>
+      <script file="EmbeddedPy" check_connections="false">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import ScriptUtil
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.display.builder.runtime.pv import PVFactory
+import math
+
+def find_textbox_strictly_local(container, target_name):
+    if container is None:
+        return None
+    if hasattr(container, "isPresent") and container.isPresent():
+        container = container.get()
+    if container is None:
+        return None
+    if hasattr(container, "getName") and container.getName() == target_name:
+        return container
+    if hasattr(container, "getChildren"):
+        for child in container.getChildren():
+            found = find_textbox_strictly_local(child, target_name)
+            if found:
+                return found
+    return None
+
+def execute_calculation():
+    if 'pvs' not in globals() and 'pvs' not in locals() or pvs is None or len(pvs) < 2:
+        return
+    ICT_SENSITIVITY = 5.0     
+    ATTENUATION_FACTOR = 1.0  
+    CHANNEL = "0"
+
+    try:
+        parent_optional = widget.getParent()
+        if parent_optional is None:
+            return
+        local_container = parent_optional.get() if hasattr(parent_optional, "isPresent") and parent_optional.isPresent() else parent_optional
+
+        display_box = find_textbox_strictly_local(local_container, "Integral_Display_Target")
+        if display_box is None:
+            return
+
+        hardware_pv = PVFactory.getPV("LEL:DIA:FCT01:AI" + CHANNEL + ":AVG")
+        pv_reading = hardware_pv.read()
+        
+        if pv_reading is not None and pv_reading.getData() is not None:
+            raw_data = pv_reading.getData()
+            total_samples = raw_data.size()
+            
+            if total_samples > 40:
+                dt = 2.5e-10 if total_samples > 1500 else 5.0e-10
+                baseline_window = 30 if total_samples > 1500 else 15
+                
+                baseline_sum = 0.0
+                for i in range(baseline_window):
+                    baseline_sum += raw_data.getDouble(i)
+                baseline_avg = baseline_sum / float(baseline_window)
+                
+                marker1_raw = PVUtil.getDouble(pvs[0])  
+                marker2_raw = PVUtil.getDouble(pvs[1])  
+
+                start_index = max(0, min(int(round(marker1_raw)), total_samples - 2)) if not (math.isnan(marker1_raw) or math.isinf(marker1_raw)) else 600
+                stop_index = max(0, min(int(round(marker2_raw)), total_samples - 1)) if not (math.isnan(marker2_raw) or math.isinf(marker2_raw)) else 1200
+                
+                if start_index > stop_index:
+                    start_index, stop_index = stop_index, start_index
+                
+                if stop_index > start_index:
+                    integral_area = 0.0
+                    for j in range(start_index, stop_index - 1):
+                        y1 = baseline_avg - raw_data.getDouble(j)
+                        y2 = baseline_avg - raw_data.getDouble(j + 1)
+                        integral_area += (y1 + y2) / 2.0
+                    
+                    volt_seconds = integral_area * dt
+                    corrected_volt_seconds = volt_seconds * ATTENUATION_FACTOR
+                    picocoulombs = (corrected_volt_seconds / ICT_SENSITIVITY) * 1e12
+                    
+                    display_box.setPropertyValue("text", "{:.2f} pC".format(picocoulombs))
+            else:
+                display_box.setPropertyValue("text", "Disconnected")
+        PVFactory.releasePV(hardware_pv)
+    except Exception:
+        pass
+
+execute_calculation()]]></text>
+        <pv_name>loc://m1_0(600)</pv_name>
+        <pv_name>loc://m2_0(1200)</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>sample average </text>
+    <y>18</y>
+    <width>86</width>
+    <height>17</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_4</name>
+    <pv_name>LEL:DIA:FCT01:AI0:AVG.N</pv_name>
+    <x>94</x>
+    <y>11</y>
+    <width>91</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>Integral_Start_Line1</name>
+    <x>165</x>
+    <y>94</y>
+    <width>2</width>
+    <height>695</height>
+    <visible>false</visible>
+    <points>
+      <point x="2.0000152587890625" y="695.0000111158931">
+      </point>
+      <point x="0.0" y="0.0">
+      </point>
+    </points>
+    <line_width>2</line_width>
+    <line_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </line_color>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>Integral_End_Line1</name>
+    <x>231</x>
+    <y>94</y>
+    <width>1</width>
+    <height>695</height>
+    <visible>false</visible>
+    <points>
+      <point x="1.52587890625E-5" y="695.0000109253349">
+      </point>
+      <point x="0.0" y="0.0">
+      </point>
+    </points>
+    <line_width>2</line_width>
+    <line_color>
+      <color name="DISCONNECTED" red="200" green="0" blue="200" alpha="200">
+      </color>
+    </line_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Calculate Integral</name>
+    <actions execute_as_one="true">
+    </actions>
+    <text>Calculate Integral Ch$(CH)</text>
+    <x>445</x>
+    <y>8</y>
+    <width>122</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <scripts>
+      <script file="EmbeddedPy" check_connections="false">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import ScriptUtil
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.display.builder.runtime.pv import PVFactory
+import math
+import time
+
+def safe_index(val, default, max_val):
+    if val is None or math.isnan(val) or math.isinf(val):
+        return default
+    return max(0, min(int(round(val)), max_val))
+
+def find_textbox_by_name_locally(container, target_name):
+    if container is None:
+        return None
+    if hasattr(container, "isPresent") and container.isPresent():
+        container = container.get()
+    if container is None:
+        return None
+    if hasattr(container, "getName") and container.getName() == target_name:
+        return container
+    if hasattr(container, "getChildren"):
+        for child in container.getChildren():
+            found = find_textbox_by_name_locally(child, target_name)
+            if found:
+                return found
+    return None
+
+def execute_calculation():
+    ICT_SENSITIVITY = 5.0     
+    ATTENUATION_FACTOR = 1.0  
+    CHANNEL = "0"  # Hardcoded static channel boundary
+
+    try:
+        print("--- Execution Engine: Manual Button Click on Channel [" + CHANNEL + "] ---")
+
+        # Toggle Sync Hardware Messages
+        try:
+            msg_pv = PVFactory.getPV("LEL:DIA:FCT01:MSGS")
+            msg_pv.write("OFF")
+            time.sleep(0.04)
+            msg_pv.write("ON")
+            PVFactory.releasePV(msg_pv)
+        except Exception:
+            pass
+
+        parent_optional = widget.getParent()
+        if parent_optional is None:
+            return
+        local_container = parent_optional.get() if hasattr(parent_optional, "isPresent") and parent_optional.isPresent() else parent_optional
+
+        display_box = find_textbox_by_name_locally(local_container, "Integral_Display_Target")
+        if display_box is None:
+            return
+
+        target_pv_name = "LEL:DIA:FCT01:AI" + CHANNEL + ":AVG"
+        hardware_pv = PVFactory.getPV(target_pv_name)
+        pv_reading = hardware_pv.read()
+        raw_data = pv_reading.getData() if pv_reading is not None else None
+        total_samples = raw_data.size() if raw_data is not None else 0
+
+        if total_samples > 40 and raw_data is not None:
+            dt = 2.5e-10 if total_samples > 1500 else 5.0e-10
+            baseline_window = 30 if total_samples > 1500 else 15
+            
+            baseline_sum = 0.0
+            for i in range(baseline_window):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(baseline_window)
+            
+            m1_pv = PVFactory.getPV("loc://m1_" + CHANNEL + "(600)")
+            m2_pv = PVFactory.getPV("loc://m2_" + CHANNEL + "(1200)")
+            marker1_raw = PVUtil.getDouble(m1_pv)  
+            marker2_raw = PVUtil.getDouble(m2_pv)  
+            PVFactory.releasePV(m1_pv)
+            PVFactory.releasePV(m2_pv)
+
+            start_index = safe_index(marker1_raw, 600, total_samples - 2)
+            stop_index = safe_index(marker2_raw, 1200, total_samples - 1)
+            
+            if start_index > stop_index:
+                start_index, stop_index = stop_index, start_index
+            
+            if stop_index > start_index:
+                integral_area = 0.0
+                for j in range(start_index, stop_index - 1):
+                    y1 = baseline_avg - raw_data.getDouble(j)
+                    y2 = baseline_avg - raw_data.getDouble(j + 1)
+                    integral_area += (y1 + y2) / 2.0
+                
+                volt_seconds = integral_area * dt
+                corrected_volt_seconds = volt_seconds * ATTENUATION_FACTOR
+                picocoulombs = (corrected_volt_seconds / ICT_SENSITIVITY) * 1e12
+                
+                result_str = "{:.2f} pC".format(picocoulombs)
+                display_box.setPropertyValue("text", result_str)
+                print("Channel " + CHANNEL + " Manual Calculation Complete: " + result_str)
+        else:
+            display_box.setPropertyValue("text", "Disconnected")
+                
+        PVFactory.releasePV(hardware_pv)
+    except Exception as e:
+        print("Button execution fault: " + str(e))
+
+execute_calculation()]]></text>
+        <pv_name trigger="false">loc://m1_0(600)</pv_name>
+        <pv_name trigger="false">loc://m2_0(1200)</pv_name>
+      </script>
+    </scripts>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>X/Y Plot_1</name>
+    <x>22</x>
+    <y>483</y>
+    <width>729</width>
+    <height>389</height>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+import math
+
+ICT_SENSITIVITY = 5.0     
+ATTENUATION_FACTOR = 1.0  
+CHANNEL = "0"
+
+try:
+    pv_reading = pvs[0].read()
+    
+    if pv_reading is not None:
+        raw_data = pv_reading.getData()
+        total_samples = raw_data.size()
+        
+        if total_samples > 40:
+            dt = 2.5e-10 if total_samples > 1500 else 5.0e-10
+            baseline_window = 30 if total_samples > 1500 else 15
+            
+            baseline_sum = 0.0
+            for i in range(baseline_window):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(baseline_window)
+            
+            marker1_raw = PVUtil.getDouble(pvs[2])
+            marker2_raw = PVUtil.getDouble(pvs[3])
+
+            start_index = max(0, min(int(round(marker1_raw)), total_samples - 2))
+            stop_index = max(0, min(int(round(marker2_raw)), total_samples - 1))
+            
+            if start_index > stop_index:
+                start_index, stop_index = stop_index, start_index
+            
+            running_profile = [0.0] * total_samples
+            cumulative_area = 0.0
+            
+            for j in range(0, total_samples - 1):
+                if start_index <= j < stop_index:
+                    y1 = raw_data.getDouble(j) - baseline_avg
+                    y2 = raw_data.getDouble(j + 1) - baseline_avg
+                    cumulative_area += (y1 + y2) / 2.0
+                
+                v_secs = cumulative_area * dt
+                pC = (v_secs * ATTENUATION_FACTOR / ICT_SENSITIVITY) * 1e12
+                running_profile[j+1] = float(pC)
+            
+            running_profile[0] = running_profile[1]
+            pvs[4].write(running_profile)
+                
+except Exception as e:
+    print("Marker Responsive Engine Error: " + str(e))]]></text>
+        <pv_name>LEL:DIA:FCT01:AI0:AVG</pv_name>
+        <pv_name trigger="false">loc://dummy_trigger_ch0(0)</pv_name>
+        <pv_name>loc://m1_0</pv_name>
+        <pv_name>loc://m2_0</pv_name>
+        <pv_name trigger="false">loc://double_integral_array_ch0</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Samples [n]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum></minimum>
+      <maximum>100.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Charge Profile [pC]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-5.0E-12</minimum>
+        <maximum>5.0E-12</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Integrated Charge Profile Ch0</name>
+        <x_pv></x_pv>
+        <y_pv>loc://double_integral_array_ch0</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+</display>
