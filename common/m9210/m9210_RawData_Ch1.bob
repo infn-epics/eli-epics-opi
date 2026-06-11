@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-05 17:02:41 by georg-->
+<!--Saved on 2026-06-11 10:49:53 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>1</LOCAL_CH>
@@ -239,7 +239,7 @@ execute_calculation()]]></text>
     <text>sample average </text>
     <y>18</y>
     <width>86</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -293,6 +293,7 @@ execute_calculation()]]></text>
     <x>445</x>
     <y>8</y>
     <width>122</width>
+    <visible>false</visible>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>

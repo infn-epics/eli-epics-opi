@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-05 17:12:38 by georg-->
+<!--Saved on 2026-06-11 10:52:02 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>0</LOCAL_CH>
@@ -323,6 +323,7 @@ execute_calculation()]]></text>
     <x>445</x>
     <y>8</y>
     <width>122</width>
+    <visible>false</visible>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>

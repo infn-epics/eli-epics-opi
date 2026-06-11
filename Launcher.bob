@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-03-20 11:36:59 by riccardoesposito-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>2410</width>
@@ -1608,7 +1607,6 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>9</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>

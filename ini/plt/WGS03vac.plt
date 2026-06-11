@@ -18,8 +18,8 @@
     <green>255</green>
     <blue>255</blue>
   </background>
-  <title_font>Liberation Sans|20|1</title_font>
-  <label_font>Liberation Sans|14|1</label_font>
+  <title_font>Liberation Sans|18|1</title_font>
+  <label_font>Liberation Sans|12|1</label_font>
   <scale_font>Liberation Sans|12|0</scale_font>
   <legend_font>Liberation Sans|14|0</legend_font>
   <axes>
