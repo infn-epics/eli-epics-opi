@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-11 10:49:53 by georg-->
+<!--Saved on 2026-06-14 23:27:48 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>1</LOCAL_CH>
@@ -53,7 +53,7 @@
       <autoscale>false</autoscale>
       <log_scale>false</log_scale>
       <minimum>0.0</minimum>
-      <maximum>2000.0</maximum>
+      <maximum>2059.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
@@ -107,6 +107,23 @@
         <point_size>4</point_size>
         <visible>true</visible>
       </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>LEL:DIA:FCT01:MICB</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
     </traces>
     <marker>
       <marker>
@@ -114,7 +131,7 @@
           <color name="Off" red="60" green="100" blue="60">
           </color>
         </color>
-        <pv_name>loc://m1_1(600)</pv_name>
+        <pv_name>LEL:DIA:FCT01:MICB_OFFSET</pv_name>
         <interactive>true</interactive>
       </marker>
       <marker>
@@ -122,7 +139,7 @@
           <color name="OK" red="0" green="255" blue="0">
           </color>
         </color>
-        <pv_name>loc://m2_1(1200)</pv_name>
+        <pv_name>='LEL:DIA:FCT01:MICB_OFFSET' + 'LEL:DIA:FCT01:UBUNCHSAMPL'</pv_name>
         <interactive>true</interactive>
       </marker>
     </marker>
@@ -132,105 +149,75 @@
     <text>Channel 1 Integral Result:</text>
     <x>325</x>
     <y>10</y>
-    <width>114</width>
+    <width>150</width>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
     <scripts>
       <script file="EmbeddedPy" check_connections="false">
-        <text><![CDATA[from org.csstudio.display.builder.runtime.script import ScriptUtil
-from org.csstudio.display.builder.runtime.script import PVUtil
-from org.csstudio.display.builder.runtime.pv import PVFactory
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
 import math
 
-def find_textbox_strictly_local(container, target_name):
-    if container is None:
-        return None
-    if hasattr(container, "isPresent") and container.isPresent():
-        container = container.get()
-    if container is None:
-        return None
-    if hasattr(container, "getName") and container.getName() == target_name:
-        return container
-    if hasattr(container, "getChildren"):
-        for child in container.getChildren():
-            if hasattr(child, "isPresent") and child.isPresent():
-                child = child.get()
-            if child.getName() == target_name:
-                return child
-            found = find_textbox_strictly_local(child, target_name)
-            if found:
-                return found
-    return None
+# Define calibration scaling constant locally to match layout 
+ICT_SENSITIVITY = 5.0
 
-def execute_calculation():
-    if 'pvs' not in globals() and 'pvs' not in locals() or pvs is None or len(pvs) < 2:
-        return
+try:
+    # 1. Fetch live waveform data from the network
+    raw_data = pvs[0].read().getData()
+    total_samples = raw_data.size()
+    
+    # 2. Read live sampling rate clock
+    sampling_freq_ghz = PVUtil.getDouble(pvs[3])
+    dt = 1.0 / (sampling_freq_ghz * 1e9) if sampling_freq_ghz < 100.0 else 1.0 / sampling_freq_ghz
+    
+    # 3. Dynamic baseline calculation
+    baseline_window = 30 if total_samples > 1500 else 15
+    baseline_sum = 0.0
+    for i in range(baseline_window):
+        baseline_sum += raw_data.getDouble(i)
+    baseline_avg = baseline_sum / float(baseline_window)
+    
+    # 4. Map boundaries straight to parameters
+    start = int(round(PVUtil.getDouble(pvs[1])))  # MICB_OFFSET
+    width = int(round(PVUtil.getDouble(pvs[2])))  # UBUNCHSAMPL
+    stop = start + width
+    
+    # Array boundary protection guards
+    start = max(0, min(start, total_samples - 2))
+    stop = max(0, min(stop, total_samples - 1))
+    
+    if start > stop:
+        start, stop = stop, start
         
-    ICT_SENSITIVITY = 5.0     
-    ATTENUATION_FACTOR = 1.0  
-    CHANNEL = "1"
-
-    try:
-        parent_optional = widget.getParent()
-        if parent_optional is None:
-            return
-        local_container = parent_optional.get() if hasattr(parent_optional, "isPresent") and parent_optional.isPresent() else parent_optional
-
-        display_box = find_textbox_strictly_local(local_container, "Integral_Display_Target")
-        if display_box is None:
-            return
-
-        target_pv_name = "LEL:DIA:FCT01:AI" + CHANNEL + ":AVG"
-        hardware_pv = PVFactory.getPV(target_pv_name)
-        pv_reading = hardware_pv.read()
-        
-        if pv_reading is not None and pv_reading.getData() is not None:
-            raw_data = pv_reading.getData()
-            total_samples = raw_data.size()
-            
-            if total_samples > 40:
-                dt = 2.5e-10 if total_samples > 1500 else 5.0e-10
-                baseline_window = 30 if total_samples > 1500 else 15
-                
-                baseline_sum = 0.0
-                for i in range(baseline_window):
-                    baseline_sum += raw_data.getDouble(i)
-                baseline_avg = baseline_sum / float(baseline_window)
-                
-                marker1_raw = PVUtil.getDouble(pvs[0])  
-                marker2_raw = PVUtil.getDouble(pvs[1])  
-
-                start_index = max(0, min(int(round(marker1_raw)), total_samples - 2)) if not (math.isnan(marker1_raw) or math.isinf(marker1_raw)) else 600
-                stop_index = max(0, min(int(round(marker2_raw)), total_samples - 1)) if not (math.isnan(marker2_raw) or math.isinf(marker2_raw)) else 1200
-                
-                if start_index > stop_index:
-                    start_index, stop_index = stop_index, start_index
-                
-                if stop_index > start_index:
-                    integral_area = 0.0
-                    for j in range(start_index, stop_index - 1):
-                        y1 = baseline_avg - raw_data.getDouble(j)
-                        y2 = baseline_avg - raw_data.getDouble(j + 1)
-                        integral_area += (y1 + y2) / 2.0
-                    
-                    volt_seconds = integral_area * dt
-                    corrected_volt_seconds = volt_seconds * ATTENUATION_FACTOR
-                    picocoulombs = (corrected_volt_seconds / ICT_SENSITIVITY) * 1e12
-                    
-                    result_str = "{:.2f} pC".format(picocoulombs)
-                    display_box.setPropertyValue("text", result_str)
-            else:
-                display_box.setPropertyValue("text", "Disconnected")
-                    
-        PVFactory.releasePV(hardware_pv)
-    except Exception:
-        pass
-
-execute_calculation()]]></text>
-        <pv_name>loc://m1_1(600)</pv_name>
-        <pv_name>loc://m2_1(1200)</pv_name>
+    # FETCH HARDWARE ATTENUATOR
+    attenuation_factor = PVUtil.getDouble(pvs[6])
+    if attenuation_factor <= 0.0:
+        attenuation_factor = 1.0
+    
+    # 5. Clean, Scalar Trapezoidal Integration loop
+    integral_area = 0.0
+    for j in range(start, stop):
+        y1 = raw_data.getDouble(j) - baseline_avg
+        y2 = raw_data.getDouble(j + 1) - baseline_avg
+        integral_area += (y1 + y2) / 2.0
+    
+    # 6. Calculate ultimate charge using live attenuator and sensitivity divisor
+    v_secs = integral_area * dt
+    pC = (v_secs * attenuation_factor / ICT_SENSITIVITY) * 1e12
+    
+    # Update the UI text label (uses abs to display clean positive text value)
+    widget.setPropertyValue("text", "{:.2f} pC".format(abs(pC)))
+    
+except Exception as e:
+    print("Label Script Error: " + str(e))]]></text>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:AVG</pv_name>
+        <pv_name>LEL:DIA:FCT01:MICB_OFFSET</pv_name>
+        <pv_name>LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
+        <pv_name trigger="false">loc://microbunch_integral_array</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:K_CAL</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:ATT_RB</pv_name>
       </script>
     </scripts>
   </widget>
@@ -263,7 +250,7 @@ execute_calculation()]]></text>
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input Template_6</name>
-    <pv_name>LEL:DIA:FCT01:AI1:AVG.N</pv_name>
+    <pv_name>LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
     <x>200</x>
     <y>11</y>
     <width>91</width>
@@ -290,123 +277,13 @@ execute_calculation()]]></text>
     <actions execute_as_one="true">
     </actions>
     <text>Calculate Integral Ch1</text>
-    <x>445</x>
-    <y>8</y>
-    <width>122</width>
-    <visible>false</visible>
+    <x>530</x>
+    <y>4</y>
+    <width>175</width>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
-    <scripts>
-      <script file="EmbeddedPy" check_connections="false">
-        <text><![CDATA[from org.csstudio.display.builder.runtime.script import ScriptUtil
-from org.csstudio.display.builder.runtime.script import PVUtil
-from org.csstudio.display.builder.runtime.pv import PVFactory
-import math
-import time
-
-def safe_index(val, default, max_val):
-    if val is None or math.isnan(val) or math.isinf(val):
-        return default
-    return max(0, min(int(round(val)), max_val))
-
-def find_textbox_by_name_locally(container, target_name):
-    if container is None:
-        return None
-    if hasattr(container, "isPresent") and container.isPresent():
-        container = container.get()
-    if container is None:
-        return None
-    if hasattr(container, "getName") and container.getName() == target_name:
-        return container
-    if hasattr(container, "getChildren"):
-        for child in container.getChildren():
-            found = find_textbox_by_name_locally(child, target_name)
-            if found:
-                return found
-    return None
-
-def execute_calculation():
-    ICT_SENSITIVITY = 5.0     
-    ATTENUATION_FACTOR = 1.0  
-    CHANNEL = "1"
-
-    try:
-        print("--- Execution Engine: Manual Button Click on Channel [" + CHANNEL + "] ---")
-
-        try:
-            msg_pv = PVFactory.getPV("LEL:DIA:FCT01:MSGS")
-            msg_pv.write("OFF")
-            time.sleep(0.2)
-            msg_pv.write("ON")
-            PVFactory.releasePV(msg_pv)
-        except Exception:
-            pass
-
-        parent_optional = widget.getParent()
-        if parent_optional is None:
-            return
-        local_container = parent_optional.get() if hasattr(parent_optional, "isPresent") and parent_optional.isPresent() else parent_optional
-
-        display_box = find_textbox_by_name_locally(local_container, "Integral_Display_Target")
-        if display_box is None:
-            return
-
-        target_pv_name = "LEL:DIA:FCT01:AI" + CHANNEL + ":AVG"
-        hardware_pv = PVFactory.getPV(target_pv_name)
-        pv_reading = hardware_pv.read()
-        raw_data = pv_reading.getData() if pv_reading is not None else None
-        total_samples = raw_data.size() if raw_data is not None else 0
-
-        if total_samples > 40 and raw_data is not None:
-            dt = 2.5e-10 if total_samples > 1500 else 5.0e-10
-            baseline_window = 30 if total_samples > 1500 else 15
-            
-            baseline_sum = 0.0
-            for i in range(baseline_window):
-                baseline_sum += raw_data.getDouble(i)
-            baseline_avg = baseline_sum / float(baseline_window)
-            
-            m1_pv = PVFactory.getPV("loc://m1_" + CHANNEL + "(600)")
-            m2_pv = PVFactory.getPV("loc://m2_" + CHANNEL + "(1200)")
-            marker1_raw = PVUtil.getDouble(m1_pv)  
-            marker2_raw = PVUtil.getDouble(m2_pv)  
-            PVFactory.releasePV(m1_pv)
-            PVFactory.releasePV(m2_pv)
-
-            start_index = safe_index(marker1_raw, 600, total_samples - 2)
-            stop_index = safe_index(marker2_raw, 1200, total_samples - 1)
-            
-            if start_index > stop_index:
-                start_index, stop_index = stop_index, start_index
-            
-            if stop_index > start_index:
-                integral_area = 0.0
-                for j in range(start_index, stop_index - 1):
-                    y1 = baseline_avg - raw_data.getDouble(j)
-                    y2 = baseline_avg - raw_data.getDouble(j + 1)
-                    integral_area += (y1 + y2) / 2.0
-                
-                volt_seconds = integral_area * dt
-                corrected_volt_seconds = volt_seconds * ATTENUATION_FACTOR
-                picocoulombs = (corrected_volt_seconds / ICT_SENSITIVITY) * 1e12
-                
-                result_str = "{:.2f} pC".format(picocoulombs)
-                display_box.setPropertyValue("text", result_str)
-                print("Manual Calculation Complete: " + result_str)
-        else:
-            display_box.setPropertyValue("text", "Disconnected")
-                
-        PVFactory.releasePV(hardware_pv)
-    except Exception as e:
-        print("Button execution fault: " + str(e))
-
-execute_calculation()]]></text>
-        <pv_name trigger="false">loc://m1_1(600)</pv_name>
-        <pv_name trigger="false">loc://m2_1(1200)</pv_name>
-      </script>
-    </scripts>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="xyplot" version="3.0.0">
@@ -416,32 +293,46 @@ execute_calculation()]]></text>
     <width>729</width>
     <height>389</height>
     <scripts>
-      <script file="EmbeddedPy">
+      <script file="EmbeddedPy" check_connections="false">
         <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
 import math
-
-ICT_SENSITIVITY = 5.0     
-ATTENUATION_FACTOR = 1.0  
-CHANNEL = "1"
+import jarray
 
 try:
+    # 1. FETCH LIVE SNAPSHOT WITH SAFE GUARD
     pv_reading = pvs[0].read()
     
     if pv_reading is not None:
         raw_data = pv_reading.getData()
-        total_samples = raw_data.size()
         
-        if total_samples > 40:
-            dt = 2.5e-10 if total_samples > 1500 else 5.0e-10
-            baseline_window = 30 if total_samples > 1500 else 15
+        # Ensure the array actually contains data before proceeding
+        if raw_data is not None and raw_data.size() > 40:
+            total_samples = raw_data.size()
             
+            # 2. READ NATIVE HARDWARE REGISTERS & FORCE SCALING COMPLIANCE
+            cal_factor = PVUtil.getDouble(pvs[5]) 
+            if cal_factor <= 1.0:
+                cal_factor = 5.0
+                
+            attenuation_factor = PVUtil.getDouble(pvs[6])
+            if attenuation_factor <= 0.0: 
+                attenuation_factor = 1.0 
+            
+            # 3. CLOCK DT DERIVATION
+            clk_val = PVUtil.getDouble(pvs[3])
+            dt = 1.0 / (clk_val * 1e9) if clk_val < 100.0 else 1.0 / clk_val
+            
+            # 4. BASELINE NOISE FILTER
+            baseline_window = 30 if total_samples > 1500 else 15
             baseline_sum = 0.0
             for i in range(baseline_window):
                 baseline_sum += raw_data.getDouble(i)
             baseline_avg = baseline_sum / float(baseline_window)
             
-            marker1_raw = PVUtil.getDouble(pvs[2])
-            marker2_raw = PVUtil.getDouble(pvs[3])
+            # 5. GATING COORDINATES
+            marker1_raw = PVUtil.getDouble(pvs[1]) 
+            width_raw = PVUtil.getDouble(pvs[2])   
+            marker2_raw = marker1_raw + width_raw  
 
             start_index = max(0, min(int(round(marker1_raw)), total_samples - 2))
             stop_index = max(0, min(int(round(marker2_raw)), total_samples - 1))
@@ -449,37 +340,47 @@ try:
             if start_index > stop_index:
                 start_index, stop_index = stop_index, start_index
             
+            # Allocate dedicated array size explicitly
             running_profile = [0.0] * total_samples
             cumulative_area = 0.0
             
+            # 6. INTEGRAL TRAPEZOIDAL EXECUTION
             for j in range(0, total_samples - 1):
-                if start_index <= j < stop_index:
+                if j < start_index:
+                    running_profile[j+1] = 0.0
+                elif start_index <= j < stop_index:
                     y1 = raw_data.getDouble(j) - baseline_avg
                     y2 = raw_data.getDouble(j + 1) - baseline_avg
                     cumulative_area += (y1 + y2) / 2.0
-                
-                v_secs = cumulative_area * dt
-                pC = (v_secs * ATTENUATION_FACTOR / ICT_SENSITIVITY) * 1e12
-                running_profile[j+1] = float(pC)
+                    v_secs = cumulative_area * dt
+                    running_profile[j+1] = float((v_secs * attenuation_factor / cal_factor) * 1e12)
+                else:
+                    running_profile[j+1] = running_profile[j]
             
             running_profile[0] = running_profile[1]
-            pvs[4].write(running_profile)
-                
+            
+            # 7. SUCCESSFUL PUSH TO XY PLOT
+            java_double_array = jarray.array(running_profile, 'd')
+            pvs[4].write(java_double_array)
+            
 except Exception as e:
-    print("Marker Responsive Engine Error: " + str(e))]]></text>
+    # Keeps bad network frames from clearing out the screen graph visually
+    print("Graph Network Frame Guarded -> Skipping Bad Array Element packet: " + str(e))]]></text>
         <pv_name>LEL:DIA:FCT01:AI1:AVG</pv_name>
-        <pv_name trigger="false">loc://dummy_trigger_ch1(0)</pv_name>
-        <pv_name>loc://m1_1</pv_name>
-        <pv_name>loc://m2_1</pv_name>
-        <pv_name trigger="false">loc://double_integral_array_ch1</pv_name>
+        <pv_name>LEL:DIA:FCT01:MICB_OFFSET</pv_name>
+        <pv_name>LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
+        <pv_name trigger="false">loc://microbunch_integral_array(0, 0, 0, 0, 0)</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:K_CAL</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:ATT_RB</pv_name>
       </script>
     </scripts>
     <x_axis>
       <title>Samples [n]</title>
-      <autoscale>true</autoscale>
+      <autoscale>false</autoscale>
       <log_scale>false</log_scale>
-      <minimum></minimum>
-      <maximum>100.0</maximum>
+      <minimum>0.0</minimum>
+      <maximum>2054.0</maximum>
       <show_grid>false</show_grid>
       <title_font>
         <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -496,8 +397,8 @@ except Exception as e:
         <title>Charge Profile [pC]</title>
         <autoscale>true</autoscale>
         <log_scale>false</log_scale>
-        <minimum>-5.0E-12</minimum>
-        <maximum>5.0E-12</maximum>
+        <minimum>0.0</minimum>
+        <maximum>2054.0</maximum>
         <show_grid>false</show_grid>
         <title_font>
           <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -518,8 +419,8 @@ except Exception as e:
     <traces>
       <trace>
         <name>Integrated Charge Profile Ch1</name>
-        <x_pv></x_pv>
-        <y_pv>loc://double_integral_array_ch1</y_pv>
+        <x_pv>loc://plot_index_axis(0, 1, 2, 3, 4, ..., 2058)</x_pv>
+        <y_pv>loc://microbunch_integral_array(0, 0, 0, 0, 0)</y_pv>
         <err_pv></err_pv>
         <axis>0</axis>
         <trace_type>1</trace_type>
@@ -527,10 +428,10 @@ except Exception as e:
           <color red="0" green="0" blue="255">
           </color>
         </color>
-        <line_width>1</line_width>
+        <line_width>2</line_width>
         <line_style>0</line_style>
         <point_type>0</point_type>
-        <point_size>10</point_size>
+        <point_size>4</point_size>
         <visible>true</visible>
       </trace>
     </traces>

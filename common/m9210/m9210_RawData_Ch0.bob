@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-11 10:52:02 by georg-->
+<!--Saved on 2026-06-12 10:34:11 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>0</LOCAL_CH>
@@ -40,10 +40,10 @@
     <rules>
       <rule name="enablech0" prop_id="traces[0].visible" out_exp="false">
         <exp bool_exp="pv0==1">
-          <value>true</value>
+          <value>false</value>
         </exp>
         <exp bool_exp="pv0==0">
-          <value>false</value>
+          <value>true</value>
         </exp>
         <pv_name>loc://enable_ch0_$(DID)</pv_name>
       </rule>
@@ -53,7 +53,7 @@
       <autoscale>false</autoscale>
       <log_scale>false</log_scale>
       <minimum>0.0</minimum>
-      <maximum>2000.0</maximum>
+      <maximum>2048.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
@@ -141,7 +141,6 @@
       <script file="EmbeddedPy" check_connections="false">
         <text><![CDATA[from org.csstudio.display.builder.runtime.script import ScriptUtil
 from org.csstudio.display.builder.runtime.script import PVUtil
-from org.csstudio.display.builder.runtime.pv import PVFactory
 import math
 
 def find_textbox_strictly_local(container, target_name):
@@ -155,17 +154,22 @@ def find_textbox_strictly_local(container, target_name):
         return container
     if hasattr(container, "getChildren"):
         for child in container.getChildren():
+            if hasattr(child, "isPresent") and child.isPresent():
+                child = child.get()
+            if child.getName() == target_name:
+                return child
             found = find_textbox_strictly_local(child, target_name)
             if found:
                 return found
     return None
 
 def execute_calculation():
-    if 'pvs' not in globals() and 'pvs' not in locals() or pvs is None or len(pvs) < 2:
+    # Verify all 3 local PV entries are loaded
+    if 'pvs' not in globals() and 'pvs' not in locals() or pvs is None or len(pvs) < 3:
         return
+        
     ICT_SENSITIVITY = 5.0     
     ATTENUATION_FACTOR = 1.0  
-    CHANNEL = "0"
 
     try:
         parent_optional = widget.getParent()
@@ -177,24 +181,36 @@ def execute_calculation():
         if display_box is None:
             return
 
-        hardware_pv = PVFactory.getPV("LEL:DIA:FCT01:AI" + CHANNEL + ":AVG")
-        pv_reading = hardware_pv.read()
+        # MATCHING WIDGET INFO MAP:
+        # pvs[0] = LEL:DIA:FCT01:AI0:AVG (The Waveform)
+        # pvs[1] = loc://m1_0           (Marker 1)
+        # pvs[2] = loc://m2_0           (Marker 2)
         
-        if pv_reading is not None and pv_reading.getData() is not None:
-            raw_data = pv_reading.getData()
-            total_samples = raw_data.size()
+        if not pvs[0].isConnected():
+            display_box.setPropertyValue("text", "Disconnected")
+            return
+
+        raw_data = pvs[0].read()
+        if raw_data is not None and hasattr(raw_data, "getData"):
+            data_payload = raw_data.getData()
+            if data_payload is None:
+                return
+                
+            total_samples = data_payload.size()
             
             if total_samples > 40:
                 dt = 2.5e-10 if total_samples > 1500 else 5.0e-10
                 baseline_window = 30 if total_samples > 1500 else 15
                 
+                # Fetch baseline values efficiently
                 baseline_sum = 0.0
                 for i in range(baseline_window):
-                    baseline_sum += raw_data.getDouble(i)
+                    baseline_sum += data_payload.getDouble(i)
                 baseline_avg = baseline_sum / float(baseline_window)
                 
-                marker1_raw = PVUtil.getDouble(pvs[0])  
-                marker2_raw = PVUtil.getDouble(pvs[1])  
+                # Extract cursor marker positions based on updated indices
+                marker1_raw = PVUtil.getDouble(pvs[1])  
+                marker2_raw = PVUtil.getDouble(pvs[2])  
 
                 start_index = max(0, min(int(round(marker1_raw)), total_samples - 2)) if not (math.isnan(marker1_raw) or math.isinf(marker1_raw)) else 600
                 stop_index = max(0, min(int(round(marker2_raw)), total_samples - 1)) if not (math.isnan(marker2_raw) or math.isinf(marker2_raw)) else 1200
@@ -204,19 +220,24 @@ def execute_calculation():
                 
                 if stop_index > start_index:
                     integral_area = 0.0
+                    
+                    # Pre-fetch cache element to save cross-layer execution cycles
+                    y1 = baseline_avg - data_payload.getDouble(start_index)
+                    
                     for j in range(start_index, stop_index - 1):
-                        y1 = baseline_avg - raw_data.getDouble(j)
-                        y2 = baseline_avg - raw_data.getDouble(j + 1)
+                        y2 = baseline_avg - data_payload.getDouble(j + 1)
                         integral_area += (y1 + y2) / 2.0
+                        y1 = y2 
                     
                     volt_seconds = integral_area * dt
                     corrected_volt_seconds = volt_seconds * ATTENUATION_FACTOR
                     picocoulombs = (corrected_volt_seconds / ICT_SENSITIVITY) * 1e12
                     
-                    display_box.setPropertyValue("text", "{:.2f} pC".format(picocoulombs))
+                    result_str = "{:.2f} pC".format(picocoulombs)
+                    display_box.setPropertyValue("text", result_str)
             else:
-                display_box.setPropertyValue("text", "Disconnected")
-        PVFactory.releasePV(hardware_pv)
+                display_box.setPropertyValue("text", "No Data")
+                    
     except Exception:
         pass
 
