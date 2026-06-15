@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-05 16:10:11 by georg-->
+<!--Saved on 2026-06-15 16:46:32 by georg-->
 <display version="2.0.0">
   <name>Display</name>
   <width>795</width>
@@ -114,84 +114,92 @@
             <x>16</x>
             <y>26</y>
             <width>731</width>
+            <height>509</height>
+            <show_toolbar>true</show_toolbar>
             <actions>
             </actions>
+            <selection_value_pv>LEL:DIA:FCT01:K_CAL</selection_value_pv>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Integral_Display_Target</name>
+            <text></text>
+            <x>308</x>
+            <y>5</y>
+            <width>150</width>
+            <font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
             <scripts>
-              <script file="EmbeddedPy">
+              <script file="EmbeddedPy" check_connections="false">
                 <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
 import math
 
-# --- HARDWARE & SIGNAL PARAMETERS ---
-ICT_SENSITIVITY = 5.0      # V*s/C (Bergoz ICT Standard Transfer Function)
-ATTENUATION_FACTOR = 1.0   # Scale factor matching upstream hardware attenuation pads
+# Define calibration scaling constant locally to match layout 
+ICT_SENSITIVITY = 5.0
 
 try:
-    # 1. Thread-safe execution check on incoming data array
-    pv_reading = pvs[0].read()
+    # 1. Fetch live waveform data from the network
+    raw_data = pvs[0].read().getData()
+    total_samples = raw_data.size()
     
-    if pv_reading is not None:
-        raw_data = pv_reading.getData()
-        total_samples = raw_data.size()
+    # 2. Read live sampling rate clock
+    sampling_freq_ghz = PVUtil.getDouble(pvs[3])
+    dt = 1.0 / (sampling_freq_ghz * 1e9) if sampling_freq_ghz < 100.0 else 1.0 / sampling_freq_ghz
+    
+    # 3. Dynamic baseline calculation
+    baseline_window = 30 if total_samples > 1500 else 15
+    baseline_sum = 0.0
+    for i in range(baseline_window):
+        baseline_sum += raw_data.getDouble(i)
+    baseline_avg = baseline_sum / float(baseline_window)
+    
+    # 4. Map boundaries straight to parameters
+    start = int(round(PVUtil.getDouble(pvs[1])))  # MICB_OFFSET
+    width = int(round(PVUtil.getDouble(pvs[2])))  # UBUNCHSAMPL
+    stop = start + width
+    
+    # Array boundary protection guards
+    start = max(0, min(start, total_samples - 2))
+    stop = max(0, min(stop, total_samples - 1))
+    
+    if start > stop:
+        start, stop = stop, start
         
-        if total_samples > 40:
-            # --- SAMPLING RATE MATRIX SELECTION ---
-            # Dynamically adjusts temporal resolution based on buffer length
-            if total_samples > 1500:
-                dt = 2.5e-10          # 4 GigaSamples/second time step
-                baseline_window = 30   # Noise monitoring bounds
-            else:
-                dt = 5.0e-10          # 2 GigaSamples/second time step
-                baseline_window = 15   # Noise monitoring bounds
-            
-            # 2. Dynamic Baseline Profiling
-            # Evaluates background offset voltage using pre-pulse samples
-            baseline_sum = 0.0
-            for i in range(baseline_window):
-                baseline_sum += raw_data.getDouble(i)
-            baseline_avg = baseline_sum / float(baseline_window)
-            
-            # 3. Thread-Safe Marker Value Resolution
-            marker1_raw = PVUtil.getDouble(pvs[1])
-            marker2_raw = PVUtil.getDouble(pvs[2])
-
-            # Force index constraints safely inside the current hardware bounds
-            start_index = max(0, min(int(round(marker1_raw)), total_samples - 2))
-            stop_index = max(0, min(int(round(marker2_raw)), total_samples - 1))
-            
-            # Coordinate normalization for reverse-dragged bounds
-            if start_index > stop_index:
-                start_index, stop_index = stop_index, start_index
-            
-            # 4. High-Throughput Trapezoidal Integration Engine
-            if stop_index > start_index:
-                integral_area = 0.0
-                for j in range(start_index, stop_index - 1):
-                    y1 = baseline_avg - raw_data.getDouble(j)
-                    y2 = baseline_avg - raw_data.getDouble(j + 1)
-                    integral_area += (y1 + y2) / 2.0
-                
-                # Conversion Formula: Q = \int(V dt) / R_s
-                volt_seconds = integral_area * dt
-                corrected_volt_seconds = volt_seconds * ATTENUATION_FACTOR
-                bunch_charge_coulombs = corrected_volt_seconds / ICT_SENSITIVITY
-                picocoulombs = bunch_charge_coulombs * 1e12
-                
-                # 5. Direct Stream to Data Browser Pipeline
-                pvs[3].write(float(picocoulombs))
-            else:
-                pvs[3].write(0.0)
-                
+    # FETCH HARDWARE ATTENUATOR
+    attenuation_factor = PVUtil.getDouble(pvs[6])
+    if attenuation_factor <= 0.0:
+        attenuation_factor = 1.0
+    
+    # 5. Clean, Scalar Trapezoidal Integration loop
+    integral_area = 0.0
+    for j in range(start, stop):
+        y1 = raw_data.getDouble(j) - baseline_avg
+        y2 = raw_data.getDouble(j + 1) - baseline_avg
+        integral_area += (y1 + y2) / 2.0
+    
+    # 6. Calculate ultimate charge using live attenuator and sensitivity divisor
+    v_secs = integral_area * dt
+    pC = (v_secs * attenuation_factor / ICT_SENSITIVITY) * 1e12
+    final_charge_value = abs(pC)
+    
+    # === PUSH DIRECTLY TO NETWORK STORAGE VALVE FOR THE CLUSTER ARCHIVER ===
+    pvs[4].write(float(final_charge_value))
+    
+    # Update the UI text label display
+    widget.setPropertyValue("text", "{:.2f} pC".format(final_charge_value))
+    
 except Exception as e:
-    # Diverts execution warnings strictly to background console stdout 
-    # to maintain thread safety inside the UI core.
-    print("Continuous Engine Execution Warning: " + str(e))]]></text>
-                <pv_name>$(DEVICE):AI1:AVG</pv_name>
-                <pv_name trigger="false">loc://m1(600)</pv_name>
-                <pv_name trigger="false">loc://m2(1200)</pv_name>
-                <pv_name trigger="false">loc://continuous_charge(0.0)</pv_name>
+    print("Label Archiving Script Error: " + str(e))]]></text>
+                <pv_name trigger="false">LEL:DIA:FCT01:AI1:AVG</pv_name>
+                <pv_name>LEL:DIA:FCT01:MICB_OFFSET</pv_name>
+                <pv_name>LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
+                <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
+                <pv_name trigger="false">LEL:DIA:FCT01:K_CAL</pv_name>
+                <pv_name trigger="false">loc://microbunch_integral_array</pv_name>
+                <pv_name trigger="false">LEL:DIA:FCT01:AI1:ATT_RB</pv_name>
               </script>
             </scripts>
-            <selection_value_pv>loc://calculated_charge(0.0)</selection_value_pv>
           </widget>
         </children>
       </tab>
@@ -202,7 +210,7 @@ except Exception as e:
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
-    <active_tab>4</active_tab>
+    <active_tab>5</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>

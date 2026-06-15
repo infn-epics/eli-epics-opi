@@ -15,7 +15,7 @@
     <pv>
       <display_name>Calculated Charge</display_name>
       <visible>true</visible>
-      <name>loc://continuous_charge(0.0)</name>
+      <name>LEL:DIA:FCT01:K_CAL</name>
       <axis>0</axis>
       <color>
         <red>0</red>
@@ -30,7 +30,7 @@
       <waveform_index>0</waveform_index>
       <period>0.0</period>
       <ring_size>20000</ring_size>
-      <request>OPTIMIZED</request>
+      <request>LIVE</request>
     </pv>
   </pvlist>
   <axes>
