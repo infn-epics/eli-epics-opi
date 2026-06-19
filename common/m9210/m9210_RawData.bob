@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-06 13:10:18 by andreamichelotti-->
+<!--Saved on 2026-06-18 12:03:08 by georg-->
 <display version="2.0.0">
   <width>810</width>
   <height>852</height>
@@ -74,8 +74,8 @@
         <title>Voltage [V]</title>
         <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>-6.0</minimum>
-        <maximum>6.0</maximum>
+        <minimum>-0.008</minimum>
+        <maximum>-0.001</maximum>
         <show_grid>true</show_grid>
         <title_font>
           <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
@@ -107,7 +107,7 @@
         </color>
         <line_width>2</line_width>
         <line_style>0</line_style>
-        <point_type>2</point_type>
+        <point_type>0</point_type>
         <point_size>4</point_size>
         <visible>true</visible>
       </trace>
@@ -134,8 +134,8 @@
     <name>Label Template_13</name>
     <text>sample average </text>
     <y>18</y>
-    <width>81</width>
-    <height>14</height>
+    <width>86</width>
+    <height>17</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>

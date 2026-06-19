@@ -2,9 +2,9 @@
 <databrowser>
   <title>ICT Charge Trend</title>
   <show_toolbar>true</show_toolbar>
-  <update_period>0.1</update_period>
+  <update_period>1.0</update_period>
   <scroll_step>5</scroll_step>
-  <time_range>5 minutes</time_range>
+  <time_range>1 hour</time_range>
   <background>
     <red>255</red>
     <green>255</green>
@@ -13,9 +13,9 @@
   <annotations />
   <pvlist>
     <pv>
-      <display_name>Calculated Charge</display_name>
+      <display_name>Calculated Charge Trend</display_name>
       <visible>true</visible>
-      <name>LEL:DIA:FCT01:K_CAL</name>
+      <name>LEL:DIA:FCT01:K_OFFSET</name>
       <axis>0</axis>
       <color>
         <red>0</red>
@@ -23,15 +23,20 @@
         <blue>255</blue>
       </color>
       <trace_type>SINGLE_LINE</trace_type>
-      <linewidth>1</linewidth>
+      <linewidth>2</linewidth>
       <line_style>SOLID</line_style>
       <point_type>NONE</point_type>
       <point_size>2</point_size>
       <waveform_index>0</waveform_index>
       <period>0.0</period>
       <ring_size>20000</ring_size>
-      <request>LIVE</request>
-    </pv>
+      <request>OPTIMIZED</request>
+      <archive>
+        <name>pbraw://da-test-archiver.k8sda.lnf.infn.it/retrieval</name>
+        <url>pbraw://da-test-archiver.k8sda.lnf.infn.it/retrieval</url>
+        <key>1</key>
+      </archive>	
+     </pv>
   </pvlist>
   <axes>
     <axis>
@@ -45,8 +50,8 @@
         <green>0</green>
         <blue>0</blue>
       </color>
-      <min>18.0</min>
-      <max>23.0</max>
+      <min>0.0</min>
+      <max>50.0</max>
       <grid>true</grid>
       <autoscale>true</autoscale>
       <log_scale>false</log_scale>
