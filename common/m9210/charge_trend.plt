@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databrowser>
-  <title>ICT Charge Trend</title>
+  <title>ICT Charge Trend - Channel 0</title>
   <show_toolbar>true</show_toolbar>
   <update_period>1.0</update_period>
   <scroll_step>5</scroll_step>
@@ -15,7 +15,7 @@
     <pv>
       <display_name>Calculated Charge Trend</display_name>
       <visible>true</visible>
-      <name>LEL:DIA:FCT01:K_OFFSET</name>
+      <name>LEL:DIA:FCT01:AI0:CHARGE_FINAL</name>
       <axis>0</axis>
       <color>
         <red>0</red>
@@ -28,9 +28,9 @@
       <point_type>NONE</point_type>
       <point_size>2</point_size>
       <waveform_index>0</waveform_index>
-      <period>0.0</period>
+      <period>0.5</period>
       <ring_size>20000</ring_size>
-      <request>OPTIMIZED</request>
+      <request>RAW</request>
       <archive>
         <name>pbraw://da-test-archiver.k8sda.lnf.infn.it/retrieval</name>
         <url>pbraw://da-test-archiver.k8sda.lnf.infn.it/retrieval</url>

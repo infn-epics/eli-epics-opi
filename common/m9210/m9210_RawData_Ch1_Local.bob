@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-19 16:37:11 by georg-->
+<!--Saved on 2026-06-19 15:04:36 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>0</LOCAL_CH>
     <CH>0</CH>
   </macros>
   <width>780</width>
-  <height>900</height>
+  <height>880</height>
   <background_color>
     <color name="IO Grid" red="215" green="215" blue="215">
     </color>
@@ -20,7 +20,7 @@
     <x>23</x>
     <y>40</y>
     <width>728</width>
-    <height>425</height>
+    <height>439</height>
     <foreground_color>
       <color name="IO Foreground" red="0" green="0" blue="0">
       </color>
@@ -29,7 +29,7 @@
       <color name="IO InputPV Bg" red="255" green="255" blue="255">
       </color>
     </background_color>
-    <title>Raw Data - Channel 0 Local PV</title>
+    <title>Raw Data - Channel 1 Local PV</title>
     <title_font>
       <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
       </font>
@@ -93,7 +93,7 @@
       <trace>
         <name>$(traces[0].y_pv)</name>
         <x_pv></x_pv>
-        <y_pv>LEL:DIA:FCT01:AI0:AVG</y_pv>
+        <y_pv>LEL:DIA:FCT01:AI1:AVG</y_pv>
         <err_pv></err_pv>
         <axis>0</axis>
         <trace_type>1</trace_type>
@@ -129,7 +129,7 @@
   </widget>
   <widget type="label" version="2.0.0">
     <name>Integral_Display_Target</name>
-    <text>Channel 0 Integral Result local PV:</text>
+    <text>Channel 1 Integral Result local PV:</text>
     <x>325</x>
     <y>10</y>
     <width>270</width>
@@ -144,7 +144,7 @@ from jarray import array
 import math
 
 try:
-    # Index 0: Raw waveform signal data array (LEL:DIA:FCT01:AI0:AVG)
+    # Index 0: Raw waveform signal data array (LEL:DIA:FCT01:AI1:AVG)
     pv_reading = pvs[0].read() 
     
     if pv_reading is not None:
@@ -188,7 +188,7 @@ try:
             manual_offset = 0.0
             if len(pvs) > 8:
                 try:
-                    manual_offset = PVUtil.getDouble(pvs[8]) # LEL:DIA:FCT01:AI0:OFS_SP
+                    manual_offset = PVUtil.getDouble(pvs[8]) # LEL:DIA:FCT01:AI1:OFS_SP
                 except Exception:
                     manual_offset = 0.0
             
@@ -231,15 +231,15 @@ try:
             
 except Exception as e:
     widget.setPropertyValue("text", "ERR")]]></text>
-        <pv_name>LEL:DIA:FCT01:AI0:AVG</pv_name>
+        <pv_name>LEL:DIA:FCT01:AI1:AVG</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:MICB_OFFSET</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
         <pv_name trigger="false">loc://microbunch_integral_array</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:OFS_SP</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:CHARGE_FINAL</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:ATT_RB</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:TCNT</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:OFS_SP</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:K_OFFSET</pv_name>
       </script>
     </scripts>
@@ -313,7 +313,7 @@ except Exception as e:
   <widget type="xyplot" version="3.0.0">
     <name>X/Y Plot_1</name>
     <x>23</x>
-    <y>475</y>
+    <y>479</y>
     <width>729</width>
     <height>389</height>
     <scripts>
@@ -322,7 +322,7 @@ except Exception as e:
 from jarray import array
 
 try:
-    # Index 0: Raw waveform signal data array (LEL:DIA:FCT01:AI0:AVG)
+    # Index 0: Raw waveform signal data array (LEL:DIA:FCT01:AI1:AVG)
     pv_reading = pvs[0].read() 
     
     if pv_reading is not None:
@@ -366,7 +366,7 @@ try:
             manual_offset = 0.0
             if len(pvs) > 8:
                 try:
-                    manual_offset = PVUtil.getDouble(pvs[8]) # LEL:DIA:FCT01:AI0:OFS_SP
+                    manual_offset = PVUtil.getDouble(pvs[8]) # LEL:DIA:FCT01:AI1:OFS_SP
                 except Exception:
                     manual_offset = 0.0
             
@@ -419,15 +419,15 @@ try:
                           
 except Exception as e:
     print("Script Execution Error: " + str(e))]]></text>
-        <pv_name>LEL:DIA:FCT01:AI0:AVG</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:MICB_OFFSET</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
+        <pv_name>LEL:DIA:FCT01:AI1:AVG</pv_name>
+        <pv_name>LEL:DIA:FCT01:MICB_OFFSET</pv_name>
+        <pv_name>LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:K_CAL</pv_name>
         <pv_name trigger="false">loc://microbunch_integral_array</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:OFS_SP</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:ATT_RB</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:TCNT</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI1:OFS_SP</pv_name>
       </script>
     </scripts>
     <x_axis>

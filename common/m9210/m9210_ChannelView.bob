@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-19 11:46:30 by georg-->
+<!--Saved on 2026-06-19 15:12:25 by georg-->
 <display version="2.0.0">
   <name>Display</name>
-  <width>795</width>
-  <height>1200</height>
+  <width>950</width>
+  <height>900</height>
   <background_color>
     <color name="Transparent" red="255" green="255" blue="255" alpha="0">
     </color>
@@ -87,11 +87,11 @@
         </children>
       </tab>
       <tab>
-        <name>RawData Channel0 LocalPV</name>
+        <name>RawData Ch0 - LocalPV</name>
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template</name>
-            <file>m9210_RawData_Ch1.bob</file>
+            <file>m9210_RawData_Ch0_Local.bob</file>
             <y>5</y>
             <width>788</width>
             <height>836</height>
@@ -106,85 +106,71 @@
         </children>
       </tab>
       <tab>
-        <name>History</name>
+        <name>RawData Ch1 - LocalPV</name>
         <children>
-          <widget type="databrowser" version="2.0.0">
-            <name>Data Browser</name>
-            <x>16</x>
-            <y>26</y>
-            <width>731</width>
-            <height>509</height>
-            <show_toolbar>true</show_toolbar>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template_1</name>
+            <file>m9210_RawData_Ch1_Local.bob</file>
+            <y>5</y>
+            <width>841</width>
+            <height>867</height>
+            <transparent>true</transparent>
             <actions>
             </actions>
-            <selection_value_pv>LEL:DIA:FCT01:AI0:CHARGE_FINAL</selection_value_pv>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
           </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>History Ch0</name>
+        <children>
           <widget type="textupdate" version="2.0.0">
             <name>Text Update</name>
             <pv_name>LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
-            <x>348</x>
-            <y>565</y>
+            <x>328</x>
+            <y>505</y>
+            <width>120</width>
+            <font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
           </widget>
-          <widget type="xyplot" version="3.0.0">
-            <name>X/Y Plot</name>
-            <x>158</x>
-            <y>585</y>
-            <width>310</width>
-            <height>210</height>
-            <y_axes>
-              <y_axis>
-                <title>Y</title>
-                <autoscale>true</autoscale>
-                <log_scale>false</log_scale>
-                <minimum>0.0</minimum>
-                <maximum>100.0</maximum>
-                <show_grid>false</show_grid>
-                <title_font>
-                  <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
-                  </font>
-                </title_font>
-                <scale_font>
-                  <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
-                  </font>
-                </scale_font>
-                <on_right>false</on_right>
-                <visible>true</visible>
-                <color>
-                  <color name="Text" red="0" green="0" blue="0">
-                  </color>
-                </color>
-              </y_axis>
-            </y_axes>
-            <traces>
-              <trace>
-                <name>$(traces[0].y_pv)</name>
-                <x_pv></x_pv>
-                <y_pv>LEL:DIA:FCT01:AI0:CHARGE_FINAL</y_pv>
-                <err_pv></err_pv>
-                <axis>0</axis>
-                <trace_type>1</trace_type>
-                <color>
-                  <color red="0" green="0" blue="255">
-                  </color>
-                </color>
-                <line_width>1</line_width>
-                <line_style>0</line_style>
-                <point_type>0</point_type>
-                <point_size>10</point_size>
-                <visible>true</visible>
-              </trace>
-            </traces>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser</name>
+            <file>charge_trend.plt</file>
+            <x>48</x>
+            <y>25</y>
+            <width>731</width>
+            <height>419</height>
+            <show_toolbar>true</show_toolbar>
+            <actions>
+            </actions>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label</name>
+            <text>Current Charge in Ch 0</text>
+            <x>318</x>
+            <y>475</y>
+            <width>160</width>
+            <font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
           </widget>
         </children>
       </tab>
     </tabs>
-    <width>795</width>
-    <height>870</height>
+    <width>950</width>
+    <height>900</height>
     <background_color>
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
-    <active_tab>5</active_tab>
+    <active_tab>6</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>
