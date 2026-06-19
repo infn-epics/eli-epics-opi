@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-19 18:52:35 by georg-->
+<!--Saved on 2026-06-19 19:23:45 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>0</LOCAL_CH>
@@ -114,7 +114,7 @@
           <color name="Off" red="60" green="100" blue="60">
           </color>
         </color>
-        <pv_name>loc://m1</pv_name>
+        <pv_name>loc://m1(800)</pv_name>
         <interactive>true</interactive>
       </marker>
       <marker>
@@ -122,7 +122,7 @@
           <color name="OK" red="0" green="255" blue="0">
           </color>
         </color>
-        <pv_name>loc://m2</pv_name>
+        <pv_name>loc://m2(1080)</pv_name>
         <interactive>true</interactive>
       </marker>
     </marker>
@@ -150,7 +150,7 @@ try:
     if pv_reading is not None:
         raw_data = pv_reading.getData()
         
-        if raw_data is not None and raw_data.size() > 50:
+        if raw_data is not None and raw_data.size() > 750:
             total_samples = raw_data.size()
             
             cal_factor = 2.5  
@@ -167,12 +167,12 @@ try:
             try:
                 m1_val = PVUtil.getDouble(pvs[1])
             except Exception:
-                m1_val = 100.0  # Safe fallback if uninitialized
+                m1_val = 100.0  
                 
             try:
                 m2_val = PVUtil.getDouble(pvs[2])
             except Exception:
-                m2_val = 400.0  # Safe fallback if uninitialized
+                m2_val = 400.0  
 
             # Safely clamp visual dragging bounds within array boundaries
             start_index = max(0, min(int(round(m1_val)), total_samples - 2))
@@ -182,11 +182,11 @@ try:
             if start_index > stop_index:
                 start_index, stop_index = stop_index, start_index
             
-            # --- FIXED ABSOLUTE BASELINE ---
-            # Always look at the early, quiet pre-trigger region (samples 10 to 50)
-            # This completely prevents baseline corruption when dragging markers into the pulse
-            baseline_start = 10
-            baseline_end = 50
+            # --- ADAPTIVE PRE-PULSE BASELINE (Samples 700 to 750) ---
+            # This captures real-time hardware drift right before the pulse drops,
+            # but won't change when you drag your markers around.
+            baseline_start = 700
+            baseline_end = 750
                 
             baseline_sum = 0.0
             for i in range(baseline_start, baseline_end):
@@ -212,9 +212,9 @@ try:
                     running_area = 0.0
                     charge_profile[idx] = 0.0
                     
-                # 2. Inside Active Window: Accumulate pulse data using clean fixed baseline
+                # 2. Inside Active Window: Accumulate pulse data
                 elif idx >= start_index and idx < stop_index:
-                    # Invert polarity to match Keysight's rising profile (baseline - raw)
+                    # Invert polarity (baseline - raw) to make the downward pulse integrate upward/positively
                     y1 = (baseline_avg + manual_offset) - raw_data.getDouble(idx)
                     y2 = (baseline_avg + manual_offset) - raw_data.getDouble(idx + 1)
                     running_area += (y1 + y2) / 2.0
@@ -223,7 +223,7 @@ try:
                     final_frozen_charge = (v_secs * 1e12 * attenuation_factor) / cal_factor
                     charge_profile[idx + 1] = final_frozen_charge
                     
-                # 3. After Marker 2: Freeze execution completely to ignore trailing DC overshoot/drift
+                # 3. After Marker 2: Freeze execution completely to hold a stable plateau
                 else:
                     charge_profile[idx + 1] = final_frozen_charge
 
@@ -243,7 +243,7 @@ try:
             # --- INDEX 5: WRITE FINAL CALCULATION OUT TO SCALAR NETWORK PV ---
             if len(pvs) > 5:
                 try:
-                    pvs[5].write(float(final_frozen_charge)) # LEL:DIA:FCT01:AI0:CHARGE...
+                    pvs[5].write(float(final_frozen_charge))
                 except Exception as write_err:
                     print("Scalar network write deferred: " + str(write_err))
             
@@ -253,7 +253,7 @@ except Exception as e:
         <pv_name>loc://m1</pv_name>
         <pv_name>loc://m2</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
-        <pv_name trigger="false">loc://fct01_integral_out(0)</pv_name>
+        <pv_name trigger="false">loc://fct01_integral_array[2048](0.0)</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
@@ -268,6 +268,7 @@ except Exception as e:
     <y>18</y>
     <width>105</width>
     <height>16</height>
+    <visible>false</visible>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -296,6 +297,7 @@ except Exception as e:
     <y>12</y>
     <width>91</width>
     <height>26</height>
+    <visible>false</visible>
     <font>
       <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
       </font>
