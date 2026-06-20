@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-19 19:23:45 by georg-->
+<!--Saved on 2026-06-20 19:34:35 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>0</LOCAL_CH>
@@ -18,7 +18,7 @@
   <widget type="xyplot" version="3.0.0">
     <name>XY Graph Template</name>
     <x>23</x>
-    <y>40</y>
+    <y>55</y>
     <width>728</width>
     <height>439</height>
     <foreground_color>
@@ -49,8 +49,8 @@
       </rule>
     </rules>
     <x_axis>
-      <title>Samples [n]</title>
-      <autoscale>false</autoscale>
+      <title>Samples [n] to Time [ns]</title>
+      <autoscale>true</autoscale>
       <log_scale>false</log_scale>
       <minimum>0.0</minimum>
       <maximum>2059.0</maximum>
@@ -130,9 +130,9 @@
   <widget type="label" version="2.0.0">
     <name>Integral_Display_Target</name>
     <text>Channel 0 Integral Result local PV:</text>
-    <x>325</x>
-    <y>10</y>
-    <width>270</width>
+    <x>430</x>
+    <y>15</y>
+    <width>200</width>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
@@ -264,13 +264,13 @@ except Exception as e:
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label Template_13</name>
-    <text>sample window size</text>
-    <y>18</y>
-    <width>105</width>
+    <text>Marker Δt (ns)</text>
+    <x>23</x>
+    <y>3</y>
+    <width>95</width>
     <height>16</height>
-    <visible>false</visible>
     <font>
-      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
     <foreground_color>
@@ -290,16 +290,15 @@ except Exception as e:
       </color>
     </border_color>
   </widget>
-  <widget type="textentry" version="3.0.0">
-    <name>Text Input Template_6</name>
-    <pv_name>LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
-    <x>118</x>
-    <y>12</y>
-    <width>91</width>
-    <height>26</height>
-    <visible>false</visible>
+  <widget type="textupdate" version="2.0.0">
+    <name>time_window_display</name>
+    <pv_name>=( `LEL:DIA:FCT01:CLKF_RB` &lt; 3 ) ? ( (`loc://m2`-`loc://m1`)*0.5 ) : ( (`loc://m2`-`loc://m1`)*0.25 )</pv_name>
+    <x>121</x>
+    <y>3</y>
+    <width>69</width>
+    <height>19</height>
     <font>
-      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
     <foreground_color>
@@ -310,7 +309,10 @@ except Exception as e:
       <color name="IO InputPV Bg" red="255" green="255" blue="255">
       </color>
     </background_color>
+    <precision>2</precision>
     <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
     <actions>
     </actions>
     <border_width>2</border_width>
@@ -333,7 +335,7 @@ except Exception as e:
   <widget type="xyplot" version="3.0.0">
     <name>X/Y Plot_1</name>
     <x>23</x>
-    <y>479</y>
+    <y>495</y>
     <width>729</width>
     <height>389</height>
     <scripts>
@@ -351,11 +353,17 @@ try:
         if raw_data is not None and raw_data.size() > 40:
             total_samples = raw_data.size()
             
-            cal_factor = 2.5  
             attenuation_factor = 1.0
             
             # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
             clk_val = PVUtil.getDouble(pvs[3]) 
+            
+            # DYNAMIC COEFFICIENTS: Match settings based on 2GS vs 4GS clock rates
+            if clk_val == 2.0:
+                cal_factor = 5.0
+            else:
+                cal_factor = 2.5   # Default to 4GS configuration
+                
             if clk_val < 100.0:
                 dt = 1.0 / (clk_val * 1e9)  
             else:
@@ -434,11 +442,12 @@ except Exception as e:
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:OFS_SP</pv_name>
+        <pv_name trigger="false">loc://fct01_window_ns(0.0)</pv_name>
       </script>
     </scripts>
     <x_axis>
       <title>Samples [n]</title>
-      <autoscale>false</autoscale>
+      <autoscale>true</autoscale>
       <log_scale>false</log_scale>
       <minimum>0.0</minimum>
       <maximum>2054.0</maximum>
@@ -460,7 +469,7 @@ except Exception as e:
         <log_scale>false</log_scale>
         <minimum>0.0</minimum>
         <maximum>2054.0</maximum>
-        <show_grid>false</show_grid>
+        <show_grid>true</show_grid>
         <title_font>
           <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
           </font>
@@ -496,5 +505,61 @@ except Exception as e:
         <visible>true</visible>
       </trace>
     </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_14</name>
+    <text>1 / ΔX (MHz)</text>
+    <x>23</x>
+    <y>29</y>
+    <width>81</width>
+    <height>16</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>time_window_display_1</name>
+    <pv_name>=( 1.0 / ( (( `LEL:DIA:FCT01:CLKF_RB` &lt; 3 ) ? ((`loc://m2`-`loc://m1`)*0.5) : ((`loc://m2`-`loc://m1`)*0.25)) * 1e-9 ) ) * 1e-6</pv_name>
+    <x>121</x>
+    <y>29</y>
+    <width>71</width>
+    <height>19</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
   </widget>
 </display>
