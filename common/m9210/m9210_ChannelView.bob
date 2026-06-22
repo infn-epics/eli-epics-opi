@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-06 13:06:37 by andreamichelotti-->
+<!--Saved on 2026-06-19 15:12:25 by georg-->
 <display version="2.0.0">
   <name>Display</name>
-  <width>795</width>
-  <height>870</height>
+  <width>950</width>
+  <height>900</height>
   <background_color>
     <color name="Transparent" red="255" green="255" blue="255" alpha="0">
     </color>
@@ -30,29 +30,13 @@
         </children>
       </tab>
       <tab>
-        <name>Microbunch statistics</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_MicroBunchStats.opi</file>
-            <width>700</width>
-            <height>530</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
         <name>Macrobunch</name>
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template</name>
             <file>m9210_MacroBunch.opi</file>
+            <x>15</x>
+            <y>7</y>
             <width>700</width>
             <height>480</height>
             <transparent>true</transparent>
@@ -83,13 +67,141 @@
           </widget>
         </children>
       </tab>
+      <tab>
+        <name>RawData Channel0</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_RawData_Ch.bob</file>
+            <y>4</y>
+            <width>788</width>
+            <height>836</height>
+            <transparent>true</transparent>
+            <macros>
+              <CHAN>0</CHAN>
+                          </macros>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>RawData Ch0 - LocalPV</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_RawData_Ch_Local.bob</file>
+            <y>5</y>
+            <width>788</width>
+            <height>836</height>
+            <transparent>true</transparent>
+            <macros>
+              <CHAN>0</CHAN>
+              </macros>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>RawData Ch1 - LocalPV</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template_1</name>
+            <file>m9210_RawData_Ch_Local.bob</file>
+            <y>5</y>
+            <width>841</width>
+            <height>867</height>
+            <transparent>true</transparent>
+            <macros>
+              <CHAN>1</CHAN>
+            </macros>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Integral Ch0</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Integral_Ch0_Embed</name>
+            <file>m9210_Integral_Ch.bob</file>
+            <y>4</y>
+            <width>788</width>
+            <height>520</height>
+            <transparent>true</transparent>
+            <macros>
+              <CHAN>0</CHAN>
+              </macros>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>History Ch0</name>
+        <children>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update</name>
+            <pv_name>$(DEVICE):AI0:CHARGE_FINAL</pv_name>
+            <x>328</x>
+            <y>505</y>
+            <width>120</width>
+            <font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser</name>
+            <file>charge_trend.plt</file>
+            <x>48</x>
+            <y>25</y>
+            <width>731</width>
+            <height>419</height>
+            <show_toolbar>true</show_toolbar>
+            <actions>
+            </actions>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label</name>
+            <text>Current Charge in Ch 0</text>
+            <x>318</x>
+            <y>475</y>
+            <width>160</width>
+            <font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+          </widget>
+        </children>
+      </tab>
     </tabs>
-    <width>795</width>
-    <height>870</height>
+    <width>950</width>
+    <height>900</height>
     <background_color>
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
+    <active_tab>7</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>

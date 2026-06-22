@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-13 23:16:44 by andreamichelotti-->
+<!--Saved on 2026-06-11 16:06:43 by georg-->
 <display version="2.0.0">
   <width>300</width>
   <height>255</height>
@@ -15,9 +15,9 @@
     <name>START</name>
     <actions>
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>$(DEVICE):MSGS</pv_name>
         <value>ON</value>
+        <description>Write PV</description>
       </action>
     </actions>
     <text>ENABLE DAQ</text>
@@ -25,6 +25,7 @@
     <y>205</y>
     <width>130</width>
     <height>35</height>
+    <visible>false</visible>
     <font>
       <font family="Sans" style="BOLD" size="10.891089108910892">
       </font>
@@ -44,9 +45,9 @@
     <name>Action Button Template_1</name>
     <actions>
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>$(DEVICE):MSGS</pv_name>
         <value>OFF</value>
+        <description>Write PV</description>
       </action>
     </actions>
     <text>DISABLE DAQ</text>
@@ -54,6 +55,7 @@
     <y>203</y>
     <width>130</width>
     <height>40</height>
+    <visible>false</visible>
     <font>
       <font family="Sans" style="BOLD" size="10.891089108910892">
       </font>
@@ -73,8 +75,8 @@
     <text>Sampling clock</text>
     <x>11</x>
     <y>105</y>
-    <width>76</width>
-    <height>15</height>
+    <width>80</width>
+    <height>17</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -119,6 +121,25 @@
     <horizontal_alignment>1</horizontal_alignment>
     <actions>
     </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+import time
+
+# Use the absolute path discovered from your PV connection list
+msgs_pv = "LEL:DIA:FCT01:MSGS"
+
+# 1. Turn the DAQ off
+PVUtil.writePV(msgs_pv, "OFF", 10) 
+
+# 2. Wait for the underlying C++ digitizer driver to cycle down
+time.sleep(0.4)
+
+# 3. Turn the DAQ back on to register the change
+PVUtil.writePV(msgs_pv, "ON", 10)]]></text>
+        <pv_name>$(DEVICE):CLKF_SP</pv_name>
+      </script>
+    </scripts>
     <border_width>2</border_width>
   </widget>
   <widget type="label" version="2.0.0">
@@ -127,7 +148,7 @@
     <x>88</x>
     <y>50</y>
     <width>27</width>
-    <height>15</height>
+    <height>17</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -216,8 +237,8 @@
 readback</text>
     <x>11</x>
     <y>136</y>
-    <width>76</width>
-    <height>31</height>
+    <width>80</width>
+    <height>35</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>

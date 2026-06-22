@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-13 18:14:23 by andreamichelotti-->
+<!--Saved on 2026-06-04 16:40:56 by georg-->
 <display version="2.0.0">
   <width>700</width>
   <height>480</height>
@@ -35,7 +35,7 @@
     </actions>
     <x_axis>
       <title>Macrobunch [n]</title>
-      <autoscale>true</autoscale>
+      <autoscale>false</autoscale>
       <log_scale>false</log_scale>
       <minimum>0.0</minimum>
       <maximum>100.0</maximum>
@@ -55,8 +55,8 @@
         <title>Voltage [V]</title>
         <autoscale>true</autoscale>
         <log_scale>false</log_scale>
-        <minimum>0.0</minimum>
-        <maximum>100.0</maximum>
+        <minimum>-0.01</minimum>
+        <maximum>0.01</maximum>
         <show_grid>true</show_grid>
         <title_font>
           <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
@@ -78,7 +78,7 @@
       <trace>
         <name></name>
         <x_pv></x_pv>
-        <y_pv>$(DEVICE):MACB_SUM</y_pv>
+        <y_pv>$(DEVICE):AI0:AVG</y_pv>
         <err_pv></err_pv>
         <axis>0</axis>
         <trace_type>1</trace_type>
@@ -88,7 +88,24 @@
         </color>
         <line_width>2</line_width>
         <line_style>0</line_style>
-        <point_type>2</point_type>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>LEL:DIA:FCT01:AI1:AVG</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
         <point_size>4</point_size>
         <visible>true</visible>
       </trace>

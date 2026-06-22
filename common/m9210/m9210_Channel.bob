@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-13 18:14:23 by andreamichelotti-->
+<!--Saved on 2026-06-19 10:43:30 by georg-->
 <display version="2.0.0">
   <width>300</width>
   <height>400</height>
@@ -88,8 +88,8 @@
     <text>Impedance</text>
     <x>3</x>
     <y>165</y>
-    <width>90</width>
-    <height>19</height>
+    <width>59</width>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -116,8 +116,8 @@
     <text>Offset</text>
     <x>43</x>
     <y>205</y>
-    <width>48</width>
-    <height>19</height>
+    <width>32</width>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -158,39 +158,52 @@
       <color name="IO InputPV Bg" red="255" green="255" blue="255">
       </color>
     </background_color>
-    <precision>2</precision>
+    <precision>4</precision>
     <horizontal_alignment>1</horizontal_alignment>
     <actions>
     </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from java.lang import Thread, Runnable
+
+if len(pvs) > 0 and pvs[0] is not None:
+    trigger_pv_name = pvs[0].getName() 
+
+    # Split name by colons
+    pv_parts = trigger_pv_name.split(":")
+    
+    # If the 4th part is an Analog Input (like AI0, AI1), drop it to get the core card base
+    if "AI" in pv_parts[3]:
+        base_channel_prefix = ":".join(pv_parts[0:3]) # Yields "LEL:DIA:FCT01"
+    else:
+        base_channel_prefix = ":".join(pv_parts[0:4])
+        
+    dynamic_msgs_pv = base_channel_prefix + ":MSGS"
+
+    class AsyncOffsetCycle(Runnable):
+        def __init__(self, msgs_target):
+            self.msgs_target = msgs_target
+        def run(self):
+            try:
+                print("Attempting to write OFF to: " + self.msgs_target)
+                PVUtil.writePV(self.msgs_target, "OFF", 5000) 
+                Thread.sleep(400)
+                print("Attempting to write ON to: " + self.msgs_target)
+                PVUtil.writePV(self.msgs_target, "ON", 5000)
+                print("Offset cycle completed successfully.")
+            except Exception as e:
+                print("Dynamic Offset Reset Error: " + str(e))
+
+    print("Targeting PV: " + str(dynamic_msgs_pv))
+    Thread(AsyncOffsetCycle(dynamic_msgs_pv)).start()
+else:
+    print("Script Error: No valid PVs attached.")
+]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):OFS_SP</pv_name>
+      </script>
+    </scripts>
     <border_width>2</border_width>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label Template_3</name>
-    <text>Range</text>
-    <x>41</x>
-    <y>245</y>
-    <width>51</width>
-    <height>19</height>
-    <font>
-      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
-      </font>
-    </font>
-    <foreground_color>
-      <color name="IO Foreground" red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color name="IO Background" red="255" green="255" blue="205">
-      </color>
-    </background_color>
-    <vertical_alignment>1</vertical_alignment>
-    <auto_size>true</auto_size>
-    <actions>
-    </actions>
-    <border_color>
-      <color name="IO Border" red="215" green="215" blue="215">
-      </color>
-    </border_color>
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input Template_1</name>
@@ -211,11 +224,69 @@
       <color name="IO InputPV Bg" red="255" green="255" blue="255">
       </color>
     </background_color>
-    <precision>2</precision>
+    <precision>4</precision>
     <horizontal_alignment>1</horizontal_alignment>
     <actions>
     </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from java.lang import Thread, Runnable
+
+# 1. Dynamically read the current widget's underlying PV name
+trigger_pv_name = pvs[0].getName() # e.g., "LEL:DIA:FCT01:RNG_SP" or "LEL:DIA:FCT02:RNG_SP"
+
+
+# 2. Reconstruct the target path for this specific device space
+pv_parts = trigger_pv_name.split(":")
+base_channel_prefix = ":".join(pv_parts[0:3]) 
+dynamic_msgs_pv = base_channel_prefix + ":MSGS"
+
+class AsyncRangeCycle(Runnable):
+    def __init__(self, msgs_target):
+        self.msgs_target = msgs_target
+    def run(self):
+        try:
+            # Cycle only the local channel driver
+            PVUtil.writePV(self.msgs_target, "OFF", 10) 
+            Thread.sleep(400)
+            PVUtil.writePV(self.msgs_target, "ON", 10)
+        except Exception as e:
+            print("Dynamic Range Reset Error: " + str(e))
+
+Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):RNG_SP</pv_name>
+      </script>
+    </scripts>
     <border_width>2</border_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_3</name>
+    <text>Range</text>
+    <x>41</x>
+    <y>245</y>
+    <width>34</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_5</name>
@@ -251,8 +322,8 @@
     <text>Coupling</text>
     <x>22</x>
     <y>125</y>
-    <width>69</width>
-    <height>19</height>
+    <width>48</width>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -295,14 +366,6 @@
     </background_color>
     <actions>
     </actions>
-    <rules>
-      <rule name="BorderRule" prop_id="border_style" out_exp="false">
-        <exp bool_exp="pv0==1">
-          <value>9</value>
-        </exp>
-        <pv_name>$(pv_name).SIMM</pv_name>
-      </rule>
-    </rules>
   </widget>
   <widget type="combo" version="2.0.0">
     <name>Combo_1</name>
@@ -325,22 +388,14 @@
     </background_color>
     <actions>
     </actions>
-    <rules>
-      <rule name="BorderRule" prop_id="border_style" out_exp="false">
-        <exp bool_exp="pv0==1">
-          <value>9</value>
-        </exp>
-        <pv_name>$(pv_name).SIMM</pv_name>
-      </rule>
-    </rules>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label Template_13</name>
     <text>Status</text>
     <x>41</x>
     <y>49</y>
-    <width>50</width>
-    <height>19</height>
+    <width>33</width>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -367,8 +422,8 @@
     <text>Set</text>
     <x>135</x>
     <y>95</y>
-    <width>26</width>
-    <height>19</height>
+    <width>17</width>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -529,7 +584,7 @@
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
-    <precision>2</precision>
+    <precision>4</precision>
     <horizontal_alignment>1</horizontal_alignment>
     <vertical_alignment>1</vertical_alignment>
     <wrap_words>false</wrap_words>
@@ -560,7 +615,7 @@
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
-    <precision>2</precision>
+    <precision>4</precision>
     <horizontal_alignment>1</horizontal_alignment>
     <vertical_alignment>1</vertical_alignment>
     <wrap_words>false</wrap_words>
@@ -577,8 +632,8 @@
     <text>Readback</text>
     <x>203</x>
     <y>95</y>
-    <width>78</width>
-    <height>19</height>
+    <width>51</width>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -605,8 +660,8 @@
     <text>Average (10 s)</text>
     <x>34</x>
     <y>330</y>
-    <width>116</width>
-    <height>19</height>
+    <width>75</width>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -633,8 +688,8 @@
     <text>Average (5 min)</text>
     <x>22</x>
     <y>370</y>
-    <width>128</width>
-    <height>19</height>
+    <width>83</width>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
