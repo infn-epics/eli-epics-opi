@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-19 09:38:36 by georg-->
+<!--Saved on 2026-06-22 15:08:13 by michelottilabs-->
 <display version="2.0.0">
   <macros>
-    <LOCAL_CH>0</LOCAL_CH>
     <CH>0</CH>
   </macros>
   <width>780</width>
@@ -29,7 +28,7 @@
       <color name="IO InputPV Bg" red="255" green="255" blue="255">
       </color>
     </background_color>
-    <title>Raw Data - Channel 0</title>
+    <title>Raw Data - Channel $(CHAN)</title>
     <title_font>
       <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
       </font>
@@ -53,7 +52,7 @@
       <autoscale>false</autoscale>
       <log_scale>false</log_scale>
       <minimum>0.0</minimum>
-      <maximum>2048.0</maximum>
+      <maximum>2059.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
@@ -91,9 +90,9 @@
     </y_axes>
     <traces>
       <trace>
-        <name>$(DEVICE):AI0:AVG</name>
+        <name>$(DEVICE):AI$(CHAN):AVG</name>
         <x_pv></x_pv>
-        <y_pv>$(DEVICE):AI0:AVG</y_pv>
+        <y_pv>$(DEVICE):AI$(CHAN):AVG</y_pv>
         <err_pv></err_pv>
         <axis>0</axis>
         <trace_type>1</trace_type>
@@ -107,6 +106,23 @@
         <point_size>4</point_size>
         <visible>true</visible>
       </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):AI$(CHAN)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
     </traces>
     <marker>
       <marker>
@@ -114,7 +130,7 @@
           <color name="Off" red="60" green="100" blue="60">
           </color>
         </color>
-        <pv_name>LEL:DIA:FCT01:AI0:SET_START_IDX</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
         <interactive>true</interactive>
       </marker>
       <marker>
@@ -122,17 +138,17 @@
           <color name="OK" red="0" green="255" blue="0">
           </color>
         </color>
-        <pv_name>LEL:DIA:FCT01:AI0:SET_END_IDX</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
         <interactive>true</interactive>
       </marker>
     </marker>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Integral_Display_Target</name>
-    <text>Channel 0 Integral Result:</text>
+    <text>CHARGE_FINAL Ch$(CHAN):</text>
     <x>325</x>
     <y>10</y>
-    <width>114</width>
+    <width>160</width>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
@@ -143,8 +159,8 @@
     <text>sample average</text>
     <x>22</x>
     <y>14</y>
-    <width>82</width>
-    <height>16</height>
+    <width>79</width>
+    <height>14</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -168,7 +184,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input Template_4</name>
-    <pv_name>LEL:DIA:FCT01:AI0:AVG.N</pv_name>
+    <pv_name>$(DEVICE):AI$(CHAN):AVG.N</pv_name>
     <x>119</x>
     <y>11</y>
     <width>91</width>
@@ -190,174 +206,39 @@
     </actions>
     <border_width>2</border_width>
   </widget>
-  <widget type="polyline" version="2.0.0">
-    <name>Integral_Start_Line1</name>
-    <x>165</x>
-    <y>94</y>
-    <width>2</width>
-    <height>695</height>
-    <visible>false</visible>
-    <points>
-      <point x="2.0000152587890625" y="695.0000111158931">
-      </point>
-      <point x="0.0" y="0.0">
-      </point>
-    </points>
-    <line_width>2</line_width>
-    <line_color>
-      <color name="MINOR" red="255" green="128" blue="0">
-      </color>
-    </line_color>
-  </widget>
-  <widget type="polyline" version="2.0.0">
-    <name>Integral_End_Line1</name>
-    <x>231</x>
-    <y>94</y>
-    <width>1</width>
-    <height>695</height>
-    <visible>false</visible>
-    <points>
-      <point x="1.52587890625E-5" y="695.0000109253349">
-      </point>
-      <point x="0.0" y="0.0">
-      </point>
-    </points>
-    <line_width>2</line_width>
-    <line_color>
-      <color name="DISCONNECTED" red="200" green="0" blue="200" alpha="200">
-      </color>
-    </line_color>
-  </widget>
-  <widget type="action_button" version="3.0.0">
-    <name>Calculate Integral</name>
-    <actions execute_as_one="true">
-    </actions>
-    <text>Calculate Integral Ch$(CH)</text>
-    <x>445</x>
-    <y>8</y>
-    <width>122</width>
-    <visible>false</visible>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(DEVICE):AI$(CHAN):CHARGE_FINAL</pv_name>
+    <x>488</x>
+    <y>6</y>
+    <width>130</width>
+    <height>28</height>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
-    <scripts>
-      <script file="EmbeddedPy" check_connections="false">
-        <text><![CDATA[from org.csstudio.display.builder.runtime.script import ScriptUtil
-from org.csstudio.display.builder.runtime.script import PVUtil
-from org.csstudio.display.builder.runtime.pv import PVFactory
-import math
-import time
-
-def safe_index(val, default, max_val):
-    if val is None or math.isnan(val) or math.isinf(val):
-        return default
-    return max(0, min(int(round(val)), max_val))
-
-def find_textbox_by_name_locally(container, target_name):
-    if container is None:
-        return None
-    if hasattr(container, "isPresent") and container.isPresent():
-        container = container.get()
-    if container is None:
-        return None
-    if hasattr(container, "getName") and container.getName() == target_name:
-        return container
-    if hasattr(container, "getChildren"):
-        for child in container.getChildren():
-            found = find_textbox_by_name_locally(child, target_name)
-            if found:
-                return found
-    return None
-
-def execute_calculation():
-    ICT_SENSITIVITY = 5.0     
-    ATTENUATION_FACTOR = 1.0  
-    CHANNEL = "0"  # Hardcoded static channel boundary
-
-    try:
-        print("--- Execution Engine: Manual Button Click on Channel [" + CHANNEL + "] ---")
-
-        # Toggle Sync Hardware Messages
-        try:
-            msg_pv = PVFactory.getPV("LEL:DIA:FCT01:MSGS")
-            msg_pv.write("OFF")
-            time.sleep(0.04)
-            msg_pv.write("ON")
-            PVFactory.releasePV(msg_pv)
-        except Exception:
-            pass
-
-        parent_optional = widget.getParent()
-        if parent_optional is None:
-            return
-        local_container = parent_optional.get() if hasattr(parent_optional, "isPresent") and parent_optional.isPresent() else parent_optional
-
-        display_box = find_textbox_by_name_locally(local_container, "Integral_Display_Target")
-        if display_box is None:
-            return
-
-        target_pv_name = "LEL:DIA:FCT01:AI" + CHANNEL + ":AVG"
-        hardware_pv = PVFactory.getPV(target_pv_name)
-        pv_reading = hardware_pv.read()
-        raw_data = pv_reading.getData() if pv_reading is not None else None
-        total_samples = raw_data.size() if raw_data is not None else 0
-
-        if total_samples > 40 and raw_data is not None:
-            dt = 2.5e-10 if total_samples > 1500 else 5.0e-10
-            baseline_window = 30 if total_samples > 1500 else 15
-            
-            baseline_sum = 0.0
-            for i in range(baseline_window):
-                baseline_sum += raw_data.getDouble(i)
-            baseline_avg = baseline_sum / float(baseline_window)
-            
-            m1_pv = PVFactory.getPV("loc://m1_" + CHANNEL + "(600)")
-            m2_pv = PVFactory.getPV("loc://m2_" + CHANNEL + "(1200)")
-            marker1_raw = PVUtil.getDouble(m1_pv)  
-            marker2_raw = PVUtil.getDouble(m2_pv)  
-            PVFactory.releasePV(m1_pv)
-            PVFactory.releasePV(m2_pv)
-
-            start_index = safe_index(marker1_raw, 600, total_samples - 2)
-            stop_index = safe_index(marker2_raw, 1200, total_samples - 1)
-            
-            if start_index > stop_index:
-                start_index, stop_index = stop_index, start_index
-            
-            if stop_index > start_index:
-                integral_area = 0.0
-                for j in range(start_index, stop_index - 1):
-                    y1 = baseline_avg - raw_data.getDouble(j)
-                    y2 = baseline_avg - raw_data.getDouble(j + 1)
-                    integral_area += (y1 + y2) / 2.0
-                
-                volt_seconds = integral_area * dt
-                corrected_volt_seconds = volt_seconds * ATTENUATION_FACTOR
-                picocoulombs = (corrected_volt_seconds / ICT_SENSITIVITY) * 1e12
-                
-                result_str = "{:.2f} pC".format(picocoulombs)
-                display_box.setPropertyValue("text", result_str)
-                print("Channel " + CHANNEL + " Manual Calculation Complete: " + result_str)
-        else:
-            display_box.setPropertyValue("text", "Disconnected")
-                
-        PVFactory.releasePV(hardware_pv)
-    except Exception as e:
-        print("Button execution fault: " + str(e))
-
-execute_calculation()]]></text>
-        <pv_name trigger="false">loc://m1_0(600)</pv_name>
-        <pv_name trigger="false">loc://m2_0(1200)</pv_name>
-      </script>
-    </scripts>
-    <tooltip>$(actions)</tooltip>
+    <foreground_color>
+      <color red="180" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>3</precision>
   </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>Text Update</name>
-    <pv_name>LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
-    <x>535</x>
-    <y>8</y>
+  <widget type="label" version="2.0.0">
+    <name>Label_CF_EGU</name>
+    <text>pC</text>
+    <x>622</x>
+    <y>10</y>
+    <width>25</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
   </widget>
   <widget type="xyplot" version="3.0.0">
     <name>X/Y Plot_2</name>
@@ -365,6 +246,77 @@ execute_calculation()]]></text>
     <y>479</y>
     <width>729</width>
     <height>389</height>
+    <scripts>
+      <script file="EmbeddedPy" check_connections="false">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from jarray import array
+
+try:
+    # Index 0: Raw waveform signal data array ($(DEVICE):AI$(CHAN):AVG)
+    pv_reading = pvs[0].read()
+
+    if pv_reading is not None:
+        raw_data = pv_reading.getData()
+
+        if raw_data is not None and raw_data.size() > 40:
+            total_samples = raw_data.size()
+
+            cal_factor = 2.5
+            attenuation_factor = 1.0
+
+            # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
+            clk_val = PVUtil.getDouble(pvs[3])
+            if clk_val < 100.0:
+                dt = 1.0 / (clk_val * 1e9)
+            else:
+                dt = 1.0 / clk_val
+
+            # --- INDEX 1: MICB_OFFSET (M1), INDEX 2: UBUNCHSAMPL (Width) ---
+            marker1_raw = PVUtil.getDouble(pvs[1])
+            width_raw = PVUtil.getDouble(pvs[2])
+            start_index = max(0, min(int(round(marker1_raw)), total_samples - 2))
+
+            # --- DYNAMIC PRE-TRIGGER BASELINE ---
+            lookback_size = 40
+            baseline_start = max(0, start_index - lookback_size - 15)
+            baseline_end = max(0, start_index - 15)
+            if (baseline_end - baseline_start) < 15:
+                baseline_start = 0
+                baseline_end = 40
+
+            baseline_sum = 0.0
+            for i in range(baseline_start, baseline_end):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(baseline_end - baseline_start)
+
+            # --- FULL-SIGNAL CUMULATIVE INTEGRAL (OPI-side integral waveform) ---
+            charge_profile = [0.0] * total_samples
+            running_area = 0.0
+            for idx in range(0, total_samples - 1):
+                y1 = baseline_avg - raw_data.getDouble(idx)
+                y2 = baseline_avg - raw_data.getDouble(idx + 1)
+                running_area += (y1 + y2) / 2.0
+                v_secs = running_area * dt
+                charge_profile[idx + 1] = (v_secs * 1e12 * attenuation_factor) / cal_factor
+            charge_profile[-1] = charge_profile[-2]
+
+            # --- INDEX 4: WRITE INTEGRAL WAVEFORM TO LOCAL GRAPH PV ---
+            if len(pvs) > 4:
+                try:
+                    java_array = array(charge_profile, 'd')
+                    pvs[4].write(java_array)
+                except Exception as plot_err:
+                    print("Lower Graph data frame write deferred: " + str(plot_err))
+
+except Exception as e:
+    print("Script Execution Error: " + str(e))]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):AVG</pv_name>
+        <pv_name trigger="false">$(DEVICE):MICB_OFFSET</pv_name>
+        <pv_name trigger="false">$(DEVICE):UBUNCHSAMPL</pv_name>
+        <pv_name trigger="false">$(DEVICE):CLKF_SP</pv_name>
+        <pv_name trigger="false">loc://microbunch_integral_array_ch0</pv_name>
+      </script>
+    </scripts>
     <x_axis>
       <title>Samples [n]</title>
       <autoscale>false</autoscale>
@@ -408,9 +360,9 @@ execute_calculation()]]></text>
     </y_axes>
     <traces>
       <trace>
-        <name>Integrated Charge Profile Ch0</name>
+        <name>Integral Waveform (OPI-side, full signal)</name>
         <x_pv></x_pv>
-        <y_pv>LEL:DIA:FCT01:AI0:INT_ARRAY_OUT</y_pv>
+        <y_pv>loc://microbunch_integral_array_ch0</y_pv>
         <err_pv></err_pv>
         <axis>0</axis>
         <trace_type>1</trace_type>
@@ -425,5 +377,13 @@ execute_calculation()]]></text>
         <visible>true</visible>
       </trace>
     </traces>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(DEVICE):AI$(CHAN):INTEG_MEAN</pv_name>
+    <x>680</x>
+    <y>8</y>
+    <format>2</format>
+    <precision>5</precision>
   </widget>
 </display>

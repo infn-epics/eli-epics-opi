@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-06-22 17:33:30 by michelottilabs-->
+<display version="2.0.0">
+  <name>Integral View Ch0 - DB only</name>
+  <width>780</width>
+  <height>500</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <widget type="label" version="2.0.0">
+    <name>Label_START</name>
+    <text>Start idx:</text>
+    <x>5</x>
+    <y>8</y>
+    <width>70</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Start_Idx_Entry</name>
+    <pv_name>$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
+    <x>78</x>
+    <y>5</y>
+    <width>80</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <precision>0</precision>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_END</name>
+    <text>End idx:</text>
+    <x>175</x>
+    <y>8</y>
+    <width>65</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>End_Idx_Entry</name>
+    <pv_name>$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
+    <x>243</x>
+    <y>5</y>
+    <width>80</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <precision>0</precision>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_WSIZE</name>
+    <text>Width:</text>
+    <x>340</x>
+    <y>8</y>
+    <width>55</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>WSize_Display</name>
+    <pv_name>$(DEVICE):AI$(CHAN):INT_WSIZE</pv_name>
+    <x>398</x>
+    <y>5</y>
+    <width>70</width>
+    <height>26</height>
+    <format>1</format>
+    <precision>0</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_DragHint</name>
+    <text>(drag the green/dark markers on the raw plot)</text>
+    <x>478</x>
+    <y>8</y>
+    <width>290</width>
+    <height>22</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_CF</name>
+    <text>Marker integral (DB):</text>
+    <x>5</x>
+    <y>38</y>
+    <width>155</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>CHARGE_FINAL_Display</name>
+    <pv_name>$(DEVICE):AI$(CHAN):CHARGE_FINAL</pv_name>
+    <x>165</x>
+    <y>35</y>
+    <width>130</width>
+    <height>28</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="180" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>3</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_CF_EGU</name>
+    <text>pC</text>
+    <x>300</x>
+    <y>38</y>
+    <width>20</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BASELINE</name>
+    <text>Baseline (V):</text>
+    <x>320</x>
+    <y>38</y>
+    <width>100</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Baseline_Display</name>
+    <pv_name>$(DEVICE):AI$(CHAN):INT_BASE_AVG</pv_name>
+    <x>425</x>
+    <y>35</y>
+    <width>110</width>
+    <height>28</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="80" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>5</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_RATE</name>
+    <text>Rate:</text>
+    <x>548</x>
+    <y>38</y>
+    <width>40</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Rate_Display</name>
+    <pv_name>$(DEVICE):AI$(CHAN):CTR</pv_name>
+    <x>593</x>
+    <y>35</y>
+    <width>90</width>
+    <height>28</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="60" green="60" blue="60">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>1</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_RATE_EGU</name>
+    <text>Hz</text>
+    <x>688</x>
+    <y>38</y>
+    <width>30</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>Plot_RawSignal</name>
+    <x>23</x>
+    <y>70</y>
+    <width>734</width>
+    <height>360</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title>Raw Signal - Channel $(CHAN) (AI$(CHAN):AVG)</title>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.0">
+      </font>
+    </title_font>
+    <show_toolbar>true</show_toolbar>
+    <actions>
+    </actions>
+    <x_axis>
+      <title>Samples [n]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>2059.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Voltage [V]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>AI$(CHAN):AVG</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):AI$(CHAN):AVG</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="IO Trace 1" red="79" green="129" blue="189">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color red="60" green="100" blue="60">
+          </color>
+        </color>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
+        <interactive>true</interactive>
+      </marker>
+      <marker>
+        <color>
+          <color red="0" green="200" blue="0">
+          </color>
+        </color>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
+        <interactive>true</interactive>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SUM_Bottom</name>
+    <text>Signal mean in window:</text>
+    <x>23</x>
+    <y>448</y>
+    <width>165</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>SUM_WAVE_Bottom</name>
+    <pv_name>$(DEVICE):AI$(CHAN):SUM_WAVE</pv_name>
+    <x>193</x>
+    <y>445</y>
+    <width>110</width>
+    <height>28</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="80" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>5</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SUM_EGU</name>
+    <text>V</text>
+    <x>308</x>
+    <y>448</y>
+    <width>20</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_WSIZE_Bottom</name>
+    <text>Window:</text>
+    <x>345</x>
+    <y>448</y>
+    <width>65</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>WSIZE_Bottom</name>
+    <pv_name>$(DEVICE):AI$(CHAN):INT_WSIZE</pv_name>
+    <x>413</x>
+    <y>445</y>
+    <width>60</width>
+    <height>28</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="60" green="60" blue="60">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>1</format>
+    <precision>0</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_WSIZE_EGU</name>
+    <text>smp</text>
+    <x>478</x>
+    <y>448</y>
+    <width>35</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_DT_Bottom</name>
+    <text>dt:</text>
+    <x>525</x>
+    <y>448</y>
+    <width>28</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>DT_Bottom</name>
+    <pv_name>$(DEVICE):AI$(CHAN):INT_DT</pv_name>
+    <x>557</x>
+    <y>445</y>
+    <width>110</width>
+    <height>28</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="60" green="60" blue="60">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>3</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_DT_EGU</name>
+    <text>s</text>
+    <x>672</x>
+    <y>448</y>
+    <width>20</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+</display>

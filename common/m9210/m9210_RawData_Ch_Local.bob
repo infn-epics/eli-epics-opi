@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-19 19:23:45 by georg-->
+<!--Saved on 2026-06-22 13:56:14 by michelottilabs-->
 <display version="2.0.0">
   <macros>
-    <LOCAL_CH>0</LOCAL_CH>
     <CH>0</CH>
   </macros>
   <width>780</width>
@@ -29,7 +28,7 @@
       <color name="IO InputPV Bg" red="255" green="255" blue="255">
       </color>
     </background_color>
-    <title>Raw Data - Channel 0 Local PV</title>
+    <title>Raw Data - Channel $(CHAN) Local PV</title>
     <title_font>
       <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
       </font>
@@ -93,7 +92,7 @@
       <trace>
         <name>$(traces[0].y_pv)</name>
         <x_pv></x_pv>
-        <y_pv>LEL:DIA:FCT01:AI0:AVG</y_pv>
+        <y_pv>$(DEVICE):AI$(CHAN):AVG</y_pv>
         <err_pv></err_pv>
         <axis>0</axis>
         <trace_type>1</trace_type>
@@ -114,7 +113,7 @@
           <color name="Off" red="60" green="100" blue="60">
           </color>
         </color>
-        <pv_name>loc://m1(800)</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
         <interactive>true</interactive>
       </marker>
       <marker>
@@ -122,7 +121,7 @@
           <color name="OK" red="0" green="255" blue="0">
           </color>
         </color>
-        <pv_name>loc://m2(1080)</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
         <interactive>true</interactive>
       </marker>
     </marker>
@@ -144,7 +143,7 @@ from jarray import array
 import math
 
 try:
-    # --- INDEX 0: Raw waveform signal data array (LEL:DIA:FCT01:AI0:AVG) ---
+    # --- INDEX 0: Raw waveform signal data array ($(DEVICE):AI$(CHAN):AVG) ---
     pv_reading = pvs[0].read() 
     
     if pv_reading is not None:
@@ -197,7 +196,7 @@ try:
             manual_offset = 0.0
             if len(pvs) > 8:
                 try:
-                    manual_offset = PVUtil.getDouble(pvs[8]) # LEL:DIA:FCT01:AI0:OFS_SP
+                    manual_offset = PVUtil.getDouble(pvs[8]) # $(DEVICE):AI$(CHAN):OFS_SP
                 except Exception:
                     manual_offset = 0.0
             
@@ -230,7 +229,7 @@ try:
             charge_profile[-1] = charge_profile[-2]
             
             # Update the numerical UI text label dynamically
-            widget.setPropertyValue("text", "1.01e-10 Vs | {:.2f} pC".format(final_frozen_charge))
+            widget.setPropertyValue("text", "{:.2f} pC".format(final_frozen_charge))
             
             # --- INDEX 4: WRITE ARRAY TO LOCAL GRAPH PV ---
             if len(pvs) > 4:
@@ -241,24 +240,24 @@ try:
                     print("Graph update deferred: " + str(plot_err))
                     
             # --- INDEX 5: WRITE FINAL CALCULATION OUT TO SCALAR NETWORK PV ---
-            if len(pvs) > 5:
-                try:
-                    pvs[5].write(float(final_frozen_charge))
-                except Exception as write_err:
-                    print("Scalar network write deferred: " + str(write_err))
+#            if len(pvs) > 5:
+#                try:
+#                    pvs[5].write(float(final_frozen_charge))
+#                except Exception as write_err:
+#                    print("Scalar network write deferred: " + str(write_err))
             
 except Exception as e:
     widget.setPropertyValue("text", "ERR")]]></text>
-        <pv_name>LEL:DIA:FCT01:AI0:AVG</pv_name>
-        <pv_name>loc://m1</pv_name>
-        <pv_name>loc://m2</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):AVG</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
+        <pv_name trigger="false">$(DEVICE):CLKF_SP</pv_name>
         <pv_name trigger="false">loc://fct01_integral_array[2048](0.0)</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:OFS_SP</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:K_OFFSET</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):CHARGE_FINAL</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):ATT_RB</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):TCNT</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):OFS_SP</pv_name>
+        <pv_name trigger="false">$(DEVICE):K_OFFSET</pv_name>
       </script>
     </scripts>
   </widget>
@@ -266,8 +265,7 @@ except Exception as e:
     <name>Label Template_13</name>
     <text>sample window size</text>
     <y>18</y>
-    <width>105</width>
-    <height>16</height>
+    <height>14</height>
     <visible>false</visible>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
@@ -292,7 +290,7 @@ except Exception as e:
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Input Template_6</name>
-    <pv_name>LEL:DIA:FCT01:UBUNCHSAMPL</pv_name>
+    <pv_name>$(DEVICE):UBUNCHSAMPL</pv_name>
     <x>118</x>
     <y>12</y>
     <width>91</width>
@@ -425,15 +423,15 @@ try:
                          
 except Exception as e:
     print("Script Execution Error: " + str(e))]]></text>
-        <pv_name>LEL:DIA:FCT01:AI0:AVG</pv_name>
-        <pv_name trigger="false">loc://m1</pv_name>
-        <pv_name trigger="false">loc://m2</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):AVG</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
+        <pv_name trigger="false">$(DEVICE):CLKF_SP</pv_name>
         <pv_name trigger="false">loc://fct01_integral_out[2048](0.0)</pv_name>
         <pv_name trigger="false">loc://microbunch_integral_array[](0)</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:OFS_SP</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):ATT_RB</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):TCNT</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):OFS_SP</pv_name>
       </script>
     </scripts>
     <x_axis>
@@ -479,7 +477,7 @@ except Exception as e:
     </y_axes>
     <traces>
       <trace>
-        <name>Integrated Charge Profile Ch0- Local PV</name>
+        <name>Integrated Charge Profile Ch $(CHAN)- Local PV</name>
         <x_pv></x_pv>
         <y_pv>loc://fct01_integral_out[2048](0.0)</y_pv>
         <err_pv></err_pv>
