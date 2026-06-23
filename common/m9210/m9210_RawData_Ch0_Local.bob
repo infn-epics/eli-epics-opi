@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-20 20:28:49 by georg-->
+<!--Saved on 2026-06-22 17:40:27 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>0</LOCAL_CH>
@@ -141,119 +141,113 @@
       <script file="EmbeddedPy" check_connections="false">
         <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
 from jarray import array
-import math
 
 try:
-    # --- INDEX 0: Raw waveform signal data array (LEL:DIA:FCT01:AI0:AVG) ---
+    # --- INDEX 0: Raw waveform signal data array ---
     pv_reading = pvs[0].read() 
     
     if pv_reading is not None:
         raw_data = pv_reading.getData()
         
-        if raw_data is not None and raw_data.size() > 750:
+        if raw_data is not None and raw_data.size() > 50:
             total_samples = raw_data.size()
-            
-            cal_factor = 2.5  
             attenuation_factor = 1.0
             
             # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
-            clk_val = PVUtil.getDouble(pvs[3]) 
+            try:
+                clk_val = PVUtil.getDouble(pvs[3])
+            except Exception:
+                clk_val = 4.0 
+            
+            if clk_val == 2.0:
+                cal_factor = 5.0
+            else:
+                cal_factor = 2.5   
+                
             if clk_val < 100.0:
                 dt = 1.0 / (clk_val * 1e9)  
             else:
                 dt = 1.0 / clk_val          
             
-            # --- INDEX 1 & 2: Direct Draggable Absolute Local Markers ---
-            try:
-                m1_val = PVUtil.getDouble(pvs[1])
-            except Exception:
-                m1_val = 100.0  
-                
-            try:
-                m2_val = PVUtil.getDouble(pvs[2])
-            except Exception:
-                m2_val = 400.0  
-
-            # Safely clamp visual dragging bounds within array boundaries
+            # --- INDEX 1 & 2: Direct Absolute Local Markers ---
+            m1_val = PVUtil.getDouble(pvs[1]) 
+            m2_val = PVUtil.getDouble(pvs[2])   
+            
             start_index = max(0, min(int(round(m1_val)), total_samples - 2))
             stop_index = max(0, min(int(round(m2_val)), total_samples - 1))
             
-            # Ensure proper execution order if marker 2 is dragged left of marker 1
             if start_index > stop_index:
                 start_index, stop_index = stop_index, start_index
-            
-            # --- ADAPTIVE PRE-PULSE BASELINE (Samples 700 to 750) ---
-            # This captures real-time hardware drift right before the pulse drops,
-            # but won't change when you drag your markers around.
-            baseline_start = 700
-            baseline_end = 750
+ 
+            # --- FIXED ABSOLUTE QUIET-ZONE BASELINE ---
+            # Locked permanently to the beginning of the trace buffer (samples 10 to 50).
+            # This completely decouples the baseline from marker movement.
+            baseline_start = 10
+            baseline_end = 50
                 
             baseline_sum = 0.0
             for i in range(baseline_start, baseline_end):
                 baseline_sum += raw_data.getDouble(i)
             baseline_avg = baseline_sum / float(baseline_end - baseline_start)
             
-            # --- INDEX 8: READ OPI MANUAL HARDWARE TRIM KNOB ---
+            # --- INDEX 8: READ OF MANUAL HARDWARE TRIM KNOB ---
             manual_offset = 0.0
             if len(pvs) > 8:
                 try:
-                    manual_offset = PVUtil.getDouble(pvs[8]) # LEL:DIA:FCT01:AI0:OFS_SP
+                    manual_offset = PVUtil.getDouble(pvs[8]) 
                 except Exception:
                     manual_offset = 0.0
             
-            # --- STRICT STABILIZED CUMULATIVE INTEGRAL LOOP ---
+            # --- FIXED WINDOW ACCUMULATED INTEGRAL ---
             charge_profile = [0.0] * total_samples
             running_area = 0.0
             final_frozen_charge = 0.0
-            
+
             for idx in range(0, total_samples - 1):
-                # 1. Before Marker 1: Lock flat at exactly zero
                 if idx < start_index:
                     running_area = 0.0
                     charge_profile[idx] = 0.0
                     
-                # 2. Inside Active Window: Accumulate pulse data
                 elif idx >= start_index and idx < stop_index:
-                    # Invert polarity (baseline - raw) to make the downward pulse integrate upward/positively
-                    y1 = (baseline_avg + manual_offset) - raw_data.getDouble(idx)
-                    y2 = (baseline_avg + manual_offset) - raw_data.getDouble(idx + 1)
+                    y1 = raw_data.getDouble(idx) - (baseline_avg + manual_offset)
+                    y2 = raw_data.getDouble(idx + 1) - (baseline_avg + manual_offset)
                     running_area += (y1 + y2) / 2.0
                     
                     v_secs = running_area * dt
-                    final_frozen_charge = (v_secs * 1e12 * attenuation_factor) / cal_factor
-                    charge_profile[idx + 1] = final_frozen_charge
+                    current_charge = (v_secs * 1e12 * attenuation_factor) / cal_factor
+                    charge_profile[idx] = current_charge
+                    final_frozen_charge = current_charge  
                     
-                # 3. After Marker 2: Freeze execution completely to hold a stable plateau
                 else:
-                    charge_profile[idx + 1] = final_frozen_charge
-
+                    charge_profile[idx] = final_frozen_charge
+ 
             charge_profile[-1] = charge_profile[-2]
             
-            # Update the numerical UI text label dynamically
+            # --- UPDATE THE TEXT READOUT LABEL WIDGET ---
             widget.setPropertyValue("text", "1.01e-10 Vs | {:.2f} pC".format(final_frozen_charge))
             
-            # --- INDEX 4: WRITE ARRAY TO LOCAL GRAPH PV ---
+            # --- INDEX 4: WRITE TO THE WAVEFORM GRAPH PV ---
             if len(pvs) > 4:
                 try:
                     java_array = array(charge_profile, 'd')
-                    pvs[4].write(java_array)
+                    pvs[4].write(java_array) 
                 except Exception as plot_err:
-                    print("Graph update deferred: " + str(plot_err))
+                    print("Lower Graph data frame write deferred: " + str(plot_err))
                     
-            # --- INDEX 5: WRITE FINAL CALCULATION OUT TO SCALAR NETWORK PV ---
+            # --- INDEX 5: WRITE OUT TO SCALAR NETWORK PV ---
             if len(pvs) > 5:
                 try:
                     pvs[5].write(float(final_frozen_charge))
                 except Exception as write_err:
                     print("Scalar network write deferred: " + str(write_err))
-            
+                         
 except Exception as e:
     widget.setPropertyValue("text", "ERR")]]></text>
         <pv_name>LEL:DIA:FCT01:AI0:AVG</pv_name>
         <pv_name>loc://m1</pv_name>
         <pv_name>loc://m2</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
-        <pv_name trigger="false">loc://fct01_integral_array[2048](0.0)</pv_name>
+        <pv_name trigger="false">loc://fct01_integral_out[2048](0.0)</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
@@ -338,113 +332,6 @@ except Exception as e:
     <y>495</y>
     <width>729</width>
     <height>389</height>
-    <scripts>
-      <script file="EmbeddedPy" check_connections="false">
-        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
-from jarray import array
- 
-try:
-    # --- INDEX 0: Raw waveform signal data array ---
-    pv_reading = pvs[0].read() 
-    
-    if pv_reading is not None:
-        raw_data = pv_reading.getData()
-        
-        if raw_data is not None and raw_data.size() > 40:
-            total_samples = raw_data.size()
-            
-            attenuation_factor = 1.0
-            
-            # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
-            clk_val = PVUtil.getDouble(pvs[3]) 
-            
-            # DYNAMIC COEFFICIENTS: Match settings based on 2GS vs 4GS clock rates
-            if clk_val == 2.0:
-                cal_factor = 5.0
-            else:
-                cal_factor = 2.5   # Default to 4GS configuration
-                
-            if clk_val < 100.0:
-                dt = 1.0 / (clk_val * 1e9)  
-            else:
-                dt = 1.0 / clk_val          
-            
-            # --- INDEX 1 & 2: Direct Absolute Local Markers ---
-            m1_val = PVUtil.getDouble(pvs[1]) 
-            m2_val = PVUtil.getDouble(pvs[2])   
-            
-            # Clamp boundaries cleanly inside the data array limits
-            start_index = max(0, min(int(round(m1_val)), total_samples - 2))
-            stop_index = max(0, min(int(round(m2_val)), total_samples - 1))
-            
-            # Ensure start_index is always before stop_index
-            if start_index > stop_index:
-                start_index, stop_index = stop_index, start_index
- 
-            # --- PURE PRE-TRIGGER BASELINE ---
-            lookback_size = 40
-            baseline_start = max(0, start_index - lookback_size - 15)
-            baseline_end = max(0, start_index - 15)
-            if (baseline_end - baseline_start) < 15:
-                baseline_start = 0
-                baseline_end = 40
-                
-            baseline_sum = 0.0
-            for i in range(baseline_start, baseline_end):
-                baseline_sum += raw_data.getDouble(i)
-            baseline_avg = baseline_sum / float(baseline_end - baseline_start)
-            
-            # --- FIXED WINDOW ACCUMULATED INTEGRAL ---
-            charge_profile = [0.0] * total_samples
-            running_area = 0.0
-            final_frozen_charge = 0.0
-
-            for idx in range(0, total_samples - 1):
-                # 1. Before Marker 1: Lock flat at exactly zero
-                if idx < start_index:
-                    running_area = 0.0
-                    charge_profile[idx] = 0.0
-                    
-                # 2. Between Marker 1 and Marker 2: Actively integrate the pulse
-                elif idx >= start_index and idx < stop_index:
-                    y1 = raw_data.getDouble(idx) - baseline_avg
-                    y2 = raw_data.getDouble(idx + 1) - baseline_avg
-                    running_area += (y1 + y2) / 2.0
-                    
-                    v_secs = running_area * dt
-                    current_charge = (v_secs * 1e12 * attenuation_factor) / cal_factor
-                    charge_profile[idx] = current_charge
-                    final_frozen_charge = current_charge  
-                    
-                # 3. After Marker 2: Freeze math completely and hold a stable plateau
-                else:
-                    charge_profile[idx] = final_frozen_charge
- 
-            # Protect final array element boundary safely
-            charge_profile[-1] = charge_profile[-2]
-            
-            # --- INDEX 4: WRITE TO THE CORRECT WAVEFORM PV (loc://fct01_integral_out) ---
-            if len(pvs) > 4:
-                try:
-                    java_array = array(charge_profile, 'd')
-                    pvs[4].write(java_array) 
-                except Exception as plot_err:
-                    print("Lower Graph data frame write deferred: " + str(plot_err))
-                         
-except Exception as e:
-    print("Script Execution Error: " + str(e))]]></text>
-        <pv_name>LEL:DIA:FCT01:AI0:AVG</pv_name>
-        <pv_name trigger="false">loc://m1</pv_name>
-        <pv_name trigger="false">loc://m2</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
-        <pv_name trigger="false">loc://fct01_integral_out[2048](0.0)</pv_name>
-        <pv_name trigger="false">loc://microbunch_integral_array[](0)</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:OFS_SP</pv_name>
-        <pv_name trigger="false">loc://fct01_window_ns(0.0)</pv_name>
-      </script>
-    </scripts>
     <x_axis>
       <title>Samples [n]</title>
       <autoscale>true</autoscale>
