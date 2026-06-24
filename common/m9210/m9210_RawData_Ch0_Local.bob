@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-22 17:40:27 by georg-->
+<!--Saved on 2026-06-24 11:29:38 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>0</LOCAL_CH>
@@ -141,6 +141,7 @@
       <script file="EmbeddedPy" check_connections="false">
         <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
 from jarray import array
+import math  # Used for baseline noise standard deviation calculation
 
 try:
     # --- INDEX 0: Raw waveform signal data array ---
@@ -151,37 +152,44 @@ try:
         
         if raw_data is not None and raw_data.size() > 50:
             total_samples = raw_data.size()
-            attenuation_factor = 1.0
+            attenuation_factor = 1.0 
             
-            # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
+            # --- INDEX 3: CLKF_SP (Sampling Rate Clock Speed) ---
             try:
                 clk_val = PVUtil.getDouble(pvs[3])
             except Exception:
                 clk_val = 4.0 
             
-            if clk_val == 2.0:
-                cal_factor = 5.0
-            else:
-                cal_factor = 2.5   
-                
+            # --- DETECT TIME STEP DYNAMICALLY ---
             if clk_val < 100.0:
                 dt = 1.0 / (clk_val * 1e9)  
             else:
                 dt = 1.0 / clk_val          
             
+            # --- DYNAMIC MEMORY TRUNCATION SAFETY ---
+            valid_length = total_samples
+            for i in range(total_samples - 2, 10, -1):
+                if raw_data.getDouble(i) == raw_data.getDouble(i+1) == 0.0:
+                    valid_length = i
+                else:
+                    break
+            valid_length = max(100, min(valid_length, total_samples))
+
             # --- INDEX 1 & 2: Direct Absolute Local Markers ---
             m1_val = PVUtil.getDouble(pvs[1]) 
             m2_val = PVUtil.getDouble(pvs[2])   
             
-            start_index = max(0, min(int(round(m1_val)), total_samples - 2))
-            stop_index = max(0, min(int(round(m2_val)), total_samples - 1))
+            raw_m1, raw_m2 = m1_val, m2_val
+            
+            # Clamp markers strictly inside the working valid data window boundary
+            start_index = max(0, min(int(round(m1_val)), valid_length - 2))
+            stop_index = max(0, min(int(round(m2_val)), valid_length - 1))
             
             if start_index > stop_index:
                 start_index, stop_index = stop_index, start_index
  
-            # --- FIXED ABSOLUTE QUIET-ZONE BASELINE ---
-            # Locked permanently to the beginning of the trace buffer (samples 10 to 50).
-            # This completely decouples the baseline from marker movement.
+            # --- ANCHORED SAFE BASELINE (Indices 10 to 50) ---
+            # Stays at the clean beginning of the array, safe from marker movements
             baseline_start = 10
             baseline_end = 50
                 
@@ -190,69 +198,98 @@ try:
                 baseline_sum += raw_data.getDouble(i)
             baseline_avg = baseline_sum / float(baseline_end - baseline_start)
             
-            # --- INDEX 8: READ OF MANUAL HARDWARE TRIM KNOB ---
-            manual_offset = 0.0
-            if len(pvs) > 8:
-                try:
-                    manual_offset = PVUtil.getDouble(pvs[8]) 
-                except Exception:
-                    manual_offset = 0.0
+            # --- DIAGNOSTIC EXTRA: CALCULATE BASELINE NOISE ---
+            variance_sum = 0.0
+            for i in range(baseline_start, baseline_end):
+                variance_sum += (raw_data.getDouble(i) - baseline_avg) ** 2
+            baseline_rms_noise = math.sqrt(variance_sum / float(baseline_end - baseline_start))
             
-            # --- FIXED WINDOW ACCUMULATED INTEGRAL ---
+            # --- DIAGNOSTIC EXTRA: WAVEFORM MINIMUM SEARCH ---
+            min_val = 1e9
+            min_idx = 0
+            for i in range(valid_length):
+                val = raw_data.getDouble(i)
+                if val < min_val:
+                    min_val = val
+                    min_idx = i
+            
+            # --- VISUAL ARRAY SNAPSHOT LOGGING ---
+            print("\n--- RAW VOLTAGE SNAPSHOT (Every 20th Sample inside Gate) ---")
+            step = max(1, (stop_index - start_index) // 20)
+            for idx in range(start_index, stop_index, step):
+                raw_val = raw_data.getDouble(idx)
+                corrected_val = raw_val - baseline_avg
+                print("Index {:4d} | Raw Volts: {:.6f} V | Baseline Corrected: {:.6f} V".format(idx, raw_val, corrected_val))
+            print("------------------------------------------------------------")
+            
+            # --- FIXED PARAMETERS FROM SENSITIVITY CALIBRATION ---
+            S_FACTOR = 5.0  # Certified Sensitivity Coefficient in V*s/C
+            
+            # --- GATED AREA INTEGRATION LOOP ---
             charge_profile = [0.0] * total_samples
             running_area = 0.0
             final_frozen_charge = 0.0
 
             for idx in range(0, total_samples - 1):
-                if idx < start_index:
-                    running_area = 0.0
-                    charge_profile[idx] = 0.0
-                    
-                elif idx >= start_index and idx < stop_index:
-                    y1 = raw_data.getDouble(idx) - (baseline_avg + manual_offset)
-                    y2 = raw_data.getDouble(idx + 1) - (baseline_avg + manual_offset)
+                y1 = raw_data.getDouble(idx) - baseline_avg
+                y2 = raw_data.getDouble(idx + 1) - baseline_avg
+                
+                # Only accumulate area if we are inside the gate bounds
+                if idx >= start_index and idx < stop_index:
                     running_area += (y1 + y2) / 2.0
                     
-                    v_secs = running_area * dt
-                    current_charge = (v_secs * 1e12 * attenuation_factor) / cal_factor
-                    charge_profile[idx] = current_charge
-                    final_frozen_charge = current_charge  
-                    
-                else:
-                    charge_profile[idx] = final_frozen_charge
+                v_secs = running_area * dt
+                
+                # CORRECT PHYSICAL FORMULA: Q = (V*s / S) * 1e12 to get pC
+                current_charge = (v_secs / S_FACTOR) * 1e12 * attenuation_factor
+                charge_profile[idx] = current_charge
+                
+                if idx == stop_index - 1:
+                    final_frozen_charge = current_charge
  
             charge_profile[-1] = charge_profile[-2]
             
-            # --- UPDATE THE TEXT READOUT LABEL WIDGET ---
-            widget.setPropertyValue("text", "1.01e-10 Vs | {:.2f} pC".format(final_frozen_charge))
+            # --- COMPREHENSIVE DEBUG CONSOLE LOGGING ---
+            print("================== DIGITIZER DEBUG REPORT ==================")
+            print("CH1 Array Total Size     : {} samples".format(total_samples))
+            print("Clock Frequency PV       : {} GHz (dt = {:.3e} sec)".format(clk_val, dt))
+            print("UI Markers (Raw Request) : M1 = {:.1f}, M2 = {:.1f}".format(raw_m1, raw_m2))
+            print("UI Markers (Clamped/Used): Start = {}, Stop = {} (Width = {} samples)".format(start_index, stop_index, stop_index - start_index))
+            print("------------------------------------------------------------")
+            print("Baseline Window Range    : Indices {} to {}".format(baseline_start, baseline_end))
+            print("Baseline DC Offset level : {:.6f} V".format(baseline_avg))
+            print("Baseline RMS Noise Floor : {:.6f} V".format(baseline_rms_noise))
+            print("------------------------------------------------------------")
+            print("Waveform Absolute Min    : {:.6f} V at index {}".format(min_val, min_idx))
+            print("Signal Voltage Peak-to-B : {:.6f} V".format(min_val - baseline_avg))
+            print("Integrated Area (Raw V*s): {:.6e} V*s".format(running_area * dt))
+            print("Calculated Target Charge : {:.4f} pC".format(final_frozen_charge))
+            print("============================================================\n")
             
-            # --- INDEX 4: WRITE TO THE WAVEFORM GRAPH PV ---
+            # --- UPDATE THE TEXT READOUT LABEL WIDGET ---
+            widget.setPropertyValue("text", "{:.2f} pC".format(final_frozen_charge))
+            
+            # --- INDEX 4: WRITE TO THE WAVEFORM GRAPH ARRAY PV ---
             if len(pvs) > 4:
                 try:
                     java_array = array(charge_profile, 'd')
                     pvs[4].write(java_array) 
                 except Exception as plot_err:
-                    print("Lower Graph data frame write deferred: " + str(plot_err))
-                    
-            # --- INDEX 5: WRITE OUT TO SCALAR NETWORK PV ---
-            if len(pvs) > 5:
-                try:
-                    pvs[5].write(float(final_frozen_charge))
-                except Exception as write_err:
-                    print("Scalar network write deferred: " + str(write_err))
+                    print("Graph profile write failed: " + str(plot_err))
                          
 except Exception as e:
-    widget.setPropertyValue("text", "ERR")]]></text>
+    widget.setPropertyValue("text", "ERR: " + str(e))
+]]></text>
         <pv_name>LEL:DIA:FCT01:AI0:AVG</pv_name>
         <pv_name>loc://m1</pv_name>
         <pv_name>loc://m2</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:CLKF_SP</pv_name>
         <pv_name trigger="false">loc://fct01_integral_out[2048](0.0)</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:CHARGE_FINAL</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:ATT_RB</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:TCNT</pv_name>
         <pv_name trigger="false">LEL:DIA:FCT01:AI0:OFS_SP</pv_name>
-        <pv_name trigger="false">LEL:DIA:FCT01:K_OFFSET</pv_name>
+        <pv_name trigger="false">LEL:DIA:FCT01:AI0:RNG_RB</pv_name>
       </script>
     </scripts>
   </widget>
@@ -286,7 +323,7 @@ except Exception as e:
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>time_window_display</name>
-    <pv_name>=( `LEL:DIA:FCT01:CLKF_RB` &lt; 3 ) ? ( (`loc://m2`-`loc://m1`)*0.5 ) : ( (`loc://m2`-`loc://m1`)*0.25 )</pv_name>
+    <pv_name>=( `loc://m2` - `loc://m1` ) / `LEL:DIA:FCT01:CLKF_RB`</pv_name>
     <x>121</x>
     <y>3</y>
     <width>69</width>
