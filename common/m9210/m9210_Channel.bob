@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-26 08:46:35 by georg-->
+<!--Saved on 2026-06-19 10:43:30 by georg-->
 <display version="2.0.0">
   <width>300</width>
   <height>400</height>
@@ -89,7 +89,7 @@
     <x>3</x>
     <y>165</y>
     <width>59</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -117,7 +117,7 @@
     <x>43</x>
     <y>205</y>
     <width>32</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -175,7 +175,7 @@ if len(pvs) > 0 and pvs[0] is not None:
     
     # If the 4th part is an Analog Input (like AI0, AI1), drop it to get the core card base
     if "AI" in pv_parts[3]:
-        base_channel_prefix = ":".join(pv_parts[0:3]) # Yields "LEL:DIA:FCT02"
+        base_channel_prefix = ":".join(pv_parts[0:3]) # Yields "LEL:DIA:FCT01"
     else:
         base_channel_prefix = ":".join(pv_parts[0:4])
         
@@ -266,7 +266,7 @@ Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
     <x>41</x>
     <y>245</y>
     <width>34</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -323,7 +323,7 @@ Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
     <x>22</x>
     <y>125</y>
     <width>48</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -395,7 +395,7 @@ Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
     <x>41</x>
     <y>49</y>
     <width>33</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -423,7 +423,7 @@ Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
     <x>135</x>
     <y>95</y>
     <width>17</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -633,7 +633,7 @@ Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
     <x>203</x>
     <y>95</y>
     <width>51</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -661,7 +661,7 @@ Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
     <x>34</x>
     <y>330</y>
     <width>75</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -689,7 +689,7 @@ Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
     <x>22</x>
     <y>370</y>
     <width>83</width>
-    <height>17</height>
+    <height>16</height>
     <font>
       <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
       </font>
