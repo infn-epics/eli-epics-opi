@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-22 16:20:39 by michelottilabs-->
 <display version="2.0.0">
   <name>Launcher</name>
   <width>2410</width>
@@ -298,8 +297,8 @@
                         <target>window</target>
                       </action>
                     </actions>
-                    <x>22</x>
-                    <y>808</y>
+                    <x>42</x>
+                    <y>688</y>
                     <width>240</width>
                     <height>60</height>
                     <tooltip>$(actions)</tooltip>
@@ -319,7 +318,7 @@
                     <x>32</x>
                     <y>488</y>
                     <width>190</width>
-                    <height>230</height>
+                    <height>160</height>
                   </widget>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_21</name>
@@ -331,7 +330,7 @@
                     <x>302</x>
                     <y>478</y>
                     <width>190</width>
-                    <height>220</height>
+                    <height>160</height>
                   </widget>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_22</name>
@@ -343,7 +342,7 @@
                     <x>562</x>
                     <y>468</y>
                     <width>190</width>
-                    <height>220</height>
+                    <height>160</height>
                   </widget>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_23</name>
@@ -355,7 +354,7 @@
                     <x>762</x>
                     <y>468</y>
                     <width>190</width>
-                    <height>220</height>
+                    <height>160</height>
                   </widget>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_26</name>
@@ -364,10 +363,10 @@
                       <R>SCN05:MOT01</R>
                     </macros>
                     <file>common/motor-tml/flag-simple.bob</file>
-                    <x>832</x>
-                    <y>688</y>
+                    <x>812</x>
+                    <y>618</y>
                     <width>190</width>
-                    <height>220</height>
+                    <height>160</height>
                   </widget>
                   <widget type="embedded" version="2.0.0">
                     <name>Embedded Display_27</name>
@@ -379,7 +378,7 @@
                     <x>1032</x>
                     <y>588</y>
                     <width>190</width>
-                    <height>230</height>
+                    <height>160</height>
                   </widget>
                 </children>
               </tab>
@@ -704,6 +703,7 @@
             <y>2</y>
             <width>1880</width>
             <height>910</height>
+            <active_tab>1</active_tab>
             <direction>1</direction>
           </widget>
         </children>
@@ -884,7 +884,6 @@
                   <macros>
                     <ZONE>M1</ZONE>
                     <PLTFILE>../../ini/plt/M1vac.plt</PLTFILE>
-                    <IMGFILE>../../img/M1.png</IMGFILE>
                   </macros>
                   <group_name></group_name>
                 </tab>
@@ -894,7 +893,6 @@
                   <macros>
                     <ZONE>M2</ZONE>
                     <PLTFILE>../../ini/plt/M2vac.plt</PLTFILE>
-                    <IMGFILE>../../img/M2.png</IMGFILE>
                   </macros>
                   <group_name></group_name>
                 </tab>
@@ -904,7 +902,6 @@
                   <macros>
                     <ZONE>M3</ZONE>
                     <PLTFILE>../../ini/plt/M3vac.plt</PLTFILE>
-                    <IMGFILE>../../img/M1.png</IMGFILE>
                   </macros>
                   <group_name></group_name>
                 </tab>
@@ -914,65 +911,12 @@
                   <macros>
                     <ZONE>M4</ZONE>
                     <PLTFILE>../../ini/plt/M4vac.plt</PLTFILE>
-                    <IMGFILE>../../img/M4.png</IMGFILE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>WGS01+M1</name>
-                  <file>VAC/vac-opi/Vac_double.bob</file>
-                  <macros>
-                    <PLTFILE1>../../ini/plt/WGS01vac.plt</PLTFILE1>
-                    <PLTFILE2>../../ini/plt/M1vac.plt</PLTFILE2>
-                    <IMGFILE1>../../img/WGS01-664x340-Layout.png</IMGFILE1>
-                    <IMGFILE2>../../img/M1.png</IMGFILE2>
-                    <ZONE1>WGS01</ZONE1>
-                    <ZONE2>M1</ZONE2>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>WGS02+M2</name>
-                  <file>VAC/vac-opi/Vac_double.bob</file>
-                  <macros>
-                    <PLTFILE1>../../ini/plt/WGS02vac.plt</PLTFILE1>
-                    <PLTFILE2>../../ini/plt/M2vac.plt</PLTFILE2>
-                    <IMGFILE1>../../img/WGS02-664x340-Layout.png</IMGFILE1>
-                    <IMGFILE2>../../img/M2.png</IMGFILE2>
-                    <ZONE1>WGS02</ZONE1>
-                    <ZONE2>M2</ZONE2>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>WGS03+M3</name>
-                  <file>VAC/vac-opi/Vac_double.bob</file>
-                  <macros>
-                    <PLTFILE1>../../ini/plt/WGS03vac.plt</PLTFILE1>
-                    <PLTFILE2>../../ini/plt/M3vac.plt</PLTFILE2>
-                    <IMGFILE1>../../img/WGS03-664x340-Layout.png</IMGFILE1>
-                    <IMGFILE2>../../img/M3.png</IMGFILE2>
-                    <ZONE1>WGS03</ZONE1>
-                    <ZONE2>M3</ZONE2>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>WGC01+M4</name>
-                  <file>VAC/vac-opi/Vac_double.bob</file>
-                  <macros>
-                    <PLTFILE1>../../ini/plt/WGC01vac.plt</PLTFILE1>
-                    <PLTFILE2>../../ini/plt/M4vac.plt</PLTFILE2>
-                    <IMGFILE1>../../img/WGC01-664x340-Layout.png</IMGFILE1>
-                    <IMGFILE2>../../img/M4.png</IMGFILE2>
-                    <ZONE1>WGC01</ZONE1>
-                    <ZONE2>M4</ZONE2>
                   </macros>
                   <group_name></group_name>
                 </tab>
               </tabs>
               <x>2</x>
-              <y>3</y>
+              <y>2</y>
               <width>1880</width>
               <height>860</height>
             </widget>
@@ -1663,7 +1607,6 @@
       <color red="214" green="223" blue="225">
       </color>
     </background_color>
-    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label</name>
@@ -1694,28 +1637,5 @@
       <point x="0.0" y="0.0">
       </point>
     </points>
-  </widget>
-  <widget type="action_button" version="3.0.0">
-    <name>Action Button_8</name>
-    <actions>
-      <action type="open_display">
-        <description>Laser</description>
-        <file>common/amplitude-laser/amplitude-laser-centroid-dashboard.bob</file>
-        <target>tab</target>
-      </action>
-    </actions>
-    <x>770</x>
-    <y>10</y>
-    <width>130</width>
-    <height>50</height>
-    <font>
-      <font family="Liberation Sans" style="BOLD" size="14.0">
-      </font>
-    </font>
-    <foreground_color>
-      <color name="MAJOR" red="255" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <tooltip>$(actions)</tooltip>
   </widget>
 </display>

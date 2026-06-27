@@ -72,14 +72,11 @@
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template</name>
-            <file>m9210_RawData_Ch.bob</file>
+            <file>m9210_RawData_Ch0.bob</file>
             <y>4</y>
             <width>788</width>
             <height>836</height>
             <transparent>true</transparent>
-            <macros>
-              <CHAN>0</CHAN>
-                          </macros>
             <actions>
             </actions>
             <border_color>
@@ -94,14 +91,11 @@
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template</name>
-            <file>m9210_RawData_Ch_Local.bob</file>
+            <file>m9210_RawData_Ch0_Local.bob</file>
             <y>5</y>
             <width>788</width>
             <height>836</height>
             <transparent>true</transparent>
-            <macros>
-              <CHAN>0</CHAN>
-              </macros>
             <actions>
             </actions>
             <border_color>
@@ -116,36 +110,11 @@
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template_1</name>
-            <file>m9210_RawData_Ch_Local.bob</file>
+            <file>m9210_RawData_Ch1_Local.bob</file>
             <y>5</y>
             <width>841</width>
             <height>867</height>
             <transparent>true</transparent>
-            <macros>
-              <CHAN>1</CHAN>
-            </macros>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Integral Ch0</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Integral_Ch0_Embed</name>
-            <file>m9210_Integral_Ch.bob</file>
-            <y>4</y>
-            <width>788</width>
-            <height>520</height>
-            <transparent>true</transparent>
-            <macros>
-              <CHAN>0</CHAN>
-              </macros>
             <actions>
             </actions>
             <border_color>
@@ -160,7 +129,7 @@
         <children>
           <widget type="textupdate" version="2.0.0">
             <name>Text Update</name>
-            <pv_name>$(DEVICE):AI0:CHARGE_FINAL</pv_name>
+            <pv_name>LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
             <x>328</x>
             <y>505</y>
             <width>120</width>
@@ -201,7 +170,7 @@
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
-    <active_tab>7</active_tab>
+    <active_tab>6</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>

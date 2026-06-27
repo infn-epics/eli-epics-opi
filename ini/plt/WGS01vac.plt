@@ -18,8 +18,8 @@
     <green>255</green>
     <blue>255</blue>
   </background>
-  <title_font>Liberation Sans|20|1</title_font>
-  <label_font>Liberation Sans|14|1</label_font>
+  <title_font>Liberation Sans|18|1</title_font>
+  <label_font>Liberation Sans|12|1</label_font>
   <scale_font>Liberation Sans|12|0</scale_font>
   <legend_font>Liberation Sans|14|0</legend_font>
   <axes>
@@ -76,7 +76,7 @@
       <axis>0</axis>
       <color>
         <red>0</red>
-        <green>255</green>
+        <green>155</green>
         <blue>0</blue>
       </color>
       <trace_type>AREA</trace_type>
@@ -152,7 +152,7 @@
       <color>
         <red>127</red>
         <green>0</green>
-        <blue>255</blue>
+        <blue>197</blue>
       </color>
       <trace_type>AREA</trace_type>
       <linewidth>2</linewidth>
@@ -176,8 +176,8 @@
       <axis>0</axis>
       <color>
         <red>0</red>
-        <green>255</green>
-        <blue>255</blue>
+        <green>155</green>
+        <blue>200</blue>
       </color>
       <trace_type>AREA</trace_type>
       <linewidth>2</linewidth>
