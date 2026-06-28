@@ -3,7 +3,7 @@
 <display version="2.0.0">
   <name>Integral View Ch0 - DB only</name>
   <width>780</width>
-  <height>500</height>
+  <height>530</height>
   <background_color>
     <color name="IO Grid" red="215" green="215" blue="215">
     </color>
@@ -228,10 +228,50 @@
       </font>
     </font>
   </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_KCAL</name>
+    <text>Cal. factor (K):</text>
+    <x>5</x>
+    <y>68</y>
+    <width>120</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>KCAL_Entry</name>
+    <pv_name>$(DEVICE):K_OFFSET_CALC</pv_name>
+    <x>128</x>
+    <y>65</y>
+    <width>90</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>4</precision>
+    <border_width>2</border_width>
+    <tooltip>Calibration constant: replaces hardcoded 2.5 in CHARGE_FINAL = ((baseline-corrected_mean)*N*dt*1e12) / K</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_KCAL_hint</name>
+    <text>(default 2.5 — divides V·s integral to get pC)</text>
+    <x>225</x>
+    <y>68</y>
+    <width>320</width>
+    <height>22</height>
+  </widget>
   <widget type="xyplot" version="3.0.0">
     <name>Plot_RawSignal</name>
     <x>23</x>
-    <y>70</y>
+    <y>100</y>
     <width>734</width>
     <height>360</height>
     <foreground_color>
@@ -333,7 +373,7 @@
     <name>Label_SUM_Bottom</name>
     <text>Signal mean in window:</text>
     <x>23</x>
-    <y>448</y>
+    <y>478</y>
     <width>165</width>
     <height>22</height>
     <font>
@@ -345,7 +385,7 @@
     <name>SUM_WAVE_Bottom</name>
     <pv_name>$(DEVICE):AI$(CHAN):SUM_WAVE</pv_name>
     <x>193</x>
-    <y>445</y>
+    <y>475</y>
     <width>110</width>
     <height>28</height>
     <font>
@@ -367,7 +407,7 @@
     <name>Label_SUM_EGU</name>
     <text>V</text>
     <x>308</x>
-    <y>448</y>
+    <y>478</y>
     <width>20</width>
     <height>22</height>
     <font>
@@ -379,7 +419,7 @@
     <name>Label_WSIZE_Bottom</name>
     <text>Window:</text>
     <x>345</x>
-    <y>448</y>
+    <y>478</y>
     <width>65</width>
     <height>22</height>
     <font>
@@ -391,7 +431,7 @@
     <name>WSIZE_Bottom</name>
     <pv_name>$(DEVICE):AI$(CHAN):INT_WSIZE</pv_name>
     <x>413</x>
-    <y>445</y>
+    <y>475</y>
     <width>60</width>
     <height>28</height>
     <font>
@@ -413,7 +453,7 @@
     <name>Label_WSIZE_EGU</name>
     <text>smp</text>
     <x>478</x>
-    <y>448</y>
+    <y>478</y>
     <width>35</width>
     <height>22</height>
     <font>
@@ -425,7 +465,7 @@
     <name>Label_DT_Bottom</name>
     <text>dt:</text>
     <x>525</x>
-    <y>448</y>
+    <y>478</y>
     <width>28</width>
     <height>22</height>
     <font>
@@ -437,7 +477,7 @@
     <name>DT_Bottom</name>
     <pv_name>$(DEVICE):AI$(CHAN):INT_DT</pv_name>
     <x>557</x>
-    <y>445</y>
+    <y>475</y>
     <width>110</width>
     <height>28</height>
     <font>
@@ -459,7 +499,7 @@
     <name>Label_DT_EGU</name>
     <text>s</text>
     <x>672</x>
-    <y>448</y>
+    <y>478</y>
     <width>20</width>
     <height>22</height>
     <font>
