@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-04-28 16:36:56 by georg-->
 <display version="2.0.0">
   <name>timing_demo</name>
   <width>1800</width>
@@ -22,6 +21,14 @@
             <TITLE>BPM &amp; CAM 0-1 Delays</TITLE>
           </macros>
           <group_name>Diag 1</group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
         </tab>
         <tab>
           <name>CAM</name>
@@ -31,6 +38,14 @@
             <TITLE>Cam 2-6 Timing Delay</TITLE>
           </macros>
           <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
         </tab>
         <tab>
           <name>ADC</name>
@@ -40,6 +55,14 @@
             <TITLE>ADC Timing Delay</TITLE>
           </macros>
           <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
         </tab>
         <tab>
           <name>Laser</name>
@@ -49,6 +72,14 @@
             <TITLE>Laser Delays</TITLE>
           </macros>
           <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
         </tab>
         <tab>
           <name>LLRF</name>
@@ -58,6 +89,14 @@
             <TITLE>LLRF Timing Delays</TITLE>
           </macros>
           <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
         </tab>
         <tab>
           <name>RF Driver</name>
@@ -67,6 +106,14 @@
             <TITLE>RF Driver Delays</TITLE>
           </macros>
           <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
         </tab>
         <tab>
           <name>RF Modulator</name>
@@ -76,6 +123,14 @@
             <TITLE>Modulator Delays</TITLE>
           </macros>
           <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
         </tab>
       </tabs>
       <x>5</x>
@@ -97,13 +152,13 @@
       <name>Generator</name>
       <actions>
         <action type="open_display">
+          <description>Generator</description>
           <file>timing/mrf230-opi/evg-230.bob</file>
           <macros>
             <R>TMG</R>
             <TITLE>Master Timing Generator</TITLE>
           </macros>
           <target>window</target>
-          <description>Generator</description>
         </action>
       </actions>
       <text>Generator</text>
@@ -116,6 +171,65 @@
         </font>
       </font>
       <tooltip>Save current configuration to file</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Delay Snapshot</name>
+    <macros>
+      <P>LEL:TIM</P>
+    </macros>
+    <x>1225</x>
+    <y>5</y>
+    <width>220</width>
+    <height>105</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_2_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="Header_2_Background" red="114" green="159" blue="207">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Group_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <widget type="action_button" version="3.0.0">
+      <name>SaveAllDelaysBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Save all delays</description>
+          <script file="scripts/SaveAllDelays.py">
+          </script>
+        </action>
+      </actions>
+      <text>Save All Delays</text>
+      <x>10</x>
+      <y>18</y>
+      <width>198</width>
+      <height>25</height>
+      <tooltip>Save Delay-SP and Width-SP for all EVR tabs to a CSV file</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>RestoreAllDelaysBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Restore all delays</description>
+          <script file="scripts/RestoreAllDelays.py">
+          </script>
+        </action>
+      </actions>
+      <text>Restore All Delays</text>
+      <x>10</x>
+      <y>48</y>
+      <width>198</width>
+      <height>25</height>
+      <tooltip>Load a CSV snapshot, review differences, then restore all delays</tooltip>
     </widget>
   </widget>
   <widget type="group" version="3.0.0">

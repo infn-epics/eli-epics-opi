@@ -313,7 +313,7 @@ record(ao, "$(PREFIX,undefined):AI$(IDX):SET_END_IDX") {
 
 record(ao, "$(PREFIX,undefined):K_OFFSET_CALC") {
 	field(DESC, "Calibration constant (replaces hardcoded 2.5 in CHARGE_FINAL)")
-	field(VAL,  "2.5")
+	field(VAL,  "5")
 	field(PINI, "YES")
 	field(PREC, "4")
 	field(HOPR, "100")

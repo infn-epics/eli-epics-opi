@@ -9,6 +9,8 @@ PHOEBUS="phoebus"
 if [ "$ARCH" == "Darwin" ];then
     export JAVA_HOME=/Applications/CSS_Phoebus.app/jdk/Contents/Home/
     for jar_path in \
+        "/Applications/CSS_Phoebus.app/product.jar" \
+        "/Applications/CSS_Phoebus.app/product-6.0.0-SNAPSHOT/product-6.0.0-SNAPSHOT.jar" \
         "/Applications/CSS_Phoebus.app/product-4.7.4-INFN/product-4.7.4-INFN.jar" \
         "/Applications/CSS_Phoebus.app/product-4.7.3/product-4.7.3.jar" \
         "/Applications/CSS_Phoebus.app/phoebus-4.7.3-SNAPSHOT/product-4.7.3-SNAPSHOT.jar" \
