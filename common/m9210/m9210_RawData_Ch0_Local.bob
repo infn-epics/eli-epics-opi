@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-30 09:59:40 by georg-->
+<!--Saved on 2026-06-30 14:19:51 by georg-->
 <display version="2.0.0">
   <macros>
     <LOCAL_CH>0</LOCAL_CH>
@@ -229,7 +229,7 @@ try:
             print("------------------------------------------------------------")
             
             # --- FIXED SENSITIVITY CALIBRATION FACTOR ---
-            S_FACTOR = 10.0
+            S_FACTOR = 5.0
             
             # --- GATED AREA INTEGRATION LOOP ---
             charge_profile = [0.0] * total_samples
