@@ -202,8 +202,8 @@
       <color name="IO Background" red="255" green="255" blue="205">
       </color>
     </background_color>
-    <format>2</format>
-    <precision>3</precision>
+    <format>1</format>
+    <precision>2</precision>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_CF_EGU</name>
@@ -247,8 +247,8 @@
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
-    <format>2</format>
-    <precision>5</precision>
+    <format>1</format>
+    <precision>2</precision>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_RATE</name>
