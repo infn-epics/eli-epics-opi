@@ -325,16 +325,67 @@ record(calc, "$(PREFIX,undefined):AI$(IDX):INT_DT") {
 	field(DESC, "Calculate dt step size")
 	field(INPA, "$(PREFIX,undefined):CLKF_SP NPP")
 	field(CALC, "A<100?(1.0/(A*1e9)):(1.0/A)")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE")
+}
+
+# 2. Configurable baseline window (indices settable from OPI)
+record(ao, "$(PREFIX,undefined):AI$(IDX):SET_BASE_START_IDX") {
+	field(DESC, "Baseline window start index")
+	field(VAL,  "100")
+	field(PINI, "YES")
+	field(DRVL, "0")
+	field(DRVH, "2047")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE")
+}
+
+record(ao, "$(PREFIX,undefined):AI$(IDX):SET_BASE_END_IDX") {
+	field(DESC, "Baseline window end index")
+	field(VAL,  "200")
+	field(PINI, "YES")
+	field(DRVL, "0")
+	field(DRVH, "2047")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE")
+}
+
+record(calc, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE") {
+	field(DESC, "Baseline window width")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):SET_BASE_END_IDX NPP")
+	field(INPB, "$(PREFIX,undefined):AI$(IDX):SET_BASE_START_IDX NPP")
+	field(CALC, "(A-B)<=0?1:NINT(A-B)")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_INDX")
+}
+
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_INDX") {
+	field(DESC, "Push baseline start index into subArray")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):SET_BASE_START_IDX NPP")
+	field(CALC, "NINT(A)")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):INT_BASE.INDX NPP")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_NELM")
+}
+
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_NELM") {
+	field(DESC, "Push baseline window length into subArray")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE NPP")
+	field(CALC, "A")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):INT_BASE.NELM NPP")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_AVGN")
+}
+
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_AVGN") {
+	field(DESC, "Push baseline window length into compress N")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE NPP")
+	field(CALC, "A")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):INT_BASE_AVG.N NPP")
 	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE")
 }
 
-# 2. Slice fixed pre-pulse baseline window (points 700 to 749)
+# 2b. Slice baseline window (INDX/NELM set dynamically by push chain above) (points 700 to 749)
 record(subArray, "$(PREFIX,undefined):AI$(IDX):INT_BASE") {
 	field(DESC, "Slice baseline reference window")
 	field(INP,  "$(PREFIX,undefined):AI$(IDX):AVG NPP")
 	field(FTVL, "DOUBLE")
 	field(MALM, "2048")
-	field(INDX, "700")
+	field(INDX, "100")
 	field(NELM, "50")
 	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_AVG")
 }
@@ -412,7 +463,7 @@ record(calc, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL") {
 	field(INPD, "$(PREFIX,undefined):AI$(IDX):INT_DT NPP")
 	field(INPE, "$(PREFIX,undefined):AI$(IDX):OFS_SP NPP")
 	field(INPF, "$(PREFIX,undefined):K_OFFSET_CALC NPP")
-	field(CALC, "((C+E-A)*B)*D*1e12/F")
+	field(CALC, "((A-C-E)*B)*D*1e12/F")
 	field(EGU,  "pC")
 	field(PREC, "4")
 	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_GRAPH_SLICE")
