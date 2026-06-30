@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-06-19 15:12:25 by georg-->
 <display version="2.0.0">
   <name>Display</name>
   <width>950</width>
@@ -72,14 +71,14 @@
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template</name>
+            <macros>
+              <CHAN>0</CHAN>
+            </macros>
             <file>m9210_RawData_Ch.bob</file>
             <y>4</y>
             <width>788</width>
             <height>836</height>
             <transparent>true</transparent>
-            <macros>
-              <CHAN>0</CHAN>
-                          </macros>
             <actions>
             </actions>
             <border_color>
@@ -94,14 +93,14 @@
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template</name>
+            <macros>
+              <CHAN>0</CHAN>
+            </macros>
             <file>m9210_RawData_Ch_Local.bob</file>
             <y>5</y>
             <width>788</width>
             <height>836</height>
             <transparent>true</transparent>
-            <macros>
-              <CHAN>0</CHAN>
-              </macros>
             <actions>
             </actions>
             <border_color>
@@ -116,14 +115,14 @@
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Linking Container Template_1</name>
+            <macros>
+              <CHAN>1</CHAN>
+            </macros>
             <file>m9210_RawData_Ch_Local.bob</file>
             <y>5</y>
             <width>841</width>
             <height>867</height>
             <transparent>true</transparent>
-            <macros>
-              <CHAN>1</CHAN>
-            </macros>
             <actions>
             </actions>
             <border_color>
@@ -138,14 +137,15 @@
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Integral_Ch0_Embed</name>
-            <file>m9210_Integral_Ch.bob</file>
-            <y>4</y>
-            <width>788</width>
-            <height>520</height>
-            <transparent>true</transparent>
             <macros>
               <CHAN>0</CHAN>
-              </macros>
+            </macros>
+            <file>m9210_Integral_Ch.bob</file>
+            <x>-2</x>
+            <y>5</y>
+            <width>838</width>
+            <height>841</height>
+            <transparent>true</transparent>
             <actions>
             </actions>
             <border_color>
@@ -201,7 +201,7 @@
       <color name="IO Grid" red="215" green="215" blue="215">
       </color>
     </background_color>
-    <active_tab>7</active_tab>
+    <active_tab>6</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>

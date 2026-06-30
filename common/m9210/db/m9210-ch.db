@@ -454,6 +454,24 @@ record(compress, "$(PREFIX,undefined):AI$(IDX):SUM_WAVE") {
 	field(FLNK, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL")
 }
 
+record(bo, "$(PREFIX,undefined):AI$(IDX):BASELINE_ENBL") {
+	field(DESC, "Enable baseline subtraction")
+	field(VAL,  "1")
+	field(PINI, "YES")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL")
+}
+
+record(ao, "$(PREFIX,undefined):AI$(IDX):USER_OFFSET") {
+	field(DESC, "User offset added to integral (pC)")
+	field(VAL,  "0.0")
+	field(PINI, "YES")
+	field(EGU,  "pC")
+	field(PREC, "4")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL")
+}
+
 # 10. Final Scaled Database Math
 record(calc, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL") {
 	field(DESC, "True Integrated Charge")
@@ -463,7 +481,9 @@ record(calc, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL") {
 	field(INPD, "$(PREFIX,undefined):AI$(IDX):INT_DT NPP")
 	field(INPE, "$(PREFIX,undefined):AI$(IDX):OFS_SP NPP")
 	field(INPF, "$(PREFIX,undefined):K_OFFSET_CALC NPP")
-	field(CALC, "((A-C-E)*B)*D*1e12/F")
+	field(INPG, "$(PREFIX,undefined):AI$(IDX):BASELINE_ENBL NPP")
+	field(INPH, "$(PREFIX,undefined):AI$(IDX):USER_OFFSET NPP")
+	field(CALC, "((A-C*G-E)*B)*D*1e12/F+H")
 	field(EGU,  "pC")
 	field(PREC, "4")
 	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_GRAPH_SLICE")
