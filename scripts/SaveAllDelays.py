@@ -14,7 +14,7 @@ if filename is not None:
     for R in EVRS:
         for N in range(4):
             base = P + ":" + R + ":Pul" + str(N) + "-"
-            for suffix in ["Delay-SP", "Width-SP", "Label-I"]:
+            for suffix in ["Delay-SP", "Width-SP", "Evt-Trig0-SP", "Label-I"]:
                 pvname = base + suffix
                 try:
                     pv = PVUtil.createPV(pvname, 1000)
