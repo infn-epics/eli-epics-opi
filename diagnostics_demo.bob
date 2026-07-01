@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-04-28 16:32:45 by georg-->
 <display version="2.0.0">
   <name>diagnostics_demo</name>
-  <width>1300</width>
-  <height>630</height>
+  <width>1400</width>
+  <height>780</height>
   <widget type="tabs" version="2.0.0">
     <name>DiagTools</name>
     <tabs>
@@ -19,9 +18,9 @@
             <height>590</height>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                 <target>replace</target>
-                <description>Open Display</description>
               </action>
             </actions>
           </widget>
@@ -29,13 +28,13 @@
             <name>MotorController</name>
             <actions>
               <action type="open_display">
+                <description>Motor Controller</description>
                 <file>common/motor-tml/TML.bob</file>
                 <macros>
                   <PREFIX>LEL:</PREFIX>
                   <CONFFILE>mot_list.ini</CONFFILE>
                 </macros>
                 <target>window</target>
-                <description>Motor Controller</description>
               </action>
             </actions>
             <x>72</x>
@@ -140,6 +139,7 @@
             <name>cameraInterfaceBase</name>
             <actions>
               <action type="open_display">
+                <description>Camera APP</description>
                 <file>common/camera/Camera.bob</file>
                 <macros>
                   <DEVICE>LEL</DEVICE>
@@ -147,7 +147,6 @@
                   <CONFFILE>cam_list.ini</CONFFILE>
                 </macros>
                 <target>window</target>
-                <description>Camera APP</description>
               </action>
             </actions>
             <text>CAMERA APP</text>
@@ -162,13 +161,13 @@
             <name>cameraInterfaceBase_1</name>
             <actions>
               <action type="open_display">
+                <description>Camera Scren APP</description>
                 <file>epik8s-opi/screen-camera-opi/CameraFull.bob</file>
                 <macros>
                   <DEVICE>LEL</DEVICE>
                   <CONFFILE>../../../deploy/values.yaml</CONFFILE>
                 </macros>
                 <target>window</target>
-                <description>Camera Scren APP</description>
               </action>
             </actions>
             <text>CAMERA Screen</text>
@@ -204,13 +203,13 @@
             <name>cameraInterfaceBase_2</name>
             <actions>
               <action type="open_display">
+                <description>Camera2 Screen APP</description>
                 <file>epik8s-opi/unicam-opi-v2/CameraV2.bob</file>
                 <macros>
                   <DEVICE>LEL</DEVICE>
                   <CONFFILE>../../../deploy/values.yaml</CONFFILE>
                 </macros>
                 <target>window</target>
-                <description>Camera2 Screen APP</description>
               </action>
             </actions>
             <text>CAMERA2 Screen</text>
@@ -234,9 +233,9 @@
             <height>590</height>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                 <target>replace</target>
-                <description>Open Display</description>
               </action>
             </actions>
           </widget>
@@ -260,12 +259,12 @@
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
+                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
-                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -289,12 +288,12 @@
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
+                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
-                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -318,12 +317,12 @@
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
+                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
-                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -347,12 +346,12 @@
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
+                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
-                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -376,12 +375,12 @@
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
+                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
-                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -394,12 +393,12 @@
             <name>Action Button_OpenOrbitSingle</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>epik8s-opi/unibpm-opi/orbitSingle.bob</file>
                 <macros>
                   <P>$(P=LEL:ORBIT)</P>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>ORBIT Single</text>
@@ -449,13 +448,211 @@
           </widget>
         </children>
       </tab>
+      <tab>
+        <name>ICT</name>
+        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_4</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>common/m9210/m9210_Main.bob</file>
+                <macros>
+                  <DEVICE>LEL:DIA:FCT01</DEVICE>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>ICT1</text>
+            <x>38</x>
+            <y>47</y>
+            <width>120</width>
+            <height>120</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_5</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>common/m9210/m9210_Main.bob</file>
+                <macros>
+                  <DEVICE>LEL:DIA:FCT02</DEVICE>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>ICT2</text>
+            <x>618</x>
+            <y>57</y>
+            <width>120</width>
+            <height>120</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update</name>
+            <pv_name>LEL:DIA:FCT01:AI0:CHARGE_FINAL</pv_name>
+            <x>138</x>
+            <y>247</y>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_1</name>
+            <pv_name>LEL:DIA:FCT02:AI0:CHARGE_FINAL</pv_name>
+            <x>618</x>
+            <y>247</y>
+            <width>120</width>
+          </widget>
+          <widget type="stripchart" version="2.1.0">
+            <name>Strip Chart</name>
+            <x>38</x>
+            <y>267</y>
+            <width>700</width>
+            <start>3 minute</start>
+            <traces>
+              <trace>
+                <name>$(traces[0].y_pv)</name>
+                <y_pv>LEL:DIA:FCT01:AI0:CHARGE_FINAL</y_pv>
+                <axis>0</axis>
+                <trace_type>2</trace_type>
+                <color>
+                  <color red="0" green="0" blue="255">
+                  </color>
+                </color>
+                <line_width>2</line_width>
+                <point_type>0</point_type>
+                <point_size>10</point_size>
+                <visible>true</visible>
+              </trace>
+              <trace>
+                <name>$(traces[1].y_pv)</name>
+                <y_pv>LEL:DIA:FCT02:AI0:CHARGE_FINAL</y_pv>
+                <axis>0</axis>
+                <trace_type>2</trace_type>
+                <color>
+                  <color red="255" green="0" blue="0">
+                  </color>
+                </color>
+                <line_width>2</line_width>
+                <point_type>0</point_type>
+                <point_size>10</point_size>
+                <visible>true</visible>
+              </trace>
+            </traces>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label</name>
+            <text>Charge ICT1</text>
+            <x>18</x>
+            <y>245</y>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="16.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_3</name>
+            <text>Charge ICT2</text>
+            <x>498</x>
+            <y>247</y>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="16.0">
+              </font>
+            </font>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Energy</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display</name>
+            <file>diag/energy/energy.bob</file>
+            <x>8</x>
+            <y>17</y>
+            <width>990</width>
+            <height>700</height>
+          </widget>
+          <widget type="image" version="2.0.0">
+            <name>CameraImage</name>
+            <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
+            <x>988</x>
+            <y>117</y>
+            <height>505</height>
+            <show_toolbar>true</show_toolbar>
+            <rules>
+              <rule name="interactive" prop_id="rois[0].interactive" out_exp="false">
+                <exp bool_exp="pv0&lt;1">
+                  <value>false</value>
+                </exp>
+                <pv_name>loc://roi_interactive(1)</pv_name>
+              </rule>
+            </rules>
+            <scripts>
+              <script file="Scripts/ImageScale.py">
+                <pv_name>loc://max_cmap</pv_name>
+              </script>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+# Get the value from the PV (first in the PV bindings list)
+show_roi = PVUtil.getDouble(pvs[0])
+
+# Set visibility
+if show_roi==0: 
+	 widget.setPropertyValue('rois[0].visible', False)
+else:
+	 widget.setPropertyValue('rois[0].visible', True)]]></text>
+                <pv_name>loc://showROI</pv_name>
+              </script>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+autoscale_value = PVUtil.getDouble(pvs[0])
+# Set auto-scale based on PV
+if autoscale_value==0: 
+	widget.setPropertyValue("autoscale", False)
+else:
+	widget.setPropertyValue("autoscale", True)
+]]></text>
+                <pv_name>loc://autoScale</pv_name>
+              </script>
+            </scripts>
+            <limits_from_pv>true</limits_from_pv>
+            <unsigned>true</unsigned>
+            <autoscale>false</autoscale>
+            <maximum>4095.0</maximum>
+            <cursor_info_pv>loc://cursor_info</cursor_info_pv>
+            <x_pv>loc://cursor_x</x_pv>
+            <y_pv>loc://cursor_y</y_pv>
+            <rois>
+              <roi>
+                <name>imageROI</name>
+                <color>
+                  <color red="255" green="168" blue="0">
+                  </color>
+                </color>
+                <visible>true</visible>
+                <interactive>true</interactive>
+                <x_pv>loc://roi_x(20)</x_pv>
+                <y_pv>loc://roi_y(20)</y_pv>
+                <width_pv>loc://roi_w(100)</width_pv>
+                <height_pv>loc://roi_h(100)</height_pv>
+                <file></file>
+              </roi>
+            </rois>
+          </widget>
+        </children>
+      </tab>
     </tabs>
     <width>1400</width>
-    <height>700</height>
+    <height>780</height>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
+    <active_tab>5</active_tab>
     <tab_height>25</tab_height>
   </widget>
 </display>
