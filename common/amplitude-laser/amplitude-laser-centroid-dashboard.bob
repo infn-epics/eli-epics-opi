@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-04-28 10:55:49 by georg-->
 <display version="2.0.0">
   <name>Amplitude Laser Centroid Dashboard</name>
   <macros>
@@ -297,10 +296,10 @@
     <show_toolbar>true</show_toolbar>
     <x_axis>
       <title>X</title>
-      <autoscale>true</autoscale>
+      <autoscale>false</autoscale>
       <log_scale>false</log_scale>
-      <minimum>-1.0</minimum>
-      <maximum>1.0</maximum>
+      <minimum>0.0</minimum>
+      <maximum>600.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -315,10 +314,10 @@
     <y_axes>
       <y_axis>
         <title>Y</title>
-        <autoscale>true</autoscale>
+        <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>-1.0</minimum>
-        <maximum>1.0</maximum>
+        <minimum>0.0</minimum>
+        <maximum>600.0</maximum>
         <show_grid>true</show_grid>
         <title_font>
           <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -580,10 +579,10 @@
     <show_toolbar>true</show_toolbar>
     <x_axis>
       <title>X</title>
-      <autoscale>true</autoscale>
+      <autoscale>false</autoscale>
       <log_scale>false</log_scale>
-      <minimum>-1.0</minimum>
-      <maximum>1.0</maximum>
+      <minimum>0.0</minimum>
+      <maximum>600.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -598,10 +597,10 @@
     <y_axes>
       <y_axis>
         <title>Y</title>
-        <autoscale>true</autoscale>
+        <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>-1.0</minimum>
-        <maximum>1.0</maximum>
+        <minimum>0.0</minimum>
+        <maximum>600.0</maximum>
         <show_grid>true</show_grid>
         <title_font>
           <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -863,10 +862,10 @@
     <show_toolbar>true</show_toolbar>
     <x_axis>
       <title>X</title>
-      <autoscale>true</autoscale>
+      <autoscale>false</autoscale>
       <log_scale>false</log_scale>
-      <minimum>-1.0</minimum>
-      <maximum>1.0</maximum>
+      <minimum>0.0</minimum>
+      <maximum>600.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -881,10 +880,10 @@
     <y_axes>
       <y_axis>
         <title>Y</title>
-        <autoscale>true</autoscale>
+        <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>-1.0</minimum>
-        <maximum>1.0</maximum>
+        <minimum>0.0</minimum>
+        <maximum>600.0</maximum>
         <show_grid>true</show_grid>
         <title_font>
           <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -1146,10 +1145,10 @@
     <show_toolbar>true</show_toolbar>
     <x_axis>
       <title>X</title>
-      <autoscale>true</autoscale>
+      <autoscale>false</autoscale>
       <log_scale>false</log_scale>
-      <minimum>-1.0</minimum>
-      <maximum>1.0</maximum>
+      <minimum>0.0</minimum>
+      <maximum>600.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -1164,10 +1163,10 @@
     <y_axes>
       <y_axis>
         <title>Y</title>
-        <autoscale>true</autoscale>
+        <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>-1.0</minimum>
-        <maximum>1.0</maximum>
+        <minimum>0.0</minimum>
+        <maximum>600.0</maximum>
         <show_grid>true</show_grid>
         <title_font>
           <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -1429,10 +1428,10 @@
     <show_toolbar>true</show_toolbar>
     <x_axis>
       <title>X</title>
-      <autoscale>true</autoscale>
+      <autoscale>false</autoscale>
       <log_scale>false</log_scale>
-      <minimum>-1.0</minimum>
-      <maximum>1.0</maximum>
+      <minimum>0.0</minimum>
+      <maximum>600.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -1447,10 +1446,10 @@
     <y_axes>
       <y_axis>
         <title>Y</title>
-        <autoscale>true</autoscale>
+        <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>-1.0</minimum>
-        <maximum>1.0</maximum>
+        <minimum>0.0</minimum>
+        <maximum>600.0</maximum>
         <show_grid>true</show_grid>
         <title_font>
           <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -1734,10 +1733,10 @@
     <show_toolbar>true</show_toolbar>
     <x_axis>
       <title>X</title>
-      <autoscale>true</autoscale>
+      <autoscale>false</autoscale>
       <log_scale>false</log_scale>
-      <minimum>-1.0</minimum>
-      <maximum>1.0</maximum>
+      <minimum>0.0</minimum>
+      <maximum>600.0</maximum>
       <show_grid>true</show_grid>
       <title_font>
         <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -1752,10 +1751,10 @@
     <y_axes>
       <y_axis>
         <title>Y</title>
-        <autoscale>true</autoscale>
+        <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>-1.0</minimum>
-        <maximum>1.0</maximum>
+        <minimum>0.0</minimum>
+        <maximum>600.0</maximum>
         <show_grid>true</show_grid>
         <title_font>
           <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
