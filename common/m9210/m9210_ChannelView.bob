@@ -9,63 +9,10 @@
   </background_color>
   <widget type="tabs" version="2.0.0">
     <name>ChannelView</name>
+    <macros>
+      <CHAN>0</CHAN>
+    </macros>
     <tabs>
-      <tab>
-        <name>Raw data</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_RawData.bob</file>
-            <width>788</width>
-            <height>850</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Macrobunch</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_MacroBunch.opi</file>
-            <x>15</x>
-            <y>7</y>
-            <width>700</width>
-            <height>480</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Microbunch</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <file>m9210_MicroBunch.opi</file>
-            <width>701</width>
-            <height>566</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
       <tab>
         <name>RawData Channel0</name>
         <children>
@@ -141,7 +88,6 @@
               <CHAN>0</CHAN>
             </macros>
             <file>m9210_Integral_Ch.bob</file>
-            <x>-2</x>
             <y>5</y>
             <width>838</width>
             <height>841</height>

@@ -15,7 +15,7 @@
     <pv>
       <display_name>Calculated Charge Trend</display_name>
       <visible>true</visible>
-      <name>LEL:DIA:FCT01:AI0:CHARGE_FINAL</name>
+      <name>$(DEVICE):AI$(CHAN):CHARGE_FINAL</name>
       <axis>0</axis>
       <color>
         <red>0</red>
