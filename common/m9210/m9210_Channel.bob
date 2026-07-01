@@ -248,9 +248,9 @@ class AsyncRangeCycle(Runnable):
     def run(self):
         try:
             # Cycle only the local channel driver
-            PVUtil.writePV(self.msgs_target, "OFF", 10) 
+            PVUtil.writePV(self.msgs_target, "OFF", 5000)
             Thread.sleep(400)
-            PVUtil.writePV(self.msgs_target, "ON", 10)
+            PVUtil.writePV(self.msgs_target, "ON", 5000)
         except Exception as e:
             print("Dynamic Range Reset Error: " + str(e))
 

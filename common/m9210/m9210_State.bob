@@ -25,7 +25,6 @@
     <y>205</y>
     <width>130</width>
     <height>35</height>
-    <visible>false</visible>
     <font>
       <font family="Sans" style="BOLD" size="10.891089108910892">
       </font>
@@ -55,7 +54,6 @@
     <y>203</y>
     <width>130</width>
     <height>40</height>
-    <visible>false</visible>
     <font>
       <font family="Sans" style="BOLD" size="10.891089108910892">
       </font>
@@ -124,19 +122,25 @@
     <scripts>
       <script file="EmbeddedPy">
         <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
-import time
+from java.lang import Thread, Runnable
 
-# Use the absolute path discovered from your PV connection list
-msgs_pv = "LEL:DIA:FCT01:MSGS"
+# Derive MSGS PV dynamically from the trigger PV (e.g. "LEL:DIA:FCT01:CLKF_SP" -> "LEL:DIA:FCT01:MSGS")
+trigger_pv_name = pvs[0].getName()
+pv_parts = trigger_pv_name.split(":")
+msgs_pv = ":".join(pv_parts[0:3]) + ":MSGS"
 
-# 1. Turn the DAQ off
-PVUtil.writePV(msgs_pv, "OFF", 10) 
+class AsyncClkCycle(Runnable):
+    def __init__(self, target):
+        self.target = target
+    def run(self):
+        try:
+            PVUtil.writePV(self.target, "OFF", 5000)
+            Thread.sleep(400)
+            PVUtil.writePV(self.target, "ON", 5000)
+        except Exception as e:
+            print("Clock cycle error: " + str(e))
 
-# 2. Wait for the underlying C++ digitizer driver to cycle down
-time.sleep(0.4)
-
-# 3. Turn the DAQ back on to register the change
-PVUtil.writePV(msgs_pv, "ON", 10)]]></text>
+Thread(AsyncClkCycle(msgs_pv)).start()]]></text>
         <pv_name>$(DEVICE):CLKF_SP</pv_name>
       </script>
     </scripts>

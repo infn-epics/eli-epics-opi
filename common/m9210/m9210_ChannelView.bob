@@ -9,78 +9,10 @@
   </background_color>
   <widget type="tabs" version="2.0.0">
     <name>ChannelView</name>
-    <macros>
-      <CHAN>0</CHAN>
-    </macros>
+    
     <tabs>
       <tab>
-        <name>RawData Channel0</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <macros>
-              <CHAN>0</CHAN>
-            </macros>
-            <file>m9210_RawData_Ch.bob</file>
-            <y>4</y>
-            <width>788</width>
-            <height>836</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>RawData Ch0 - LocalPV</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template</name>
-            <macros>
-              <CHAN>0</CHAN>
-            </macros>
-            <file>m9210_RawData_Ch_Local.bob</file>
-            <y>5</y>
-            <width>788</width>
-            <height>836</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>RawData Ch1 - LocalPV</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Linking Container Template_1</name>
-            <macros>
-              <CHAN>1</CHAN>
-            </macros>
-            <file>m9210_RawData_Ch_Local.bob</file>
-            <y>5</y>
-            <width>841</width>
-            <height>867</height>
-            <transparent>true</transparent>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Integral Ch0</name>
+        <name>Channel 0</name>
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Integral_Ch0_Embed</name>
@@ -102,7 +34,7 @@
         </children>
       </tab>
       <tab>
-        <name>History Ch0</name>
+        <name>History 0</name>
         <children>
           <widget type="textupdate" version="2.0.0">
             <name>Text Update</name>
@@ -117,6 +49,9 @@
             <horizontal_alignment>1</horizontal_alignment>
           </widget>
           <widget type="databrowser" version="2.0.0">
+          <macros>
+              <CHAN>0</CHAN>
+            </macros>
             <name>Data Browser</name>
             <file>charge_trend.plt</file>
             <x>48</x>
@@ -130,6 +65,72 @@
           <widget type="label" version="2.0.0">
             <name>Label</name>
             <text>Current Charge in Ch 0</text>
+            <x>318</x>
+            <y>475</y>
+            <width>160</width>
+            <font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Channel 1</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Integral_Ch1_Embed</name>
+            <macros>
+              <CHAN>1</CHAN>
+            </macros>
+            <file>m9210_Integral_Ch.bob</file>
+            <y>5</y>
+            <width>838</width>
+            <height>841</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>History 1</name>
+    
+        <children>
+        
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update</name>
+            <pv_name>$(DEVICE):AI1:CHARGE_FINAL</pv_name>
+            <x>328</x>
+            <y>505</y>
+            <width>120</width>
+            <font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="databrowser" version="2.0.0">
+            <macros>
+              <CHAN>1</CHAN>
+            </macros>
+            <name>Data Browser</name>
+            <file>charge_trend.plt</file>
+            <x>48</x>
+            <y>25</y>
+            <width>731</width>
+            <height>419</height>
+            <show_toolbar>true</show_toolbar>
+            <actions>
+            </actions>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label</name>
+            <text>Current Charge in Ch 1</text>
             <x>318</x>
             <y>475</y>
             <width>160</width>

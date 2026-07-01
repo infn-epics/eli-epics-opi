@@ -323,7 +323,7 @@
       <color name="IO InputPV Bg" red="255" green="255" blue="255">
       </color>
     </background_color>
-    <format>2</format>
+    <format>1</format>
     <precision>4</precision>
     <tooltip>Calibration constant: replaces hardcoded 2.5 in CHARGE_FINAL = ((baseline-corrected_mean)*N*dt*1e12) / K</tooltip>
     <border_width>2</border_width>
@@ -343,7 +343,7 @@
   <widget type="slide_button" version="2.0.0">
     <name>Baseline_Enbl_Check</name>
     <pv_name>$(DEVICE):AI$(CHAN):BASELINE_ENBL</pv_name>
-    <label>on/off</label>
+    <label>off/on</label>
     <x>165</x>
     <y>125</y>
     <width>80</width>
@@ -379,18 +379,6 @@
     <format>2</format>
     <precision>4</precision>
     <border_width>2</border_width>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_USER_OFFSET_EGU</name>
-    <text>pC</text>
-    <x>460</x>
-    <y>128</y>
-    <width>30</width>
-    <height>22</height>
-    <font>
-      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
-      </font>
-    </font>
   </widget>
   <widget type="xyplot" version="3.0.0">
     <name>Plot_RawSignal</name>
@@ -650,5 +638,72 @@
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_4</name>
+    <pv_name>$(DEVICE):AI$(CHAN):AVG.N</pv_name>
+    <x>615</x>
+    <y>93</y>
+    <width>91</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>Average</text>
+    <x>518</x>
+    <y>96</y>
+    <width>75</width>
+    <height>14</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <description>Local Calculation</description>
+        <file>m9210_RawData_Ch_Local.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Local Calc</text>
+    <x>615</x>
+    <y>125</y>
+    <height>26</height>
+    <tooltip>$(actions)</tooltip>
   </widget>
 </display>
