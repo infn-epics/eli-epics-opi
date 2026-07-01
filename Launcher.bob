@@ -164,7 +164,7 @@
       </tab>
       <tab>
         <name>Configuration/Set</name>
-        <file></file>
+        <file>configurations-display.bob</file>
         <macros>
         </macros>
         <group_name></group_name>
