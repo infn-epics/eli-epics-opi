@@ -162,42 +162,21 @@
             <actions>
               <action type="open_display">
                 <description>Camera Scren APP</description>
-                <file>epik8s-opi/screen-camera-opi/CameraFull.bob</file>
+                <file>epik8s-opi/screen-camera-opi/CameraFullLedLight.bob</file>
                 <macros>
                   <DEVICE>LEL</DEVICE>
                   <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                  <CAMLIGHT>LEL:ILLUM:ICPDAS:CAMILLUM</CAMLIGHT>
                 </macros>
                 <target>window</target>
               </action>
             </actions>
             <text>CAMERA Screen</text>
-            <x>52</x>
-            <y>58</y>
+            <x>928</x>
+            <y>187</y>
             <width>190</width>
             <height>130</height>
             <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="group" version="3.0.0">
-            <name>Light</name>
-            <x>122</x>
-            <y>298</y>
-            <width>220</width>
-            <height>120</height>
-            <widget type="bool_button" version="2.0.0">
-              <name>Boolean Button</name>
-              <pv_name>LEL:ILLUM:ICPDAS:CAMILLUM:RLY_SP</pv_name>
-              <x>72</x>
-              <y>12</y>
-              <height>50</height>
-            </widget>
-            <widget type="led" version="2.0.0">
-              <name>LED</name>
-              <pv_name>LEL:ILLUM:ICPDAS:CAMILLUM:RLY_RB</pv_name>
-              <x>12</x>
-              <y>12</y>
-              <width>50</width>
-              <height>50</height>
-            </widget>
           </widget>
           <widget type="action_button" version="3.0.0">
             <name>cameraInterfaceBase_2</name>
@@ -213,11 +192,24 @@
               </action>
             </actions>
             <text>CAMERA2 Screen</text>
-            <x>342</x>
-            <y>58</y>
+            <x>928</x>
+            <y>327</y>
             <width>190</width>
             <height>130</height>
             <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embeddedcamera</name>
+            <macros>
+              <DEVICE>LEL</DEVICE>
+              <CONFFILE>../../../deploy//values.yaml</CONFFILE>
+              <CAMLIGHT>LEL:ILLUM:ICPDAS:CAMILLUM</CAMLIGHT>
+            </macros>
+            <file>epik8s-opi/screen-camera-opi/CameraFullLedLight.bob</file>
+            <x>8</x>
+            <y>7</y>
+            <width>920</width>
+            <height>700</height>
           </widget>
         </children>
       </tab>
@@ -559,6 +551,13 @@
               </font>
             </font>
           </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_2</name>
+            <pv_name>=`LEL:DIA:FCT02:AI0:CHARGE_FINAL`/`LEL:DIA:FCT01:AI0:CHARGE_FINAL`</pv_name>
+            <x>298</x>
+            <y>247</y>
+            <width>120</width>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -652,7 +651,7 @@ else:
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
-    <active_tab>5</active_tab>
+    <active_tab>1</active_tab>
     <tab_height>25</tab_height>
   </widget>
 </display>
